@@ -6,6 +6,11 @@
   "status": "draft",
   "pillar": "items",
   "hook_type": "everyone-has-this",
+  "hook_candidates": [
+    {"hook_type": "everyone-has-this", "line": "Every Korean has this in their bathroom.", "caption": "In EVERY Korean bathroom", "visual": "Jiwoo thrusts the tube toward the camera"},
+    {"hook_type": "price-shock", "line": "This sunscreen costs $12 in Korea.", "caption": "$12 in Korea?!", "visual": "Jiwoo slams the tube on the counter, price tag close-up"},
+    {"hook_type": "secret", "line": "Koreans don't tell tourists this about sunscreen.", "caption": "Koreans won't tell you 🤫", "visual": "Jiwoo leans in and whispers, hand by mouth"}
+  ],
   "language": "en",
   "length_sec": 30,
 
@@ -31,9 +36,9 @@
       "id": 1,
       "type": "character",
       "duration": 3,
-      "visual": "Jiwoo in her Mapo studio, holding up a small sunscreen tube to camera, surprised face",
-      "narration": "Okay, Korean secret time.",
-      "caption": "Korean secret time 🤫",
+      "visual": "Jiwoo thrusts the tube toward the camera in her Mapo studio, surprised face",
+      "narration": "Every Korean has this in their bathroom.",
+      "caption": "In EVERY Korean bathroom",
       "asset": null
     },
     {
@@ -41,8 +46,8 @@
       "type": "product",
       "duration": 4,
       "visual": "Cinematic macro of the sunscreen tube on a bathroom shelf, morning light",
-      "narration": "This is the sunscreen you'll find in literally every Korean bathroom.",
-      "caption": "In EVERY Korean bathroom",
+      "narration": "Okay, Korean secret time. This is Round Lab birch sunscreen.",
+      "caption": "Round Lab Birch",
       "asset": null
     }
   ],
@@ -58,7 +63,8 @@
 |---|---|
 | `status` | `draft` → `approved` (사람 승인) → `produced` → `published` |
 | `pillar` | `items` / `explained` / `tips` / `brand` |
-| `hook_type` | `content/hooks.md`의 훅 ID. 성과 분석에서 훅별 성적을 비교할 때 쓴다 |
+| `hook_type` | 최종 선택한 훅의 ID (`content/hooks.md`). 성과 분석에서 훅별 성적을 비교할 때 쓴다 |
+| `hook_candidates` | 서로 다른 템플릿으로 만든 훅 후보 3개 (말, 자막, 첫 화면). 사용자가 고른 것이 `scenes[0]`이 된다 |
 | `scenes[].type` | `character` (주인공 등장) / `product` (제품 시네마틱) / `broll` (장소·자료 화면) / `text` (자막만) |
 | `scenes[].visual` | Higgsfield 생성용 장면 묘사 (영어) |
 | `scenes[].narration` | 주인공이 말하는 문장 (영어). 음성으로 생성된다 |

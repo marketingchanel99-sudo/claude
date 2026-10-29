@@ -23,7 +23,8 @@
 - 문장은 짧게. 한 문장에 정보 하나.
 
 ### 입버릇 (시그니처)
-- 오프닝: "Okay, Korean secret time."
+- 오프닝: 첫 문장은 항상 훅이다 (`content/hooks.md`). 입버릇으로 시작하지 않는다.
+- 훅 직후 연결: "Okay, Korean secret time." (2번째 장면 첫마디로 쓴다)
 - 한국어 한마디 코너: "Today's Korean word is…"
 - 엔딩: "Save this before your Seoul trip. 안녕~"
 
