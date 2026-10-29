@@ -24,6 +24,11 @@ WORDS_PER_SECOND = 2.8  # 빠른 숏폼 영어 내레이션 기준 상한
 CAPTION_MAX_CHARS = 42
 BANNED_OPENERS = ("hi", "hello", "hey guys", "welcome", "today", "in this video", "so", "okay", "my name")
 BANNED_PHRASES = ("you need this", "best ever", "guaranteed", "100%", "miracle", "cure")
+# AI 가상 인물이 직접 써 본 것처럼 말하면 기만 광고가 된다 (character/bible.md)
+FAKE_EXPERIENCE = (
+    r"\bi(?:'ve| have)? (?:tried|tested|used)\b", r"\bi use (?:this|it)\b", r"\bi(?:'ve| have) been using\b",
+    r"\bmy (?:holy grail|go-to|favorite)\b", r"\bin my experience\b", r"\bmy skin\b",
+)
 MOTION_WORDS = (
     "push", "pull", "zoom", "pan", "orbit", "dolly", "tracking", "whip", "reach", "hold", "thrust", "shove",
     "open", "unzip", "drop", "pour", "splash", "tap", "swipe", "walk", "run", "turn", "spin", "throw", "slam",
@@ -122,6 +127,10 @@ def check(script: dict) -> tuple[list[str], list[str]]:
     for phrase in BANNED_PHRASES:
         if phrase in text_blob:
             warnings.append(f"과장·금지 표현 포함: \"{phrase}\"")
+    for pattern in FAKE_EXPERIENCE:
+        match = re.search(pattern, text_blob)
+        if match:
+            errors.append(f"직접 써 본 것처럼 말함: \"{match.group(0)}\" (근거 기반으로 바꿀 것: Koreans use this, #1 at Olive Young)")
 
     if script.get("pillar") in {"items", "explained"} and not script.get("sources"):
         warnings.append("sources가 비어 있음 (가격·성분·문화 주장 근거 필요)")
