@@ -1,6 +1,7 @@
 # 채널 운영 워크플로우
 
 > 채널 콘셉트: **서울에 사는 한국인 친구가 알려주는 진짜 한국 생활템과 문화**
+> 전체 구상(정체성, 시리즈, 스타일, 예산, 수익화, KPI)은 [MASTER_PLAN.md](MASTER_PLAN.md)
 > 대상: 영어권 시청자 · 플랫폼: YouTube Shorts / Instagram Reels / TikTok
 > 주인공: AI 가상 인물 ([character/bible.md](../character/bible.md))
 
