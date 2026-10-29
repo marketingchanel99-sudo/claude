@@ -87,6 +87,8 @@ python -m reels.upload_all output/example.mp4 scripts/example.json --only youtub
 
 ## 5. Claude Code로 말로 시키기
 
+채널 운영 전체 흐름은 [docs/WORKFLOW.md](docs/WORKFLOW.md) 참고.
+
 이 폴더에서 `claude`를 실행하고 이렇게 말하면 된다:
 
 > "다이어트 꿀팁 주제로 30초 릴스 만들어서 세 군데 다 올려줘"

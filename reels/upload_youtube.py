@@ -29,13 +29,15 @@ def _credentials() -> Credentials:
 
 def upload(video: Path, meta: dict) -> str:
     tags = meta.get("hashtags", [])
-    title = meta["title"]
+    custom = meta.get("platforms", {}).get("youtube", {})
+    title = custom.get("title", meta["title"])
     if "#shorts" not in title.lower():
         title = f"{title} #Shorts"
     body = {
         "snippet": {
             "title": title[:100],
-            "description": f"{meta.get('description', '')}\n\n" + " ".join(f"#{t}" for t in tags),
+            "description": custom.get("description")
+            or f"{meta.get('description', '')}\n\n" + " ".join(f"#{t}" for t in tags),
             "tags": tags,
             "categoryId": "22",
         },

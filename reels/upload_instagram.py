@@ -14,8 +14,8 @@ def upload(video: Path, meta: dict) -> str:
     user_id = os.environ["IG_USER_ID"]
     token = os.environ["IG_ACCESS_TOKEN"]
     graph = f"https://graph.facebook.com/{os.getenv('IG_GRAPH_VERSION', 'v23.0')}"
-    caption = f"{meta['title']}\n\n{meta.get('description', '')}\n\n" + " ".join(
-        f"#{t}" for t in meta.get("hashtags", [])
+    caption = meta.get("platforms", {}).get("instagram", {}).get("caption") or (
+        f"{meta['title']}\n\n{meta.get('description', '')}\n\n" + " ".join(f"#{t}" for t in meta.get("hashtags", []))
     )
 
     # 1) 업로드용 컨테이너 생성

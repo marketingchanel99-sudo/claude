@@ -41,7 +41,9 @@ def upload(video: Path, meta: dict) -> str:
     chunk_size = size if size <= MAX_SINGLE_CHUNK else CHUNK
     chunks = 1 if chunk_size == size else math.floor(size / chunk_size)
 
-    title = f"{meta['title']} " + " ".join(f"#{t}" for t in meta.get("hashtags", []))
+    title = meta.get("platforms", {}).get("tiktok", {}).get("caption") or f"{meta['title']} " + " ".join(
+        f"#{t}" for t in meta.get("hashtags", [])
+    )
     r = requests.post(
         f"{API}/post/publish/video/init/",
         headers=headers,
