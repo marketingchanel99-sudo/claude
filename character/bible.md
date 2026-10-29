@@ -51,10 +51,12 @@
 - 테스트 영상 (Seedance 2.5, 5초, 캐릭터 시트 참조, 대사 "Every Korean has this in their bag.")
   - A. 원어민 수준 미국식 영어: `e45fb30b-f75f-4459-b60a-a7237c5e964d`
   - B. 한국 억양이 살짝 섞인 영어: `ac15c318-77bc-4653-b784-2d149238a3c6`
-- 음성 ID: _A/B 중 선택 → 복제 후 기록 (voice_type `element`)_
+- **선택: B (한국 억양이 살짝 섞인 영어)**
+- 음성 프롬프트 (모든 character 장면에 그대로 사용): `late-20s Korean woman, cool and chic, slightly husky low-mid tone, confident, fluent English with a light, charming Korean accent (clearly understandable)`
+- 음성 ID: _B 음성을 복제한 뒤 기록 (voice_type `element`). 복제 전까지는 위 음성 프롬프트로 생성하되 영상마다 목소리가 조금씩 다를 수 있다._
 
 ## 확정 체크리스트
 - [ ] 이름 / 나이 / 성별 / 직업
 - [ ] 성격·말투, 입버릇
 - [x] 캐릭터 시트 생성 및 확정
-- [ ] 음성 확정 (방향 확정, A/B 테스트 중)
+- [ ] 음성 확정 (B 선택, 복제 대기)

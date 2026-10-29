@@ -16,6 +16,18 @@
 
 금지 시작어: `Hi`, `Hello`, `Hey guys`, `Welcome`, `Today`, `In this video`, `So`, `Okay`, `My name`
 
+## 훅 장면 영상 생성 규칙 (Higgsfield 프롬프트)
+
+동작을 "A 하고, B 하고, 말한다"처럼 순서대로 쓰면 모델이 그 순서대로 천천히 연기해서 훅이 죽는다 (2026-10-29 테스트에서 확인).
+
+- **타임코드로 쓴다:** `0.0s:` `1.5s:` 처럼 초 단위로 무엇이 일어나는지 지정한다.
+- **0.0초에 이미 동작 중:** "already mid-motion at the first frame". 기울이기, 들어 올리기 같은 준비 동작을 쓰지 않는다.
+- **0.0초에 말 시작:** "starts speaking instantly at 0.0s". 대사는 2초 안에 끝낸다.
+- **빠르고 에너지 있는 전달:** "fast, punchy, energetic delivery", "no pause before speaking".
+- **장면 길이는 최소(4초)로:** 길이가 길면 모델이 동작을 늘어뜨린다. 남는 시간은 리액션(눈썹 올리기, 씩 웃기)으로 채운다.
+- **카메라도 움직인다:** "fast handheld push-in" 또는 "quick whip-in".
+- **자막·효과음은 편집에서 얹는다:** 원본 클립에 글자를 넣지 않는다 (`no text`). 훅 자막과 0초 효과음(whoosh, pop)은 `final.mp4` 합성 단계에서 넣는다.
+
 ## 템플릿
 
 대본마다 서로 다른 템플릿으로 **후보 3개**를 만들고 사용자가 고른다 (`script.json`의 `hook_candidates`).
