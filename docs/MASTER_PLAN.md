@@ -17,7 +17,7 @@
 
 ## 1-1. 계정 프로필 🟡
 
-[content/profile.md](../content/profile.md): 이름 칸 `Jiwoo in Seoul | Korea Tips`(검색용), 소개글(캐릭터 · 시리즈 · AI 공개 · 링크 유도), 지우 클로즈업 프로필 사진, 링크 모음 페이지, 하이라이트 5개, 고정 게시물 3개("Meet Jiwoo" 소개 릴스 포함). 주력 플랫폼은 인스타그램.
+[content/profile.md](../content/profile.md): 이름 칸 `Jiwoo | Your Korean Unnie 🇰🇷` ✅, 소개글 A안(친구형) ✅, 지우 클로즈업 프로필 사진, 링크 모음 페이지, 하이라이트 5개, 고정 게시물 3개("Meet Jiwoo" 소개 릴스 포함). 주력 플랫폼은 인스타그램.
 
 ## 2. 주인공 지우
 
