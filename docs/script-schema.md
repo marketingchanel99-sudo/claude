@@ -62,7 +62,7 @@
 | 필드 | 설명 |
 |---|---|
 | `status` | `draft` → `approved` (사람 승인) → `produced` → `published` |
-| `pillar` | `items` / `explained` / `tips` / `brand` |
+| `pillar` | 시리즈 코드: `items` (Korean Secret) / `explained` (Why Koreans…?) / `tips` (Seoul Survival) / `ranked` (Ranked) / `brand` (협찬) |
 | `hook_type` | 최종 선택한 훅의 ID (`content/hooks.md`). 성과 분석에서 훅별 성적을 비교할 때 쓴다 |
 | `hook_candidates` | 서로 다른 템플릿으로 만든 훅 후보 3개 (말, 자막, 첫 화면). 사용자가 고른 것이 `scenes[0]`이 된다 |
 | `scenes[].type` | `character` (주인공 등장) / `product` (제품 시네마틱) / `broll` (장소·자료 화면) / `text` (자막만) |

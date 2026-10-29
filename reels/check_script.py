@@ -13,7 +13,9 @@ from pathlib import Path
 
 HOOKS_FILE = Path(__file__).resolve().parent.parent / "content" / "hooks.md"
 STATUSES = {"draft", "approved", "produced", "published"}
-PILLARS = {"items", "explained", "tips", "brand"}
+# 시리즈별 길이 (docs/WORKFLOW.md, content/series/)
+SERIES_SECONDS = {"items": (20, 30), "explained": (25, 35), "tips": (15, 25), "ranked": (30, 40), "brand": (20, 30)}
+PILLARS = set(SERIES_SECONDS)
 SCENE_TYPES = {"character", "product", "broll", "text"}
 
 HOOK_MAX_SECONDS = 3
@@ -103,8 +105,9 @@ def check(script: dict) -> tuple[list[str], list[str]]:
         if len(scene.get("caption") or "") > CAPTION_MAX_CHARS:
             warnings.append(f"장면 {sid}: 자막이 {len(scene['caption'])}자 ({CAPTION_MAX_CHARS}자 이하 권장)")
 
-    if scenes and not TOTAL_SECONDS[0] <= total <= TOTAL_SECONDS[1]:
-        errors.append(f"전체 길이 {total:g}초 ({TOTAL_SECONDS[0]}~{TOTAL_SECONDS[1]}초)")
+    low, high = SERIES_SECONDS.get(script.get("pillar"), TOTAL_SECONDS)
+    if scenes and not low <= total <= high:
+        errors.append(f"전체 길이 {total:g}초 (이 시리즈는 {low}~{high}초)")
 
     # 제휴 고지
     affiliate = script.get("affiliate") or {}

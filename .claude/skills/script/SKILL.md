@@ -3,7 +3,8 @@ name: script
 description: 에피소드 대본 작성. 캘린더 항목으로 episodes/<id>/script.json을 스키마 v2로 만든다. "대본 써줘", "/script <id>" 요청 시 사용.
 ---
 
-1. `character/bible.md`(말투, 입버릇, 금지 사항), `docs/script-schema.md`, `content/hooks.md`(훅 규칙과 템플릿), `content/hook-stats.md`(템플릿별 성적), 해당 주 캘린더 항목을 읽는다.
+1. `character/bible.md`(말투, 입버릇, 금지 사항), **해당 시리즈 포맷 `content/series/<시리즈>.md`**, `docs/script-schema.md`, `content/hooks.md`(훅 규칙과 템플릿), `content/hook-stats.md`(템플릿별 성적), 해당 주 캘린더 항목, 상품이 있으면 `content/products.md`를 읽는다. 시리즈 포맷이 아직 없으면 `/series`를 먼저 하자고 한다.
+   - 장면 구성, 길이, 고정 멘트는 시리즈 포맷을 그대로 따른다.
 2. 사실 관련 내용(가격, 성분, 문화적 이유)은 웹에서 확인하고 `sources`에 남긴다. 확인 못 한 주장은 쓰지 않는다.
 3. **훅 후보 3개**를 서로 다른 템플릿으로 만든다. 각 후보는 말(10단어 이내), 자막(6단어 이내), 첫 화면(첫 프레임부터 움직임)을 갖춘다.
    - `hook-stats.md`에서 3초 유지율이 높은 템플릿을 1개 이상 포함한다.
@@ -11,7 +12,7 @@ description: 에피소드 대본 작성. 캘린더 항목으로 episodes/<id>/sc
 4. ✋ 훅 후보 3개를 표로 보여주고 하나를 고르게 한다. 고른 후보가 `scenes[0]`과 `hook_type`이 된다.
 5. 나머지 대본 원칙:
    - 2번째 장면 첫마디는 바이블의 연결 입버릇. 훅의 답은 2번째 장면 이후에 준다.
-   - 길이 20~40초, 장면 5~8개, 장면당 내레이션 한 문장.
+   - 길이와 장면 수는 시리즈 포맷을 따른다. 장면당 내레이션 한 문장.
    - 영어 내레이션, 한국어는 `korean_phrase`와 포인트로만.
    - 마지막 장면: 바이블의 엔딩 입버릇 + 행동 유도 (저장/팔로우/댓글 키워드).
    - 제휴가 있으면 `affiliate.disclosure`를 넣고 플랫폼별 캡션에도 포함.

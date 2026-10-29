@@ -1,13 +1,13 @@
 ---
 name: ideas
-description: 채널 아이디어 수집. 트렌드·랭킹·외국인 질문을 조사해 content/ideas.md 백로그에 점수와 함께 추가한다. "아이디어 찾아줘", "주제 수집" 요청 시 사용.
+description: 콘텐츠 리서치. 외국인이 실제로 묻는 질문, 랭킹, 시즌 이슈를 조사해 근거 있는 아이디어를 시리즈별로 content/ideas.md에 쌓는다. "아이디어 찾아줘", "주제 리서치" 요청 시 사용.
 ---
 
-1. `character/bible.md`, `docs/WORKFLOW.md`(콘텐츠 축), `content/ideas.md`(기존 백로그), 최근 `content/reports/`를 읽는다.
-2. 웹 검색으로 이번 주 소재를 찾는다:
-   - 올리브영·다이소·편의점 신상과 랭킹
-   - 레딧 r/korea, r/koreatravel, r/AsianBeauty에서 반복되는 질문
-   - 한국 관련 해외 뉴스·트렌드, 다가오는 시즌 이벤트 (명절, 수능, 벚꽃 등)
-3. 아이디어 10개 안팎을 만든다. 각각 축(`items`/`explained`/`tips`/`brand`), `content/hooks.md`의 훅 ID, 수요 근거(링크), 제휴 가능성을 적는다.
-4. 점수(수요+제휴+제작 쉬움+성과 보정)를 매겨 `content/ideas.md` 표에 `new` 상태로 추가하고, 기존 항목과 중복되면 합친다.
-5. 상위 5개를 요약해서 보여준다.
+1. `character/bible.md`, `content/series/*.md`(시리즈 포맷과 주제 기준), `content/ideas.md`, `content/hook-stats.md`, 최근 `content/reports/`를 읽는다.
+2. 웹에서 조사한다. **모든 아이디어에 근거 링크가 있어야 한다.**
+   - 외국인 질문: 레딧 r/korea, r/koreatravel, r/AsianBeauty, r/KoreanBeauty 등에서 반복되는 질문
+   - 랭킹·트렌드: 올리브영·다이소·편의점 랭킹과 신상, 한국 관련 해외 기사
+   - 시즌: 다음 달의 명절, 행사, 여행 시즌, 블랙프라이데이 등
+3. 시리즈별로 아이디어를 만든다 (월간 리서치는 시리즈 비율에 맞춰 총 40개 목표). 각각: 시리즈, 가제, 훅 템플릿 ID, 수요 근거 링크, 관련 상품(있으면), 시즌 날짜(있으면).
+4. 점수(수요 1-5 + 제휴 1-5 + 제작 쉬움 1-5 + 성과 보정 -2~+2)를 매겨 `content/ideas.md`에 `new`로 추가한다. 중복은 합치고, 근거가 약한 기존 항목은 `weak`로 표시한다.
+5. 시리즈별 상위 아이디어를 요약해서 보여주고, 빼고 싶은 주제가 있는지 묻는다.
