@@ -69,4 +69,7 @@
 | `scenes[].visual` | Higgsfield 생성용 장면 묘사 (영어) |
 | `scenes[].narration` | 주인공이 말하는 문장 (영어). 음성으로 생성된다 |
 | `scenes[].caption` | 화면 자막. 내레이션보다 짧게 |
-| `scenes[].asset` | 제작 후 클립 경로나 Higgsfield job ID가 채워진다 |
+| `scenes[].caption` 강조 | 대괄호로 강조 단어 1개를 표시한다: `"This is [#1] at Olive Young"`. 렌더러가 코랄 배경으로 강조하고 swish 효과음을 넣는다 (첫 장면은 훅 자막이라 강조 없음) |
+| `scenes[].asset` | 장면 재료 파일 경로 (에피소드 폴더 기준, 예: `assets/hook.mp4`, `assets/product1.png`). 영상이면 그 소리를 쓰고, 이미지면 줌인 효과를 준다. 비어 있으면 회색 자리 표시로 미리보기 렌더링 |
+| `scenes[].audio` | (선택) 내레이션 음성 파일 경로. 있으면 영상 소리보다 우선한다 |
+| `scenes[].job_id` | (선택) 재료를 만든 Higgsfield job ID. 재생성·추적용 |

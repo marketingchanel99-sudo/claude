@@ -28,6 +28,13 @@ cp .env.example .env
 
 ## 2. 영상 만들기
 
+> 채널 운영용 렌더러는 `reels/render.py`다 (스타일 가이드 적용, 장면 재료 합성). 아래 `make_video.py`는 재료 없이 글자 슬라이드만 만드는 초기 버전이다.
+
+```bash
+python -m reels.render episodes/<id>/script.json --bgm assets/bgm/signature.mp3
+```
+
+
 ```bash
 python -m reels.make_video scripts/example.json
 ```
