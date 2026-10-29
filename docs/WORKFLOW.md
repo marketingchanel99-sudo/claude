@@ -64,7 +64,7 @@ episodes/2026-11-03-olive-young-sunscreen/
   - 영어: `As an affiliate, I earn from qualifying purchases.`
   - 쿠팡파트너스: `이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.`
 - **사실 확인:** 가격, 성분, 법·문화 관련 주장은 출처를 `script.json`의 `sources`에 남긴다.
-- **크레딧:** Higgsfield 생성 전에 `get_cost`로 예상 비용을 확인하고, 영상 1개당 상한을 넘으면 먼저 묻는다 (상한: 150 크레딧).
+- **크레딧:** [content/budget.md](../content/budget.md)를 따른다. 생성할 때마다 예상 비용을 보여주고 승인을 받는다 (영상 1개 상한 100, 평균 목표 70).
 
 ## 시스템 구축 현황
 
