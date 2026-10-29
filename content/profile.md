@@ -14,7 +14,7 @@
 
 ## 2. 소개글 (150자 이내)
 
-**A안 (추천)** — 140자
+**✅ 확정: A안 (친구형)** — 140자
 ```
 Your cool Korean friend in Seoul 🇰🇷
 K-beauty secrets · Korea explained · Seoul tips
