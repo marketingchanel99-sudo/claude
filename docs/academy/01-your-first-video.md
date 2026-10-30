@@ -6,9 +6,9 @@
 
 ## 한국어 자막으로 보는 법
 1. [VLC](https://www.videolan.org/) 또는 팟플레이어를 설치한다.
-2. VLC: **미디어 → 네트워크 스트림 열기**에 아래 영상 주소를 넣고 재생한다.
+2. VLC에서 **파일 → 네트워크 열기**(맥 ⌘N, 윈도우는 미디어 → 네트워크 스트림 열기)에 아래 영상 주소를 넣고 재생한다.
    `https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__your-first-video__video__lesson-video.a36f30c7.mp4`
-3. **자막 → 자막 파일 추가**에서 `01-your-first-video.ko.srt`를 고른다.
+3. `01-your-first-video.ko.srt`를 영상 위로 끌어다 놓는다 (또는 화면 맨 위 메뉴 **자막 → 자막 파일 추가**).
 
 ## 한 줄 요약
 같은 아이디어라도 **프롬프트를 얼마나 구체적으로 쓰느냐**가 결과를 가른다. 테스트는 **저화질 초안**으로 싸게 하고, 마음에 드는 것만 고화질로 확정한다.
