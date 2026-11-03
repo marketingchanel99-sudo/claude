@@ -33,4 +33,3 @@
 - 시리즈 포맷: `content/series/`, 아이디어: `content/ideas.md`, 상품: `content/products.md`, 캘린더: `content/calendar/`, 훅: `content/hooks.md`
 - 에피소드: `episodes/<YYYY-MM-DD-slug>/` (script.json, shots.json, assets/, final.mp4)
 - 렌더러·업로더 코드: `reels/`
-- 질문 수집기 (`/ideas` 리서치용, 읽기 전용): `reach/`, 검색어 설정 `content/research/queries.json`, 결과 `content/research/`, 설명 `docs/reach.md`
