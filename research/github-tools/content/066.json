@@ -9,10 +9,10 @@
     "after": "AI가 화면을 캡처해 장면을 골라 영상 완성"
   },
   "what": [
-    "video-shotcraft는 Claude Code나 Codex 같은 AI 코딩 도구에 붙이는 영상 제작 스킬이에요.",
-    "제품 화면을 캡처하고 장면 카드를 골라 Remotion으로 움직임을 만들어요.",
-    "박자에 맞춰 자르고 효과음을 넣어 MP4 파일을 내보내요.",
-    "AI 영상 생성기가 아니라 코드로 화면을 그려서 수정이 쉽다고 해요."
+    "video-shotcraft는 AI 코딩 비서(Claude Code, Codex)에게 홍보 영상을 만들어 달라고 말하면 쓰이는 스킬이에요.",
+    "AI가 제품 웹페이지를 캡처하고 150개 샷 중에서 골라 Remotion(코드 영상 도구)으로 움직임을 만들어요.",
+    "박자에 맞춰 편집하고 효과음을 넣은 뒤, 프레임을 검사해서 MP4 영상으로 내줘요.",
+    "README는 이것이 영상 생성 AI가 아니라고 밝혀요. 모든 장면을 내 화면 캡처와 문구로 코드가 그려요."
   ],
   "flow": [
     {
@@ -76,20 +76,155 @@
   ],
   "glossary": [
     {
-      "term": "Remotion",
-      "meaning": "코드로 영상을 만드는 도구"
+      "term": "스킬(Skill)",
+      "meaning": "AI 비서에게 일하는 방법을 알려 주는 설명서"
     },
     {
-      "term": "스킬",
-      "meaning": "AI에게 붙여 주는 작업 설명서"
+      "term": "Remotion",
+      "meaning": "코드로 영상을 만들어 주는 도구"
+    },
+    {
+      "term": "스토리보드",
+      "meaning": "영상의 장면 순서를 그린 계획표"
+    },
+    {
+      "term": "컴포넌트",
+      "meaning": "화면을 이루는 재사용 부품"
+    },
+    {
+      "term": "BGM",
+      "meaning": "배경음악"
     }
   ],
   "caution": "Remotion은 회사 규모에 따라 유료 라이선스가 필요할 수 있다고 README에 적혀 있어요.",
   "license": "Apache-2.0",
   "sources": [
-    "README: What it does, 영상 제작 흐름",
-    "README: 124 cards / 150 shots",
-    "README: Not a video generator 문구",
-    "README: License와 Remotion 안내"
+    "README: What it does(실제 페이지 캡처, 샷 선택, Remotion 애니메이션, MP4)",
+    "README: 영상 생성 AI가 아니라 코드로 그린다는 설명",
+    "README: Shot library 124 cards / 150 shots, 10 categories",
+    "README: Install(npx skills add 등), Use 예시 문장",
+    "README: What you get(MP4 1920x1080 30fps, Workbench, JianYing, Upload-Post)",
+    "README: License(Apache-2.0, Remotion은 회사 규모별 유료 가능)"
+  ],
+  "deep_dive": [
+    "영상 생성 AI는 그럴듯한 장면을 만들지만 글자가 깨지거나 제품 화면이 실제와 달라지기 쉬워요. 이 도구는 실제 캡처와 내 문구를 코드로 움직이게 해서 선명하고 수정할 수 있는 영상을 만드는 방식이에요. 그래서 제품 홍보에 알맞아요.",
+    "핵심은 '샷 레시피 카드' 124장이에요. 열 가지 분류에 150개 샷이 있고, 카드 이름으로 '이 샷으로 만들어 줘'라고 골라 쓸 수 있어요. 갤러리 페이지에서 미리 보고 카드 이름을 복사해 AI에게 알려 주면 돼요.",
+    "완성 후에는 브라우저에서 CapCut 같은 편집기(Motion Workbench)가 열려 문구, 색, 길이를 고칠 수 있어요. 젠잉(JianYing, 중국판 캡컷) 편집 파일로 내보내는 기능도 있어서, 영상 소스를 다른 편집 앱에서 이어 다듬을 수 있어요."
+  ],
+  "principle": {
+    "key_idea": "영상을 AI가 그리는 게 아니라, 코드로 화면을 움직여 만들어요",
+    "analogy": "AI가 영상을 직접 그리는 화가라면, 이 도구는 PPT 애니메이션 효과를 코드로 아주 정교하게 짜 주는 편집자와 비슷해요.",
+    "steps": [
+      {
+        "title": "화면 캡처",
+        "text": "내 제품의 실제 웹페이지를 캡처해서 영상 소재로 모아요. 가짜 화면이 아니라 진짜 화면을 쓰기 때문에 제품 모습이 그대로 나와요. README에 페이지 캡처 스크립트가 들어 있다고 적혀 있어요."
+      },
+      {
+        "title": "스토리보드",
+        "text": "샷 레시피 카드(미리 튜닝해 둔 움직임 설계도) 중에서 오프닝, 전환, 글자 효과 같은 샷을 골라 영상의 순서를 정해요. 영화의 콘티를 짜는 것과 같아서 스토리보드라고 불러요."
+      },
+      {
+        "title": "코드로 애니메이션",
+        "text": "Remotion이라는 도구가 각 샷을 React 컴포넌트(화면 부품)로 만들어 시간에 따라 움직여요. 모든 프레임이 AI의 그림이 아니라 코드로 그려져서, 글자가 깨지지 않고 나중에 고치기도 쉬워요."
+      },
+      {
+        "title": "박자와 소리",
+        "text": "배경음악의 박자에 맞춰 컷을 자르고 효과음을 넣어요. 소리와 화면이 맞아야 영상이 더 짜임새 있게 느껴져요. README는 Freesound 검색, 다운로드 도구와 BGM 5곡이 들어 있다고 해요."
+      },
+      {
+        "title": "검사 후 내보내기",
+        "text": "완성 전에 프레임을 하나씩 점검(QA)해서 깨진 장면이 없는지 확인해요. 그 뒤 MP4(1920x1080, 30fps)로 내보내고, 계속 고칠 수 있도록 편집기와 소스 프로젝트도 함께 줘요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "제품 웹페이지",
+      "문구와 로고",
+      "원하는 샷 이름"
+    ],
+    "core": [
+      "페이지 캡처",
+      "샷 레시피 카드",
+      "Remotion 애니메이션",
+      "박자, 효과음"
+    ],
+    "outputs": [
+      "MP4 영상",
+      "편집기 프로젝트"
+    ]
+  },
+  "howto": [
+    {
+      "step": "AI에게 설치 부탁",
+      "detail": "가장 쉬운 방법은 AI 비서(Claude Code 등)에게 이 저장소 링크를 주고 스킬 설치를 맡기는 거예요. AI가 필요한 폴더에 연결까지 해 줘서 직접 명령을 칠 필요가 없어요.",
+      "cmd": "Install this skill for me: https://github.com/Vincentwei1021/video-shotcraft"
+    },
+    {
+      "step": "스킬 CLI로 설치",
+      "detail": "skills CLI가 컴퓨터에 있으면 한 줄 명령으로 설치할 수도 있어요. 설치되면 AI 비서가 이 스킬을 불러서 영상 만드는 방법을 따라 해요.",
+      "cmd": "npx skills add Vincentwei1021/video-shotcraft"
+    },
+    {
+      "step": "갤러리에서 샷 보기",
+      "detail": "README의 갤러리 페이지에서 샷 미리보기를 보고 마음에 드는 카드 이름을 메모해요. 카드 이름을 알면 AI에게 '이 샷으로 만들어 줘'라고 정확히 부탁할 수 있어요.",
+      "cmd": ""
+    },
+    {
+      "step": "AI에게 영상 요청",
+      "detail": "명령어 없이 문장으로 원하는 영상을 설명해요. 예시 문장이 README에 있고, 제품 설명과 쓰고 싶은 샷 이름을 같이 적을수록 원하는 결과에 가까워져요.",
+      "cmd": "Use video-shotcraft to make a promo for my product."
+    },
+    {
+      "step": "편집기에서 다듬기",
+      "detail": "영상이 나오면 열리는 편집기에서 문구, 색, 길이를 고치고 다시 내보내요. 미리보기와 최종 영상이 프레임 단위로 같다고 README가 설명해요.",
+      "cmd": ""
+    }
+  ],
+  "scenario": {
+    "title": "한국 생활템 앱·사이트 소개용 가로형 홍보 영상 만들기",
+    "steps": [
+      "소개할 서비스의 웹페이지(예: 편의점 앱 화면)를 준비해요.",
+      "AI에게 샷 이름을 골라 영상을 만들어 달라고 요청해요.",
+      "나온 MP4를 확인하고 문구를 편집기에서 영어로 고쳐요.",
+      "쇼츠용 세로 영상이 필요하면 크기와 구성을 별도로 요청해야 해요(기본은 1920x1080).",
+      "영상에 쓴 효과음 라이선스(Freesound 등) 표기를 확인해요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "Wan2.2",
+      "rank": 61,
+      "diff": "글로 장면을 새로 그려 내는 영상 생성 AI예요. video-shotcraft는 실제 화면 캡처를 코드로 움직여요."
+    },
+    {
+      "name": "Pixelle-Video",
+      "rank": 41,
+      "diff": "주제 하나로 대본, AI 이미지, 음성, 음악까지 자동으로 합치는 숏폼 엔진이에요. shotcraft는 제품 홍보용 모션 연출에 집중해요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "코딩을 몰라도 되나요?",
+      "a": "AI 비서에게 문장으로 요청하는 방식이에요. 다만 Claude Code나 Codex 환경이 필요해요."
+    },
+    {
+      "q": "세로 숏폼도 되나요?",
+      "a": "README의 출력 설명은 MP4 1920x1080 30fps예요. 세로 영상 지원은 README에 없어서 확인이 필요해요."
+    },
+    {
+      "q": "바로 업로드도 되나요?",
+      "a": "선택 기능으로 Upload-Post를 통해 TikTok, Instagram, YouTube 등에 올릴 수 있어요. 올리기 전 드라이런을 하라고 안내해요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/Vincentwei1021_video-shotcraft_1.jpg",
+      "caption": "제품 화면을 캡처해 영상으로 완성하는 7단계 작업 흐름도"
+    },
+    {
+      "file": "images/Vincentwei1021_video-shotcraft_2.jpg",
+      "caption": "완성 영상을 고치는 브라우저 편집기(Motion Workbench) 화면"
+    }
   ]
 }

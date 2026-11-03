@@ -8,10 +8,11 @@
     "after": "목표를 말하면 알맞은 스킬이 골라져 절차대로 진행"
   },
   "what": [
-    "Aaron Marketing Skills는 마케팅 스킬 120개를 담은 오픈소스 묶음이에요.",
-    "서사, SEO/GEO, 소셜, 이메일, 광고, 인플루언서, 런칭 일곱 분야가 있어요.",
-    "스킬은 Markdown 파일이라 내용을 읽고 고칠 수 있어요.",
-    "Claude Code 플러그인이나 다른 AI 도구에도 설치할 수 있어요."
+    "Aaron Marketing Skills는 마케팅 스킬 120개를 한 묶음으로 모아 둔 'AI 마케팅 직원' 세트예요.",
+    "스토리, SEO·GEO, 소셜, 이메일, 광고, 인플루언서, 런칭의 7개 분야에 스킬이 16개씩 들어 있어요.",
+    "소셜 분야에는 소셜 캘린더 만들기, 숏폼 대본(short-video-scripter) 같은 스킬이 있다고 README에 나와요.",
+    "글로 목표를 말하면 알맞은 스킬로 보내 주는 /aaron-marketing:auto 명령이 있어요.",
+    "README는 '프롬프트가 아니라 설치해서 쓰는 AI 마케팅 스태프'라고 소개해요."
   ],
   "flow": [
     {
@@ -69,32 +70,161 @@
   ],
   "difficulty": 2,
   "difficulty_note": "명령어 한두 줄로 설치하고 말로 시키면 돼요",
-  "cost": "오픈소스(Apache 2.0), 가격 정보는 README에 없음",
+  "cost": "Apache 2.0 오픈소스. 연결 서비스 요금은 README에 없음",
   "needs": [
     "Claude Code 등 AI 도구",
     "설치 명령 실행"
   ],
   "glossary": [
     {
-      "term": "플러그인",
-      "meaning": "프로그램에 끼워 넣는 추가 기능 묶음"
+      "term": "스킬",
+      "meaning": "AI에게 일하는 순서를 알려 주는 작업 설명서"
     },
     {
-      "term": "스킬",
-      "meaning": "AI에게 일하는 방법을 알려 주는 설명서"
+      "term": "플러그인",
+      "meaning": "프로그램에 기능을 끼워 넣는 확장 꾸러미"
     },
     {
       "term": "GEO",
-      "meaning": "AI 답변에 내 글이 인용되게 하는 작업"
+      "meaning": "ChatGPT 같은 AI 답변에 인용되게 다듬는 일"
+    },
+    {
+      "term": "마켓플레이스",
+      "meaning": "플러그인을 모아 둔 목록 가게"
+    },
+    {
+      "term": "감사(오디터)",
+      "meaning": "결과가 기준에 맞는지 점검하는 스킬"
     }
   ],
-  "caution": "",
+  "caution": "README는 순위·트래픽·광고 성과를 보장하지 않는다고 밝혀요. 결과는 참고용으로만 쓰세요.",
   "license": "Apache-2.0",
   "sources": [
-    "README: 120 marketing skills, 7 disciplines 문구",
-    "README: 분야 표(Narrative, SEO/GEO, Social 등)",
-    "README: Install 표(Claude Code, npx skills)",
-    "README: Apache 2.0 라이선스 문구"
+    "README: 120 skills, 7 disciplines 표",
+    "README: Install 표(/plugin marketplace add, /plugin install, git clone)",
+    "README: First run 예시와 /aaron-marketing:auto",
+    "README: Social — No posting, engagement, or DM automation",
+    "README: Disclaimer(성과 보장 안 함), License Apache 2.0",
+    "README: 언어 링크 목록(한국어 README 링크)"
   ],
-  "rank": 128
+  "rank": 128,
+  "deep_dive": [
+    "마케팅은 스토리, 검색, 소셜, 이메일, 광고처럼 분야가 많아서 AI에게 한 번에 부탁하면 답이 얕아지기 쉬워요. 이 저장소는 분야를 7개로 나누고 각 분야를 '탐색, 제작, 운영, 점검' 같은 단계 순서로 정리해 두었어요.",
+    "각 분야에는 결과를 점검하는 '품질 감사 스킬'과 평가 기준(TALE, ECHO, SEND 등 이름의 프레임워크)이 따로 있어요. 쓴 글이 기준에 맞는지 AI가 다시 살펴보게 하려는 장치로 보여요. 만들기와 검사를 나눈 것이 이 저장소의 구조예요.",
+    "스킬은 평범한 마크다운(글) 파일이라 Claude Code, Codex, Cursor 등 70개 이상의 도구에 설치할 수 있다고 README가 말해요. 반대로 게시, 댓글, DM을 자동으로 하는 기능은 없다고 적어서 계정 제재 위험은 낮아요."
+  ],
+  "principle": {
+    "key_idea": "목표를 분야별 스킬로 연결하고, 점검 스킬이 결과를 다시 검사해요",
+    "analogy": "7개 부서가 있는 마케팅 회사에서 안내 데스크가 일을 알맞은 부서로 보내고, 검수팀이 마지막에 확인하는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "목표 말하기",
+        "text": "입력은 '스킨케어 런칭용 틱톡 크리에이터를 찾아 줘' 같은 평범한 문장 목표예요. README의 첫 실행 예시도 이런 문장이에요. 마케팅 용어나 명령어를 몰라도 시작할 수 있게 하려는 방식이에요."
+      },
+      {
+        "title": "스킬 연결",
+        "text": "/aaron-marketing:auto 명령이 목표를 읽고 알맞은 분야와 스킬로 보내요. 호스트가 스킬을 자동으로 연결하는 경우엔 명령 없이도 돼요."
+      },
+      {
+        "title": "단계별 작업",
+        "text": "각 분야는 탐색, 제작, 운영, 평가 같은 단계 폴더로 나뉘어 있어요. 소셜이라면 explore, craft, host, observe 순서예요. 단계를 나누면 지금 어느 일을 하는지 알기 쉽고 빠뜨리는 일이 줄어요."
+      },
+      {
+        "title": "품질 감사",
+        "text": "분야마다 있는 감사 스킬이 기준표에 따라 결과를 점검해요. README는 데이터가 없으면 점수를 내지 않고 NOT_SCORED를 돌려준다고 해요."
+      },
+      {
+        "title": "사람이 판단",
+        "text": "README의 면책 조항은 순위, 조회, 전환 같은 성과를 보장하지 않는다고 말해요. 그래서 AI 결과는 초안으로 보고, 사실과 약속 문구는 사람이 확인해서 써야 해요. 마지막 책임은 사람에게 있어요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "마케팅 목표 문장",
+      "붙여넣은 데이터"
+    ],
+    "core": [
+      "자동 라우팅",
+      "분야별 스킬 120개",
+      "품질 감사 스킬"
+    ],
+    "outputs": [
+      "캘린더·대본 초안",
+      "점검 리포트"
+    ]
+  },
+  "howto": [
+    {
+      "step": "마켓플레이스 등록",
+      "detail": "Claude Code에서 먼저 이 저장소를 플러그인 목록에 등록해요. 이 명령은 목록만 등록하고 스킬은 켜지 않아요.",
+      "cmd": "/plugin marketplace add aaron-he-zhu/aaron-marketing-skills"
+    },
+    {
+      "step": "플러그인 설치",
+      "detail": "등록 후 설치 명령까지 해야 스킬과 명령이 켜져요.",
+      "cmd": "/plugin install aaron-marketing@aaron"
+    },
+    {
+      "step": "다른 도구에 설치",
+      "detail": "Codex, Cursor, Gemini CLI 등 다른 AI 도구에서는 skills 설치 도구를 써요. README에 명령 전체가 있으니 확인하세요.",
+      "cmd": ""
+    },
+    {
+      "step": "자동 연결 써 보기",
+      "detail": "목표를 적으면 알맞은 스킬로 연결해 줘요. 예시 문장은 README 'First run'에 있어요.",
+      "cmd": "/aaron-marketing:auto"
+    },
+    {
+      "step": "소셜 분야 열기",
+      "detail": "소셜 관련 스킬을 직접 부르는 분야 진입 명령이에요. 캘린더와 숏폼 대본 스킬이 여기에 있어요.",
+      "cmd": "/aaron-marketing:social"
+    },
+    {
+      "step": "저장소만 받기",
+      "detail": "플러그인 없이 파일만 보고 싶다면 저장소를 내려받아 SKILL.md를 읽어 볼 수 있어요.",
+      "cmd": "git clone https://github.com/aaron-he-zhu/aaron-marketing-skills"
+    }
+  ],
+  "scenario": {
+    "title": "주간 숏폼 소셜 캘린더 초안 만들기",
+    "steps": [
+      "우리 채널의 말투와 금지 사항을 짧게 정리해 AI에게 알려 줘요.",
+      "/aaron-marketing:social로 소셜 분야를 열고 주간 캘린더를 부탁해요.",
+      "숏폼 대본 스킬(short-video-scripter)로 대본 초안 구조를 받아요.",
+      "품질 감사 스킬로 약속하는 문구와 근거 없는 주장을 점검해요.",
+      "우리 규칙(근거 있는 사실만)에 맞춰 직접 고치고 승인해요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "marketingskills",
+      "rank": 21,
+      "diff": "Corey Haines가 만든 마케팅 스킬 모음이에요. 이 레포는 7개 분야 120개로 더 넓고 구조화돼 있어요."
+    },
+    {
+      "name": "ai-marketing-skills",
+      "rank": 125,
+      "diff": "영업·재무 등 사업 운영 스크립트 중심이에요. 이 레포는 마케팅 7개 분야 중심이에요."
+    },
+    {
+      "name": "notfair-plugin",
+      "rank": 124,
+      "diff": "SEO·광고 계정 연결과 실제 데이터 분석이 강점이에요. 이 레포는 분야 폭이 넓어요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한국어 README도 있나요?",
+      "a": "README 위쪽 링크 목록에 한국어(docs/README.ko.md)가 있다고 나와요. 다만 스킬 본문이 한국어인지는 README에 적혀 있지 않아요."
+    },
+    {
+      "q": "SNS에 자동으로 올려 주나요?",
+      "a": "아니요. README의 소셜 분야에 '게시, 참여, DM 자동화 없음'이라고 적혀 있어요. 계정 제재 위험은 낮지만 올리는 건 직접 해야 해요."
+    },
+    {
+      "q": "꼭 외부 도구가 필요한가요?",
+      "a": "README는 모든 스킬이 붙여 넣은 데이터로도 작동한다고 해요. 외부 도구 연결은 선택이고 CONNECTORS.md에 설명돼 있어요."
+    }
+  ]
 }

@@ -8,10 +8,11 @@
     "after": "주소와 파일을 적으면 하나의 XML 파일로 모아 AI에 넘기기"
   },
   "what": [
-    "OneFileLLM은 여러 곳의 자료를 하나의 구조화된 XML 파일로 묶어 주는 명령줄 도구예요.",
-    "로컬 파일, 깃허브 저장소, 웹페이지, PDF, 유튜브 자막 등을 받을 수 있어요.",
-    "묶은 결과는 AI(LLM)에게 맥락으로 넘기기 좋은 형태로 나와요.",
-    "웹페이지를 따라가며 모으는 크롤링 옵션과 파이썬 API도 있어요."
+    "OneFileLLM은 여러 곳에 흩어진 자료를 하나의 구조화된 XML 파일로 합쳐 AI에게 한 번에 넘기게 해 주는 명령줄 도구예요.",
+    "README에 따르면 내 컴퓨터 파일과 폴더, GitHub 저장소·이슈, 웹페이지, PDF, ArXiv 논문, 유튜브 자막을 입력으로 받을 수 있어요.",
+    "결과는 자동으로 클립보드에 복사돼서, AI 채팅창에 바로 붙여 넣으면 돼요.",
+    "여러 자료를 한 번에 넣을 수 있고, 자주 쓰는 입력은 별칭(alias)으로 저장해 둘 수 있어요.",
+    "README의 '모든 출력은 XML로 감싼다'는 설명처럼 AI가 자료의 출처와 종류를 구분해서 읽을 수 있게 해요."
   ],
   "flow": [
     {
@@ -78,24 +79,154 @@
   "glossary": [
     {
       "term": "XML",
-      "meaning": "정보를 태그로 정리해 담는 글 파일 형식"
+      "meaning": "이름표로 내용을 구조화해 담는 글 형식"
     },
     {
-      "term": "LLM",
-      "meaning": "ChatGPT 같은 대화형 AI 모델"
+      "term": "클립보드",
+      "meaning": "복사한 내용이 잠시 저장되는 곳"
+    },
+    {
+      "term": "별칭(alias)",
+      "meaning": "긴 입력을 짧은 이름으로 저장한 것"
     },
     {
       "term": "크롤링",
-      "meaning": "웹페이지를 따라가며 자동으로 모으기"
+      "meaning": "웹페이지를 따라가며 자동으로 읽어 오는 일"
+    },
+    {
+      "term": "토큰",
+      "meaning": "GitHub 접근 허가용 비밀 문자열"
     }
   ],
   "caution": "웹페이지·유튜브 자막을 모아 쓸 때 사이트 약관과 저작권을 확인해요.",
   "license": "",
   "sources": [
-    "README: Content Aggregator for LLMs 설명",
-    "README: 입력 소스 목록(파일, GitHub, 웹, PDF, YouTube)",
-    "README: pip install 설치 안내",
-    "README: crawl 옵션 목록"
+    "README: Description(여러 출처를 단일 XML로, 클립보드 복사)",
+    "README: Installation(git clone, pip install onefilellm)와 CLI Usage 예시",
+    "README: Supported Input Types, XML 출력 구조",
+    "README: Configuration(GITHUB_TOKEN)과 Troubleshooting(yt-dlp, youtube-transcript-api)",
+    "README: --crawl-respect-robots 옵션 설명",
+    "README에 라이선스 표기는 없음"
   ],
-  "rank": 136
+  "rank": 136,
+  "deep_dive": [
+    "AI에게 질문하려고 자료를 모을 때 웹페이지, PDF, 영상 자막을 하나씩 열어 복사하는 일이 번거로워요. 이 도구는 그 복사·붙여넣기를 명령 한 줄로 바꾸고, 모든 내용을 같은 형식으로 합쳐 줘요. 자료 모으는 시간을 크게 줄여 주는 거예요.",
+    "결과가 XML이라는 점이 중요해요. <source type=...>처럼 자료마다 이름표를 붙여서 한 파일에 담아요. 그래서 AI가 '이 부분은 GitHub 글, 이 부분은 논문'처럼 출처를 구분해서 답할 수 있어요. 출처를 구분하면 근거를 다시 확인하기도 쉬워요.",
+    "유튜브 자막은 yt-dlp로 먼저 가져오고 실패하면 youtube-transcript-api를 쓴다고 README에 적혀 있어요. 유튜브가 방식을 바꾸면 자주 깨지니 최신 버전으로 올리라는 안내도 있어요. 대본용 근거를 모으는 데 쓰기 좋아요."
+  ],
+  "principle": {
+    "key_idea": "여러 출처의 글을 읽어 와 이름표를 붙인 XML 하나로 합쳐요",
+    "analogy": "여러 서점에서 산 책의 중요한 쪽을 복사해 '출처 표'를 붙인 한 권의 자료집으로 묶는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "입력 인식",
+        "text": "파일 경로, 웹 주소, GitHub 링크, 논문 번호 등을 받으면 어떤 종류인지 먼저 판단해요. README의 지원 입력은 로컬, GitHub, 웹, 논문, 유튜브, 스트림이에요."
+      },
+      {
+        "title": "내용 가져오기",
+        "text": "종류에 맞는 방법으로 글을 가져와요. GitHub는 API로, 웹은 페이지를 읽거나 크롤링 옵션으로, 유튜브는 자막으로 가져와요. GitHub 토큰이 있으면 접근이 더 안정돼요."
+      },
+      {
+        "title": "글 정리",
+        "text": "웹은 불필요한 스크립트와 스타일을 지우는 옵션이 있고, PDF나 노트북 같은 형식은 글자 위주로 바꿔요. 이런 도구는 보통 AI가 읽기 쉬운 순수한 글로 정리해요."
+      },
+      {
+        "title": "XML로 묶기",
+        "text": "가져온 글을 <onefilellm_output> 안에 source 단위로 이름표를 붙여 담아요. 종류와 속성이 함께 적혀서 AI가 구분하기 쉬워요."
+      },
+      {
+        "title": "복사해 전달",
+        "text": "결과가 클립보드로 복사돼요. AI 채팅창에 붙여 넣으면 한 번에 모든 자료를 읽힐 수 있어요. README는 llm 같은 다른 도구와 이어 쓰는 방법도 안내해요. 복사 한 번으로 끝나는 게 핵심이에요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "파일·폴더",
+      "웹·GitHub 링크",
+      "유튜브·논문"
+    ],
+    "core": [
+      "입력 종류 판별",
+      "내용 가져오기",
+      "XML로 묶기"
+    ],
+    "outputs": [
+      "XML 자료집",
+      "클립보드 복사"
+    ]
+  },
+  "howto": [
+    {
+      "step": "코드 받기",
+      "detail": "소스 코드를 내려받고 폴더로 이동해요.",
+      "cmd": "git clone https://github.com/jimmc414/onefilellm.git"
+    },
+    {
+      "step": "패키지 설치",
+      "detail": "폴더 안에서 필요한 파이썬 부품을 설치해요. README는 pip 한 줄 설치도 안내해요.",
+      "cmd": "pip install -r requirements.txt"
+    },
+    {
+      "step": "pip로 바로 설치",
+      "detail": "저장소를 받지 않고 pip 패키지로 설치할 수도 있어요. 설치 후 onefilellm 명령을 어디서나 써요.",
+      "cmd": "pip install onefilellm"
+    },
+    {
+      "step": "GitHub 토큰(선택)",
+      "detail": "GitHub 자료를 가져올 때 권장돼요. 토큰은 비밀번호 같은 거라 남에게 보여 주지 마세요.",
+      "cmd": "export GITHUB_TOKEN=\"your_personal_access_token\""
+    },
+    {
+      "step": "자료 모으기",
+      "detail": "문서 폴더와 이슈 링크를 함께 넣으면 한 XML로 합쳐져요. 결과는 클립보드에 복사돼요.",
+      "cmd": "onefilellm ./docs/ https://github.com/user/project/issues/123"
+    },
+    {
+      "step": "도움말 보기",
+      "detail": "주제별 도움말에서 별칭, 크롤링, 예시를 볼 수 있어요.",
+      "cmd": "python onefilellm.py --help-topic basic"
+    }
+  ],
+  "scenario": {
+    "title": "'한국 편의점 신상' 쇼츠의 근거 자료 한 파일로 묶기",
+    "steps": [
+      "신상 상품을 소개한 공식 보도자료와 제조사 페이지의 주소를 모아요.",
+      "onefilellm에 주소를 모두 넣어 XML 자료집 하나로 만들어요.",
+      "AI에게 붙여 넣고 '확인된 사실(가격, 출시일)만 정리해 줘'라고 요청해요.",
+      "정리된 사실이 원문에 정말 있는지 출처 이름표로 다시 확인해요.",
+      "확인된 사실만 대본의 sources에 남기고 문장은 직접 써요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "youtube-transcript-api",
+      "rank": 96,
+      "diff": "유튜브 자막만 가져오는 파이썬 라이브러리예요. 이 레포는 여러 출처를 한 파일로 합쳐요."
+    },
+    {
+      "name": "firecrawl",
+      "rank": 3,
+      "diff": "웹을 크롤링해 AI용 데이터로 바꾸는 서비스형 도구예요. 이 레포는 로컬 파일·GitHub·논문까지 묶어요."
+    },
+    {
+      "name": "crawl4ai",
+      "rank": 11,
+      "diff": "AI용 웹 크롤러예요. 이 레포는 웹 외 자료도 한 XML로 모으는 데 집중해요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한국어 자료도 되나요?",
+      "a": "README에 언어 제한 설명은 없어요. 글을 그대로 가져오는 도구라서 자료가 한국어여도 합쳐서 AI에 넘길 수 있어요."
+    },
+    {
+      "q": "유튜브 자막이 안 가져와져요.",
+      "a": "README는 yt-dlp와 youtube-transcript-api를 최신으로 올리라고 안내해요. Node.js를 설치하면 자막 추출이 더 안정적이라고 해요."
+    },
+    {
+      "q": "웹사이트를 막 긁어도 되나요?",
+      "a": "크롤링 옵션 중에는 robots.txt를 따르는 설정(--crawl-respect-robots)이 있어요. 기본은 따르지 않는 쪽이라 사이트 약관을 먼저 확인하세요."
+    }
+  ]
 }

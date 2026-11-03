@@ -9,10 +9,11 @@
     "after": "영상을 폴더에 넣으면 AI가 인상적인 구간을 골라 결과물을 만듦"
   },
   "what": [
-    "viral-clips-crew는 긴 영상을 보고 듣고 눈에 띄는 구간을 뽑아내는 파이썬 프로그램이에요.",
-    "CrewAI라는 'AI 팀 만들기' 도구로 여러 AI가 역할을 나눠 일해요.",
-    "OpenAI와 구글 Gemini의 API 키가 필요하다고 안내돼 있어요.",
-    "제작자가 데모용이라고 밝혔고 앞으로 지원하지 않는다고 써 놨어요."
+    "viral-clips-crew는 긴 영상을 넣으면 터질 만한 부분을 골라 SNS용 짧은 클립으로 만들어 주는 파이썬 프로그램이에요.",
+    "CrewAI라는 도구로 여러 AI 역할(영상 보기, 구간 고르기, 자막 넣기)이 팀처럼 일하게 만들었어요.",
+    "영상 파일을 input_files 폴더에 넣고 명령 하나를 실행하면 결과가 subtitler_output 폴더에 나와요.",
+    "OpenAI와 Google Gemini의 API 키가 모두 필요하고, 사용량만큼 요금이 나가는 선불 크레딧이 필요하다고 해요.",
+    "만든 사람은 이 프로젝트가 주말에 만든 데모이며 지원하거나 개선하지 않는다고 밝혔어요."
   ],
   "flow": [
     {
@@ -76,19 +77,149 @@
   ],
   "glossary": [
     {
-      "term": "API 키",
-      "meaning": "서비스를 쓰게 해 주는 비밀번호 같은 것"
+      "term": "CrewAI",
+      "meaning": "여러 AI 역할이 팀으로 일하게 해 주는 도구"
     },
     {
-      "term": "CrewAI",
-      "meaning": "여러 AI에게 역할을 나눠 주는 도구"
+      "term": "API 키",
+      "meaning": "서비스를 쓸 수 있는 비밀번호 같은 문자열"
+    },
+    {
+      "term": "Poetry",
+      "meaning": "파이썬 도구 설치를 정리해 주는 관리자"
+    },
+    {
+      "term": "컨텍스트 창",
+      "meaning": "AI가 한 번에 읽을 수 있는 분량"
     }
   ],
   "caution": "남의 영상을 잘라 재업로드하면 저작권 문제가 생길 수 있어요. 내 영상에만 쓰세요.",
   "license": "MIT",
   "sources": [
-    "README: 긴 영상에서 viral segments 추출 설명",
-    "README: Requirements, Usage 15분·1시간 제한",
-    "README: 99% vibe coded, 지원 안 함 안내"
+    "README: 하이라이트 클립 추출 설명",
+    "README: Requirements(Python 3.7+, OpenAI·Gemini 키)",
+    "README: Installation, Usage 명령",
+    "README: Gemini 1시간, OpenAI 15분 안내",
+    "README: 99% vibe coded, 지원하지 않음 공지",
+    "README: License MIT"
+  ],
+  "deep_dive": [
+    "긴 영상 하나에서 하이라이트를 찾으려면 사람이 처음부터 끝까지 봐야 해요. 이 도구는 AI가 영상을 보고 들으며 눈에 띄는 구간을 대신 찾도록 만든 거예요. 그래서 편집을 잘 모르는 사람도 명령 하나로 후보 클립을 받아 볼 수 있어요.",
+    "README는 Gemini가 최대 1시간 영상을 처리할 수 있고, OpenAI를 쓸 때는 15분 미만으로 맞추라고 안내해요. AI가 한 번에 읽을 수 있는 분량(컨텍스트 창)이 한계이기 때문이에요. 이 접근은 긴 영상을 새로 가공해 SNS에서 다시 소개하려는 콘텐츠 큐레이터를 위한 것이라고 README가 말해요.",
+    "제작자는 이 코드를 프로덕션용이 아닌 시연용이라고 하고 유지보수도 하지 않는다고 적었어요. 영감을 얻는 참고용으로 보는 것이 좋아요. 그래서 실제 업무에 쓰기보다 구조를 배우거나 직접 고쳐 쓰는 출발점으로 삼는 것이 안전해요."
+  ],
+  "principle": {
+    "key_idea": "AI 여러 명이 영상을 보고 하이라이트를 골라 자르고 자막을 입혀요",
+    "analogy": "편집팀에서 한 명은 영상을 보고, 한 명은 명장면을 고르고, 한 명은 자막을 다는 분업과 같아요.",
+    "steps": [
+      {
+        "title": "영상 넣기",
+        "text": "긴 영상 파일을 input_files 폴더에 넣어요. README는 Gemini는 1시간, OpenAI는 15분 미만으로 맞추라고 해요. AI가 한 번에 읽을 수 있는 분량에 한계가 있기 때문이에요."
+      },
+      {
+        "title": "영상 이해",
+        "text": "이런 도구는 보통 영상의 말과 장면을 AI에 보내 내용을 글로 파악하게 해요(일반 원리). README는 Gemini와 OpenAI 키가 둘 다 필요하다고 안내해요."
+      },
+      {
+        "title": "구간 고르기",
+        "text": "CrewAI로 만든 AI 역할들이 팀처럼 일해요. 영상 내용을 보고 눈에 띄고 퍼질 만한 구간을 판단한 뒤 그 구간의 시작과 끝 시간을 정해요."
+      },
+      {
+        "title": "자르기",
+        "text": "정해진 시간대로 원본에서 해당 부분만 잘라 내요. 이 단계는 일반적인 영상 편집 도구가 하는 일이에요. 긴 영상이 여러 개의 짧은 후보 클립으로 나뉘어요."
+      },
+      {
+        "title": "자막 입히기",
+        "text": "잘린 클립에 자막을 붙여 subtitler_output 폴더에 저장해요. 소리를 따로 듣지 않아도 내용을 알 수 있게 하는 단계이고, 사람이 마지막으로 골라서 써요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "긴 영상 파일",
+      "API 키 2개"
+    ],
+    "core": [
+      "CrewAI 팀",
+      "Gemini/OpenAI",
+      "자막 입히기"
+    ],
+    "outputs": [
+      "짧은 하이라이트 클립"
+    ]
+  },
+  "howto": [
+    {
+      "step": "코드 내려받기",
+      "detail": "깃(git)으로 코드를 내 컴퓨터에 복사해요.",
+      "cmd": "git clone https://github.com/alexfazio/viral-clips-crew.git"
+    },
+    {
+      "step": "Poetry 설치",
+      "detail": "필요한 파이썬 도구를 자동으로 관리해 주는 Poetry를 설치해요.",
+      "cmd": "pip install poetry"
+    },
+    {
+      "step": "패키지 설치",
+      "detail": "프로젝트가 쓰는 라이브러리를 한꺼번에 설치해요.",
+      "cmd": "poetry install"
+    },
+    {
+      "step": "Pydantic 업데이트",
+      "detail": "README가 안내하는 필수 업데이트 단계예요.",
+      "cmd": "poetry update pydantic"
+    },
+    {
+      "step": "API 키 넣기",
+      "detail": ".env 파일에 OpenAI와 Gemini 키를 저장해요. 키는 남에게 보이면 안 돼요.",
+      "cmd": "echo -e \"OPENAI_API_KEY=<your-api-key>\\nGEMINI_API_KEY=<your-api-key>\" > .env"
+    },
+    {
+      "step": "실행",
+      "detail": "영상을 input_files에 넣고 실행하면 처음부터 끝까지 자동으로 진행돼요.",
+      "cmd": "poetry run python app.py"
+    }
+  ],
+  "scenario": {
+    "title": "내가 찍은 긴 브이로그에서 숏폼 후보 뽑기",
+    "steps": [
+      "한국 마트 투어 같은 직접 찍은 긴 영상을 준비해요.",
+      "15분 이내로 잘라 input_files 폴더에 넣어요.",
+      "실행하고 결과 클립을 subtitler_output에서 확인해요.",
+      "마음에 드는 클립만 골라요.",
+      "우리 캐릭터 말투와 맞는지 사람이 확인하고 다듬어요.",
+      "최종 편집 후 승인 단계로 넘겨요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "AI-Youtube-Shorts-Generator",
+      "rank": 115,
+      "diff": "긴 유튜브 영상을 쇼츠로 바꾸는 비슷한 목적의 도구예요. 이쪽은 CrewAI 팀 구조와 자막 입히기를 쓰는 데모예요."
+    },
+    {
+      "name": "FunClip",
+      "rank": 109,
+      "diff": "음성 인식 자막에서 원하는 부분을 골라 자르는 도구예요. 이쪽은 외부 AI 서비스를 쓰는 데모예요."
+    },
+    {
+      "name": "video-to-reels",
+      "rank": 147,
+      "diff": "가로 영상을 릴스 규격으로 바꾸는 변환 스크립트예요. 이쪽은 구간 선택이 핵심이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료로 쓸 수 있나요?",
+      "a": "코드는 MIT라 무료지만 OpenAI와 Google API 사용료는 따로예요. README는 선불 크레딧이 필요하다고 안내해요."
+    },
+    {
+      "q": "얼마나 긴 영상까지 되나요?",
+      "a": "README는 Gemini는 1시간, OpenAI는 15분 미만을 권해요."
+    },
+    {
+      "q": "에러가 나면요?",
+      "a": "README는 API 키가 맞는지, 계정에 선불 크레딧이 충분한지 확인하라고 해요."
+    }
   ]
 }

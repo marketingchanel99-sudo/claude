@@ -9,9 +9,10 @@
     "after": "사진이나 영상과 음성을 넣으면 말하는 영상 생성"
   },
   "what": [
-    "InfiniteTalk은 음성에 맞춰 말하는 영상을 만드는 AI 모델이에요.",
-    "영상에 새 음성을 덧입히거나, 사진 한 장으로 말하는 영상을 만들 수 있어요.",
-    "입술뿐 아니라 머리, 몸, 표정도 맞춰 움직이고 길이 제한이 없다고 소개해요."
+    "InfiniteTalk(인피니트토크)은 소리에 맞춰 입, 머리, 몸, 표정이 함께 움직이는 말하는 영상을 만드는 AI 모델이에요.",
+    "입력은 영상 한 편 또는 이미지 한 장과 음성 파일이고, 출력은 그 소리에 맞게 말하는 새 영상이에요.",
+    "README는 영상 길이에 제한이 없는 것이 특징이고, 입술 동기화가 MultiTalk보다 정확하다고 주장해요.",
+    "MeiGen-AI 팀이 공개한 Apache 2.0 라이선스 모델이고, 480P와 720P를 지원해요."
   ],
   "flow": [
     {
@@ -76,23 +77,152 @@
   "glossary": [
     {
       "term": "립싱크",
-      "meaning": "말소리에 입 모양을 맞추는 일"
+      "meaning": "소리에 맞춰 입 모양을 맞추는 기술"
+    },
+    {
+      "term": "더빙",
+      "meaning": "영상에 새 목소리를 입히는 작업"
+    },
+    {
+      "term": "wav2vec",
+      "meaning": "소리를 AI가 읽는 특징 숫자로 바꾸는 부품"
+    },
+    {
+      "term": "양자화",
+      "meaning": "모델 숫자를 거칠게 줄여 메모리를 아끼는 방법"
     },
     {
       "term": "VRAM",
       "meaning": "그래픽카드의 전용 메모리"
-    },
-    {
-      "term": "더빙",
-      "meaning": "영상에 다른 목소리를 입히는 일"
     }
   ],
   "caution": "실존 인물 얼굴과 목소리를 허락 없이 쓰면 딥페이크 문제예요. 본인 동의가 있는 소스만 쓰고 AI 영상임을 알리세요.",
-  "license": "",
+  "license": "Apache-2.0 (모델)",
   "sources": [
-    "README: 음성 기반 말하는 영상 생성 소개",
-    "README: 핵심 기능(무제한 길이, 입 동기화)",
-    "README: 480P/720P 생성 옵션",
-    "README: 저VRAM, ComfyUI 지원"
+    "README: TL;DR와 Key Features(무한 길이, 입술·머리·몸 동기화)",
+    "README: Installation과 Model Preparation 명령",
+    "README: Quick Inference 옵션과 팁(1분 이상 색 변화, 양자화)",
+    "README: License 항목(Apache 2.0)",
+    "README: 구조도 이미지(wav2vec, CLIP, DiT)",
+    "일반 원리: 확산 기반 영상 생성과 조각 이어 붙이기"
+  ],
+  "deep_dive": [
+    "기존 립싱크 도구는 대부분 입 주변만 바꿔요. 그래서 머리와 몸이 가만히 있어 어색해 보여요. InfiniteTalk은 입술뿐 아니라 머리, 몸 자세, 표정까지 새 소리에 맞춰 같이 만들어 내는 것이 차이예요. 영상에 새 음성을 입힐 때 자연스러움이 더 좋아져요.",
+    "이름의 '무한 길이'는 영상을 여러 조각(청크)으로 이어 만드는 방식에서 와요. 실행 옵션 streaming은 긴 영상용이고 clip은 짧은 영상용이에요. 단, README는 이미지로 만든 영상이 1분 이상 가면 색이 변하기 쉽다고 경고해요.",
+    "설치 부담이 커요. 기본이 되는 영상 모델(Wan2.1 14B)과 음성 인코더, InfiniteTalk 가중치를 모두 내려받아야 해요. 메모리가 부족하면 양자화 모델이나 매우 낮은 VRAM 옵션을 쓰라고 README가 안내해요."
+  ],
+  "principle": {
+    "key_idea": "소리를 숫자 특징으로 바꾸고, 그 특징에 맞는 입과 몸짓 영상을 만들어요",
+    "analogy": "노래를 듣고 입 모양을 그리는 애니메이터가 입만이 아니라 몸짓까지 함께 연기시키는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "소리 분석",
+        "text": "wav2vec 같은 음성 인코더가 소리를 특징 숫자로 바꿔요. README 구조도에도 wav2vec이 보여요. 컴퓨터는 소리 파일을 그대로 이해하지 못해서, 발음과 높낮이가 담긴 숫자로 바꿔야 입 모양과 연결할 수 있어요."
+      },
+      {
+        "title": "기준 장면",
+        "text": "참조 프레임(CLIP으로 읽은 기준 그림)과 앞 구간의 맥락 프레임을 준비해요. 기준 그림이 있어야 영상이 길어져도 얼굴과 옷이 달라지지 않아요. README는 1분이 넘으면 색 변화가 생길 수 있다고 경고해요."
+      },
+      {
+        "title": "잡음 영상 생성",
+        "text": "확산 모델(DiT)이 잡음 낀 영상에서 시작해요. 소리 특징과 기준 그림을 교차 주의(cross-attention)라는 방식으로 참고하며 다듬어요. 쉽게 말해, 소리를 들으며 기준 그림을 보고 영상을 조금씩 고쳐 가는 거예요."
+      },
+      {
+        "title": "조각 이어 붙이기",
+        "text": "몇 초 단위 조각을 만들며 앞 조각의 마지막 장면을 다음 조각의 맥락으로 이어 줘요. 이렇게 이어 가면 길이에 제한 없이 영상을 늘릴 수 있어요. streaming 옵션이 이 방식을 켜는 긴 영상용이에요."
+      },
+      {
+        "title": "영상 저장",
+        "text": "완성된 프레임을 합쳐 영상 파일로 저장해요. 소리를 입혀 최종 파일로 만드는 데 FFmpeg가 쓰여요. 480P로 먼저 시험해 보고 마음에 들면 720P로 올리면 시간과 메모리를 아낄 수 있어요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "음성 파일",
+      "영상 또는 이미지"
+    ],
+    "core": [
+      "음성 인코더",
+      "확산 모델(DiT)",
+      "조각 이어 붙이기"
+    ],
+    "outputs": [
+      "말하는 영상"
+    ]
+  },
+  "howto": [
+    {
+      "step": "GPU 서버 준비",
+      "detail": "NVIDIA GPU가 있는 컴퓨터나 클라우드 서버가 필요해요. 설치 요구가 높아 영상 AI에 익숙한 사람과 같이 하는 편이 좋아요.",
+      "cmd": ""
+    },
+    {
+      "step": "환경 만들기",
+      "detail": "콘다로 파이썬 3.10 환경을 만들고 켜요. 환경 이름은 README에서 multitalk로 되어 있어요. 콘다가 먼저 설치돼 있어야 해요.",
+      "cmd": "conda create -n multitalk python=3.10"
+    },
+    {
+      "step": "부품 설치",
+      "detail": "파이토치와 필요한 부품, FFmpeg를 README에 적힌 순서대로 설치해요. 순서가 바뀌면 오류가 나기 쉬워서 차례를 지켜요.",
+      "cmd": "pip install -r requirements.txt"
+    },
+    {
+      "step": "모델 내려받기",
+      "detail": "기본 영상 모델, 음성 인코더, InfiniteTalk 파일을 허깅페이스에서 받아요. 용량이 커서 오래 걸려요.",
+      "cmd": "huggingface-cli download MeiGen-AI/InfiniteTalk --local-dir ./weights/InfiniteTalk"
+    },
+    {
+      "step": "영상 만들기",
+      "detail": "입력 정보를 담은 json 파일을 만들어 생성 명령을 실행해요. 480P로 먼저 시험해 보세요. 아래는 README의 단일 GPU 예시예요.",
+      "cmd": "python generate_infinitetalk.py --ckpt_dir weights/Wan2.1-I2V-14B-480P --wav2vec_dir 'weights/chinese-wav2vec2-base' --infinitetalk_dir weights/InfiniteTalk/single/infinitetalk.safetensors --input_json examples/single_example_image.json --size infinitetalk-480 --sample_steps 40 --mode streaming --motion_frame 9 --save_file infinitetalk_res"
+    }
+  ],
+  "scenario": {
+    "title": "채널 캐릭터가 영어로 소개하는 영상 만들기",
+    "steps": [
+      "채널 전용 캐릭터 이미지를 준비해요. 실존 인물 사진은 쓰지 않아요.",
+      "영어 대본을 TTS 도구로 읽어 wav 음성 파일을 만들어요.",
+      "캐릭터 이미지와 음성을 InfiniteTalk에 넣어 말하는 영상을 만들어요.",
+      "입 모양, 눈 깜빡임, 색 변화를 확인하고 어색한 구간은 다시 만들어요.",
+      "AI로 만든 캐릭터임을 알리고 자막을 입혀 숏폼에 쓰세요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "Wav2Lip",
+      "rank": 79,
+      "diff": "입 모양만 소리에 맞춰 바꿔요. InfiniteTalk은 몸짓과 표정도 함께 만들어요."
+    },
+    {
+      "name": "LatentSync",
+      "rank": 110,
+      "diff": "소리에 맞춰 입 모양을 바꿔요. InfiniteTalk은 사진 한 장으로도 영상을 만들어요."
+    },
+    {
+      "name": "Duix-Avatar",
+      "rank": 67,
+      "diff": "내 얼굴과 목소리를 복제하는 도구예요. InfiniteTalk은 음성에 맞춘 영상 생성 모델이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한국어 음성도 되나요?",
+      "a": "README에 언어 지원 설명은 없어요. 음성 인코더가 중국어 모델(chinese-wav2vec2)이라 한국어는 직접 시험해 보세요."
+    },
+    {
+      "q": "얼마나 긴 영상이 되나요?",
+      "a": "README는 길이에 제한이 없다고 해요. 다만 이미지로 만든 영상은 1분 넘으면 색 변화가 심해진다고 안내해요."
+    },
+    {
+      "q": "내 사진으로 만들어도 되나요?",
+      "a": "본인이나 동의받은 사람의 사진만 쓰세요. 허락 없이 얼굴과 목소리를 쓰면 딥페이크 문제가 될 수 있어요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/MeiGen-AI_InfiniteTalk_1.jpg",
+      "caption": "구조도. 소리(wav2vec)와 기준 프레임(CLIP)을 확산 모델(DiT)이 받아 영상을 만들어요"
+    }
   ]
 }

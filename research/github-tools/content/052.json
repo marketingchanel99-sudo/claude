@@ -9,10 +9,11 @@
     "after": "주소만 정하면 지식 파일이 자동으로 만들어짐"
   },
   "what": [
-    "GPT Crawler는 웹사이트를 돌며 글을 모아 하나의 지식 파일로 만들어 줘요.",
-    "그 파일을 OpenAI에 올려 맞춤형 GPT나 어시스턴트를 만들 수 있어요.",
-    "설정 파일에서 주소와 가져올 영역을 정해요.",
-    "로컬 실행, Docker, API 방식이 있어요."
+    "gpt-crawler는 웹사이트의 글을 자동으로 모아 하나의 파일(output.json)로 만들어 주는 도구예요.",
+    "만들어진 파일을 OpenAI에 올리면 그 사이트 내용을 아는 나만의 GPT(맞춤 챗봇)를 만들 수 있어요.",
+    "설정 파일(config.ts)에 시작 주소, 따라갈 링크 패턴, 글을 가져올 위치(selector), 최대 페이지 수를 적어요.",
+    "README의 예시는 Builder.io 문서 사이트를 모아 질문에 답하는 GPT를 만든 거예요.",
+    "로컬 실행, Docker 컨테이너, API 서버 세 가지 방식으로 돌릴 수 있어요."
   ],
   "flow": [
     {
@@ -76,18 +77,148 @@
   "glossary": [
     {
       "term": "크롤링",
-      "meaning": "웹페이지를 자동으로 읽어 모으는 일"
+      "meaning": "웹 페이지를 돌며 자동으로 글을 모으는 일"
     },
     {
-      "term": "셀렉터",
-      "meaning": "가져올 화면 영역을 가리키는 표시"
+      "term": "selector",
+      "meaning": "페이지에서 가져올 부분을 가리키는 규칙"
+    },
+    {
+      "term": "맞춤 GPT",
+      "meaning": "내 자료를 아는 나만의 ChatGPT 챗봇"
+    },
+    {
+      "term": "토큰",
+      "meaning": "AI가 글의 양을 세는 단위"
+    },
+    {
+      "term": "Docker",
+      "meaning": "프로그램을 상자째 설치해 주는 도구"
     }
   ],
   "caution": "수집 대상 사이트의 약관과 저작권을 확인하세요.",
   "license": "",
   "sources": [
-    "README: 사이트를 크롤링해 지식 파일 생성",
-    "README: Node.js 16 이상",
-    "README: 유료 ChatGPT 플랜 언급"
-  ]
+    "README: 사이트를 크롤링해 맞춤 GPT용 knowledge 파일 생성",
+    "README: config.ts 옵션(url, match, selector, maxPagesToCrawl, outputFileName)",
+    "README: Node.js 16 이상, git clone, npm i, npm start 명령",
+    "README: output.json, Docker와 API 서버 방식, 유료 ChatGPT 플랜 안내",
+    "일반 원리: 크롤러는 보통 헤드리스 브라우저로 HTML을 읽어요",
+    "repos.tsv 3·45위 README 비교. README에 라이선스 표기는 없어요"
+  ],
+  "deep_dive": [
+    "GPT에게 우리 자료를 알려 주려면 먼저 자료를 모아 파일로 만들어야 해요. 문서 사이트는 페이지가 수십 개라서 손으로 복사하면 오래 걸려요. 이 도구가 그 복사를 대신해서 한 파일로 정리해 줘요. 모은 글은 GPT가 참고하는 자료가 돼요.",
+    "단순히 페이지를 다 긁어오지 않고 설정으로 범위를 정해요. 시작 주소에서 출발해 match 패턴에 맞는 링크만 따라가고, selector로 본문만 가져오고, maxPagesToCrawl로 개수를 제한해요. 필요한 내용만 모으는 것이 핵심이에요.",
+    "파일이 너무 크면 maxFileSize나 maxTokens 옵션으로 줄일 수 있어요. 결과 파일을 올려 맞춤 GPT나 어시스턴트를 만들려면 유료 ChatGPT 플랜이 필요할 수 있다고 README가 말해요. 비용 부분은 미리 확인하세요."
+  ],
+  "principle": {
+    "key_idea": "주소를 따라가며 본문만 모아 하나의 지식 파일로 합쳐요",
+    "analogy": "도서관에서 필요한 책의 필요한 장만 복사해 한 권의 요약 노트로 묶는 것과 같아요.",
+    "steps": [
+      {
+        "title": "설정 읽기",
+        "text": "config.ts에서 시작 주소(url), 따라갈 링크 규칙(match), 본문 위치(selector), 최대 페이지 수를 읽어요. 어디서 출발해서 어디까지 가고 무엇을 가져올지 정하는 지도 같은 역할이에요."
+      },
+      {
+        "title": "페이지 열기",
+        "text": "이런 크롤러는 보통 헤드리스 브라우저(화면 없는 브라우저)로 페이지를 열어 HTML을 읽어요. 진짜 브라우저처럼 열기 때문에 자바스크립트로 나중에 그려지는 내용도 읽을 수 있어요."
+      },
+      {
+        "title": "본문 뽑기",
+        "text": "selector로 지정한 영역의 글만 꺼내요. 페이지에는 메뉴, 광고, 바닥글이 섞여 있어서 전부 가져오면 GPT가 헷갈려요. 본문 영역만 골라 가져오면 지식 파일이 깨끗해져요."
+      },
+      {
+        "title": "다음 링크 따라가기",
+        "text": "페이지 안의 링크 중 match 규칙에 맞는 것만 다음 방문 목록에 넣어요. 규칙 밖 링크는 무시해서 사이트 전체로 번지는 것을 막아요. maxPagesToCrawl에 닿으면 수집을 멈춰요."
+      },
+      {
+        "title": "파일로 합치기",
+        "text": "모은 글을 output.json 하나로 저장해요. 이 파일을 OpenAI에 올려 지식으로 쓰게 하면 GPT가 그 내용을 참고해 답해요. 파일이 크면 나누거나 maxTokens로 줄여야 올라가요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "시작 주소",
+      "config.ts 설정"
+    ],
+    "core": [
+      "페이지 방문",
+      "본문 추출",
+      "링크 따라가기"
+    ],
+    "outputs": [
+      "지식 파일(JSON)",
+      "맞춤 GPT(선택)"
+    ]
+  },
+  "howto": [
+    {
+      "step": "Node.js 확인",
+      "detail": "Node.js 16 이상이 필요해요. 터미널에서 node --version으로 확인해요.",
+      "cmd": ""
+    },
+    {
+      "step": "프로젝트 받기",
+      "detail": "레포를 내 컴퓨터로 내려받아요.",
+      "cmd": "git clone https://github.com/builderio/gpt-crawler"
+    },
+    {
+      "step": "부품 설치",
+      "detail": "필요한 자바스크립트 부품을 설치해요.",
+      "cmd": "npm i"
+    },
+    {
+      "step": "설정 고치기",
+      "detail": "config.ts 파일을 열어 url, match, selector를 내가 모을 사이트에 맞게 바꿔요.",
+      "cmd": ""
+    },
+    {
+      "step": "실행하기",
+      "detail": "크롤링이 끝나면 프로젝트 맨 위에 output.json이 생겨요.",
+      "cmd": "npm start"
+    },
+    {
+      "step": "OpenAI에 올리기",
+      "detail": "맞춤 GPT 만들기 화면의 Knowledge에서 파일을 올려요. 파일이 크면 나눠 올리거나 줄여요.",
+      "cmd": ""
+    }
+  ],
+  "scenario": {
+    "title": "공식 관광 안내 문서로 한국 정보 Q&A 자료 만들기",
+    "steps": [
+      "수집이 허용된 공식 한국 관광 안내 문서 주소를 고르고 약관을 확인해요.",
+      "config.ts에 시작 주소와 본문 위치, 최대 50쪽 같은 제한을 적어요.",
+      "npm start로 output.json을 만들어요.",
+      "파일 속 내용을 샘플로 읽어 빠진 부분이나 오래된 정보를 확인해요.",
+      "AI 비서에 참고 자료로 올리되, 영상에 쓰는 사실은 원문에서 다시 확인해요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "Firecrawl",
+      "rank": 3,
+      "diff": "웹을 AI용 데이터로 바꿔 주는 API 서비스예요. gpt-crawler는 설정 파일로 직접 돌리는 작은 도구예요."
+    },
+    {
+      "name": "Crawlee",
+      "rank": 45,
+      "diff": "크롤러를 직접 짜는 큰 도구 상자예요. gpt-crawler는 GPT 지식 파일 만들기에 목적이 좁혀 있어요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료인가요?",
+      "a": "README에 가격 정보는 없어요. 다만 맞춤 GPT 기능은 유료 ChatGPT 플랜이 필요할 수 있다고 안내해요."
+    },
+    {
+      "q": "코딩을 해야 하나요?",
+      "a": "config.ts 파일을 직접 수정하고 터미널 명령을 써야 해요. 복잡한 코드를 짤 필요는 없어요."
+    },
+    {
+      "q": "결과 파일이 너무 크면요?",
+      "a": "README는 maxFileSize로 파일을 나누거나 maxTokens 옵션으로 크기를 줄이라고 안내해요."
+    }
+  ],
+  "images": []
 }

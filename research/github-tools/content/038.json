@@ -9,10 +9,11 @@
     "after": "한 스튜디오에서 여러 모델로 이미지·영상 생성"
   },
   "what": [
-    "Open Generative AI는 이미지와 영상을 만드는 오픈소스 AI 스튜디오예요.",
-    "README는 14개 스튜디오에서 600개가 넘는 모델을 쓸 수 있다고 소개해요.",
-    "데스크톱 앱에서는 내 컴퓨터에서 도는 로컬 모델도 쓸 수 있어요.",
-    "립싱크 스튜디오 등 영상 편집 도구도 포함돼요."
+    "Open Generative AI는 이미지, 영상, 음성, 립싱크 등 여러 AI 생성 스튜디오를 한 앱에 모은 오픈소스 프로그램이에요.",
+    "README는 수백 개 모델(Flux, Kling, Sora, Veo, Wan 등)과 여러 스튜디오를 지원한다고 소개해요.",
+    "기본은 Muapi.ai 서비스에 요청을 보내 결과를 받는 구조라서 첫 사용 때 Muapi API 키를 입력해요.",
+    "데스크톱 앱에서는 sd.cpp와 Wan2GP 같은 로컬 모델 엔진으로 내 컴퓨터에서 생성할 수도 있어요.",
+    "README가 콘텐츠 필터와 거절이 없다고 강조해서 책임 있게 쓰는 것이 중요해요."
   ],
   "flow": [
     {
@@ -89,14 +90,144 @@
     {
       "term": "립싱크",
       "meaning": "입모양을 소리에 맞추는 기술"
+    },
+    {
+      "term": "API 키",
+      "meaning": "서비스를 쓰는 사람임을 알리는 비밀 열쇠"
+    },
+    {
+      "term": "폴링",
+      "meaning": "결과가 나왔는지 계속 물어보는 방식"
     }
   ],
   "caution": "README가 콘텐츠 필터가 없다고 강조해요. 저작권·초상권을 지키고 AI 생성물임을 표시하세요.",
   "license": "MIT",
   "sources": [
-    "README: 600+ models across 14 studios",
-    "README: Local Model Inference 섹션",
-    "README: MuAPI 호스팅 버전 안내",
-    "README: License MIT"
-  ]
+    "README: free, open-source alternative to AI Video Platforms, 14 studios",
+    "README: Powered by Muapi.ai, 모델 목록(Flux, Kling, Sora, Veo, Wan 등)",
+    "README: Local Model Inference(sd.cpp, Wan2GP, 하드웨어 안내)",
+    "README: API Integration(submit, poll, x-api-key)",
+    "README: Setup과 Download Desktop App, 첫 사용 시 Muapi API 키 입력",
+    "README: No content filters 문구와 MIT 라이선스"
+  ],
+  "deep_dive": [
+    "Midjourney, Runway 같은 유료 AI 영상 서비스는 구독료가 들고 필터가 있어요. 이 프로젝트는 같은 모델들을 한 화면에서 고르고, 구독 없이 직접 구성해 쓰는 대안을 내세워요. 여러 서비스를 오가지 않아도 돼요.",
+    "겉으로는 '무료 오픈소스'지만 실제 생성은 Muapi.ai의 API로 보내는 방식이 기본이에요. 그래서 API 사용료가 생길 수 있고, README에는 정확한 요금이 나와 있지 않아요. 비용은 반드시 직접 확인해야 해요.",
+    "로컬 모드도 있어요. 이미지는 번들된 sd.cpp로, 영상은 별도로 설치한 Wan2GP(NVIDIA·AMD GPU 필요)로 돌려요. 로컬 추론은 데스크톱 앱에서만 되고, 웹 버전은 항상 클라우드 API를 써서 요금이 생겨요."
+  ],
+  "principle": {
+    "key_idea": "스튜디오 화면에서 모델을 고르면, 요청을 보내고 결과가 나올 때까지 확인해요",
+    "analogy": "식당 주문처럼 메뉴(모델)를 골라 주방(Muapi)에 주문서를 내고, 번호표로 음식이 나왔는지 계속 확인하는 방식이에요.",
+    "steps": [
+      {
+        "title": "모델과 입력 선택",
+        "text": "스튜디오(이미지, 영상, 립싱크 등)에서 모델을 고르고 프롬프트와 참고 이미지를 넣어요. 참고 이미지는 최대 14장까지 쓸 수 있는 모델도 있어요."
+      },
+      {
+        "title": "요청 보내기",
+        "text": "README에 따르면 앱이 Muapi의 API 주소로 POST 요청을 보내요. 이때 내 API 키(x-api-key)를 함께 보내 사용자를 확인해요."
+      },
+      {
+        "title": "결과 기다리기",
+        "text": "생성에는 시간이 걸려서 앱이 요청 번호로 상태를 계속 물어봐요(polling). 상태가 completed가 될 때까지 반복해요. 영상은 오래 걸리므로 결과를 기다리며 주기적으로 확인하는 방식이에요."
+      },
+      {
+        "title": "결과 받아 보여주기",
+        "text": "완료되면 이미지나 영상 주소를 받아 화면에 보여 줘요. 립싱크는 이미지 또는 영상에 음성 주소를 함께 보내요. 올린 파일은 먼저 서버에 업로드해 주소를 받은 뒤 그 주소를 요청에 담아요."
+      },
+      {
+        "title": "로컬로 돌리기",
+        "text": "데스크톱 앱에서 로컬 토글을 켜면 sd.cpp나 Wan2GP가 내 컴퓨터에서 직접 생성해요. 이 경우 API 키가 필요 없다고 해요. 대신 내 컴퓨터 사양이 부족하면 느리거나 멈출 수 있어요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "프롬프트·참고 이미지",
+      "모델 선택"
+    ],
+    "core": [
+      "스튜디오 화면",
+      "Muapi API 요청",
+      "로컬 엔진(선택)"
+    ],
+    "outputs": [
+      "이미지·영상 파일"
+    ]
+  },
+  "howto": [
+    {
+      "step": "앱 내려받기",
+      "detail": "GitHub Releases에서 macOS, Windows, Linux용 설치 파일을 받아요. Node.js나 터미널 없이 설치할 수 있다고 해요.",
+      "cmd": ""
+    },
+    {
+      "step": "보안 경고 넘기기",
+      "detail": "Mac은 앱이 공증되지 않아 처음 실행이 막혀요. README의 안내(xattr 명령 또는 시스템 설정의 '그래도 열기')를 따라요.",
+      "cmd": "xattr -cr \"/Applications/Open Generative AI.app\""
+    },
+    {
+      "step": "API 키 입력",
+      "detail": "처음 쓸 때 Muapi API 키를 입력하라고 나와요. 로컬 모델만 쓸 거라면 키 입력을 건너뛸 수 있어요.",
+      "cmd": ""
+    },
+    {
+      "step": "스튜디오 고르기",
+      "detail": "Image Studio나 Video Studio에서 모델을 고르고 프롬프트를 적어 생성해요. 비용이 드는 서비스이니 먼저 작게 시험하세요.",
+      "cmd": ""
+    },
+    {
+      "step": "로컬 모델 켜기",
+      "detail": "데스크톱 앱 설정의 Local Models에서 sd.cpp를 설치하고 모델을 받은 뒤 Local 토글을 켜요. 8GB Mac에서 Z-Image는 멈출 수 있다고 해요.",
+      "cmd": ""
+    },
+    {
+      "step": "소스로 실행(선택)",
+      "detail": "개발용 경로예요. 서브모듈과 함께 내려받고 setup을 실행한 뒤 데스크톱 개발 모드를 켜요. 일반 사용자는 설치 파일을 받는 방법이 훨씬 쉬워요. 이 명령은 첫 단계예요.",
+      "cmd": "git clone --recurse-submodules https://github.com/Anil-matcha/Open-Generative-AI.git"
+    }
+  ],
+  "scenario": {
+    "title": "쇼츠 배경 컷 후보를 이미지로 먼저 뽑아 보기",
+    "steps": [
+      "우리 캐릭터 설정을 확인하고 프롬프트를 만들어요",
+      "이미지 스튜디오에서 작은 해상도로 후보를 3장만 만들어요",
+      "마음에 드는 컷은 참고 이미지로 넣어 비슷한 컷을 더 만들어요",
+      "비용이 드는 API 사용은 횟수를 정해 두고 기록해요",
+      "완성 컷에는 AI 생성물임을 표시할 계획을 세워요",
+      "실제 영상 제작은 우리 제작 절차의 승인 후에 진행해요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "Open-Sora",
+      "rank": 40,
+      "diff": "영상 생성 모델 자체를 공개한 프로젝트예요. Open Generative AI는 여러 모델을 고르는 화면 앱이에요."
+    },
+    {
+      "name": "MoneyPrinterTurbo",
+      "rank": 5,
+      "diff": "주제만 주면 대본·소재·자막을 합쳐 영상을 만드는 도구예요. 이쪽은 이미지·영상 생성 스튜디오예요."
+    },
+    {
+      "name": "LocalAI",
+      "rank": 24,
+      "diff": "여러 AI 모델을 내 서버에서 API로 돌리는 엔진이에요. 이쪽은 화면 앱이고 클라우드 API 기본이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "정말 무료인가요?",
+      "a": "앱 코드는 MIT 라이선스로 무료예요. 하지만 기본 생성은 Muapi.ai API를 쓰고, README에 정확한 요금이 없어서 비용이 생길 수 있어요."
+    },
+    {
+      "q": "인터넷 없이 되나요?",
+      "a": "데스크톱 앱의 로컬 엔진(sd.cpp)으로 이미지 생성은 가능해요. 영상은 Wan2GP와 NVIDIA·AMD GPU가 필요하고, 웹 버전은 항상 클라우드를 써요."
+    },
+    {
+      "q": "필터가 없는데 괜찮나요?",
+      "a": "README는 필터와 거절이 없다고 강조해요. 그만큼 저작권, 초상권, 유해 콘텐츠를 사용자가 직접 책임져야 해서 업로드 전 검토가 필수예요."
+    }
+  ],
+  "images": []
 }

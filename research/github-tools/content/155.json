@@ -9,10 +9,11 @@
     "after": "스킬들이 서로 파일을 넘겨 가며 한 달 업무를 이어서 처리"
   },
   "what": [
-    "Social AI Team은 소규모 업체용 SNS 운영을 돕는 Claude Code 스킬 묶음이에요.",
-    "브랜드 온보딩, 월간 콘텐츠 캘린더, 캡션, 링크드인·스레드·X 글, 성과 리뷰 스킬이 있어요.",
-    "orchestrator 스킬이 현재 상태를 보고 어디서 시작할지 안내해요.",
-    "단계마다 사람의 승인 지점이 있다고 해요."
+    "Social AI Team은 중소 사업체를 위한 소셜미디어 팀을 Claude Code 스킬 10개로 만들어 둔 묶음이에요.",
+    "브랜드 설정, 월간 콘텐츠 캘린더, 캡션, 이미지, 링크드인·스레드·X 글, 예약 게시, 월간 성과 리뷰까지 맡아요.",
+    "/social-media-manager가 사령탑이라서 지금 어느 단계인지 보고 알맞은 스킬로 안내해요.",
+    "각 단계 사이에 멈춰서 승인을 받는 지점이 있어서 앞 단계 실수가 뒤로 번지지 않아요.",
+    "결과는 클라이언트 폴더의 context, outputs 폴더에 파일로 쌓여요."
   ],
   "flow": [
     {
@@ -76,19 +77,148 @@
   ],
   "glossary": [
     {
-      "term": "오케스트레이터",
-      "meaning": "여러 작업을 순서대로 지휘하는 역할"
+      "term": "스킬",
+      "meaning": "AI에게 일하는 방법을 알려 주는 설명서 파일"
     },
     {
-      "term": "온보딩",
-      "meaning": "처음에 브랜드 정보를 정리해 두는 일"
+      "term": "MCP",
+      "meaning": "AI가 외부 도구를 쓰게 해 주는 연결 규격"
+    },
+    {
+      "term": "Playwright",
+      "meaning": "웹사이트를 자동으로 열어 보는 브라우저 도구"
+    },
+    {
+      "term": "오케스트레이터",
+      "meaning": "여러 작업의 순서를 정리하는 총괄자"
+    },
+    {
+      "term": "콘텐츠 필러",
+      "meaning": "계정이 반복해서 다루는 큰 주제 분류"
     }
   ],
   "caution": "README에 지정된 라이선스 문구가 명확하지 않아요. 상업 사용 전에 확인하세요.",
   "license": "",
   "sources": [
-    "README: 스킬 구조도와 역할 설명",
-    "README: content-calendar, caption-writer 설명",
-    "README: Blotato는 선택 사항 문구"
+    "README: 10개 스킬 구조도와 스킬별 설명",
+    "README: Installation 명령",
+    "README: MCP Requirements 표",
+    "README: 폴더 구조와 context 파일 연결",
+    "README: License 항목에 라이선스 이름 없음"
+  ],
+  "deep_dive": [
+    "소셜 운영은 브랜드 정의, 기획, 글쓰기, 디자인, 게시, 분석이 이어져야 해요. 이 묶음은 전문가 역할을 스킬로 나눠 한 팀처럼 일하게 만든 거예요. 그래서 일을 한 번에 몰아서 하지 않고 단계마다 사람이 확인하며 진행할 수 있어요.",
+    "핵심은 파일로 기억을 공유하는 방식이에요. brand-style.md를 모든 스킬이 읽고, 월말 리뷰가 best-performers.md를 갱신해서 다음 달 콘텐츠에 반영해요. 각 스킬이 같은 기록을 읽기 때문에 말투와 목표가 글마다 어긋나는 일이 줄어요.",
+    "일부 스킬은 MCP(외부 도구 연결)가 필요해요. Playwright와 Nano Banana가 핵심이고, 예약 게시용 Blotato는 선택이라고 README가 설명해요. 우리 채널에는 월간 계획과 월말 리뷰 구조를 비교해 볼 수 있다는 점이 쓸모가 있어요."
+  ],
+  "principle": {
+    "key_idea": "역할별 스킬이 같은 기록 파일을 읽고 써서 서로 이어져요",
+    "analogy": "회사에서 브랜드팀이 쓴 가이드 문서를 카피팀과 디자인팀이 같이 보며 일하는 것과 같아요.",
+    "steps": [
+      {
+        "title": "브랜드 정리",
+        "text": "brand-onboarding이 웹사이트와 인스타에서 근거를 모아 brand-style.md를 만들어요. 클라이언트마다 한 번만 해요. 이 파일이 모든 스킬이 함께 읽는 단 하나의 기준 문서가 돼요."
+      },
+      {
+        "title": "월간 계획",
+        "text": "content-calendar가 주제 비율과 형식을 정한 뒤 한 달 치 게시 아이디어를 content-calendar.md에 저장해요. 월 단위로 먼저 계획해 두면 매번 무엇을 올릴지 고민하는 시간이 줄어요."
+      },
+      {
+        "title": "콘텐츠 제작",
+        "text": "caption-writer와 플랫폼별 writer가 계획과 브랜드 파일을 읽고 글을 써요. 캡션에는 이미지 방향 메모(Visual Direction)가 붙어서, 디자인 스킬이 그 메모를 읽어 어울리는 이미지를 만들어요."
+      },
+      {
+        "title": "승인 후 게시",
+        "text": "publisher가 Blotato로 예약해요. 제출 전에 일정을 전부 보여 주고 확인을 받아요. README는 Blotato를 선택 기능이라고 해요. 승인 없이 게시되는 사고를 막으려는 장치예요."
+      },
+      {
+        "title": "성과 리뷰",
+        "text": "월말에 성과 파일이나 수치를 분석해 best-performers.md를 갱신해요. 이 내용을 다음 달 스킬들이 읽어서 계획에 반영해요. 지난달의 결과가 다음 달의 기준이 되는 순환 구조예요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "브랜드 정보",
+      "월간 목표"
+    ],
+    "core": [
+      "브랜드·캘린더 스킬",
+      "캡션·플랫폼 writer",
+      "리뷰 스킬"
+    ],
+    "outputs": [
+      "캡션·포스트 초안",
+      "월간 성과 리뷰"
+    ]
+  },
+  "howto": [
+    {
+      "step": "파일 받기",
+      "detail": "깃으로 저장소를 내려받아 폴더로 들어가요. ZIP 다운로드도 돼요.",
+      "cmd": "git clone https://github.com/stevenflanagan1/social-ai-team.git"
+    },
+    {
+      "step": "설치 스크립트",
+      "detail": "맥·리눅스는 아래 명령으로 스킬 10개를 ~/.claude/skills/에 복사해요. 윈도우는 install.bat이에요.",
+      "cmd": "bash install.sh"
+    },
+    {
+      "step": "MCP 연결",
+      "detail": "핵심 흐름에는 Playwright와 Nano Banana가 필요해요. 없어도 기본 모드로 돌아가지만 기능이 줄어요.",
+      "cmd": ""
+    },
+    {
+      "step": "작업 폴더 만들기",
+      "detail": "채널용 폴더를 만들고 그 안에서 Claude Code를 열어요. 기록 파일이 현재 폴더에 만들어지기 때문이에요.",
+      "cmd": "mkdir my-client && cd my-client"
+    },
+    {
+      "step": "시작하기",
+      "detail": "사령탑 스킬을 실행하면 브랜드 파일이 없다는 것을 알고 온보딩부터 안내해요.",
+      "cmd": "/social-media-manager"
+    }
+  ],
+  "scenario": {
+    "title": "우리 채널 월간 콘텐츠 캘린더 초안 비교용 만들기",
+    "steps": [
+      "채널 폴더를 만들고 /social-media-manager를 실행해요.",
+      "brand-onboarding으로 채널 소개와 말투 기준 파일을 만들어요.",
+      "content-calendar로 한 달 치 아이디어 초안을 받아요.",
+      "우리 content/calendar와 비교해서 쓸 만한 것만 가져와요.",
+      "caption-writer로 캡션 후보를 받고 캐릭터 말투로 고쳐요.",
+      "월말에 성과 리뷰 구조를 참고해 /review에 적용해요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "claude-content-skills",
+      "rank": 152,
+      "diff": "릴스 훅과 대본에 집중한 모음이에요. 이쪽은 브랜드 설정부터 월간 리뷰까지 운영 전체를 다뤄요."
+    },
+    {
+      "name": "instagram-skills",
+      "rank": 148,
+      "diff": "인스타 전용 9개 스킬이에요. 이쪽은 인스타·링크드인·스레드·X를 모두 다루는 10개 스킬 팀이에요."
+    },
+    {
+      "name": "marketing-skills",
+      "rank": 143,
+      "diff": "170개 이상의 넓은 마케팅 스킬 라이브러리예요. 이쪽은 소셜 운영 한 흐름에 맞춰 짜여 있어요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료로 쓰나요?",
+      "a": "README에 가격 정보는 없어요. Blotato는 선택 사항이고, Claude Code 이용 요금은 별도예요."
+    },
+    {
+      "q": "MCP 없이도 되나요?",
+      "a": "README는 MCP 없이도 기본 모드로 동작하지만 추가 기능이 줄어든다고 해요."
+    },
+    {
+      "q": "틱톡도 되나요?",
+      "a": "caption-writer가 Instagram, LinkedIn, Facebook, TikTok, X용 형식을 지원한다고 README가 설명해요."
+    }
   ]
 }

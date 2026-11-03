@@ -8,10 +8,11 @@
     "after": "분야 폴더를 골라 정해진 흐름대로 AI가 돌려 주기"
   },
   "what": [
-    "마케팅과 영업 팀을 위한 오픈소스 Claude Code 스킬 모음이에요.",
-    "단순 프롬프트가 아니라 스크립트와 점수 매기기까지 든 작업 흐름이라고 소개해요.",
-    "콘텐츠 운영, SEO, 유튜브 분석, 숏폼 제작 등 폴더별로 나뉘어 있어요.",
-    "각 폴더의 README에 따로 설치 방법이 있어요."
+    "마케팅·영업 팀을 위한 Claude Code 스킬을 폴더별로 모아 둔 오픈소스 저장소예요.",
+    "README는 '프롬프트가 아니라 스크립트, 점수 계산, 전문가 패널, 자동화 파이프라인이 든 완성 워크플로'라고 소개해요.",
+    "콘텐츠 품질 점수 매기기, 유튜브 경쟁 채널 분석, 숏폼 아이디어 평가, 숏폼 제작 같은 분류가 들어 있어요.",
+    "영업, 재무, 팟캐스트처럼 우리 채널과 관계없는 분류도 많아서 필요한 폴더만 골라 쓰는 게 좋아요.",
+    "만든 곳은 Single Brain 팀이고, 폴더마다 SKILL.md와 설치 방법이 따로 있어요."
   ],
   "flow": [
     {
@@ -69,7 +70,7 @@
   ],
   "difficulty": 3,
   "difficulty_note": "파이썬 설치와 API 키 설정이 필요해요",
-  "cost": "README에 가격 정보 없음",
+  "cost": "MIT 라이선스 공개. 연결하는 서비스의 API 비용은 README에 없음",
   "needs": [
     "Claude Code",
     "Python과 pip",
@@ -78,24 +79,152 @@
   "glossary": [
     {
       "term": "스킬",
-      "meaning": "AI에게 일하는 순서를 알려 주는 설명서"
+      "meaning": "AI에게 일하는 방법을 알려 주는 작업 설명서"
+    },
+    {
+      "term": "API 키",
+      "meaning": "외부 서비스를 쓰기 위한 비밀번호 같은 문자열"
+    },
+    {
+      "term": ".env 파일",
+      "meaning": "비밀 설정값을 적어 두는 설정 파일"
     },
     {
       "term": "파이프라인",
-      "meaning": "여러 작업이 이어진 자동 생산 라인"
+      "meaning": "여러 처리를 순서대로 이어 붙인 작업 줄"
     },
     {
-      "term": "클론",
-      "meaning": "저장소 전체를 내 컴퓨터로 복사하기"
+      "term": "CRO",
+      "meaning": "방문자가 구매·가입하도록 페이지를 개선하는 일"
     }
   ],
   "caution": "",
-  "license": "",
+  "license": "MIT",
   "sources": [
-    "README: Skills 분야별 표",
-    "README: Quick Start 설치 순서",
-    "README: Claude Code 사용 방법",
-    "README에 라이선스 표기 없음"
+    "README: Skills 표(Content Ops, YT Competitive Analysis, Shortform 계열)",
+    "README: Quick Start(git clone, pip install, cp .env.example)",
+    "README: How These Work with Claude Code (SKILL.md 복사)",
+    "README: What Makes These Different (통계 검정, Expert Panel 90+ 점수)",
+    "README: License MIT"
   ],
-  "rank": 125
+  "rank": 125,
+  "deep_dive": [
+    "AI에게 글 한 줄을 부탁하는 것과 달리, 이 저장소의 스킬은 점수표와 파이썬 스크립트를 함께 갖고 있어요. 예를 들어 콘텐츠 운영(Content Ops)은 전문가 역할 여러 명이 글을 채점하고, 점수가 90 이상이 될 때까지 다시 쓰게 해요.",
+    "유튜브 쪽 스킬도 눈에 띄어요. README 표에는 경쟁 채널에서 평소보다 훨씬 잘된 영상을 찾는 도구, 제목 패턴 뽑기, 숏폼 아이디어를 3초·5초 훅 기준으로 점수 매기는 스킬이 있다고 나와요. 아이디어를 고르는 단계에서 쓸모가 커요.",
+    "분류가 30개 가까이 되고 규모가 커서 모두 쓰려고 하면 길을 잃기 쉬워요. 폴더마다 SKILL.md가 따로 있으니 필요한 분류 하나만 복사해서 시작하고, 필요한 API 키도 그 폴더의 설명을 따라 준비하는 게 좋아요."
+  ],
+  "principle": {
+    "key_idea": "스킬 폴더의 지침과 스크립트로 AI가 점수를 매기며 반복 개선해요",
+    "analogy": "글을 쓴 뒤 심사위원 여러 명에게 점수를 받고, 기준에 못 미치면 고쳐 다시 내는 공모전 준비와 비슷해요.",
+    "steps": [
+      {
+        "title": "분류 고르기",
+        "text": "입력은 하고 싶은 일이에요. 저장소에는 growth-engine, content-ops 같은 분류 폴더가 있고, 쓰려는 일에 맞는 폴더 하나를 고르는 것이 시작이에요. 폴더마다 설명서와 설치 방법이 따로 있어요."
+      },
+      {
+        "title": "스킬 복사",
+        "text": "폴더 안의 SKILL.md를 Claude Code의 skills 폴더에 복사해요. README는 scripts나 references가 함께 있으면 폴더 전체를 복사하라고 해요."
+      },
+      {
+        "title": "키 설정",
+        "text": "폴더 안에서 필요한 파이썬 패키지를 설치하고, .env 파일에 API 키를 적어요. 어떤 키가 필요한지는 분류마다 달라서 각 폴더의 README를 봐요."
+      },
+      {
+        "title": "요청하기",
+        "text": "Claude Code에게 '캐러셀과 단일 이미지 중 무엇이 더 반응이 좋은지 실험해 줘'처럼 말로 부탁하면, 스킬의 지침에 따라 폴더 안 스크립트를 실행해 실험을 설계하고 결과를 계산해 줘요."
+      },
+      {
+        "title": "점수와 개선",
+        "text": "README에 따르면 일부 스킬은 전문가 역할의 패널이 글에 점수를 매기고, 통계 검정으로 실험 결과를 비교해요. 점수가 기준에 못 미치면 고쳐서 다시 평가해요. 감이 아니라 숫자로 개선하려는 방식이에요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "아이디어·콘텐츠",
+      "API 키(.env)"
+    ],
+    "core": [
+      "스킬 폴더 선택",
+      "스크립트 실행",
+      "점수·평가"
+    ],
+    "outputs": [
+      "개선된 콘텐츠",
+      "분석 리포트"
+    ]
+  },
+  "howto": [
+    {
+      "step": "저장소 받기",
+      "detail": "전체 스킬 모음을 내 컴퓨터로 내려받아요.",
+      "cmd": "git clone https://github.com/ericosiu/ai-marketing-skills.git"
+    },
+    {
+      "step": "폴더로 이동",
+      "detail": "내려받은 폴더 안으로 들어가요.",
+      "cmd": "cd ai-marketing-skills"
+    },
+    {
+      "step": "분류 고르기",
+      "detail": "쓰고 싶은 분류 폴더로 들어가요. 아래는 README가 든 예시예요. 숏폼이 목적이면 shortform 계열 폴더를 보세요.",
+      "cmd": "cd growth-engine"
+    },
+    {
+      "step": "패키지 설치",
+      "detail": "그 폴더에 필요한 파이썬 패키지를 설치해요. pip는 파이썬 부품 설치 프로그램이에요.",
+      "cmd": "pip install -r requirements.txt"
+    },
+    {
+      "step": "키 파일 만들기",
+      "detail": "예시 설정 파일을 복사한 뒤, .env 안에 필요한 API 키를 직접 적어요. 키는 남에게 보여 주면 안 돼요.",
+      "cmd": "cp .env.example .env"
+    },
+    {
+      "step": "Claude에 연결",
+      "detail": "SKILL.md를 Claude Code의 skills 폴더로 복사한 뒤, Claude Code에게 하고 싶은 일을 말로 부탁해요.",
+      "cmd": "cp ai-marketing-skills/growth-engine/SKILL.md .claude/skills/growth-engine.md"
+    }
+  ],
+  "scenario": {
+    "title": "유튜브 쇼츠 경쟁 채널의 잘된 영상 패턴 찾기",
+    "steps": [
+      "한국 생활템 소개 채널 5곳을 정해 영상 목록을 모아요.",
+      "YT Competitive Analysis 스킬로 평소보다 유독 잘된 영상을 찾아요.",
+      "제목 패턴 뽑기 기능으로 반복되는 첫 문장 유형을 정리해요.",
+      "숏폼 아이디어 스킬로 우리 후보를 3초 훅 기준으로 점수 매겨요.",
+      "좋은 후보만 우리 캐릭터 말투로 대본을 새로 써요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "marketingskills",
+      "rank": 21,
+      "diff": "전환·카피·SEO 등 마케터용 스킬 모음이에요. 이 레포는 스크립트와 점수 계산이 더 많아요."
+    },
+    {
+      "name": "aaron-marketing-skills",
+      "rank": 128,
+      "diff": "마케팅 스킬 모음이에요. 이 레포는 영업·재무 등 사업 운영까지 분류가 넓어요."
+    },
+    {
+      "name": "youtube-agent-skill",
+      "rank": 123,
+      "diff": "유튜브 운영에만 집중한 11개 스킬이에요. 이 레포는 분야가 훨씬 넓어요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한 번에 다 설치해야 하나요?",
+      "a": "아니요. README는 분류마다 별도의 SKILL.md와 설치법이 있다고 해요. 필요한 폴더만 골라서 설치하면 돼요."
+    },
+    {
+      "q": "초보도 쓸 수 있나요?",
+      "a": "파이썬 설치, .env에 API 키 입력이 필요해서 조금 어려워요. 터미널 명령을 입력해 본 적이 없다면 도움을 받는 게 좋아요."
+    },
+    {
+      "q": "무료인가요?",
+      "a": "README에 MIT 라이선스로 자유롭게 써도 된다고 적혀 있어요. 다만 연결하는 서비스의 API 요금은 README에 나와 있지 않아요."
+    }
+  ]
 }

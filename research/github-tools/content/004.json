@@ -9,10 +9,11 @@
     "after": "매뉴얼(스킬)을 한 번 만들어 두면 알아서 따라 해요"
   },
   "what": [
-    "스킬은 지시문과 스크립트, 자료를 담은 폴더예요. Claude가 필요할 때 불러와 써요.",
-    "이 저장소는 Anthropic이 만든 예시 스킬을 모아 둔 곳이에요.",
-    "미술·디자인부터 웹앱 테스트, 회사 문서 작업까지 여러 종류가 있어요.",
-    "스킬은 SKILL.md 파일 하나만 있어도 만들 수 있어요."
+    "anthropics/skills는 Anthropic이 공개한 'Claude용 스킬' 예시 모음 저장소예요.",
+    "스킬은 지침·스크립트·자료를 담은 폴더로, Claude가 필요할 때 불러와 특정 일을 더 잘하게 해요.",
+    "창작·디자인, 개발·기술, 기업 업무·소통, 문서 작업 같은 여러 종류의 예시가 들어 있어요.",
+    "Word, PDF, 슬라이드, 엑셀 문서를 다루는 스킬(docx, pdf, pptx, xlsx)도 있어요.",
+    "스킬은 SKILL.md 파일 하나만 있어도 만들 수 있어서, 내 스킬을 만드는 본보기가 돼요."
   ],
   "flow": [
     {
@@ -79,23 +80,138 @@
   "glossary": [
     {
       "term": "스킬",
-      "meaning": "Claude가 불러 쓰는 업무 매뉴얼 폴더"
+      "meaning": "Claude에게 일하는 방법을 알려 주는 폴더"
+    },
+    {
+      "term": "SKILL.md",
+      "meaning": "스킬의 이름·설명·지침을 적는 파일"
     },
     {
       "term": "플러그인",
-      "meaning": "기능을 덧붙이는 추가 꾸러미"
+      "meaning": "프로그램에 기능을 덧붙이는 추가 묶음"
     },
     {
       "term": "마켓플레이스",
-      "meaning": "플러그인을 골라 설치하는 목록"
+      "meaning": "플러그인을 모아 두고 고르는 장터"
     }
   ],
   "caution": "README는 데모·교육용이라고 밝혀요. 중요한 작업에 쓰기 전에 꼭 직접 시험하세요.",
   "license": "다수 Apache 2.0, 문서 스킬(docx·pdf·pptx·xlsx)은 소스 공개형",
   "sources": [
-    "README: Skills 설명과 SKILL.md 형식",
-    "README: Disclaimer 섹션",
-    "README: /plugin marketplace add 설치 명령",
-    "README: Apache 2.0 및 document skills 라이선스 설명"
-  ]
+    "README: Skills 설명, About This Repository",
+    "README: Claude Code 플러그인 설치 명령",
+    "README: Creating a Basic Skill(name, description 필수)",
+    "README: Disclaimer, 문서 스킬의 라이선스 문구",
+    "일반 원리: 스킬은 이름·설명을 먼저 훑고 필요할 때 본문을 읽는 구조(README와 다른 글의 설명 참고)"
+  ],
+  "deep_dive": [
+    "AI는 똑똑해도 우리 회사·채널의 규칙은 몰라요. 스킬은 '이 일은 이렇게 해'라는 설명서와 스크립트, 자료를 폴더로 묶어 두고, Claude가 필요할 때만 읽어서 같은 방식으로 반복해 일하게 만드는 방법이에요. 그래서 매번 길게 지시하지 않아도 돼요.",
+    "README는 이 저장소의 스킬이 데모·교육용이라고 밝혀요. 여기 있는 구현이 Claude에서 실제로 동작하는 것과 다를 수 있다는 뜻이라서, 중요한 작업에 쓰기 전에는 반드시 직접 시험해 봐야 해요. 그래서 '완성품'보다 '본보기'로 보는 게 좋아요.",
+    "예시 스킬 다수는 Apache 2.0(자유롭게 쓸 수 있는 공개 라이선스)이지만, docx·pdf·pptx·xlsx 문서 스킬은 소스 공개형(source-available)이라 오픈소스와 달라요. 쓰기 전에 폴더별 라이선스를 구분해 보세요."
+  ],
+  "principle": {
+    "key_idea": "설명서(SKILL.md)를 필요할 때만 읽어 일하는 방법을 배워요",
+    "analogy": "신입 직원이 업무 매뉴얼 폴더를 책상 옆에 두고, 그 일이 생길 때만 해당 매뉴얼을 펼쳐 보는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "스킬 폴더 준비",
+        "text": "스킬은 폴더 하나예요. 안에 SKILL.md가 있고, 맨 위에 이름(name)과 설명(description)이 적혀 있어요. 이 두 가지가 필수 항목이에요."
+      },
+      {
+        "title": "목록만 먼저",
+        "text": "이런 구조는 보통 시작할 때 스킬의 이름과 설명만 가볍게 훑어 둬요. 그래야 스킬이 수십 개여도 한꺼번에 다 읽는 부담이 적어요. 본문은 필요할 때 따로 불러와요."
+      },
+      {
+        "title": "필요한 스킬 선택",
+        "text": "사용자의 요청이 어떤 스킬의 설명(description)과 맞으면 Claude가 그 스킬을 골라요. 예를 들어 README의 예시처럼 'PDF 스킬로 서류의 양식 칸을 뽑아 줘'라고 말하는 경우예요."
+      },
+      {
+        "title": "본문 읽기",
+        "text": "선택된 스킬의 SKILL.md 본문(지침, 예시, 주의점)과 폴더에 딸린 스크립트나 자료를 읽어요. 그다음 그 지침대로 일의 순서와 기준을 따라서 작업을 진행해요."
+      },
+      {
+        "title": "결과 만들기",
+        "text": "지침에 따라 문서를 만들거나 분석 결과를 내요. 같은 스킬을 쓰면 매번 비슷한 방식으로 일하게 돼서 결과가 안정적이에요. 결과가 이상하면 SKILL.md의 지침을 고쳐 다시 시험해요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "사용자 요청",
+      "스킬 폴더"
+    ],
+    "core": [
+      "스킬 선택",
+      "SKILL.md 읽기",
+      "지침대로 작업"
+    ],
+    "outputs": [
+      "문서·분석 결과"
+    ]
+  },
+  "howto": [
+    {
+      "step": "Claude Code 열기",
+      "detail": "Claude Code 안에서 이 저장소를 플러그인 장터(마켓플레이스)로 등록해 쓰는 방법이에요. 먼저 Claude Code를 실행해요.",
+      "cmd": ""
+    },
+    {
+      "step": "저장소 등록",
+      "detail": "Claude Code 안에서 이 명령으로 anthropics/skills 저장소를 플러그인 마켓플레이스(플러그인 장터)에 추가해요.",
+      "cmd": "/plugin marketplace add anthropics/skills"
+    },
+    {
+      "step": "문서 스킬 설치",
+      "detail": "Word·PDF·슬라이드·엑셀 스킬 묶음을 설치해요. 설치 뒤에는 'PDF 스킬로 ~해 줘'처럼 말하면 돼요.",
+      "cmd": "/plugin install document-skills@anthropic-agent-skills"
+    },
+    {
+      "step": "예시 스킬 설치",
+      "detail": "창작·개발·업무용 예시 스킬 묶음이에요. 어떤 일을 시킬 수 있는지 구경하기 좋고, 설치한 뒤에는 스킬 이름을 직접 말해 일을 시켜요.",
+      "cmd": "/plugin install example-skills@anthropic-agent-skills"
+    },
+    {
+      "step": "내 스킬 만들기",
+      "detail": "폴더를 만들고 SKILL.md에 이름(name)과 설명(description)을 적은 뒤, 아래에 지침을 쓰면 돼요. template-skill이 본보기예요.",
+      "cmd": ""
+    }
+  ],
+  "scenario": {
+    "title": "채널 대본 작성 규칙을 '내 스킬'로 만들어 보기",
+    "steps": [
+      "스킬 폴더를 만들고 SKILL.md를 만들어요",
+      "name과 description에 '쇼츠 대본 작성'이라고 적어요",
+      "주인공 말투, 금지 표현, 대본 길이 규칙을 지침에 적어요",
+      "예시 대본 2개를 '예시' 항목에 넣어요",
+      "Claude Code에 설치하고 '대본 써 줘'로 시험해 봐요",
+      "결과가 규칙과 다르면 지침을 고쳐요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "awesome-claude-skills",
+      "rank": 12,
+      "diff": "이쪽은 Anthropic이 만든 예시 모음이에요. awesome은 여러 제작자의 스킬을 모은 추천 목록이에요."
+    },
+    {
+      "name": "marketingskills",
+      "rank": 21,
+      "diff": "marketingskills는 기획·카피 분야에 특화된 스킬 묶음이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "스킬이 뭔가요?",
+      "a": "지침, 스크립트, 자료를 담은 폴더예요. Claude가 특정 일을 반복해서 잘하도록 필요할 때 불러 써요."
+    },
+    {
+      "q": "내 스킬은 어떻게 만들죠?",
+      "a": "폴더에 SKILL.md를 만들고 name, description 두 항목을 적은 뒤 아래에 지침을 쓰면 돼요."
+    },
+    {
+      "q": "바로 업무에 써도 되나요?",
+      "a": "README는 데모·교육용이라고 밝혀요. Claude에서의 실제 동작은 다를 수 있어서 먼저 직접 시험하세요."
+    }
+  ],
+  "images": []
 }

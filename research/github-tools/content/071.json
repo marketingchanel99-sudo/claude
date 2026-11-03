@@ -9,10 +9,10 @@
     "after": "AI가 알맞은 도구를 찾아 실행하고 결과를 읽기"
   },
   "what": [
-    "Apify MCP 서버는 AI 에이전트를 Apify Store의 Actor(수집 도구)에 연결해 줘요.",
-    "AI가 스스로 알맞은 Actor를 찾고, 입력과 가격을 확인한 뒤 실행해요.",
-    "웹 검색, 사이트 수집, 정보 추출 등을 사이트별로 따로 설치하지 않고 써요.",
-    "공식 호스팅 주소 https://mcp.apify.com 에 로그인해 연결해요."
+    "Apify MCP 서버는 AI 비서가 Apify Store의 수천 개 수집 도구(Actor)를 골라 쓰게 해 주는 공식 연결 서버예요.",
+    "AI에게 '이 사이트에서 정보를 모아 와'라고 시키면, AI가 알맞은 Actor를 찾고, 입력값과 가격을 확인한 뒤 실행하고 결과 표를 읽어요.",
+    "웹 검색, 구글 지도, 인스타그램, 틱톡 같은 수집 도구가 예로 나와요. 사이트마다 별도 서버를 설치할 필요가 없어요.",
+    "호스팅 서버(https://mcp.apify.com)에 로그인해서 쓰거나, 내 컴퓨터에서 npx로 돌릴 수 있어요."
   ],
   "flow": [
     {
@@ -76,20 +76,147 @@
   ],
   "glossary": [
     {
+      "term": "MCP",
+      "meaning": "AI가 외부 도구를 쓰게 해 주는 연결 규칙"
+    },
+    {
       "term": "Actor",
-      "meaning": "Apify에서 실행하는 작은 자동화 프로그램"
+      "meaning": "Apify에서 한 가지 일을 하는 클라우드 프로그램"
+    },
+    {
+      "term": "데이터셋",
+      "meaning": "수집 결과가 쌓이는 표 저장소"
     },
     {
       "term": "OAuth",
-      "meaning": "비밀번호 없이 안전하게 로그인하는 방식"
+      "meaning": "비밀번호 없이 로그인 허가를 주는 방식"
+    },
+    {
+      "term": "스크래핑",
+      "meaning": "웹페이지에서 정보를 자동으로 뽑아내기"
     }
   ],
   "caution": "Actor마다 가격과 이용 조건이 달라요. SNS 수집은 약관과 개인정보를 꼭 확인하세요.",
   "license": "MIT",
   "sources": [
-    "README: 공식 MCP 서버 소개와 hosted 주소",
-    "README: Actor 검색·가격 확인 흐름",
-    "README: Quickstart와 OAuth 안내",
+    "README: 공식 Apify MCP 서버 소개, mcp.apify.com",
+    "README: How an agent uses Apify Actors(search-actors, fetch-actor-details, call-actor, get-dataset-items)",
+    "README: Pricing and limits(연결 무료, Actor별 과금, 무료 플랜 월 5달러, maxItems 등)",
+    "README: Claude Code 등록 명령과 지원 클라이언트 목록",
     "README: MIT license"
+  ],
+  "deep_dive": [
+    "AI가 웹의 정보를 직접 긁어 오게 하려면 보통 사이트마다 도구를 만들어 연결해야 해요. Apify MCP는 이미 만들어진 Actor 시장을 AI가 직접 검색해서 쓰는 방식으로 이 번거로움을 줄여요. 한 번 연결하면 수천 개 도구 중에서 고를 수 있어요.",
+    "Actor는 Apify 플랫폼에서 돌아가는 서버리스(내 컴퓨터가 아닌 클라우드에서 실행되는) 프로그램이에요. 각각 구글 지도 수집, 웹 문서 가져오기처럼 한 가지 일을 해요. 어떤 Actor는 그 자체가 MCP 서버여서 AI가 그 도구도 바로 쓸 수 있어요.",
+    "이 서버 자체는 연결만 무료예요. Actor를 실행하면 각 Actor의 가격에 따라 내 Apify 계정에 비용이 청구된다고 README가 설명해요. 무료 플랜에는 월 5달러 사용량이 포함돼요. 비용 상한 옵션을 꼭 활용하세요."
+  ],
+  "principle": {
+    "key_idea": "AI가 도구 가게에서 알맞은 수집 도구를 골라 클라우드에서 돌려요",
+    "analogy": "AI가 심부름센터 목록에서 알맞은 업체를 고르고, 견적을 확인한 뒤 일을 맡기고 결과를 받아 오는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "도구 검색",
+        "text": "AI가 search-actors 도구로 Apify Store에서 지금 일에 맞는 Actor(수집 프로그램) 후보를 찾아요. 가게 진열대를 검색하는 것과 비슷해요. 그래서 사이트마다 도구를 따로 설치하지 않아도 돼요."
+      },
+      {
+        "title": "설명서 읽기",
+        "text": "fetch-actor-details로 후보의 입력 형식, 설명, 가격을 읽어요. AI는 여기서 '무엇을 넣어야 하는지' 알아내요. 실행 전에 가격을 알 수 있어서 예상 밖의 비용을 줄일 수 있어요."
+      },
+      {
+        "title": "클라우드에서 실행",
+        "text": "call-actor가 Apify 클라우드에서 Actor를 실행해요. 기본 30초, 최대 45초까지 기다리고, 끝나면 실행 상태와 저장소 ID를 돌려줘요. 수집된 내용은 이 ID가 가리키는 저장소에 남아요."
+      },
+      {
+        "title": "결과 읽기",
+        "text": "get-dataset-items로 저장소(데이터셋)에 쌓인 결과 표를 읽어요. 결과가 많으면 limit(몇 개)와 offset(어디서부터)으로 나눠 받아요. 그래서 AI가 한꺼번에 너무 많은 양을 읽지 않아도 돼요."
+      },
+      {
+        "title": "비용 상한 걸기",
+        "text": "call-actor의 callOptions에 maxTotalChargeUsd나 maxItems를 넣으면 한 번 실행의 비용을 제한할 수 있어요. 잘못된 요청으로 비용이 커지는 일을 막는 안전장치예요. 처음엔 작게 걸어 두세요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "AI 비서의 요청",
+      "Apify 계정 로그인"
+    ],
+    "core": [
+      "Apify MCP 서버",
+      "Actor 검색/실행",
+      "Apify 클라우드"
+    ],
+    "outputs": [
+      "수집 결과 표(데이터셋)"
+    ]
+  },
+  "howto": [
+    {
+      "step": "설정 도우미 열기",
+      "detail": "README는 mcp.apify.com 설정 화면에서 사용하는 AI 앱을 고르면 알맞은 설정을 만들어 준다고 안내해요.",
+      "cmd": ""
+    },
+    {
+      "step": "Claude Code에 연결",
+      "detail": "한 줄 명령으로 Claude Code에 서버를 등록해요. 처음 서버를 쓸 때 Apify 로그인 창이 열려요. 다른 AI 앱은 설정 도우미 화면에서 알맞은 설정을 복사해 쓰면 돼요.",
+      "cmd": "claude mcp add apify \"https://mcp.apify.com\" -t http"
+    },
+    {
+      "step": "로그인",
+      "detail": "열린 브라우저 창에서 Apify에 로그인해요. 계정이 없으면 그 자리에서 무료로 만들 수 있어요. 토큰(비밀번호 같은 값)을 쓰는 방식이면 남에게 보이지 않게 보관하세요.",
+      "cmd": ""
+    },
+    {
+      "step": "AI에게 요청",
+      "detail": "AI에게 어떤 사이트의 어떤 정보를 모아 달라고 부탁하면, AI가 Actor를 검색하고 입력값을 맞춰 실행해요. 요청을 구체적으로 적을수록 결과가 정확해요.",
+      "cmd": ""
+    },
+    {
+      "step": "비용 확인",
+      "detail": "실행 전에 fetch-actor-details로 보이는 가격을 확인하고, 비용 상한(maxItems 등)을 거는 습관을 들여요. 결과가 이상하면 AI에게 다른 Actor를 찾아 달라고 하세요.",
+      "cmd": ""
+    }
+  ],
+  "scenario": {
+    "title": "'한국 올리브영 인기 상품' 아이디어용 자료 모으기",
+    "steps": [
+      "AI에게 수집하고 싶은 공개 웹페이지와 필요한 항목을 설명해요.",
+      "AI가 Actor를 검색하고 가격을 먼저 보여 주게 해요.",
+      "maxItems 같은 비용 상한을 정하고 한 번만 실행해요.",
+      "나온 표에서 상품 이름과 순위만 뽑아 주제 후보로 정리해요.",
+      "가격과 성분은 직접 확인한 뒤에만 대본에 써요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "Maxun",
+      "rank": 62,
+      "diff": "직접 로봇을 만들어 웹 데이터를 모으는 오픈소스 플랫폼이에요. Apify MCP는 이미 만들어진 Actor를 AI가 골라 써요."
+    },
+    {
+      "name": "xiaohongshu-mcp",
+      "rank": 64,
+      "diff": "샤오홍슈 하나만 다루는 MCP 서버예요. Apify MCP는 여러 사이트용 도구 시장에 연결돼요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료인가요?",
+      "a": "서버 연결은 무료예요. Actor 실행은 각 Actor 가격대로 내 계정에 청구되고, 무료 플랜에는 월 5달러 사용량이 포함돼요."
+    },
+    {
+      "q": "코딩을 몰라도 쓸 수 있나요?",
+      "a": "설정 도우미가 클라이언트별 설정을 만들어 줘요. 한 줄 명령이나 연결 버튼 정도면 돼서 어렵지 않아요."
+    },
+    {
+      "q": "어떤 AI 앱에서 쓸 수 있나요?",
+      "a": "README에 Claude Code, ChatGPT, Cursor, VS Code, Codex 등이 나와요. Claude 커넥터로도 쓸 수 있다고 해요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/apify_apify-mcp-server_3.jpg",
+      "caption": "AI 앱, Apify MCP 서버, Actor 도구들이 연결되는 구조와 4단계 사용 순서"
+    }
   ]
 }

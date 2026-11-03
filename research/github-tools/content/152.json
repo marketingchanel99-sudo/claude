@@ -9,10 +9,11 @@
     "after": "스킬이 훅 10개, 대본, 캡션, 2주 일정까지 이어서 만들어요"
   },
   "what": [
-    "Claude Content Skills는 인스타 릴스 콘텐츠를 만드는 무료 Claude 스킬 모음이에요.",
-    "잘 된 릴스를 분석하고 훅을 쓰고 대본과 캡션, 2주 캘린더까지 만들어 줘요.",
-    "AI 티가 나는 문장을 지우는 '휴머나이저' 스킬도 들어 있어요.",
-    "전체를 한 번에 돌리는 Content Factory 스킬이 있다고 소개돼요."
+    "Claude Content Skills는 인스타 릴스 제작을 돕는 Claude용 스킬 모음이에요. 훅, 대본, 재가공, 캡션, 2주 캘린더를 다뤄요.",
+    "스킬 하나(Content Factory)가 나머지를 순서대로 실행해서 명령 하나로 릴스 한 편과 댓글 응대까지 이어 줘요.",
+    "Obsidian(내 메모 앱)에 기록을 저장해 Claude가 다음 대화에서도 기억하게 하는 스킬도 있어요.",
+    "README는 인스타 스킬 30개가 분류되어 있다고 소개하고, 코딩이나 편집 프로그램은 필요 없다고 말해요.",
+    "Ootto라는 회사가 만들었고, 자동화 서비스(Ootto)의 수동 버전이라고 밝혀요."
   ],
   "flow": [
     {
@@ -76,20 +77,160 @@
   ],
   "glossary": [
     {
-      "term": "훅",
-      "meaning": "영상 첫머리에서 시선을 잡는 문장"
+      "term": "스킬",
+      "meaning": "AI에게 일하는 방법을 알려 주는 설명서 파일"
     },
     {
-      "term": "스킬",
-      "meaning": "AI가 읽는 업무 설명서"
+      "term": "훅",
+      "meaning": "영상 맨 앞 1~3초에 시선을 붙잡는 장면·문구"
+    },
+    {
+      "term": "옵시디언",
+      "meaning": "내 컴퓨터에 메모를 저장하는 노트 앱"
+    },
+    {
+      "term": "리퍼포징",
+      "meaning": "긴 글·영상을 짧은 콘텐츠로 바꿔 다시 쓰기"
+    },
+    {
+      "term": "캐러셀",
+      "meaning": "옆으로 넘기는 여러 장짜리 게시물"
     }
   ],
   "caution": "Reddit 수집, 릴스 다운로드 기능은 플랫폼 약관과 저작권을 확인하고 쓰세요.",
   "license": "MIT",
   "sources": [
-    "README: 스킬 표(Content Factory, Virality 등)",
-    "README: 30 Instagram skills 분류",
-    "README: 댓글 응답 스킬 설명",
-    "README: MIT"
+    "README: 스킬 표(Content Factory, Virality 등)와 30개 분류",
+    "README: Installation 명령",
+    "README: How to use 단계",
+    "README: images/workflow.png 흐름도",
+    "README: License MIT",
+    "README: Agent Reach 번들 설명"
+  ],
+  "deep_dive": [
+    "릴스는 첫 1~3초에서 갈려요. 이 스킬 모음은 인기 릴스를 분석해 훅을 배우고 그 구조를 따라 새 대본을 쓰게 하는 흐름으로 만들어졌어요. 그래서 처음부터 끝까지 한 번에 해 보고 싶다면 Content Factory부터 시작하라고 README가 안내해요.",
+    "Virality 스킬은 만든 팀의 계정 262개 게시물과 350만 조회 데이터에서 잘된 훅과 못된 훅의 차이를 정리했다고 해요. 8가지 훅 점검표도 들어 있어요. 이런 구조는 영상 제작 전 훅과 구성을 정리하는 단계에서 특히 쓸모가 있어요.",
+    "흐름도를 보면 Obsidian 메모 → Claude → 훅·대본·캡션·캘린더 → 릴스 게시로 이어지고, 잘된 것을 다시 메모에 넣어 반복해요. 우리 채널 기획 루틴에 참고할 만해요. 다만 일부 기능은 SNS 수집을 포함하므로 약관과 저작권을 확인하고 써야 해요."
+  ],
+  "principle": {
+    "key_idea": "잘된 사례를 분석해 구조를 배우고, 내 주제로 새 릴스를 만들어요",
+    "analogy": "요리 대회 우승 레시피의 조리 순서만 배우고, 재료는 내 것으로 바꿔 새 요리를 만드는 것과 같아요.",
+    "steps": [
+      {
+        "title": "수요 찾기",
+        "text": "Agent Reach 스킬이 Reddit 등에서 사람들이 원하는 주제와 인기 릴스를 찾아요. README는 무료이고 로그인이 필요 없다고 해요. 만들기 전에 잘되는 주제를 먼저 알아보는 단계예요."
+      },
+      {
+        "title": "분석하기",
+        "text": "Reel Analyzer가 인기 릴스를 프레임별로 보고 자막을 읽어서 훅, 구조, 속도, 화면을 나눠 분석해요. 잘된 이유를 조각조각 살펴야 그 구조를 따라 할 수 있기 때문이에요."
+      },
+      {
+        "title": "훅 쓰기",
+        "text": "Viral Hook Writer가 첫 1~3초에 쓸 훅 10개를 써서 무엇부터 시험할지 순위를 매겨 줘요. 영상 맨 앞에서 시선을 붙잡는 것이 가장 중요하다는 생각에서 따로 만든 단계예요."
+      },
+      {
+        "title": "대본·구성",
+        "text": "Reel Scripter가 분석한 구조를 바탕으로 30~45초 대본을 쓰고, Reel Builder가 장면별 화면과 글자, 캡션까지 짜요. 남의 문장이 아니라 구조만 빌려 새로 쓰는 방식이에요."
+      },
+      {
+        "title": "다듬고 올리기",
+        "text": "Humanizer로 AI 티를 지운 뒤 캡션과 해시태그를 정해 올려요. 반응이 좋았던 것은 다시 기록해 다음 분석에 넣어요. README 흐름도에서 이렇게 한 바퀴 돌수록 공장이 좋아져요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "주제·인기 릴스",
+      "내 말투와 기록"
+    ],
+    "core": [
+      "Reel Analyzer",
+      "훅·대본 스킬",
+      "캡션·캘린더"
+    ],
+    "outputs": [
+      "릴스 대본·구성",
+      "2주 업로드 계획"
+    ]
+  },
+  "howto": [
+    {
+      "step": "플러그인 추가",
+      "detail": "Claude Code에서 마켓플레이스에 저장소를 추가해요. README가 추천하는 방법이에요.",
+      "cmd": "/plugin marketplace add Ootto-AI/claude-content-skills"
+    },
+    {
+      "step": "스킬 설치",
+      "detail": "이어서 스킬 묶음을 설치해요.",
+      "cmd": "/plugin install claude-content-skills@ootto-content-skills"
+    },
+    {
+      "step": "수동 설치(대안)",
+      "detail": "맥이나 리눅스에서는 저장소를 받아 설치 스크립트를 실행해도 돼요. 스킬이 ~/.claude/skills/에 복사돼요.",
+      "cmd": "git clone --depth 1 https://github.com/Ootto-AI/claude-content-skills.git"
+    },
+    {
+      "step": "Claude Code 재시작",
+      "detail": "설치 후 Claude Code를 다시 켜면 스킬이 보여요.",
+      "cmd": ""
+    },
+    {
+      "step": "한 번에 실행",
+      "detail": "/content-factory에 주제, 계정 이름, 참고할 릴스를 알려 주면 전체 흐름을 돌려요.",
+      "cmd": "/content-factory"
+    },
+    {
+      "step": "한 단계만 실행",
+      "detail": "훅만 필요하면 해당 스킬만 호출해요.",
+      "cmd": "/viral-hook-writer"
+    }
+  ],
+  "scenario": {
+    "title": "'한국 편의점 신상' 릴스 훅 후보와 2주 캘린더 만들기",
+    "steps": [
+      "/viral-hook-writer에 주제와 대상을 알려 줘요.",
+      "훅 10개 중 상위 3개를 우리 캐릭터 말투에 맞게 골라요.",
+      "Reel Scripter로 30~45초 대본 초안을 받아요.",
+      "Humanizer로 AI 티가 나는 표현을 지워요.",
+      "Content Calendar로 2주 일정을 짜요.",
+      "사실과 가격은 근거를 확인하고 승인 단계로 넘겨요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "instagram-skills",
+      "rank": 148,
+      "diff": "인스타 전용 스킬 9개로 캡션과 프로필에 강해요. 이쪽은 릴스 제작 전 과정과 30개 스킬이 있어요."
+    },
+    {
+      "name": "Agent-Reach",
+      "rank": 8,
+      "diff": "이 모음에 일부가 포함된 수집 도구예요. 단독으로는 여러 플랫폼 접근에 집중해요."
+    },
+    {
+      "name": "claude-skill-social-post",
+      "rank": 146,
+      "diff": "내 말투 학습과 개인 데이터 보호가 중심이에요. 이쪽은 릴스 훅과 대본에 집중해요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "코딩을 몰라도 되나요?",
+      "a": "README는 코드나 편집 프로그램이 필요 없다고 해요. Claude Code 설치는 필요해요."
+    },
+    {
+      "q": "Claude Code 없이도 쓸 수 있나요?",
+      "a": "스킬 파일이 일반 프롬프트라서 복사해 claude.ai에 붙여 넣어도 된다고 README가 안내해요."
+    },
+    {
+      "q": "무료인가요?",
+      "a": "README는 MIT 라이선스로 자유롭게 쓰고 고쳐도 된다고 해요. Claude 이용 요금은 별도예요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/Ootto-AI_claude-content-skills_2.jpg",
+      "caption": "메모 앱에서 Claude, 훅·대본·캡션, 릴스 게시로 이어지는 흐름도"
+    }
   ]
 }

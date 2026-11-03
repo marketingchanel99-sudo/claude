@@ -9,10 +9,11 @@
     "after": "음성 파일을 넣으면 글자와 자막이 자동으로 나옴"
   },
   "what": [
-    "Whisper는 사람의 말소리를 글자로 바꿔 주는 음성 인식 모델이에요.",
-    "여러 언어를 인식하고, 다른 언어를 영어로 번역하는 일도 할 수 있어요.",
-    "크기가 다른 모델 6가지가 있어서 속도와 정확도를 고를 수 있어요.",
-    "명령어 한 줄로 쓸 수 있고, ffmpeg라는 보조 프로그램이 필요해요."
+    "Whisper는 말소리를 글자로 바꿔 주는 OpenAI의 음성 인식 모델이에요.",
+    "소리 파일을 넣으면 받아쓰기 글이 나오고, 어떤 언어인지도 알아내요.",
+    "다른 나라 말을 영어로 번역하는 기능도 있어요. 번역에는 medium, large 모델이 좋아요.",
+    "모델 크기가 tiny부터 large, turbo까지 여섯 가지라서 내 컴퓨터에 맞춰 고를 수 있어요.",
+    "코드와 모델 파일이 MIT 라이선스로 공개돼서 내 컴퓨터에서 무료로 돌릴 수 있어요."
   ],
   "flow": [
     {
@@ -84,19 +85,153 @@
     },
     {
       "term": "모델",
-      "meaning": "학습을 마친 AI의 두뇌 파일"
+      "meaning": "학습을 마친 AI 프로그램 본체"
     },
     {
       "term": "VRAM",
-      "meaning": "그래픽카드의 작업용 메모리"
+      "meaning": "그래픽카드가 가진 작업 메모리"
+    },
+    {
+      "term": "스펙트로그램",
+      "meaning": "소리를 시간·높낮이로 그린 그림"
+    },
+    {
+      "term": "토큰",
+      "meaning": "AI가 글을 읽고 쓰는 가장 작은 단위"
     }
   ],
   "caution": "번역은 medium·large 모델이 좋다고 해요. 자막은 올리기 전에 꼭 사람이 확인하세요.",
   "license": "MIT",
   "sources": [
-    "README: speech recognition, translation, language identification 설명",
-    "README: 모델 표(VRAM ~1GB~10GB)",
-    "README: ffmpeg 설치 안내",
-    "README: MIT 라이선스"
+    "README: Approach(Transformer seq2seq, 다중 작업 학습) 및 구조도 이미지",
+    "README: Available models and languages 표(VRAM, 상대 속도)",
+    "README: 설치 명령, CLI·Python 사용 예시, turbo 번역 주의",
+    "README: Python usage(30초 창, log-Mel 스펙트로그램 코드)",
+    "README: License 섹션(MIT)"
+  ],
+  "deep_dive": [
+    "자막을 만들려면 사람이 들으며 받아 적어야 했어요. Whisper는 다양한 소리 데이터로 학습해서, 하나의 모델이 받아쓰기, 번역, 언어 알아맞히기를 모두 하도록 만든 만능형 음성 인식 모델이에요. 자막 초안 작업에 도움이 될 수 있어요.",
+    "README 그림에 따르면 학습 데이터가 68만 시간(680k hours)이에요. 영어 받아쓰기, 다른 말을 영어로 번역, 다른 언어 받아쓰기, 말이 없는 구간까지 한 모델이 함께 배웠어요. 이렇게 여러 일을 함께 배워서 하나의 모델이 여러 일을 해요.",
+    "정확도는 언어마다 크게 달라요. README도 언어별 오류율이 다르다고 표로 보여 줘요. 그림의 학습 예시에는 한국어 받아쓰기도 있지만, 자막은 올리기 전에 꼭 사람이 확인해야 해요. 고유명사는 특히 꼼꼼히 봐야 해요."
+  ],
+  "principle": {
+    "key_idea": "소리를 그림(스펙트로그램)으로 바꿔서 글자로 번역해요",
+    "analogy": "악보 같은 '소리 그림'을 먼저 그린 뒤, 통역사가 그림을 보고 한 단어씩 받아 적는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "30초씩 자르기",
+        "text": "README에 따르면 transcribe()는 파일 전체를 읽고 30초짜리 창을 밀어 가며 처리해요. 긴 음성도 30초 조각으로 나눠서 차례로 읽는다는 뜻이에요."
+      },
+      {
+        "title": "소리 그림 만들기",
+        "text": "각 조각을 log-Mel 스펙트로그램(소리 높낮이를 시간순으로 그린 그림)으로 바꿔요. 소리를 AI가 읽기 쉬운 표 모양으로 바꾸는 단계예요. 이 그림이 AI의 입력이에요."
+      },
+      {
+        "title": "인코더가 읽기",
+        "text": "그림 속 패턴을 Transformer 인코더가 읽어서 '이 소리는 이런 특징이다'라는 정보로 정리해요. 그림에는 이 인코더 블록이 쌓여 있어요."
+      },
+      {
+        "title": "디코더가 쓰기",
+        "text": "디코더는 앞의 글자를 보고 다음 글자(토큰)를 하나씩 예측해요. 맨 앞의 특수 표시(언어, 받아쓰기/번역, 시간)로 무슨 일을 할지 정해져요. 이 과정을 글이 끝날 때까지 반복해요."
+      },
+      {
+        "title": "이어 붙이기",
+        "text": "조각마다 나온 글을 시간순으로 이어 붙이면 한 편의 글이 돼요. 시간 표시(타임스탬프) 토큰도 있어서 어느 말이 언제인지 알 수 있어요. 이 글이 최종 받아쓰기 결과예요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "소리·영상 파일"
+    ],
+    "core": [
+      "30초 자르기",
+      "소리 그림 변환",
+      "인코더·디코더"
+    ],
+    "outputs": [
+      "받아쓰기 글",
+      "영어 번역 글"
+    ]
+  },
+  "howto": [
+    {
+      "step": "ffmpeg 설치",
+      "detail": "소리·영상을 읽는 데 필요한 도구예요. 아래는 Mac(Homebrew) 명령이고, 다른 운영체제 명령도 README에 있어요.",
+      "cmd": "brew install ffmpeg"
+    },
+    {
+      "step": "Whisper 설치",
+      "detail": "파이썬이 설치돼 있다면 한 줄로 설치해요. 설치 중 오류가 나면 README가 rust 설치를 안내해요. 한 번만 설치하면 돼요.",
+      "cmd": "pip install -U openai-whisper"
+    },
+    {
+      "step": "받아쓰기 해 보기",
+      "detail": "소리 파일 이름을 적고 모델을 골라요. 기본 모델 turbo는 영어 받아쓰기에 잘 맞는다고 README가 설명해요.",
+      "cmd": "whisper audio.flac audio.mp3 audio.wav --model turbo"
+    },
+    {
+      "step": "언어 알려 주기",
+      "detail": "말하는 언어가 정해져 있다면 지정하면 정확해질 수 있어요. 아래는 일본어 파일 예시예요. 한국어는 Korean으로 적어요.",
+      "cmd": "whisper japanese.wav --language Japanese"
+    },
+    {
+      "step": "영어로 번역하기",
+      "detail": "번역은 turbo 대신 medium 또는 large 모델을 써야 해요. turbo는 번역용으로 학습되지 않았다고 README가 알려요.",
+      "cmd": "whisper japanese.wav --model medium --language Japanese --task translate"
+    },
+    {
+      "step": "파이썬 코드로 쓰기",
+      "detail": "프로그램 안에서 쓰고 싶다면 모델을 불러온 뒤 파일 이름을 넣어요. 결과 안의 text에 글이 들어 있어요.",
+      "cmd": "result = model.transcribe(\"audio.mp3\")"
+    }
+  ],
+  "scenario": {
+    "title": "한국어 내레이션에서 영어 자막 초안 만들기",
+    "steps": [
+      "한국어 내레이션 녹음 파일을 준비해요",
+      "--language Korean 으로 한국어 받아쓰기를 먼저 해요",
+      "--task translate 와 medium 이상 모델로 영어 초안을 만들어요",
+      "음식·지명 같은 고유명사는 사람이 직접 고쳐요",
+      "결과 글을 자막 편집 도구에 붙여 넣고 시간을 맞춰요",
+      "올리기 전에 사람이 영상과 함께 한 번 더 확인해요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "whisper.cpp",
+      "rank": 22,
+      "diff": "whisper.cpp는 같은 모델을 C/C++로 다시 만들었어요. 의존성이 없고 Apple Silicon에 최적화돼요."
+    },
+    {
+      "name": "voicebox",
+      "rank": 20,
+      "diff": "voicebox는 앱 안에서 Whisper로 받아쓰기를 해요. Whisper는 그 속의 엔진 같은 역할이에요."
+    },
+    {
+      "name": "MoneyPrinterTurbo",
+      "rank": 5,
+      "diff": "MoneyPrinterTurbo는 자막을 더 정확히 맞출 때 faster-whisper를 쓸 수 있어요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한국어도 되나요?",
+      "a": "README 그림의 학습 예시에 한국어 받아쓰기가 있어요. 정확도는 언어마다 달라서 결과는 꼭 확인하세요."
+    },
+    {
+      "q": "어떤 모델을 고르면 좋아요?",
+      "a": "빠르게 받아쓰려면 turbo(약 6GB VRAM)예요. 번역은 medium이나 large를 써요. turbo는 번역용이 아니에요."
+    },
+    {
+      "q": "GPU가 꼭 필요한가요?",
+      "a": "표에 모델별 필요 VRAM(tiny 약 1GB~large 약 10GB)이 있어요. GPU 없이 쓸 수 있는지는 README에 따로 없어요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/openai_whisper_1.jpg",
+      "caption": "Whisper 구조도: 소리 그림을 읽는 인코더와 글자를 쓰는 디코더"
+    }
   ]
 }

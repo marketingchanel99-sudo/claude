@@ -9,10 +9,11 @@
     "after": "AI가 초안을 주고 내가 확인하면 그때 게시해요"
   },
   "what": [
-    "Instagram Skills는 인스타 콘텐츠 작업을 돕는 Claude Code·Codex용 스킬 9개예요.",
-    "캡션, 릴스 훅, 해시태그, 캐러셀 구성, 주간 계획, 프로필 점검을 해 줘요.",
-    "모든 스킬은 초안을 먼저 보여 주고 내 승인을 기다려요.",
-    "원하면 Publora라는 서비스로 예약 게시까지 연결할 수 있어요."
+    "instagram-skills는 Claude Code와 Codex를 인스타그램 콘텐츠팀처럼 쓰게 해 주는 스킬 9개예요.",
+    "캡션, 릴스 훅(첫 장면 문구), 해시태그, 캐러셀(여러 장 슬라이드), 주간 계획, 프로필 점검을 도와요.",
+    "이미지나 영상은 사용자가 준비하고, 스킬은 글과 구성을 써 줘요. 인스타는 글만 올릴 수 없기 때문이에요.",
+    "모든 초안은 사용자가 확인하기 전에는 발행되지 않아요.",
+    "Publora를 연결하면 업로드와 예약까지 맡길 수 있고, Apify를 연결하면 해시태그 반응 같은 데이터를 읽을 수 있어요."
   ],
   "flow": [
     {
@@ -75,20 +76,145 @@
   ],
   "glossary": [
     {
+      "term": "훅",
+      "meaning": "영상·글 맨 앞에서 시선을 붙잡는 한 줄"
+    },
+    {
       "term": "캐러셀",
-      "meaning": "여러 장을 넘겨 보는 인스타 게시물"
+      "meaning": "옆으로 넘기는 여러 장짜리 게시물"
     },
     {
       "term": "해시태그",
-      "meaning": "게시물을 분류하는 # 글자"
+      "meaning": "주제를 묶는 # 표시 단어"
+    },
+    {
+      "term": "Apify",
+      "meaning": "웹 데이터를 모아 주는 외부 서비스"
+    },
+    {
+      "term": "Publora",
+      "meaning": "SNS 업로드와 예약을 대신하는 서비스"
     }
   ],
   "caution": "Apify로 남의 인스타를 긁어 오면 약관 위험이 있어요. 공개 통계 수준으로만 쓰세요.",
   "license": "MIT",
   "sources": [
-    "README: The 9 skills 표",
-    "README: 승인 전 게시 없음 문구",
-    "README: Publora 선택 연동, Apify 조사 기능",
-    "README: MIT License"
-  ]
+    "README: 9 skills 소개와 표",
+    "README: Install 섹션(npx skills add, plugin 명령)",
+    "README: Media is required 안내",
+    "README: Publora, Audience Insights(Apify) 설명",
+    "README: Humanizer 설명",
+    "README: License MIT"
+  ],
+  "deep_dive": [
+    "인스타 캡션은 첫 125자 안에 훅이 있어야 해요. 이 스킬은 목표(저장, 공유, 댓글, 팔로우)에 맞는 훅 공식을 골라 캡션을 쓰도록 만든 거예요. 이 방식으로 인스타 글쓰기가 한 번의 요청으로 끝나지 않고 초안, 점검, 승인까지 한 줄기로 이어져요.",
+    "Humanizer 스킬은 AI가 쓴 티가 나는 표현을 지워 줘요. README는 감지기를 속인다고 약속하지 않고, 발행 전 점검 모드가 있다고 밝혀요. 그래서 우리처럼 영상은 따로 만들고 캡션과 계획만 도움받으려는 채널에 잘 맞아요.",
+    "Hook Extractor는 인기 릴스의 훅을 분석해 10가지 인스타 공식 중 하나로 정리하고 빈칸 템플릿을 돌려줘요. 우리 채널 훅 연구에 쓸 만해요. 같은 만든 사람의 링크드인, X, 유튜브, 틱톡 스킬도 있어서 다른 플랫폼으로 넓히기 쉽다고 README가 소개해요."
+  ],
+  "principle": {
+    "key_idea": "역할이 다른 스킬 9개가 요청에 맞춰 자동으로 켜져 글을 만들어요",
+    "analogy": "편집부에 카피라이터, 기획자, 교정자가 있고 요청하면 맞는 사람이 나서는 것과 같아요.",
+    "steps": [
+      {
+        "title": "요청 입력",
+        "text": "사용자가 '이 릴스 캡션 써 줘'처럼 평소 말로 부탁해요. 스킬 이름을 외울 필요가 없고, 영상이나 이미지는 사용자가 준비해요. 인스타는 글만으로는 올릴 수 없기 때문이에요."
+      },
+      {
+        "title": "스킬 자동 선택",
+        "text": "에이전트가 요청 내용과 스킬 설명을 비교해서 캡션, 캐러셀, 해시태그 같은 알맞은 스킬을 자동으로 불러와요. README는 알맞은 스킬이 자동으로 켜진다고 설명해요."
+      },
+      {
+        "title": "초안 작성",
+        "text": "스킬 지침대로 첫 125자 안에 훅을 넣고, 읽기 쉬운 본문과 행동 유도 문구 하나를 써요. README는 목표(저장, 공유, 댓글, 팔로우)에 따라 훅 공식을 고른다고 해요."
+      },
+      {
+        "title": "AI 티 지우기",
+        "text": "Humanizer가 AI가 쓴 티가 나는 표현을 찾아 줄여요. README는 감지기를 속인다고 약속하지 않고, 발행 전 점검 모드가 있다고 말해요. 읽는 사람이 어색하게 느끼는 것을 줄이는 단계예요."
+      },
+      {
+        "title": "사용자 승인",
+        "text": "초안을 사용자에게 보여 주고 OK를 받아야 다음으로 가요. README는 승인 없이는 아무것도 발행되지 않는다고 해요. 사람이 마지막 결정을 하도록 만든 구조예요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "주제와 의도",
+      "내 이미지·영상"
+    ],
+    "core": [
+      "Caption Writer",
+      "Hook Extractor",
+      "Humanizer"
+    ],
+    "outputs": [
+      "캡션·해시태그",
+      "캐러셀·주간 계획"
+    ]
+  },
+  "howto": [
+    {
+      "step": "스킬 설치",
+      "detail": "어떤 AI 에이전트든 쓸 수 있는 한 줄 명령이에요.",
+      "cmd": "npx skills add sergebulaev/instagram-skills"
+    },
+    {
+      "step": "Claude Code 플러그인",
+      "detail": "Claude Code에서는 플러그인 마켓에 추가한 뒤 설치할 수도 있어요.",
+      "cmd": "/plugin marketplace add sergebulaev/instagram-skills"
+    },
+    {
+      "step": "웹·데스크톱",
+      "detail": "claude.ai나 Claude Desktop의 Skills 메뉴에서 Add from GitHub를 누르고 저장소 이름을 붙여 넣어도 돼요.",
+      "cmd": "sergebulaev/instagram-skills"
+    },
+    {
+      "step": "요청해 보기",
+      "detail": "설치 후 평소 말로 캡션이나 주간 계획을 부탁해요.",
+      "cmd": "Write a caption for this Reel about [topic]"
+    },
+    {
+      "step": "초안 확인",
+      "detail": "초안을 읽고 우리 캐릭터 말투와 맞는지 확인해요. 승인하기 전에는 아무것도 발행되지 않아요.",
+      "cmd": ""
+    }
+  ],
+  "scenario": {
+    "title": "편의점 신상 릴스 캡션과 주간 인스타 계획 만들기",
+    "steps": [
+      "영상은 사용자가 따로 완성해 둬요.",
+      "영상 주제를 알려 주고 캡션 초안을 부탁해요.",
+      "Hashtag Strategist로 3~5개 해시태그 세트를 받아요.",
+      "Hook Extractor로 인기 릴스의 훅 구조를 분석해요.",
+      "Content Planner로 한 주 계획을 짜요.",
+      "초안을 사람이 다듬고 직접 올려요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "claude-skill-social-post",
+      "rank": 146,
+      "diff": "여러 SNS와 내 말투 학습·성과 기록이 중심이에요. 이쪽은 인스타 전용 9개 스킬이에요."
+    },
+    {
+      "name": "claude-content-skills",
+      "rank": 152,
+      "diff": "콘텐츠 전반을 다루는 스킬 모음이에요. 이쪽은 인스타 한 플랫폼에 깊이 맞춰져 있어요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "영상도 만들어 주나요?",
+      "a": "아니요. README는 이미지나 영상은 사용자가 준비하고 스킬은 글과 구성을 쓴다고 설명해요."
+    },
+    {
+      "q": "자동으로 올려 주나요?",
+      "a": "기본은 아니에요. Publora를 연결하면 업로드와 예약까지 맡길 수 있지만 사용자 승인이 먼저예요."
+    },
+    {
+      "q": "무료인가요?",
+      "a": "스킬은 MIT 오픈소스예요. Publora와 Apify 같은 연동 서비스는 따로 가입해야 해요."
+    }
+  ],
+  "images": []
 }

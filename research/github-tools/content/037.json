@@ -9,10 +9,11 @@
     "after": "예약 기능으로 쇼츠 제작·업로드를 자동화"
   },
   "what": [
-    "MoneyPrinterV2는 온라인 수익 활동을 자동화한다는 파이썬 앱이에요.",
-    "유튜브 쇼츠 자동화, 트위터 봇, 아마존 제휴 마케팅 기능이 있어요.",
-    "크론 예약으로 정해진 시간에 작업을 돌리는 스케줄러가 포함돼요.",
-    "지역 업체를 찾아 콜드 이메일을 보내는 기능도 있어요."
+    "MoneyPrinter V2는 온라인에서 돈 버는 과정을 자동화한다고 소개하는 파이썬 애플리케이션이에요.",
+    "README의 기능 목록은 트위터 봇, 유튜브 쇼츠 자동 제작, 제휴 마케팅(Amazon+Twitter), 지역 업체 찾기와 콜드 메일이에요.",
+    "트위터 봇과 쇼츠 자동 제작은 CRON 작업(scheduler)으로 정해진 시간에 돌릴 수 있어요.",
+    "이름 그대로 MoneyPrinter의 두 번째 버전이고, 더 많은 기능과 모듈형 구조로 전부 다시 만들었어요.",
+    "파이썬 3.12가 필요하고, config.json에 설정값을 채워서 쓰는 방식이에요."
   ],
   "flow": [
     {
@@ -89,14 +90,144 @@
     {
       "term": "콜드 이메일",
       "meaning": "처음 보내는 영업 메일"
+    },
+    {
+      "term": "가상환경",
+      "meaning": "프로그램별로 따로 쓰는 파이썬 작업 공간"
+    },
+    {
+      "term": "모듈형",
+      "meaning": "기능을 레고처럼 나눠 만든 구조"
     }
   ],
   "caution": "자동 게시·콜드 메일은 플랫폼 정책과 스팸 법규에 걸릴 수 있어요. 제휴 링크는 고지가 필요해요.",
   "license": "AGPL-3.0",
   "sources": [
-    "README: automates the process of making money online",
-    "README: Features 목록(Shorts, Twitter, Affiliate)",
-    "README: 파이썬 3.12 필요 안내",
-    "README: Disclaimer(교육 목적)"
-  ]
+    "README: An Application that automates the process of making money online",
+    "README: Features(Twitter Bot, YouTube Shorts Automator, Affiliate Marketing, 업체 찾기)",
+    "README: Installation 명령(git clone, config 복사, venv, pip install)과 Usage python src/main.py",
+    "README: Python 3.12 필요 안내, scripts 폴더 설명",
+    "README: Disclaimer(교육 목적)와 AGPL-3.0 라이선스",
+    "일반 원리: 자동화 앱은 보통 콘텐츠 생성과 예약 실행을 모듈로 나눠 이어 붙임"
+  ],
+  "deep_dive": [
+    "숏폼을 만들고, 올리고, 홍보하는 일은 반복 작업이 많아요. MoneyPrinter V2는 이 반복 작업을 프로그램 하나에 묶어 사람이 덜 개입하게 하려는 자동화 도구예요. 첫 버전을 전부 다시 써서 모듈형으로 만들었다고 해요.",
+    "기능이 여러 갈래예요. 쇼츠 자동화, 트위터 봇, 제휴 마케팅, 사업체 탐색과 이메일 접근이 모듈로 나뉘어 있고, 터미널에서 python src/main.py를 실행해 메뉴로 고르는 방식이에요. 기능별로 따로 쓸 수 있어요.",
+    "README는 교육 목적이라고만 밝혀요. 자동 게시와 대량 콜드 메일은 플랫폼 정책과 스팸 규정에 걸리기 쉽고, 제휴 링크는 고지 문구가 필요해서 우리 채널 규칙과 맞지 않는 부분이 많아요. 그래서 참고용으로만 보세요."
+  ],
+  "principle": {
+    "key_idea": "주제 정하기부터 올리기까지 단계를 이어 붙여 정해진 시간에 자동 실행해요",
+    "analogy": "공장 컨베이어 벨트에 '기획, 제작, 업로드' 작업대를 일렬로 놓고 타이머에 맞춰 돌리는 것과 같아요.",
+    "steps": [
+      {
+        "title": "설정 채우기",
+        "text": "config.example.json을 복사해 config.json으로 만들고, 필요한 키와 값을 채워요. 이 값이 각 모듈의 동작을 정해요. 계정이나 키 같은 비밀 정보가 들어가므로 남에게 공유하면 안 돼요."
+      },
+      {
+        "title": "메뉴 선택",
+        "text": "python src/main.py로 실행하면 이 프로그램에서 트위터 봇, 쇼츠 제작 같은 기능을 고르는 흐름이 시작돼요. 터미널에서 메뉴를 고르는 방식이라 화면은 단순하지만 기능별로 차례로 쓸 수 있어요."
+      },
+      {
+        "title": "콘텐츠 만들기",
+        "text": "이런 도구는 보통 AI가 주제와 대본을 만들고, 음성과 영상 소스를 합쳐 쇼츠를 제작해요. README는 KittenTTS와 gpt4free에 감사를 표시해요."
+      },
+      {
+        "title": "예약해서 올리기",
+        "text": "README에 따르면 CRON 작업(scheduler)으로 시간을 정해 두면 정해진 때에 트위터 글이나 쇼츠를 자동으로 올려요. 사람이 없어도 시간이 되면 알아서 움직이므로 계정 정책 위반 위험도 함께 커져요."
+      },
+      {
+        "title": "스크립트로 호출",
+        "text": "scripts 폴더의 스크립트를 쓰면 메뉴 없이 핵심 기능을 직접 실행할 수 있어요. 루트 폴더에서 실행해야 해요. 다른 프로그램이나 예약 작업에서 호출하기 쉽게 하려는 통로예요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "config.json 설정",
+      "주제·계정 정보"
+    ],
+    "core": [
+      "콘텐츠 제작",
+      "CRON 스케줄러",
+      "자동 업로드"
+    ],
+    "outputs": [
+      "쇼츠·트윗 게시"
+    ]
+  },
+  "howto": [
+    {
+      "step": "코드 받기",
+      "detail": "저장소를 내 컴퓨터로 복사하고 그 폴더로 들어가요. 파이썬 3.12가 필요하다고 README에 쓰여 있어요.",
+      "cmd": "git clone https://github.com/FujiwaraChoki/MoneyPrinterV2.git\ncd MoneyPrinterV2"
+    },
+    {
+      "step": "설정 파일 만들기",
+      "detail": "예시 설정을 복사해 config.json을 만들고 그 안의 값을 채워요. API 키 같은 민감한 값은 남에게 공유하지 마세요.",
+      "cmd": "cp config.example.json config.json"
+    },
+    {
+      "step": "가상환경 만들기",
+      "detail": "다른 프로그램과 충돌하지 않도록 독립된 파이썬 환경(venv 폴더)을 만들어요. 이렇게 하면 이 프로젝트에 필요한 라이브러리가 내 컴퓨터의 다른 프로그램을 건드리지 않아요.",
+      "cmd": "python -m venv venv"
+    },
+    {
+      "step": "가상환경 켜기",
+      "detail": "운영체제에 맞는 명령으로 환경을 켜요. 아래는 Mac·Linux용이고, Windows는 .\\venv\\Scripts\\activate 예요.",
+      "cmd": "source venv/bin/activate"
+    },
+    {
+      "step": "필요한 것 설치",
+      "detail": "프로그램이 쓰는 파이썬 라이브러리들을 한꺼번에 설치해요. 이메일 접근 기능을 쓰려면 Go 언어도 먼저 설치해야 해요.",
+      "cmd": "pip install -r requirements.txt"
+    },
+    {
+      "step": "실행하기",
+      "detail": "프로그램을 시작해요. 우리 채널에서는 업로드를 자동으로 돌리지 말고 시험 용도로만 쓰는 게 안전해요. 실행하면 메뉴가 나타나고 번호를 골라 기능을 사용해요.",
+      "cmd": "python src/main.py"
+    }
+  ],
+  "scenario": {
+    "title": "자동화 업로드 없이 쇼츠 제작 방식만 시험해 보기",
+    "steps": [
+      "테스트용 별도 계정과 별도 폴더에서만 실행해요",
+      "config.json에 시험용 값만 넣고 실제 계정 키는 넣지 않아요",
+      "쇼츠 제작 기능이 대본과 영상을 어떻게 만드는지 관찰해요",
+      "우리 캐릭터 규칙과 어긋나는 부분을 메모해요",
+      "자동 업로드와 제휴 마케팅 기능은 꺼 두어요",
+      "배운 점만 우리 제작 방식 개선 아이디어로 정리해요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "MoneyPrinterTurbo",
+      "rank": 5,
+      "diff": "주제만 주면 대본·소재·자막·배경음악을 합쳐 영상을 만드는 도구예요. V2는 트위터와 제휴 마케팅 기능도 포함해요."
+    },
+    {
+      "name": "Postiz",
+      "rank": 31,
+      "diff": "게시물 예약과 분석에 집중한 SNS 관리 플랫폼이에요. MoneyPrinter V2는 제작부터 자동 게시까지 한 번에 해요."
+    },
+    {
+      "name": "Open-Generative-AI",
+      "rank": 38,
+      "diff": "이미지·영상 생성 스튜디오예요. MoneyPrinter V2는 생성보다 자동 운영 흐름이 중심이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "코딩 없이 쓸 수 있나요?",
+      "a": "아니요. 파이썬 3.12 환경과 config.json 설정, 터미널 명령이 필요해요. README에는 한국어 안내가 없어요."
+    },
+    {
+      "q": "한국어 영상도 만들 수 있나요?",
+      "a": "README에 언어 지원 설명이 없어요. 한국어가 되는지 확인되지 않았으니 단정할 수 없어요."
+    },
+    {
+      "q": "우리 채널에 써도 되나요?",
+      "a": "자동 게시와 제휴 마케팅은 플랫폼 정책과 고지 의무에 걸릴 수 있어요. 교육용이라는 README의 면책 문구도 있어서 시험용으로만 쓰세요."
+    }
+  ],
+  "images": []
 }

@@ -8,10 +8,11 @@
     "after": "텍스트와 검색어만 보내면 자막 영상 한 편이 완성"
   },
   "what": [
-    "글을 넣으면 숏폼 영상을 자동으로 만드는 오픈소스 도구예요.",
-    "글을 음성으로 바꾸고, 자막을 만들고, 배경 영상과 음악을 합쳐요.",
-    "배경 영상은 Pexels에서 검색어로 찾아와요.",
-    "REST 서버와 MCP 서버로 쓸 수 있어서 n8n 같은 자동화 도구와 이어져요."
+    "Short Video Maker는 글(대사)과 검색어를 넣으면 음성, 자막, 배경 영상, 음악을 합쳐 세로 숏폼 영상을 만드는 오픈소스 서버예요.",
+    "README에 따르면 글은 Kokoro가 음성으로 읽고, Whisper가 자막 시점을 맞추고, Pexels 영상 위에 Remotion이 조립해요.",
+    "무거운 GPU가 필요한 영상 생성이나 비싼 외부 API의 무료 대안을 목표로 한다고 README가 설명해요.",
+    "REST API와 MCP(AI용 연결 규칙) 서버를 모두 제공해서 n8n 같은 자동화 도구에서 부르기 좋아요.",
+    "웹 화면(Web UI)도 있어서 브라우저에서 영상을 만들 수 있다고 적혀 있어요."
   ],
   "flow": [
     {
@@ -78,25 +79,154 @@
   "glossary": [
     {
       "term": "TTS",
-      "meaning": "글을 목소리로 읽어 주는 기술"
-    },
-    {
-      "term": "MCP",
-      "meaning": "AI가 다른 도구를 쓰게 연결해 주는 방식"
+      "meaning": "글자를 목소리로 바꾸는 음성 합성 기술"
     },
     {
       "term": "REST API",
-      "meaning": "주소로 요청을 보내 기능을 쓰는 방법"
+      "meaning": "웹 주소로 요청해 기능을 부르는 방식"
+    },
+    {
+      "term": "MCP",
+      "meaning": "AI가 외부 도구를 쓰게 해 주는 연결 규칙"
+    },
+    {
+      "term": "Docker",
+      "meaning": "프로그램을 설치 없이 상자째 실행하는 도구"
+    },
+    {
+      "term": "Remotion",
+      "meaning": "코드로 영상을 만드는 도구"
     }
   ],
-  "caution": "Pexels 영상은 사이트 이용 규정을 따라야 해요. 상업 이용 전에 확인하세요.",
+  "caution": "영어 음성만 지원하고, 배경 영상은 Pexels 약관을 따라야 해요. Remotion은 자체 라이선스가 있어요.",
   "license": "MIT",
   "sources": [
-    "README: License MIT",
-    "README: Description(자동 숏폼 영상 생성 도구)",
-    "README: How It Works 5단계",
-    "README: Limitations(영어 음성만)",
-    "README: General Requirements(RAM, Pexels 키)"
+    "README: Description(무료 대안 목표, REST와 MCP 서버)",
+    "README: How It Works 5단계(Kokoro, Whisper, Pexels, Remotion)",
+    "README: Limitations(영어 음성만, Pexels 배경)와 FAQ",
+    "README: Docker 실행 명령, General Requirements",
+    "README: Supported platforms(윈도우 미지원), License MIT, Dependencies 표(Remotion License)",
+    "일반 원리: TTS가 글을 소리 조각으로 바꾸는 방식"
   ],
-  "rank": 139
+  "rank": 139,
+  "deep_dive": [
+    "AI 영상 생성은 GPU가 필요하고 호출 비용도 커서 숏폼을 많이 만들기 부담스러워요. 이 도구는 영상을 AI가 그려 내는 대신 '이미 있는 무료 배경 영상 + 음성 + 자막'을 조립하는 방식으로 가볍게 만들어요. 그래서 큰 컴퓨터 없이도 돌아가요.",
+    "한 편의 영상은 여러 '장면(Scene)'으로 이뤄지고, 장면마다 읽을 글과 검색어를 줘요. 검색어에 맞는 영상을 못 찾으면 nature, globe, space, ocean 같은 대체 검색어가 쓰인다고 README에 나와요.",
+    "중요한 한계가 있어요. README에 따르면 현재 영어 음성만 만들 수 있고(kokoro-js가 다른 언어를 지원하지 않음), 배경 영상은 Pexels에서만 가져와요. 내가 가진 영상이나 이미지로 만들 수는 없다고 FAQ에 적혀 있어요."
+  ],
+  "principle": {
+    "key_idea": "글을 음성과 자막으로 바꾸고, 무료 배경 영상에 얹어 조립해요",
+    "analogy": "대본 낭독 녹음을 하고, 자막 담당이 시간 맞춰 글자를 붙이고, 도서관 영상 자료를 깔아 편집하는 작은 방송국과 비슷해요.",
+    "steps": [
+      {
+        "title": "장면 입력",
+        "text": "입력은 장면마다 읽을 글(narration)과 영상 검색어예요. README는 이 두 가지가 장면의 기본 구성이라고 설명해요. 글은 목소리와 자막이 되고, 검색어는 배경 영상을 찾는 열쇠가 돼요."
+      },
+      {
+        "title": "음성 만들기",
+        "text": "Kokoro TTS가 글을 목소리로 바꿔요. TTS는 보통 글자를 소리 조각으로 바꿔 이어 붙이는 방식이에요. README는 영어만 가능하다고 해요."
+      },
+      {
+        "title": "자막 시점 맞추기",
+        "text": "Whisper(말을 글로 바꾸는 AI)가 방금 만든 음성을 다시 듣고 각 단어가 나오는 시점을 알아내요. 그 시점대로 자막을 띄우면 말과 글자가 정확히 맞아요. 글만 알면 안 되고 시간을 알아야 하기 때문이에요."
+      },
+      {
+        "title": "배경 영상 찾기",
+        "text": "장면의 검색어로 Pexels API에서 어울리는 영상을 찾아 내려받아요. 못 찾으면 nature, globe 같은 대체 검색어를 써요. 직접 영상을 그리지 않고 있는 영상을 쓰기 때문에 GPU 없이도 가볍게 돌아요."
+      },
+      {
+        "title": "조립과 렌더링",
+        "text": "Remotion이 음성, 자막, 배경 영상, 음악을 한 화면으로 합쳐 세로 영상으로 그려요. 코드로 화면을 구성하고 프레임을 이어 영상 파일로 만드는 방식이에요. 완성된 파일은 서버의 폴더에 저장돼요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "장면 글",
+      "검색어",
+      "Pexels 키"
+    ],
+    "core": [
+      "음성 합성(Kokoro)",
+      "자막 시점(Whisper)",
+      "배경 영상 검색",
+      "Remotion 조립"
+    ],
+    "outputs": [
+      "자막 달린 숏폼 mp4"
+    ]
+  },
+  "howto": [
+    {
+      "step": "준비물 확인",
+      "detail": "인터넷, 무료 Pexels API 키, 여유 RAM 3GB 이상(권장 4GB), 2 vCPU 이상, 디스크 5GB가 필요하다고 README에 적혀 있어요.",
+      "cmd": ""
+    },
+    {
+      "step": "Pexels 키 받기",
+      "detail": "Pexels 사이트에서 무료 API 키를 발급받아요. 배경 영상을 가져오는 데 필요해요.",
+      "cmd": ""
+    },
+    {
+      "step": "도커로 실행",
+      "detail": "README가 권장하는 방법이에요. 대부분은 가장 가벼운 tiny 이미지를 쓰면 돼요. PEXELS_API_KEY= 뒤에 내 키를 적어요.",
+      "cmd": "docker run -it --rm --name short-video-maker -p 3123:3123 -e LOG_LEVEL=debug -e PEXELS_API_KEY= gyoridavid/short-video-maker:latest-tiny"
+    },
+    {
+      "step": "웹 화면 열기",
+      "detail": "서버가 켜지면 브라우저에서 주소를 열어 Web UI로 영상을 만들어요. README에 이 주소가 안내돼 있어요.",
+      "cmd": "http://localhost:3123"
+    },
+    {
+      "step": "장면 입력",
+      "detail": "장면마다 읽을 글과 검색어를 적고 영상을 만들어요. 한 편은 여러 장면으로 이뤄져요.",
+      "cmd": ""
+    },
+    {
+      "step": "자동화 연결",
+      "detail": "n8n 같은 자동화 도구에서는 REST API나 MCP로 서버를 불러 쓸 수 있어요. n8n 사용 예시는 README의 튜토리얼 영상에 있어요.",
+      "cmd": ""
+    }
+  ],
+  "scenario": {
+    "title": "영어 자막 숏폼의 '배경 영상 + 음성' 시안 만들기",
+    "steps": [
+      "한 영상을 3~4장면으로 나누고 장면마다 영어 대사를 짧게 써요.",
+      "장면마다 Pexels에서 찾을 영어 검색어(예: convenience store)를 정해요.",
+      "Web UI에서 만들어 음성, 자막 시점, 영상 분위기를 확인해요.",
+      "실제 한국 제품 장면이 필요하면 우리 영상으로 따로 제작해요.",
+      "Pexels 영상의 이용 조건을 확인한 뒤에만 영상에 써요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "MoneyPrinterTurbo",
+      "rank": 5,
+      "diff": "주제로 대본·소재·자막·음악까지 만드는 도구예요. 이 레포는 장면 글과 검색어를 직접 주는 서버예요."
+    },
+    {
+      "name": "youtube-shorts-pipeline",
+      "rank": 133,
+      "diff": "조사와 대본까지 AI가 쓰는 파이프라인이에요. 이 레포는 대본을 내가 주고 조립을 맡겨요."
+    },
+    {
+      "name": "Pixelle-Video",
+      "rank": 41,
+      "diff": "주제만 넣으면 문구와 AI 이미지·영상까지 만드는 도구예요. 이 레포는 무료 Pexels 영상을 써요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한국어 음성도 되나요?",
+      "a": "아니요. README는 현재 영어 음성만 지원하고 kokoro-js가 다른 언어를 지원하지 않는다고 적어요. 한국어 쇼츠에는 바로 쓰기 어려워요."
+    },
+    {
+      "q": "내 영상이나 이미지로 만들 수 있나요?",
+      "a": "README FAQ에 배경 영상은 Pexels만 쓰고, 내 영상 제공과 이미지로 영상 만들기는 아직 안 된다고 적혀 있어요."
+    },
+    {
+      "q": "윈도우에서 되나요?",
+      "a": "npm 방식은 윈도우를 지원하지 않는다고 README가 밝혀요. 도커로 실행하는 방법을 권장해요."
+    }
+  ]
 }

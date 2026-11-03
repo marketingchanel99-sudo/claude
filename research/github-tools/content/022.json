@@ -9,10 +9,11 @@
     "after": "오디오 파일을 넣으면 글자로 자동 변환"
   },
   "what": [
-    "whisper.cpp는 OpenAI의 음성 인식 모델 Whisper를 C/C++로 다시 만든 프로그램이에요.",
-    "음성 파일을 넣으면 말한 내용을 글자로 바꿔 줘요.",
-    "인터넷 없이 내 기기에서 돌릴 수 있고, 아이폰에서 오프라인으로 돌린 영상도 있어요.",
-    "Mac, Windows, Linux, 안드로이드, iOS 등 여러 환경을 지원해요."
+    "whisper.cpp는 OpenAI의 음성 인식 모델 Whisper를 C/C++ 언어로 다시 구현한 프로그램이에요.",
+    "오디오 파일(wav)을 넣으면 말한 내용을 글자로 바꿔 주고, 번역도 할 수 있는 도구예요.",
+    "추가 부품 없이 돌아가는 가벼운 구조라서 인터넷 없이 내 기기에서 쓸 수 있어요.",
+    "Mac, Windows, Linux, 안드로이드, iOS, 라즈베리 파이 등 여러 환경을 지원해요.",
+    "명령창 도구 외에 마이크 실시간 받아쓰기, HTTP 서버 같은 예제 프로그램도 함께 들어 있어요."
   ],
   "flow": [
     {
@@ -89,14 +90,143 @@
     {
       "term": "VAD",
       "meaning": "말소리가 있는 구간만 찾는 기능"
+    },
+    {
+      "term": "빌드",
+      "meaning": "코드를 실행 가능한 프로그램으로 만드는 일"
+    },
+    {
+      "term": "ffmpeg",
+      "meaning": "영상·오디오 형식을 바꿔 주는 무료 도구"
     }
   ],
   "caution": "다른 사람의 영상 음성을 쓸 땐 저작권과 사용 약관을 확인하세요.",
   "license": "MIT",
   "sources": [
-    "README: High-performance inference of OpenAI's Whisper ASR",
-    "README: Supported platforms 목록",
-    "README: 모델별 Disk/Mem 표",
-    "README: License MIT 배지"
-  ]
+    "README: High-performance inference of OpenAI's Whisper ASR, 의존성 없는 C/C++",
+    "README: Quick start 명령과 whisper-cli 16비트 WAV 안내",
+    "README: Memory usage 표, Quantization, Core ML 설명",
+    "README: VAD 섹션과 예제 표(whisper-cli, stream, server)",
+    "일반 원리: 음성 인식은 소리를 스펙트로그램으로 바꿔 모델에 넣는 방식이 일반적"
+  ],
+  "deep_dive": [
+    "원래 Whisper는 파이썬과 큰 라이브러리가 있어야 돌아가요. whisper.cpp는 의존성 없는 C/C++로 다시 만들어서, 작은 기기나 앱 안에서도 모델을 돌릴 수 있게 한 프로그램이에요. 설치가 단순해지는 것이 핵심이에요.",
+    "모델 크기를 줄이는 양자화(숫자를 덜 정밀하게 저장해 용량을 줄이는 방법)와 Mac의 GPU·NPU, NVIDIA GPU 같은 하드웨어 가속을 지원해요. 같은 모델을 더 가볍고 빠르게 돌려서 작은 컴퓨터에서도 쓰려는 목적이에요.",
+    "tiny부터 large까지 크기별 모델을 골라 쓰고, VAD(말소리가 있는 구간 찾기) 옵션으로 조용한 부분을 건너뛸 수 있어요. 서버 예제는 OpenAI와 비슷한 API 형태로 받아쓰기 요청을 받아 다른 앱과 연결하기 쉬워요."
+  ],
+  "principle": {
+    "key_idea": "소리를 그림으로 바꾼 뒤, 그림 속 패턴을 글자로 번역해요",
+    "analogy": "악보 모양으로 바꾼 소리를 보고, 외국어 책을 읽듯 한 줄씩 글자로 옮겨 적는 속기사와 비슷해요.",
+    "steps": [
+      {
+        "title": "소리 준비",
+        "text": "입력 오디오는 16비트 wav여야 해요. mp3 같은 파일은 ffmpeg로 16kHz 모노 wav로 먼저 바꿔 줘야 한다고 README에 나와 있어요."
+      },
+      {
+        "title": "소리 그림화",
+        "text": "일반적인 음성 인식은 소리를 시간별 주파수 그림(스펙트로그램)으로 바꿔요. 이런 모델은 보통 소리를 이 그림으로 바꿔 입력으로 받는데, 컴퓨터가 패턴을 읽기 쉬워지기 때문이에요."
+      },
+      {
+        "title": "인코더 읽기",
+        "text": "모델의 인코더가 소리 그림 속 말소리의 특징을 숫자 덩어리로 정리해요. README에 따르면 맥에서는 이 단계를 Core ML로 가속해서 CPU만 쓸 때보다 3배 넘게 빨라질 수 있어요."
+      },
+      {
+        "title": "디코더 받아쓰기",
+        "text": "디코더가 정리된 특징을 보면서 글자 조각을 하나씩 이어서 써 내려가요. 앞에 쓴 글자를 참고해 다음 글자를 정하므로 문장이 자연스럽게 이어져요. 번역 모드도 README에 나와요."
+      },
+      {
+        "title": "결과 출력",
+        "text": "받아쓴 문장이 시간 표시와 함께 출력돼요. VAD를 켜면 별도의 VAD 모델이 말소리가 있는 구간만 골라 주고 그 부분만 처리해서, 조용한 구간에서 생기는 엉뚱한 글자를 줄여요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "오디오(wav)",
+      "Whisper 모델 파일"
+    ],
+    "core": [
+      "소리 전처리",
+      "인코더",
+      "디코더"
+    ],
+    "outputs": [
+      "받아쓴 텍스트"
+    ]
+  },
+  "howto": [
+    {
+      "step": "코드 받기",
+      "detail": "먼저 레포를 내 컴퓨터로 복사해 와요. git이 설치되어 있어야 하고, whisper.cpp라는 폴더가 하나 새로 생겨요. 이 폴더 안에 프로그램 코드가 모두 들어 있어요.",
+      "cmd": "git clone https://github.com/ggml-org/whisper.cpp.git"
+    },
+    {
+      "step": "폴더 이동",
+      "detail": "방금 받은 폴더 안으로 들어가요. 이후에 나오는 모델 내려받기, 빌드, 실행 명령은 모두 이 폴더 안에서 실행해야 제대로 동작해요.",
+      "cmd": "cd whisper.cpp"
+    },
+    {
+      "step": "모델 받기",
+      "detail": "음성 인식 모델 파일을 내려받아요. base.en은 영어용 기본 크기 모델이에요. 크기별로 여러 모델이 있어요.",
+      "cmd": "sh ./models/download-ggml-model.sh base.en"
+    },
+    {
+      "step": "프로그램 만들기",
+      "detail": "코드를 실행 가능한 프로그램으로 만들어요(빌드). 컴퓨터에 따라 몇 분 걸릴 수 있어요. 끝나면 build/bin 폴더에 whisper-cli 같은 프로그램이 생겨요.",
+      "cmd": "cmake -B build\ncmake --build build -j --config Release"
+    },
+    {
+      "step": "wav로 변환",
+      "detail": "whisper-cli는 16비트 wav만 읽어요. mp3 같은 파일은 아래처럼 ffmpeg로 먼저 바꿔 주세요.",
+      "cmd": "ffmpeg -i input.mp3 -ar 16000 -ac 1 -c:a pcm_s16le output.wav"
+    },
+    {
+      "step": "받아쓰기 실행",
+      "detail": "음성 파일을 지정해 실행하면 받아쓴 글자 결과가 화면에 나와요. 아래는 레포에 들어 있는 샘플 파일 예시이고, -f 뒤에 내 wav 파일 경로를 적으면 돼요.",
+      "cmd": "./build/bin/whisper-cli -f samples/jfk.wav"
+    }
+  ],
+  "scenario": {
+    "title": "한국어 길거리 인터뷰 영상의 자막 초안 만들기",
+    "steps": [
+      "촬영한 영상에서 ffmpeg로 오디오를 wav로 뽑아요",
+      "크기별 모델 중 컴퓨터 사양에 맞는 것을 골라 받아요",
+      "whisper-cli로 받아쓰기를 돌려 시간 표시가 있는 글을 얻어요",
+      "틀린 단어와 고유명사는 사람이 직접 고쳐요",
+      "고친 문장을 영어 번역 작업에 넘겨 자막으로 만들어요",
+      "완성한 자막을 편집 프로그램에 불러와 영상에 붙여요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "Whisper",
+      "rank": 7,
+      "diff": "원조 파이썬 버전이에요. whisper.cpp는 같은 모델을 C/C++로 가볍게 만들어 작은 기기에서도 돌려요."
+    },
+    {
+      "name": "VoiceStudio",
+      "rank": 9,
+      "diff": "복제·더빙·받아쓰기·낭독을 한 앱에 묶은 음성 스튜디오예요. whisper.cpp는 받아쓰기 엔진 하나예요."
+    },
+    {
+      "name": "yt-dlp",
+      "rank": 2,
+      "diff": "영상·음성을 내려받는 도구예요. 받은 소리를 글자로 바꾸는 일은 whisper.cpp가 맡아요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "인터넷이 필요한가요?",
+      "a": "모델 파일을 받을 때만 필요해요. README는 아이폰에서 오프라인으로 돌리는 영상도 보여 줘요."
+    },
+    {
+      "q": "mp3 파일도 바로 되나요?",
+      "a": "아니요. whisper-cli는 16비트 wav만 읽는다고 README에 나와요. ffmpeg로 먼저 바꿔 주세요."
+    },
+    {
+      "q": "어떤 모델 크기를 고르나요?",
+      "a": "tiny는 디스크 75MiB, large는 2.9GiB를 써요. 클수록 메모리를 더 쓰므로 컴퓨터 사양에 맞춰 고르세요."
+    }
+  ],
+  "images": []
 }

@@ -9,10 +9,11 @@
     "after": "단어별 시간과 화자 라벨이 달린 글을 자동으로 받음"
   },
   "what": [
-    "WhisperX는 음성을 글로 바꾸고 단어마다 정확한 시간을 붙여 주는 도구예요.",
-    "README에 따르면 큰 모델로 실시간의 70배 속도로 받아쓸 수 있어요.",
-    "누가 말했는지 구분하는 화자 분리 기능도 있어요.",
-    "내부에서 faster-whisper를 쓰며 큰 모델은 GPU 메모리 8GB 미만이라고 해요."
+    "WhisperX는 음성을 글자로 바꿀 때 단어마다 정확한 시간과 말한 사람(화자) 표시까지 붙여 주는 도구예요.",
+    "README는 large-v2 모델 기준 실시간의 70배 속도로 받아쓴다고 소개해요.",
+    "기본 Whisper는 문장 단위로만 시간을 주는데, WhisperX는 wav2vec2 정렬로 단어 단위 시간을 만들어요.",
+    "pyannote-audio를 이용해 누가 말했는지 구분하는 화자 분리(diarization)도 할 수 있어요.",
+    "명령어 한 줄(whisperx 파일경로)로 실행하거나 파이썬 코드에서 불러 쓸 수 있어요."
   ],
   "flow": [
     {
@@ -76,19 +77,155 @@
   ],
   "glossary": [
     {
-      "term": "화자 분리",
-      "meaning": "누가 말했는지 구분하는 기술"
+      "term": "ASR",
+      "meaning": "말소리를 글로 바꾸는 음성 인식"
     },
     {
-      "term": "타임스탬프",
-      "meaning": "글자마다 붙는 시간 표시"
+      "term": "VAD",
+      "meaning": "사람 말소리가 있는 구간을 찾는 기능"
+    },
+    {
+      "term": "강제 정렬",
+      "meaning": "글과 소리를 맞춰 시간을 찾는 방법"
+    },
+    {
+      "term": "화자 분리",
+      "meaning": "누가 말했는지 나누어 표시하는 기능"
+    },
+    {
+      "term": "Hugging Face",
+      "meaning": "AI 모델을 올리고 받는 인터넷 서비스"
     }
   ],
   "caution": "",
   "license": "",
   "sources": [
-    "README: 70x realtime 문구",
-    "README: word-level timestamps, diarization",
-    "README: pip install whisperx"
-  ]
+    "README: 70x realtime, 단어 시간, 화자 분리, VAD 전처리 소개",
+    "README: Whisper는 문장 단위 시간, wav2vec2 정렬 설명",
+    "README: pip install whisperx, CPU/int8 및 diarize 명령 예시",
+    "README: Hugging Face 토큰과 약관 동의 안내, 언어별 정렬 모델",
+    "README: faster-whisper 백엔드, pyannote-audio 사용 안내",
+    "README에 레포 자체 라이선스 문구는 없음(배지만 있음), repos.tsv 7·22·44위 README 비교"
+  ],
+  "deep_dive": [
+    "Whisper는 받아쓰기는 정확하지만 시간이 문장 단위로만 나와서 자막이 소리와 어긋나는 경우가 있어요. WhisperX는 받아쓴 글과 소리를 다시 맞춰 보며 단어마다 시작과 끝 시간을 찾아내요. 자막 싱크가 훨씬 정밀해져요.",
+    "속도는 faster-whisper 엔진과 배치 처리(여러 조각을 한꺼번에 계산)로 올려요. 말이 없는 구간은 VAD로 걸러서 이상한 글이 생기는 현상(환각)도 줄인다고 해요. 속도와 정확도를 함께 챙기려는 구조예요.",
+    "README에 따르면 단어 정렬 모델은 언어마다 달라서 영어, 프랑스어, 독일어, 스페인어, 이탈리아어는 기본 제공이고 다른 언어는 Hugging Face 모델을 써요. 그래서 한국어처럼 목록에 없는 언어는 직접 확인해야 해요."
+  ],
+  "principle": {
+    "key_idea": "받아쓴 글을 소리와 다시 맞춰서 단어별 시간을 찾아요",
+    "analogy": "노래 가사지를 들고 노래를 들으며 단어마다 시작 지점에 형광펜 표시를 하는 것과 같아요.",
+    "steps": [
+      {
+        "title": "말 구간 찾기",
+        "text": "VAD로 사람 말소리가 있는 구간만 먼저 잘라 내요. 조용한 구간이나 소음을 빼고 넣으면 모델이 없는 말을 지어내는 현상(환각)이 줄어요. 말 구간만 남기면 계산할 양도 줄어요."
+      },
+      {
+        "title": "묶어서 받아쓰기",
+        "text": "자른 구간을 여러 개 묶어 Whisper로 한꺼번에 받아써요. GPU는 여러 조각을 동시에 계산할 때 효율이 좋아서, 이 배치 처리가 README가 말하는 70배 속도의 핵심이에요."
+      },
+      {
+        "title": "소리와 글 맞추기",
+        "text": "forced alignment(강제 정렬)는 이미 받아쓴 글을 소리 위에 겹쳐 놓고 각 소리 단위(음소)가 어디에 있는지 찾는 일이에요. README는 이 과정에 wav2vec2 모델을 쓴다고 설명해요."
+      },
+      {
+        "title": "단어 시간 만들기",
+        "text": "정렬 결과로 단어마다 시작과 끝 시간을 정해요. Whisper는 문장 단위 시간만 주는데 단어 단위로 알면 자막이 말과 정확히 맞게 나와서, 숏폼 자막 싱크를 정밀하게 맞출 때 도움이 돼요."
+      },
+      {
+        "title": "화자 붙이기",
+        "text": "선택하면 pyannote 모델이 목소리가 바뀌는 지점을 찾아 글에 화자 이름표(SPEAKER_00 등)를 붙여요. 목소리 특징이 다르면 다른 사람으로 보는 원리예요. Hugging Face 토큰과 약관 동의가 필요해요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "오디오/영상 파일",
+      "언어 코드(선택)"
+    ],
+    "core": [
+      "VAD로 말 구간 찾기",
+      "Whisper 받아쓰기",
+      "단어 정렬",
+      "화자 분리(선택)"
+    ],
+    "outputs": [
+      "단어별 시간 글",
+      "자막 파일"
+    ]
+  },
+  "howto": [
+    {
+      "step": "GPU 도구 준비",
+      "detail": "NVIDIA GPU로 돌리려면 먼저 CUDA 툴킷 12.8을 설치해요. CPU만 쓸 거라면 이 단계는 건너뛰어요.",
+      "cmd": ""
+    },
+    {
+      "step": "설치하기",
+      "detail": "파이썬 부품 저장소(PyPI)에서 한 줄로 설치해요. FFmpeg 등이 필요할 수 있다고 README가 말해요.",
+      "cmd": "pip install whisperx"
+    },
+    {
+      "step": "기본 실행",
+      "detail": "오디오 파일 경로를 넣으면 받아쓰기와 단어 정렬 결과가 나와요.",
+      "cmd": "whisperx path/to/audio.wav"
+    },
+    {
+      "step": "CPU로 실행",
+      "detail": "GPU가 없거나 맥에서 쓸 때는 CPU와 int8 설정을 써요.",
+      "cmd": "whisperx path/to/audio.wav --compute_type int8 --device cpu"
+    },
+    {
+      "step": "화자 구분 켜기",
+      "detail": "큰 모델과 --diarize 옵션을 쓰고, Hugging Face 토큰과 약관 동의도 필요해요.",
+      "cmd": "whisperx path/to/audio.wav --model large-v2 --diarize --highlight_words True"
+    },
+    {
+      "step": "다른 언어 쓰기",
+      "detail": "언어 코드를 지정하고 큰 모델을 써요. 아래는 독일어 예시이고 한국어 지원은 README에서 확인하지 못했어요.",
+      "cmd": "whisperx --model large-v2 --language de path/to/audio.wav"
+    }
+  ],
+  "scenario": {
+    "title": "인터뷰 영상 자막을 말한 사람별로 나누기",
+    "steps": [
+      "인터뷰나 대화 영상에서 소리 파일을 준비해요.",
+      "WhisperX를 화자 구분 옵션과 함께 실행해요.",
+      "결과에서 SPEAKER 표시와 단어별 시간을 확인해요.",
+      "화자별로 색을 달리해 자막 파일(SRT)을 만들어요.",
+      "번역과 문구 다듬기는 사람이 확인해서 마무리해요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "faster-whisper",
+      "rank": 44,
+      "diff": "WhisperX가 쓰는 빠른 받아쓰기 엔진이에요. 단어 정렬과 화자 분리는 WhisperX가 더해 줘요."
+    },
+    {
+      "name": "openai/whisper",
+      "rank": 7,
+      "diff": "원조 모델이에요. 시간 정보가 문장 단위인 것이 WhisperX가 보완하는 점이에요."
+    },
+    {
+      "name": "whisper.cpp",
+      "rank": 22,
+      "diff": "C/C++로 만든 가벼운 Whisper 실행기예요. WhisperX는 파이썬 기반이고 단어 정렬이 강점이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "화자 구분은 바로 되나요?",
+      "a": "아니요. README는 Hugging Face 토큰을 넣고 pyannote 모델의 사용 약관에 동의해야 한다고 해요."
+    },
+    {
+      "q": "GPU가 꼭 필요한가요?",
+      "a": "아니요. README에 CPU와 int8 옵션으로 실행하는 예시가 있어요. 맥에서도 이 방법을 써요."
+    },
+    {
+      "q": "한국어도 되나요?",
+      "a": "README에서 한국어가 지원 언어라는 문구는 확인하지 못했어요. 언어 코드는 지정할 수 있어요."
+    }
+  ],
+  "images": []
 }

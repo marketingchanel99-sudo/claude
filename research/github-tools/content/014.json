@@ -9,10 +9,11 @@
     "after": "한 문장으로 요청하면 단계별로 영상 제작이 진행"
   },
   "what": [
-    "OpenMontage는 AI 코딩 비서를 영상 제작 스튜디오로 바꿔 주는 오픈소스예요.",
-    "리서치, 대본, 이미지·영상 생성, 내레이션, 자막, 최종 합성까지 단계별로 진행해요.",
-    "참고하고 싶은 영상(유튜브·쇼츠·릴스·틱톡)을 분석해 비슷한 구성의 계획을 짜 줘요.",
-    "무료 도구(Piper 음성, 무료 스톡 영상)만으로도 만들 수 있다고 소개해요."
+    "OpenMontage는 AI 코딩 비서를 영상 제작 스튜디오로 바꿔 주는 도구예요.",
+    "말로 원하는 영상을 설명하면 비서가 조사, 대본, 소재 만들기, 편집, 최종 합성까지 맡아요.",
+    "단계는 research, proposal, script, scene_plan, assets, edit, compose 순서로 정해져 있어요.",
+    "API 키가 없어도 무료 도구(Piper TTS, 무료 스톡·공개 아카이브)로 영상을 만들 수 있다고 해요.",
+    "Backlot이라는 진행판이 단계별로 채워지고, 대본·장면 승인 단계에서 사람 확인을 받아요."
   ],
   "flow": [
     {
@@ -79,23 +80,163 @@
   "glossary": [
     {
       "term": "파이프라인",
-      "meaning": "일을 단계별로 이어 놓은 작업 흐름"
+      "meaning": "일을 단계 순서대로 이어 놓은 생산 라인"
     },
     {
       "term": "TTS",
-      "meaning": "글을 사람 목소리로 읽어 주는 기술"
+      "meaning": "글자를 사람 목소리로 읽어 주는 기술"
     },
     {
       "term": "스톡 영상",
-      "meaning": "미리 만들어져 쓸 수 있는 영상 소재"
+      "meaning": "누구나 가져다 쓸 수 있게 올려 둔 영상 소재"
+    },
+    {
+      "term": "스토리보드",
+      "meaning": "장면을 순서대로 그려 놓은 영상 설계도"
+    },
+    {
+      "term": "API 키",
+      "meaning": "서비스를 쓰기 위한 비밀번호 같은 값"
     }
   ],
   "caution": "남의 영상을 참고할 때 구성만 배우고 그대로 베끼지 마세요. 소재 저작권도 확인하세요.",
   "license": "AGPL-3.0",
   "sources": [
-    "README: 영상 제작 스튜디오 소개와 단계 설명",
-    "README: Start From A Video You Already Love",
-    "README: Quick Start 준비물(Python, FFmpeg, Node)",
-    "README: AGPLv3 배지와 비용 예시 문구"
+    "README: 소개, Pipelines 표, 단계 흐름(research에서 compose까지)",
+    "README: Watch It Happen(Backlot, 승인 단계), Start From A Video You Already Love",
+    "README: Quick Start(git clone, make setup), Prerequisites, Zero API Keys 표",
+    "README: How It Works(agent-first 구조), 비용 예시(약 $0.15~$1.50), License(AGPL-3.0)",
+    "이미지: README Backlot 화면(진행판, 스토리보드)"
+  ],
+  "deep_dive": [
+    "다른 도구는 코드가 순서를 정하지만 OpenMontage는 '비서가 곧 지휘자'라고 README가 설명해요. 단계별 지침서(마크다운)와 설정 파일(YAML)을 비서가 읽고 따라서 일해요. 코드 대신 읽을 수 있는 문서가 규칙이라서 내가 규칙을 고칠 수도 있어요.",
+    "만들기 전에 조사를 중요한 단계로 둬요. 유튜브, 레딧, 뉴스 같은 곳에서 질문과 흐름을 찾은 뒤 대본을 써요. 참고 영상을 붙여 넣으면 구성만 분석해 비슷한 틀의 기획안도 만들어 줘요. 조사 결과를 모아 대본의 재료로 쓰는 방식이에요.",
+    "비용 관리가 내장돼 있어요. 만들기 전에 예상 비용을 보여 주고 지출 상한과 승인 기준이 있어요. 생성 서비스를 연결하면 편당 약 $0.15~$1.50이라는 README 예시가 있어요. 승인 단계가 있어서 돈이 새는 일을 막는 데 도움이 돼요."
+  ],
+  "principle": {
+    "key_idea": "비서가 단계별 지침서를 읽으며 조사부터 합성까지 진행해요",
+    "analogy": "영화 감독(비서)이 스태프 매뉴얼을 보며 기획, 대본, 촬영, 편집을 차례로 지휘하고 중요한 때마다 제작자(나)에게 확인받는 것과 같아요.",
+    "steps": [
+      {
+        "title": "조사와 제안",
+        "text": "요청을 받으면 먼저 웹에서 자료와 시청자 질문을 조사해요. 그다음 컨셉 2~3개와 예상 비용, 쓸 수 있는 도구 목록을 담은 제안서를 보여 줘요."
+      },
+      {
+        "title": "대본·장면 계획",
+        "text": "승인된 컨셉으로 대본을 쓰고 장면별 계획을 짜요. 대본이 '승인됨(APPROVED)' 도장을 받아야 다음으로 가요. 진행판에 장면 카드가 나타나요."
+      },
+      {
+        "title": "소재 만들기",
+        "text": "장면별로 이미지·영상·음성을 만들거나 무료 소재를 찾아요. 제작 도구는 여러 항목(적합도, 품질, 비용 등)으로 점수를 매겨 비서가 골라요. 결과는 장면 카드로 보여요."
+      },
+      {
+        "title": "확인과 합성",
+        "text": "스토리보드에서 장면별로 결과와 비용을 보고 내가 승인해요. 그다음 Remotion이나 HyperFrames로 영상을 합치고 FFmpeg로 마무리해요."
+      },
+      {
+        "title": "자체 점검",
+        "text": "다 만든 뒤에도 ffprobe로 파일을 검사하고, 장면을 뽑아 보고, 소리를 분석해요. 약속한 내용과 맞을 때만 최종 영상을 내놓는다고 README가 설명해요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "영상 주제·참고 영상",
+      "AI 코딩 비서"
+    ],
+    "core": [
+      "조사·제안",
+      "대본·장면 계획",
+      "소재 생성",
+      "합성·점검"
+    ],
+    "outputs": [
+      "완성 영상",
+      "Backlot 진행판"
+    ]
+  },
+  "howto": [
+    {
+      "step": "준비물 확인",
+      "detail": "Python 3.10 이상, FFmpeg, Node.js 18 이상, 그리고 Claude Code 같은 AI 코딩 비서가 필요해요. 컴퓨터에 하나씩 설치해 둬요.",
+      "cmd": ""
+    },
+    {
+      "step": "코드 내려받기",
+      "detail": "GitHub에서 저장소를 복사해 와요. git은 코드 보관소에서 파일을 받아 오는 도구예요. 복사한 폴더는 내 컴퓨터에 새로 생겨요.",
+      "cmd": "git clone https://github.com/calesthio/OpenMontage.git"
+    },
+    {
+      "step": "폴더로 이동",
+      "detail": "내려받은 폴더로 들어가요. 이 폴더에서 비서를 열어야 지침서를 읽을 수 있어요. 그리고 이 폴더 안에서 setup 명령을 실행해요. 폴더 밖에서는 파일을 찾지 못해요.",
+      "cmd": "cd OpenMontage"
+    },
+    {
+      "step": "한 번에 설치",
+      "detail": "필요한 파이썬·노드 구성품과 무료 음성 도구(Piper)를 한꺼번에 설치해요. 키 없이도 시작할 수 있어요.",
+      "cmd": "make setup"
+    },
+    {
+      "step": "비서에게 시키기",
+      "detail": "이 폴더를 AI 코딩 비서로 열고 말로 시켜요. 예를 들어 '신경망이 배우는 방식을 60초 영상으로 만들어 줘'처럼 써요.",
+      "cmd": ""
+    },
+    {
+      "step": "진행판 보기",
+      "detail": "만드는 동안 Backlot 진행판이 자동으로 열려요. 지난 작업 목록을 보려면 이 명령을 써요. 라이브 화면에서 각 단계가 켜지는 걸 볼 수 있어요.",
+      "cmd": "python -m backlot open"
+    }
+  ],
+  "scenario": {
+    "title": "참고 쇼츠 한 편으로 '한국 지하철 매너' 기획안 받기",
+    "steps": [
+      "구성이 마음에 드는 참고 숏폼 주소를 비서에게 붙여 넣어요",
+      "비서가 구성·속도·훅을 분석해 컨셉 2~3개를 제안해요",
+      "예상 비용과 쓸 도구를 보고 컨셉 하나를 승인해요",
+      "대본 단계에서 내가 직접 읽고 문장과 사실을 고쳐요",
+      "장면 스토리보드의 비용과 결과를 보고 소재를 승인해요",
+      "참고 영상은 구성만 배우고 그대로 베끼지 않아요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "MoneyPrinterTurbo",
+      "rank": 5,
+      "diff": "MoneyPrinterTurbo는 설정 화면에서 골라 만들어요. OpenMontage는 비서가 조사부터 맡아요."
+    },
+    {
+      "name": "HyperFrames",
+      "rank": 13,
+      "diff": "HyperFrames는 영상 렌더링 엔진이에요. OpenMontage는 그 위에서 전 과정을 지휘하는 쪽이에요."
+    },
+    {
+      "name": "Remotion",
+      "rank": 15,
+      "diff": "Remotion은 코드로 영상을 짜는 도구예요. OpenMontage는 합성 엔진 중 하나로 써요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "돈이 드나요?",
+      "a": "저장소는 AGPL-3.0이고 무료 도구만으로도 만들 수 있다고 해요. 이미지·영상 서비스를 연결하면 편당 약 $0.15~$1.50이에요."
+    },
+    {
+      "q": "어떤 비서에서 쓰나요?",
+      "a": "README는 Claude Code, Cursor, Copilot, Windsurf, Codex처럼 파일을 읽고 코드를 실행하는 AI 비서면 된다고 해요."
+    },
+    {
+      "q": "숏폼 크기도 맞춰 주나요?",
+      "a": "README에 YouTube Shorts, Instagram Reels, TikTok용 1080x1920 세로 프로필이 있다고 나와요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/calesthio_OpenMontage_1.jpg",
+      "caption": "Backlot 진행판: 단계 표시줄, 승인된 대본, 장면 카드, 비용"
+    },
+    {
+      "file": "images/calesthio_OpenMontage_2.jpg",
+      "caption": "스토리보드 화면: 장면 카드, 결정 기록, 완성 영상 자리"
+    }
   ]
 }

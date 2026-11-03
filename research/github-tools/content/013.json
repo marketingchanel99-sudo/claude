@@ -9,10 +9,11 @@
     "after": "웹 화면으로 디자인하고 명령 하나로 영상 출력"
   },
   "what": [
-    "HyperFrames는 HTML, CSS, 미디어로 만든 화면을 MP4 영상으로 만들어 주는 오픈소스예요.",
-    "같은 입력이면 같은 영상이 나오도록 한 장면씩 캡처해서 FFmpeg로 합쳐요.",
-    "Claude Code 같은 AI 에이전트용 스킬이 들어 있어서, 말로 시켜 영상을 만들 수 있어요.",
-    "약 450개의 만들어진 전환·자막·차트 블록을 가져다 쓸 수 있어요."
+    "HyperFrames는 HTML, CSS, 영상·음악 파일, 움직이는 효과를 같은 결과가 나오는 MP4로 만드는 오픈소스예요.",
+    "영상을 HTML 문서로 설계하고, 시작 시간과 길이를 속성(data-start 등)으로 적어요.",
+    "명령어 도구(CLI)로 만들거나, Claude Code 같은 AI 코딩 에이전트에 스킬을 설치해 말로 시킬 수 있어요.",
+    "자막, 제목, 전환, 차트처럼 미리 만든 블록 약 450개를 가져다 쓸 수 있어요.",
+    "Apache 2.0이고, README는 렌더당 요금이나 상업 이용 제한이 없다고 밝혀요."
   ],
   "flow": [
     {
@@ -80,7 +81,7 @@
   "glossary": [
     {
       "term": "렌더링",
-      "meaning": "설계도를 실제 영상 파일로 뽑는 일"
+      "meaning": "설계도를 실제 영상 파일로 뽑아내는 일"
     },
     {
       "term": "HTML",
@@ -88,15 +89,143 @@
     },
     {
       "term": "FFmpeg",
-      "meaning": "영상을 합치고 변환하는 도구"
+      "meaning": "영상·소리를 합치고 변환하는 도구"
+    },
+    {
+      "term": "타임라인",
+      "meaning": "시간순으로 무엇이 보일지 적은 일정표"
+    },
+    {
+      "term": "헤드리스",
+      "meaning": "화면 없이 뒤에서 돌아가는 브라우저 방식"
     }
   ],
   "caution": "영상에 쓰는 음악·이미지 저작권은 직접 챙겨야 해요.",
   "license": "Apache 2.0",
   "sources": [
-    "README: HTML, CSS, media to deterministic MP4 소개",
-    "README: Requirements Node.js 22+, FFmpeg",
-    "README: registry about 450 blocks 설명",
-    "README: Apache 2.0, reverse-any-video는 Pro"
-  ]
+    "README: 소개, Quick Start(skills, init, preview, render), Requirements",
+    "README: How It Works(data 속성, 헤드리스 크롬, FFmpeg), Why HyperFrames",
+    "README: HyperFrames vs Remotion 비교표, Catalog(npx hyperframes add)",
+    "README: License 섹션(Apache 2.0)"
+  ],
+  "deep_dive": [
+    "움직이는 영상 그래픽을 만들려면 보통 편집 프로그램이 필요해요. HyperFrames는 웹 개발자가 쓰던 HTML과 CSS로 영상을 설계하게 해서, AI가 이미 잘 쓰는 언어로 영상을 만들 수 있게 해요. 코드로 영상을 만든다는 점이 핵심이에요.",
+    "핵심은 '결정적(deterministic)' 렌더링이에요. 같은 입력이면 같은 프레임, 같은 영상이 나와서 자동 생산 라인이나 테스트에 쓰기 좋다고 README가 설명해요. 이 성질 덕분에 템플릿에 데이터만 바꿔 넣고 매주 같은 품질의 영상을 뽑는 일이 쉬워져요.",
+    "README는 Remotion과 비교해요. Remotion은 React 컴포넌트, HyperFrames는 HTML이라 빌드 단계 없이 index.html을 바로 미리볼 수 있어요. AWS Lambda 렌더링 같은 클라우드 경로도 있어요."
+  ],
+  "principle": {
+    "key_idea": "웹페이지를 프레임마다 되감아 캡처하고 영상으로 이어 붙여요",
+    "analogy": "애니메이션 플립북의 한 장 한 장을 사진으로 찍어 두었다가 빠르게 넘기며 영상으로 만드는 것과 같아요.",
+    "steps": [
+      {
+        "title": "HTML로 설계",
+        "text": "영상 속 요소(영상, 소리, 글자)를 HTML에 놓고 data-start, data-duration, data-track-index로 언제부터 몇 초간 어느 트랙에 보일지 정해요."
+      },
+      {
+        "title": "움직임 시간표",
+        "text": "GSAP, CSS, Lottie 같은 애니메이션을 '되감기 가능한(seekable) 타임라인'으로 만들어요. 어느 시각으로 가든 그때의 모습이 정해지는 구조예요."
+      },
+      {
+        "title": "프레임 찍기",
+        "text": "렌더러가 헤드리스(화면 없는) 크롬에서 한 프레임 시각마다 페이지를 이동해 그 순간의 모습을 캡처해요. README가 설명한 방식이에요. 영상이 길수록 찍을 프레임도 많아져요."
+      },
+      {
+        "title": "영상으로 합치기",
+        "text": "캡처한 프레임들을 FFmpeg가 영상 파일로 인코딩하고, 오디오 트랙을 섞어요. 렌더는 내 컴퓨터나 Docker, AWS Lambda에서 할 수 있어요."
+      },
+      {
+        "title": "같은 결과 보장",
+        "text": "입력이 같으면 프레임도 같아서 몇 번을 다시 돌려도 같은 MP4가 나와요. 그래서 자동화 파이프라인과 회귀 테스트에 쓰기 좋아요. 설정이 같으면 다시 만들어도 어제 만든 영상과 똑같이 나와요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "HTML 영상 설계",
+      "영상·음악 파일"
+    ],
+    "core": [
+      "타임라인 구성",
+      "크롬 프레임 캡처",
+      "FFmpeg 인코딩"
+    ],
+    "outputs": [
+      "MP4 영상"
+    ]
+  },
+  "howto": [
+    {
+      "step": "준비물 확인",
+      "detail": "Node.js 22 이상과 FFmpeg가 필요해요. Node.js는 자바스크립트 실행 환경, FFmpeg는 영상 처리 도구예요.",
+      "cmd": ""
+    },
+    {
+      "step": "에이전트 스킬 설치",
+      "detail": "Claude Code 등 코딩 에이전트에게 영상 제작법을 가르치는 스킬을 설치해요. 한 번만 하면 이후엔 영상을 말로 시킬 수 있어요.",
+      "cmd": "npx hyperframes skills update"
+    },
+    {
+      "step": "새 프로젝트 만들기",
+      "detail": "CLI로 직접 만드는 길이에요. my-video 폴더에 시작용 프로젝트(index.html 등)가 만들어져요.",
+      "cmd": "npx hyperframes init my-video"
+    },
+    {
+      "step": "미리보기",
+      "detail": "브라우저에서 영상을 미리 보고, 파일을 고치면 바로 반영돼요(라이브 리로드). 편집 속도가 빨라요. 이 화면에서 글자 크기와 타이밍을 먼저 확인하세요.",
+      "cmd": "npx hyperframes preview"
+    },
+    {
+      "step": "MP4로 렌더링",
+      "detail": "미리보기가 마음에 들면 이 명령으로 최종 MP4를 만들어요. 같은 입력이면 같은 결과가 나와요. 길이가 긴 영상은 시간이 더 걸려요.",
+      "cmd": "npx hyperframes render"
+    },
+    {
+      "step": "블록 가져오기",
+      "detail": "미리 만든 효과 블록을 프로젝트에 추가해요. 아래는 애니메이션 차트 블록을 가져오는 README 예시예요. 블록은 편집 가능한 소스로 들어와요.",
+      "cmd": "npx hyperframes add data-chart"
+    }
+  ],
+  "scenario": {
+    "title": "'한국 편의점 신상 TOP3' 순위 카드 영상 자동 제작",
+    "steps": [
+      "순위·이름·한 줄 설명을 담은 데이터 파일을 준비해요",
+      "에이전트에게 /hyperframes 스킬로 9:16 순위 카드 영상을 시켜요",
+      "차트·제목 블록을 가져와 우리 채널 색과 글꼴로 맞춰요",
+      "preview로 글자 길이와 타이밍을 눈으로 확인해요",
+      "render로 MP4를 만들고 음성·음악은 따로 확인해요",
+      "데이터만 바꿔 같은 틀로 다음 주 영상을 뽑아요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "Remotion",
+      "rank": 15,
+      "diff": "Remotion은 React 코드로 영상을 만들어요. HyperFrames는 HTML이고 빌드 단계가 필요 없어요."
+    },
+    {
+      "name": "OpenMontage",
+      "rank": 14,
+      "diff": "OpenMontage는 AI가 전 과정을 맡는 스튜디오예요. 렌더 엔진으로 HyperFrames를 고르기도 해요."
+    },
+    {
+      "name": "MoneyPrinterTurbo",
+      "rank": 5,
+      "diff": "MoneyPrinterTurbo는 주제만으로 자동 제작해요. HyperFrames는 화면 설계를 직접 통제해요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료인가요?",
+      "a": "Apache 2.0 오픈소스이고, 렌더당 요금이나 상업 이용 제한이 없다고 README가 밝혀요."
+    },
+    {
+      "q": "코딩을 잘 몰라도 되나요?",
+      "a": "에이전트에게 스킬을 설치해 말로 시킬 수 있어요. 직접 만들려면 HTML 지식이 있으면 편해요."
+    },
+    {
+      "q": "Remotion과 뭐가 달라요?",
+      "a": "README 표에 따르면 HyperFrames는 HTML·빌드 없음·Apache 2.0, Remotion은 React·번들러·자체 라이선스예요."
+    }
+  ],
+  "images": []
 }

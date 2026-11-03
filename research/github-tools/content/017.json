@@ -9,10 +9,11 @@
     "after": "주제 하나로 최근 30일 반응을 점수별로 정리해서 받음"
   },
   "what": [
-    "last30days는 AI 에이전트에 설치하는 스킬로, 주제의 최근 30일 반응을 조사해요.",
-    "레딧, 해커뉴스, 유튜브, 틱톡 등을 한꺼번에 검색해 추천수와 조회수 등으로 순위를 매겨요.",
-    "설정 없이도 레딧, HN, Polymarket, GitHub는 바로 쓸 수 있어요.",
-    "Claude Code 등에서 /last30days 명령 뒤에 주제를 적어 쓰는 방식이에요."
+    "last30days는 어떤 주제든 최근 30일 동안 사람들이 반응한 글을 모아 정리해 주는 AI 에이전트용 스킬이에요.",
+    "Reddit 추천 수, X 좋아요, YouTube 자막, TikTok 반응, 예측 시장 배당 같은 신호를 한꺼번에 찾아요.",
+    "Reddit, Hacker News, Polymarket, GitHub는 설정 없이 바로 되고, 설정 마법사가 X·YouTube·TikTok 등을 더 열어 줘요.",
+    "Claude Code에서는 '/last30days 주제'로 쓰고, Codex·Cursor 같은 다른 에이전트에도 설치할 수 있어요.",
+    "MIT 라이선스이고 추적·분석이 없으며 결과는 내 컴퓨터에 남는다고 README가 밝혀요."
   ],
   "flow": [
     {
@@ -80,23 +81,147 @@
   "glossary": [
     {
       "term": "스킬",
-      "meaning": "AI가 불러 쓰는 업무 매뉴얼 폴더"
+      "meaning": "Claude에게 일하는 방법을 알려 주는 폴더"
     },
     {
       "term": "API 키",
-      "meaning": "서비스를 쓰게 해 주는 비밀 열쇠"
+      "meaning": "서비스를 쓰기 위한 비밀번호 같은 값"
     },
     {
       "term": "인게이지먼트",
-      "meaning": "추천·댓글·조회 같은 반응 정도"
+      "meaning": "추천·좋아요·댓글처럼 사람들이 보인 반응"
+    },
+    {
+      "term": "클러스터",
+      "meaning": "같은 이야기를 한 덩어리로 묶은 것"
+    },
+    {
+      "term": "마켓플레이스",
+      "meaning": "플러그인을 모아 두고 고르는 장터"
     }
   ],
   "caution": "SNS 수집은 각 서비스 약관의 영향을 받아요. 요약 속 사실은 원문을 확인하고 쓰세요.",
   "license": "",
   "sources": [
-    "README: scored by upvotes, likes 소개",
-    "README: Sources 표(Reddit, YouTube, TikTok 등)",
-    "README: 소스별 필요 항목과 비용 표",
-    "README에 라이선스 표기를 찾지 못함"
-  ]
+    "README: 소개 문구(점수 기준), Sources 표(Reddit, X, YouTube, TikTok 등)",
+    "README: Install 표(/plugin marketplace add, npx skills add)",
+    "README: How it works 7단계, 사용 예(발견 모드, X vs Y)",
+    "README: ScrapeCreators 키 안내(1만 건 무료), Open source(MIT, 로컬 실행)"
+  ],
+  "deep_dive": [
+    "검색 엔진은 편집자가 고른 글이나 광고를 위에 올려요. last30days는 사람들이 실제로 반응한 정도(추천 수, 좋아요, 돈이 걸린 배당)로 점수를 매겨서, 지금 정말 이야기되는 것을 찾는 걸 목표로 해요. 이름의 30일은 최근 한 달만 본다는 뜻이에요.",
+    "한 주제를 받으면 관련 계정, 서브레딧, 해시태그부터 찾고 여러 소스를 동시에 검색해요. 같은 이야기는 한 덩어리로 합치고 출처를 붙여서 한 편의 브리프로 정리해요. 예를 들어 인물을 입력하면 그 사람의 계정, 관련 서브레딧, 유튜브 채널부터 찾아 두고 시작해요. 이렇게 하면 이름이 같은 다른 이야기가 섞이는 걸 줄일 수 있어요.",
+    "정리가 끝나면 그 대화 속 AI가 커뮤니티가 아는 내용을 알게 돼서 후속 질문에도 쓸 수 있어요. 다만 SNS 수집은 서비스 약관의 영향을 받고 요약은 틀릴 수 있어서, 사실은 원문에서 확인해야 해요. 요약은 틀릴 수 있다는 점을 늘 기억하세요."
+  ],
+  "principle": {
+    "key_idea": "여러 소셜 소스를 동시에 뒤져 반응 점수로 줄 세워요",
+    "analogy": "동네 맛집을 고를 때 광고 대신 줄 선 손님 수와 후기 별점으로 순위를 매기는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "주제 입력",
+        "text": "사람, 회사, 제품, 기술, 'X vs Y' 같은 어떤 주제든 입력해요. 주제를 모를 때는 '지금 뜨는 것'을 물어 발견 모드로 쓸 수도 있어요."
+      },
+      {
+        "title": "중요한 곳 찾기",
+        "text": "에이전트가 그 주제에서 누가 중요한지 찾아요. X 계정, GitHub 저장소, 관련 서브레딧, TikTok 해시태그, YouTube 채널 같은 것이에요."
+      },
+      {
+        "title": "동시에 검색·점수",
+        "text": "모든 소스를 병렬로 검색하고, 질문을 여러 개로 늘려 찾아요. 결과는 반응(engagement), 관련성, 최신성으로 점수를 매겨요. 점수가 높은 것이 위로 와요."
+      },
+      {
+        "title": "깊이 읽기",
+        "text": "제목만 보지 않고 YouTube 자막 전체, 레딧 상위 댓글과 추천 수, TikTok 설명글, 예측 시장 배당까지 읽어요. 그래서 내용이 풍부해요."
+      },
+      {
+        "title": "합치고 요약",
+        "text": "같은 이야기는 한 덩어리로 합쳐요. 그다음 출처를 달아 사람들이 가장 많이 반응한 순서로 한 편의 브리프를 만들어 줘요. 이 브리프는 내가 읽고 정리하기 쉬워요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "주제·키워드",
+      "소스 키(선택)"
+    ],
+    "core": [
+      "관련 계정 찾기",
+      "소스 동시 검색",
+      "점수·중복 합치기"
+    ],
+    "outputs": [
+      "출처 달린 요약",
+      "30일 브리프"
+    ]
+  },
+  "howto": [
+    {
+      "step": "마켓플레이스 등록",
+      "detail": "Claude Code 안에서 이 저장소를 플러그인 장터로 추가해요. 이 방식은 업데이트가 자동으로 된다고 README가 권해요.",
+      "cmd": "/plugin marketplace add mvanhorn/last30days-skill"
+    },
+    {
+      "step": "플러그인 설치",
+      "detail": "장터에 등록한 뒤 이 명령으로 last30days를 설치해요. 설치하면 /last30days 명령을 쓸 수 있어요.",
+      "cmd": "/plugin install last30days"
+    },
+    {
+      "step": "다른 에이전트에 설치",
+      "detail": "Codex, Cursor, Gemini CLI 등 다른 에이전트에는 이 명령으로 설치해요. -g는 내 계정 전체에 설치한다는 뜻이에요.",
+      "cmd": "npx skills add mvanhorn/last30days-skill -g"
+    },
+    {
+      "step": "첫 조사 해 보기",
+      "detail": "README의 예시 주제예요. 우리 채널에서는 '한국 편의점 신상' 같은 주제를 넣어 보면 돼요. 처음엔 설정 마법사가 나올 수 있어요.",
+      "cmd": "/last30days Nano Banana Pro prompting"
+    },
+    {
+      "step": "소스 더 열기",
+      "detail": "설정 마법사(약 30초)를 따라 X, YouTube, TikTok 등을 열어요. 일부 소스는 키가 필요하고 TikTok 등은 ScrapeCreators 키가 필요해요.",
+      "cmd": ""
+    },
+    {
+      "step": "유행 발견하기",
+      "detail": "주제를 모를 때는 이렇게 물어요. 레딧, Hacker News, X 같은 곳을 훑어 뜨는 주제를 순위로 보여 줘요.",
+      "cmd": "/last30days what's exploding in AI agents?"
+    }
+  ],
+  "scenario": {
+    "title": "'Korean convenience store' 최근 30일 반응으로 쇼츠 아이디어 뽑기",
+    "steps": [
+      "'/last30days Korean convenience store snacks'로 조사해요",
+      "Reddit과 TikTok에서 반응이 큰 글과 영상 제목을 읽어요",
+      "외국인이 자주 묻는 질문과 오해를 목록으로 만들어요",
+      "가격·성분 같은 사실은 원문 링크에서 직접 확인해요",
+      "근거가 확인된 항목만 아이디어 목록에 적어요",
+      "SNS 소스는 서비스 약관의 영향을 받는다는 점을 기억해요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "TrendRadar",
+      "rank": 19,
+      "diff": "TrendRadar는 중국 플랫폼 핫 목록을 정해진 시간에 모아 알려 줘요. last30days는 요청할 때마다 조사해요."
+    },
+    {
+      "name": "Agent-Reach",
+      "rank": 8,
+      "diff": "Agent-Reach는 원문을 읽어 오는 통로예요. last30days는 점수 매기고 요약까지 해 줘요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료로 쓸 수 있나요?",
+      "a": "스킬은 MIT 무료예요. Reddit 등은 키 없이 되고, TikTok·Instagram 등은 ScrapeCreators 키가 필요해요(1만 건 무료 후 과금)."
+    },
+    {
+      "q": "무엇을 입력하나요?",
+      "a": "사람, 회사, 제품, 기술, 'X vs Y' 등 어떤 주제든 돼요. 주제 없이 지금 뜨는 것을 묻는 발견 모드도 있어요."
+    },
+    {
+      "q": "내 데이터는 어디로 가나요?",
+      "a": "기본은 내 컴퓨터에서 실행되고, 검색 API를 부르는 것 외에는 데이터가 나가지 않는다고 README가 밝혀요."
+    }
+  ],
+  "images": []
 }

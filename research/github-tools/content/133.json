@@ -8,10 +8,11 @@
     "after": "명령 한 줄로 영상 제작과 비공개 업로드까지 진행"
   },
   "what": [
-    "주제 하나로 숏츠 영상을 자동으로 만드는 오픈소스 도구예요.",
-    "자료 조사, 대본, 그림, 목소리, 자막, 영상 합치기를 차례로 해요.",
-    "분야(니치)별 설정 15개가 있어 말투와 분위기가 달라져요.",
-    "저장소 이름은 youtube-shorts-pipeline이고, 제품 이름은 Verticals v3예요."
+    "Verticals v3는 주제 한 줄로 유튜브 쇼츠를 만드는 오픈소스 AI 콘텐츠 엔진이에요(저장소명 youtube-shorts-pipeline).",
+    "README에 따르면 주제를 조사하고, 대본과 제목을 쓰고, 보조 영상 이미지와 음성, 자막, 배경음악을 붙여 영상으로 조립해요.",
+    "'틈새 프로필(niche profile)'이라는 설정 파일이 대본 말투, 영상 분위기, 자막 스타일을 정해 줘요. 기본으로 15개가 있어요.",
+    "README는 영상 한 편에 약 0.11달러가 든다고 적었고, 언어 옵션에 한국어(ko)도 들어 있어요.",
+    "유튜브 업로드는 기본이 비공개이고, 틱톡·릴스·X 업로드는 아직 만들어지지 않았다고 README가 밝혀요."
   ],
   "flow": [
     {
@@ -81,25 +82,154 @@
   ],
   "glossary": [
     {
-      "term": "니치",
-      "meaning": "요리, 테크처럼 정한 콘텐츠 분야"
+      "term": "파이프라인",
+      "meaning": "여러 처리를 순서대로 이어 붙인 작업 줄"
     },
     {
       "term": "TTS",
-      "meaning": "글을 목소리로 읽어 주는 기술"
+      "meaning": "글자를 목소리로 바꾸는 음성 합성 기술"
     },
     {
       "term": "Whisper",
-      "meaning": "말을 글자로 바꾸는 음성 인식 모델"
+      "meaning": "말을 글자로 받아쓰는 AI 음성인식 모델"
+    },
+    {
+      "term": "환각",
+      "meaning": "AI가 사실이 아닌 내용을 지어내는 현상"
+    },
+    {
+      "term": "ffmpeg",
+      "meaning": "영상과 소리를 합치고 자르는 무료 프로그램"
     }
   ],
   "caution": "AI가 쓴 사실은 틀릴 수 있어요. 가격·성분 같은 정보는 올리기 전에 출처를 직접 확인해요.",
   "license": "MIT",
   "sources": [
-    "README: Topic in, Published Short out 소개",
-    "README: Implemented today 목록",
-    "README: Not shipped yet 목록(TikTok·Reels 없음)",
-    "README: License MIT"
+    "README: Topic in, Published Short out, ~$0.11 per video",
+    "README: What Changed in v3(틈새 프로필 15개)와 Implemented today / Not shipped yet",
+    "README: How It Works 6단계(Research, Script, Visuals, Voice, Captions, Assemble)",
+    "README: Quickstart와 CLI Commands(--lang ko 포함 플래그 설명)",
+    "README: Provider Support 표(Edge TTS 무료, Ollama 무료 등)"
   ],
-  "rank": 133
+  "rank": 133,
+  "deep_dive": [
+    "숏폼을 만들려면 조사, 대본, 이미지, 목소리, 자막, 편집을 따로 해야 해요. 이 도구는 그 6단계를 한 줄 명령으로 이어서, 주제만 넣으면 올릴 수 있는 영상까지 가는 파이프라인(작업 줄)이에요. 단계를 이어 붙인 것 자체가 핵심 아이디어예요.",
+    "차별점은 '틈새 프로필'이에요. 요리, 여행, 게임 같은 분야마다 YAML(설정 글) 파일에 말투, 훅 문구 유형, 금지 문구, 영상 분위기, 자막 색 등을 적어 두면 모든 단계가 이 설정을 따라요. 내 프로필도 5분 만에 만들 수 있다고 README가 말해요.",
+    "정직한 점은 README가 아직 되지 않는 기능을 분명히 적는다는 거예요. Gradio 화면, Docker, 틱톡·릴스 업로드는 '로드맵'이라고 해요. 또 대본의 모든 이름과 숫자는 조사 결과에서 나와야 한다고 해서 환각(지어낸 내용)을 줄이려 해요."
+  ],
+  "principle": {
+    "key_idea": "조사부터 업로드까지 6단계를 틈새 프로필 설정에 맞춰 이어 붙여요",
+    "analogy": "기획 회의에서 정한 스타일 가이드를 모든 담당자가 지키며 순서대로 일해서 영상 한 편을 만드는 제작팀과 비슷해요.",
+    "steps": [
+      {
+        "title": "조사",
+        "text": "DuckDuckGo로 검색하고 원하면 출처 페이지도 읽어요. README는 대본의 이름·숫자·주장이 모두 이 조사에서 나와야 한다고 설명해요. 환각을 막는 관문이에요."
+      },
+      {
+        "title": "대본 쓰기",
+        "text": "LLM(글 쓰는 AI)이 프로필의 말투와 훅 패턴에 맞춰 60~90초 분량의 내레이션 대본을 써요. Claude, Gemini, GPT, Ollama 등 여러 AI를 고를 수 있어요."
+      },
+      {
+        "title": "이미지 만들기",
+        "text": "Gemini Imagen으로 보조 영상용 이미지 3장을 만들고 쇼츠에 맞는 세로(9:16)로 잘라요. 이미지 생성이 실패하면 단색 대체 화면으로 계속 진행해요. 중간에 멈추지 않고 영상까지 완성하려는 장치예요."
+      },
+      {
+        "title": "목소리와 자막",
+        "text": "Edge TTS 등으로 음성을 만들고, Whisper가 단어마다 시간을 달아 자막을 만들어요. 자막은 영상에 새기는 ASS와 파일용 SRT 두 가지로 나와요."
+      },
+      {
+        "title": "조립과 업로드",
+        "text": "ffmpeg가 이미지에 줌 효과를 주고 음성, 자막, 배경음악을 합쳐요. 목소리가 나올 때는 음악 소리를 자동으로 낮춰 말이 잘 들리게 해요. 마지막에 유튜브에 비공개로 올려 사람이 확인할 틈을 둬요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "주제 한 줄",
+      "틈새 프로필"
+    ],
+    "core": [
+      "조사",
+      "대본(LLM)",
+      "이미지·음성",
+      "자막·ffmpeg 조립"
+    ],
+    "outputs": [
+      "세로 쇼츠 mp4",
+      "유튜브 비공개 업로드"
+    ]
+  },
+  "howto": [
+    {
+      "step": "저장소 받기",
+      "detail": "소스 코드를 내려받아요. 파이썬과 ffmpeg가 미리 설치돼 있어야 해요.",
+      "cmd": "git clone https://github.com/rushindrasinha/youtube-shorts-pipeline.git"
+    },
+    {
+      "step": "폴더로 이동",
+      "detail": "내려받은 폴더로 들어가요.",
+      "cmd": "cd youtube-shorts-pipeline"
+    },
+    {
+      "step": "패키지 설치",
+      "detail": "필요한 파이썬 부품을 설치해요.",
+      "cmd": "pip install -r requirements.txt"
+    },
+    {
+      "step": "초안만 만들기",
+      "detail": "대본과 메타데이터만 먼저 만들어 보는 안전한 시험이에요. 비용이 드는 이미지·음성 단계와 업로드는 건너뛰어요.",
+      "cmd": "python -m verticals draft --topic \"headline\" --niche tech"
+    },
+    {
+      "step": "영상 제작",
+      "detail": "초안 파일 경로를 넣어 영상을 만들어요. 언어는 --lang으로 정하고, 한국어는 ko예요.",
+      "cmd": "python -m verticals produce --draft <path> --lang en"
+    },
+    {
+      "step": "전체 실행",
+      "detail": "조사부터 업로드까지 한 번에 돌려요. 업로드까지 이어지니 처음엔 --dry-run으로 초안만 만들어 보세요.",
+      "cmd": "python -m verticals run --topic \"your topic\" --niche tech"
+    }
+  ],
+  "scenario": {
+    "title": "'한국 편의점 신상' 쇼츠의 대본 초안 비교하기",
+    "steps": [
+      "새 틈새 프로필(YAML)을 복사해 우리 채널 말투와 금지 문구를 적어요.",
+      "--dry-run으로 편의점 주제의 대본 초안만 만들어요.",
+      "조사 결과에 가격·성분의 근거가 있는지 확인하고 없는 내용은 지워요.",
+      "좋은 문장만 우리 대본 JSON 형식에 옮겨 써요.",
+      "영상 제작과 업로드는 우리 제작 규칙에 따라 별도로 진행해요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "MoneyPrinterTurbo",
+      "rank": 5,
+      "diff": "주제나 키워드로 대본·소재·자막·음악까지 만드는 인기 도구예요. 이 레포는 틈새 프로필 설정이 특징이에요."
+    },
+    {
+      "name": "ShortGPT",
+      "rank": 100,
+      "diff": "AI로 영상·숏폼을 자동 제작하는 도구예요. 이 레포는 조사 단계와 유튜브 업로드가 있어요."
+    },
+    {
+      "name": "short-video-factory",
+      "rank": 111,
+      "diff": "데스크톱 앱이에요. 이 레포는 명령줄 파이프라인이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한국어 영상도 되나요?",
+      "a": "--lang 옵션에 ko가 포함돼 있어요. 품질은 README에 적혀 있지 않아서, 쓰는 AI와 음성 서비스가 한국어를 얼마나 잘하는지 직접 확인해야 해요."
+    },
+    {
+      "q": "틱톡·릴스에 올려 주나요?",
+      "a": "아니요. README는 틱톡, 릴스, X 업로드를 '아직 안 만든 기능'으로 적어요. 유튜브 업로드만 되고 기본은 비공개예요."
+    },
+    {
+      "q": "돈이 얼마나 드나요?",
+      "a": "README는 영상당 약 0.11달러라고 해요. Edge TTS와 Ollama를 쓰면 무료로도 가능하다고 해요. 실제 비용은 쓰는 서비스에 따라 달라요."
+    }
+  ]
 }

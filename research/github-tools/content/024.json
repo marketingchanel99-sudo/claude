@@ -9,10 +9,11 @@
     "after": "내 서버에서 AI를 돌려 데이터가 밖으로 안 나감"
   },
   "what": [
-    "LocalAI는 여러 종류의 AI 모델을 내 기기에서 돌리는 오픈소스 AI 엔진이에요.",
-    "글, 이미지, 음성, 영상 모델을 하나의 서버에서 쓸 수 있어요.",
-    "OpenAI, Anthropic, ElevenLabs 방식 API와 호환돼서 기존 앱을 옮기기 쉬워요.",
-    "GPU가 없어도 CPU만으로 돌릴 수 있다고 README에 쓰여 있어요."
+    "LocalAI는 글·이미지·음성·영상 AI 모델을 내 기기에서 돌려 주는 오픈소스 'AI 엔진'이에요.",
+    "모델을 켜면 OpenAI, Anthropic, ElevenLabs와 같은 방식의 API 주소가 열려서 기존 앱을 연결하기 쉬워요.",
+    "GPU가 없어도 CPU만으로 돌릴 수 있고, NVIDIA, AMD, Intel, Apple Silicon도 지원한다고 해요.",
+    "모델 종류에 맞는 실행 부품(백엔드)을 필요할 때만 내려받아서 쓰는 가벼운 구조예요.",
+    "내 데이터가 내 인프라 밖으로 나가지 않는 프라이버시를 강점으로 내세워요."
   ],
   "flow": [
     {
@@ -89,14 +90,149 @@
     {
       "term": "백엔드",
       "meaning": "모델을 실제로 돌리는 부품"
+    },
+    {
+      "term": "도커",
+      "meaning": "프로그램을 상자째 실행해 주는 도구"
+    },
+    {
+      "term": "GPU",
+      "meaning": "AI 계산을 빠르게 해 주는 그래픽 칩"
     }
   ],
   "caution": "각 모델마다 라이선스가 달라요. 상업적 사용 전에 모델별 약관을 확인하세요.",
   "license": "MIT",
   "sources": [
-    "README: open-source AI engine 소개 문구",
-    "README: Drop-in API compatibility",
-    "README: No GPU required",
-    "README: Docker 실행 명령"
+    "README: LocalAI is the open-source AI engine, No GPU required",
+    "README: A small core, not a bundle 문구와 구조도 이미지",
+    "README: Drop-in API compatibility(OpenAI, Anthropic, ElevenLabs)",
+    "README: Quickstart의 docker run 명령과 Loading models 예시",
+    "README: Automatic Backend Detection 문구",
+    "README: License 섹션 MIT"
+  ],
+  "deep_dive": [
+    "AI 모델마다 실행 프로그램이 제각각이라 하나씩 설치하고 맞추기가 번거로워요. LocalAI는 작은 중심(코어) 하나에 여러 실행 엔진을 꽂아 쓰게 해서 이 번거로움을 줄이려는 프로젝트예요. 앱은 코어 하나만 보면 돼요.",
+    "README는 'A small core, not a bundle'이라고 해요. llama.cpp, vLLM, whisper.cpp, stable-diffusion 같은 엔진이 각자 별도 이미지로 있고, 모델이 필요로 할 때만 자동으로 내려받아요.",
+    "하나의 API 뒤에 글, 이미지, 음성, 영상 모델을 모아 둔 점이 특징이에요. 여러 사용자 인증과 사용량 제한, 에이전트, 텔레그램 연결 같은 부가 기능도 있어서 개인 서버를 작은 AI 센터처럼 꾸려 쓸 수 있어요."
+  ],
+  "principle": {
+    "key_idea": "작은 중심 서버가 요청을 받아 알맞은 AI 엔진에게 넘겨요",
+    "analogy": "접수 창구(코어) 하나가 손님 요청을 듣고, 번역·그림·낭독 같은 전문 부서(엔진)로 알맞게 연결해 주는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "모델 지정",
+        "text": "local-ai run 뒤에 모델 이름이나 주소를 적어요. 모델 갤러리, Huggingface, Ollama 저장소 등에서 가져올 수 있다고 README에 나와요."
+      },
+      {
+        "title": "엔진 자동 선택",
+        "text": "LocalAI가 모델 종류와 내 GPU 상태를 보고, 필요한 백엔드(실행 엔진)를 알아서 찾아 내려받아요. 안 쓰는 엔진은 설치하지 않아서 디스크와 설정 부담이 줄어요."
+      },
+      {
+        "title": "API 서버 열기",
+        "text": "코어가 8080 포트에서 서버를 열고 OpenAI 형식 같은 API 주소를 제공해요. 앱은 주소만 바꿔서 연결할 수 있어요. 기존 앱을 거의 고치지 않고 쓸 수 있도록 같은 형식을 흉내 낸 거예요."
+      },
+      {
+        "title": "요청 전달",
+        "text": "앱이 글·그림·음성 요청을 보내면 코어가 알맞은 백엔드로 넘겨요. 예를 들어 받아쓰기는 whisper.cpp, 글은 llama.cpp 같은 식이에요."
+      },
+      {
+        "title": "결과 돌려주기",
+        "text": "엔진이 모델을 돌려 얻은 결과(글, 이미지, 음성 파일)를 코어가 받아서 요청한 앱에게 응답으로 돌려줘요. 앱 입장에서는 어떤 엔진이 일했는지 몰라도 되고 같은 형태의 답만 받아요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "앱·웹 요청",
+      "모델 이름"
+    ],
+    "core": [
+      "코어 서버(API)",
+      "엔진 자동 선택",
+      "백엔드 엔진"
+    ],
+    "outputs": [
+      "글·이미지·음성"
+    ]
+  },
+  "howto": [
+    {
+      "step": "도커 준비",
+      "detail": "컨테이너 방식이 기본 안내예요. 먼저 도커를 설치해 두세요. Mac은 README에서 DMG 앱 다운로드도 안내해요.",
+      "cmd": ""
+    },
+    {
+      "step": "서버 실행(CPU)",
+      "detail": "GPU 없이 CPU만으로 서버를 띄우는 명령이에요. 이름이 local-ai인 컨테이너가 만들어지고 8080 포트에서 열려요. 처음에는 이미지를 내려받느라 시간이 걸려요.",
+      "cmd": "docker run -ti --name local-ai -p 8080:8080 localai/localai:latest"
+    },
+    {
+      "step": "NVIDIA GPU용",
+      "detail": "NVIDIA GPU가 있다면 아래 이미지를 쓰면 돼요. CUDA 버전에 따라 이름이 달라서 README의 목록을 확인하세요.",
+      "cmd": "docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-gpu-nvidia-cuda-12"
+    },
+    {
+      "step": "모델 불러오기",
+      "detail": "모델 갤러리에 있는 이름으로 모델을 받아 실행해요. 아래는 README에 나온 작은 글쓰기 모델 예시예요. Huggingface나 Ollama 주소로도 불러올 수 있어요.",
+      "cmd": "local-ai run llama-3.2-1b-instruct:q4_k_m"
+    },
+    {
+      "step": "터미널 대화",
+      "detail": "서버를 켠 상태에서 다른 터미널에서 내장 에이전트로 대화해 볼 수 있어요. 상태를 바꾸는 일은 승인을 물어봐요.",
+      "cmd": "local-ai chat --model llama-3.2-1b-instruct:q4_k_m"
+    },
+    {
+      "step": "앱 연결",
+      "detail": "내 앱의 API 주소를 http://localhost:8080 으로 바꾸면 돼요. 자세한 설정은 공식 문서 Getting Started를 따라가요.",
+      "cmd": ""
+    }
+  ],
+  "scenario": {
+    "title": "외부 서비스 없이 영상 대본 초안을 내 컴퓨터에서 쓰기",
+    "steps": [
+      "도커로 LocalAI를 켜고 작은 글쓰기 모델을 불러와요",
+      "채널 말투 규칙과 주제를 담은 요청문을 준비해요",
+      "앱이나 터미널 대화로 쇼츠 대본 초안을 요청해요",
+      "초안의 가격, 성분 같은 사실은 출처로 직접 확인해요",
+      "받아쓰기 모델로 인터뷰 영상의 말도 글로 바꿔 봐요",
+      "결과를 대본 양식에 옮겨 담고 승인을 받아요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "whisper.cpp",
+      "rank": 22,
+      "diff": "받아쓰기 엔진 하나예요. LocalAI는 이런 엔진을 부품으로 끼워 쓰는 종합 서버예요."
+    },
+    {
+      "name": "Coqui TTS",
+      "rank": 26,
+      "diff": "글을 음성으로 읽어 주는 라이브러리예요. LocalAI는 음성뿐 아니라 글·이미지·영상까지 아울러요."
+    },
+    {
+      "name": "VoiceStudio",
+      "rank": 9,
+      "diff": "복제·더빙·받아쓰기 등 음성 작업용 앱이에요. LocalAI는 여러 모델을 API로 제공하는 서버예요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "GPU가 꼭 필요한가요?",
+      "a": "아니요. README는 GPU 없이 CPU만으로도 돌릴 수 있다고 해요. 다만 모델이 클수록 느릴 수 있어요."
+    },
+    {
+      "q": "기존 ChatGPT용 앱에 연결되나요?",
+      "a": "OpenAI, Anthropic, ElevenLabs API와 호환된다고 README에 있어요. 앱에서 API 주소만 바꿔 쓰는 방식이에요."
+    },
+    {
+      "q": "모델은 어디서 받나요?",
+      "a": "모델 갤러리, Huggingface, Ollama 저장소, 일반 OCI 저장소에서 받을 수 있다고 README에 나와요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/mudler_LocalAI_1.jpg",
+      "caption": "작은 코어에 llama.cpp 등 엔진을 꽂아 쓰는 LocalAI 구조도"
+    }
   ]
 }

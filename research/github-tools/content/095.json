@@ -9,9 +9,10 @@
     "after": "Claude에게 물으면 순위와 개선점을 종합 정리"
   },
   "what": [
-    "open-seo-mcp-skills는 Claude에게 SEO와 GEO 분석을 시키는 스킬 모음이에요.",
-    "키워드 조사, 순위 추적, 사이트 점검 등을 내 구글 서치 콘솔과 GA4 자료로 해 줘요.",
-    "Ryze라는 커넥터에 연결해서 쓴다고 README에 적혀 있어요."
+    "open-seo-mcp-skills는 Claude에게 검색 노출(SEO)과 AI 검색 노출(GEO) 분석을 시키는 무료 스킬 모음이에요.",
+    "스킬은 내 구글 서치 콘솔(검색 성과 자료)과 GA4(방문자 통계), 구글 광고 키워드 자료를 Claude가 읽게 해서 일해요.",
+    "입력은 '내 사이트 SEO 점검해 줘' 같은 말이고, 출력은 점검 결과, 키워드 계획, 순위 변화 정리예요.",
+    "Ryze라는 회사의 커넥터(MCP 서버)에 연결해서 쓰고, 스킬은 MIT 라이선스라서 복사해 고쳐 써도 돼요."
   ],
   "flow": [
     {
@@ -67,7 +68,7 @@
   ],
   "difficulty": 3,
   "difficulty_note": "Claude 설정에서 커넥터를 추가하고 구글 계정을 연결해요",
-  "cost": "스킬은 무료(MIT), 일부 호스팅은 월 약 10달러라고 비교 표에 나옴",
+  "cost": "스킬은 무료(MIT). 커넥터 추가도 무료라고 README에 있지만 Ryze 계정이 필요해요",
   "needs": [
     "Claude Code",
     "구글 서치 콘솔, GA4",
@@ -75,24 +76,147 @@
   ],
   "glossary": [
     {
-      "term": "SEO",
-      "meaning": "검색에 잘 나오게 사이트를 다듬는 일"
-    },
-    {
-      "term": "커넥터",
-      "meaning": "Claude를 외부 서비스에 잇는 연결 통로"
+      "term": "MCP",
+      "meaning": "AI가 외부 서비스를 도구처럼 쓰게 하는 연결 규칙"
     },
     {
       "term": "서치 콘솔",
-      "meaning": "구글이 주는 검색 노출 통계 도구"
+      "meaning": "구글 검색에서 내 사이트 성과를 보여 주는 무료 도구"
+    },
+    {
+      "term": "GA4",
+      "meaning": "방문자 숫자와 행동을 보여 주는 구글 통계 도구"
+    },
+    {
+      "term": "GEO",
+      "meaning": "AI 검색 답변에 내 사이트가 나오게 만드는 작업"
+    },
+    {
+      "term": "스킬",
+      "meaning": "AI에게 작업 방법을 알려 주는 안내 파일"
     }
   ],
-  "caution": "구글 계정과 광고 계정을 외부 커넥터에 연결해요. 접근 권한 범위를 확인하고 필요한 계정만 연결하세요.",
+  "caution": "구글·광고 계정을 외부 커넥터(Ryze)에 연결해요. 권한 범위를 확인하세요. README는 홍보 성격이 강해요.",
   "license": "MIT (스킬)",
   "sources": [
-    "README: 무료 SEO MCP 서버와 GEO 스킬 소개",
-    "README: 설치 2단계 안내",
-    "README: 스킬 표와 데이터 출처",
-    "README: 도구 비용 비교 표"
+    "README: 소개와 Why this exists(서치 콘솔, GA4 기반 주장)",
+    "README: Quick start와 Install 명령",
+    "README: The skills 표(seo-audit, keyword-research 등)",
+    "README: How it compares 표(자체 비교, 홍보성)",
+    "README: Common questions와 License(MIT)"
+  ],
+  "deep_dive": [
+    "README는 많은 오픈소스 SEO 도구가 사실 유료 데이터 서비스(DataForSEO) 위에 화면만 얹은 것이라고 주장해요. 이 도구는 추정치 대신 내 사이트의 실제 구글 서치 콘솔 순위와 GA4 방문자 자료를 쓰는 쪽을 택했다고 해요.",
+    "MCP는 AI가 외부 서비스의 자료와 기능을 도구처럼 쓰게 하는 연결 규칙이에요. 이 도구는 Ryze 커넥터가 MCP 도구를 제공하고, 스킬(마크다운 지침 파일)이 Claude에게 '무엇을 어떤 순서로 물어볼지'를 알려 줘요.",
+    "README는 비교표로 자기 장점을 강조하지만 홍보 문서의 성격이 있어요. 가격이나 성능 비교는 직접 확인하기 전에는 믿지 마세요. 또한 쓰려면 내 사이트가 구글 서치 콘솔에 등록돼 있어야 해서, 사이트가 없는 상태에서는 쓸 수 있는 부분이 거의 없어요."
+  ],
+  "principle": {
+    "key_idea": "Claude가 내 계정 자료를 MCP로 읽고, 스킬 지침대로 분석해요",
+    "analogy": "스킬은 업무 매뉴얼, MCP는 서류 보관함 열쇠예요. 직원(Claude)이 매뉴얼대로 서류함을 열어 보고서를 써 와요.",
+    "steps": [
+      {
+        "title": "커넥터 연결",
+        "text": "Claude에 Ryze MCP 주소를 커스텀 커넥터로 추가하고 구글 계정을 로그인해요. 서치 콘솔과 GA4를 한 번 연결해요. 연결이 있어야 Claude가 내 사이트의 실제 자료를 읽을 수 있어요."
+      },
+      {
+        "title": "스킬 설치",
+        "text": "플러그인으로 설치하거나 skills 폴더를 ~/.claude/skills/에 복사해요. 스킬은 사용 방법이 적힌 마크다운 파일이에요. 파일이라서 열어 보고 내 상황에 맞게 고쳐 써도 돼요."
+      },
+      {
+        "title": "질문하기",
+        "text": "'내 사이트 SEO 점검해 줘'처럼 평범한 말로 요청해요. 그러면 Claude가 그 요청에 알맞은 스킬(예: seo-audit, keyword-research)을 골라 지침을 읽어요. 어려운 명령어를 외울 필요가 없어요."
+      },
+      {
+        "title": "자료 가져오기",
+        "text": "스킬 지침에 따라 MCP 도구를 불러 서치 콘솔, GA4, 구글 광고, DataForSEO에서 필요한 자료를 가져와요. README는 순위와 방문자 수를 추정치가 아니라 내 계정의 실제 자료로 가져온다고 주장해요."
+      },
+      {
+        "title": "분석과 정리",
+        "text": "가져온 자료로 순위 변화, 놓친 키워드, AI 유입 같은 결과를 표와 개선안으로 정리해요. 자료 가져오기는 도구가, 정리와 설명은 Claude가 맡아서 숫자는 정확하고 설명은 읽기 쉬워져요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "내 사이트 주소",
+      "구글 계정 연결"
+    ],
+    "core": [
+      "Claude 스킬",
+      "Ryze MCP 커넥터",
+      "검색·방문 자료"
+    ],
+    "outputs": [
+      "SEO 점검 결과",
+      "키워드 계획"
+    ]
+  },
+  "howto": [
+    {
+      "step": "요구사항 확인",
+      "detail": "Claude Code(또는 Claude)와 내 사이트의 구글 서치 콘솔, GA4 접근 권한이 필요해요. 사이트 소유 확인이 안 된 상태에서는 자료를 볼 수 없어요.",
+      "cmd": ""
+    },
+    {
+      "step": "커넥터 추가",
+      "detail": "README의 간단 설치 명령으로 Ryze MCP 서버를 Claude Code에 추가해요. Claude 설정에서 커스텀 커넥터로 추가해도 돼요.",
+      "cmd": "claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp"
+    },
+    {
+      "step": "스킬 마켓 추가",
+      "detail": "스킬이 담긴 플러그인 저장소를 Claude Code에 등록해요. 아직 설치는 아니고, 어떤 플러그인이 있는지 알려 주는 단계예요.",
+      "cmd": "claude plugin marketplace add Ryze-AI-Adgent/open-seo-mcp-skills"
+    },
+    {
+      "step": "플러그인 설치",
+      "detail": "등록한 저장소에서 스킬 묶음을 설치해요. 플러그인에 커넥터가 들어 있어서 앞 단계는 선택이라고 README가 말해요.",
+      "cmd": "claude plugin install open-seo-mcp-skills@ryze"
+    },
+    {
+      "step": "질문하기",
+      "detail": "Claude에게 사이트 점검을 시켜 보세요. 처음에는 내 사이트 한 곳으로만 시험해요. 질문은 한국어로 해도 되지만 사이트 주소는 정확히 적어요.",
+      "cmd": "run an SEO audit on mysite.com"
+    }
+  ],
+  "scenario": {
+    "title": "채널 블로그의 '한국 생활템' 검색 노출 확인",
+    "steps": [
+      "채널 소개 블로그를 구글 서치 콘솔에 등록하고 GA4도 연결해요.",
+      "seo-audit 스킬로 색인 문제와 순위가 떨어진 글을 찾아요.",
+      "keyword-research로 외국인이 검색할 만한 한국 생활템 키워드를 묶어 봐요.",
+      "ai-visibility로 AI 검색에서 들어온 방문이 있는지 확인해요.",
+      "숫자는 사실 확인 후 글 수정과 영상 주제 후보로 쓰고 근거를 남겨요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "open-seo",
+      "rank": 47,
+      "diff": "DataForSEO 자료로 노출을 분석하는 도구예요. 이쪽은 내 서치 콘솔 실제 순위를 써요."
+    },
+    {
+      "name": "claude-seo",
+      "rank": 48,
+      "diff": "Claude Code용 SEO 점검 플러그인이에요. 이쪽은 MCP 커넥터와 계정 연결이 중심이에요."
+    },
+    {
+      "name": "geo-seo-claude",
+      "rank": 87,
+      "diff": "사이트 주소만 넣어 GEO 점수를 내요. 이쪽은 내 계정 자료로 분석해요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "완전 무료인가요?",
+      "a": "README는 스킬이 MIT 라이선스이고 커넥터 추가는 무료라고 해요. 하지만 Ryze 계정이 필요하고 데이터 비용 체계는 README에 자세히 없어요."
+    },
+    {
+      "q": "한국어 키워드도 되나요?",
+      "a": "README에 언어별 지원 설명은 없어요. 구글 광고 키워드 자료를 쓰니 시험해 보세요. 한국 지역 지원은 확인되지 않았어요."
+    },
+    {
+      "q": "ChatGPT나 Cursor에서도 되나요?",
+      "a": "README는 같은 URL을 커스텀 커넥터로 추가하면 된다고 해요. 스킬은 마크다운이라 다른 곳에 붙여도 돼요."
+    }
   ]
 }

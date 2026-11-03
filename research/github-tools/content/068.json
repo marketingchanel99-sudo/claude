@@ -9,10 +9,10 @@
     "after": "한 번 설정하면 여러 SNS에 올리고 예약"
   },
   "what": [
-    "social-auto-upload는 영상과 글을 여러 SNS에 올려 주는 멀티 플랫폼 발행 도구예요.",
-    "도표에 있는 플랫폼은 Instagram, YouTube, Facebook, TikTok 등이에요.",
-    "명령어(CLI)로 쓰고, Claude Code 같은 AI 도구용 스킬도 있어요.",
-    "예약 발행을 지원하는 플랫폼이 표에 따로 표시돼 있어요."
+    "social-auto-upload는 영상, 글, 사진 글을 여러 SNS에 한꺼번에 올리게 해 주는 도구예요. 명령어(sau)와 AI 비서용 스킬을 함께 줘요.",
+    "README 표에는 도우인, 빌리빌리, 샤오홍슈, TikTok, YouTube, Facebook, Instagram 등이 나와요.",
+    "플랫폼마다 한 번 로그인해 두면, 영상 파일, 제목, 설명을 명령에 적어 올릴 수 있어요.",
+    "일부 플랫폼은 예약 발행도 지원해요. 다만 TikTok은 Chrome 방식이고 sau 명령어가 없다고 적혀 있어요."
   ],
   "flow": [
     {
@@ -77,19 +77,148 @@
   "glossary": [
     {
       "term": "CLI",
-      "meaning": "글자 명령어로 쓰는 방식"
+      "meaning": "글자 명령어로 쓰는 프로그램 방식"
+    },
+    {
+      "term": "세션",
+      "meaning": "로그인된 상태를 기억해 두는 정보"
+    },
+    {
+      "term": "스킬",
+      "meaning": "AI 비서에게 일하는 방법을 알려 주는 설명서"
     },
     {
       "term": "예약 발행",
-      "meaning": "정한 시간에 자동 게시"
+      "meaning": "정한 시간에 자동으로 올리는 기능"
+    },
+    {
+      "term": "캐러셀",
+      "meaning": "사진 여러 장을 넘겨 보는 게시물"
     }
   ],
   "caution": "자동 업로드는 플랫폼 약관과 계정 정지 위험이 있어요. 제휴 영상은 고지 문구를 꼭 넣으세요.",
   "license": "MIT",
   "sources": [
-    "README: 지원 플랫폼 표(Instagram, YouTube, TikTok 등)",
-    "README: CLI와 Skill 설명",
-    "README: 예약 발행 열",
-    "README: MIT License"
+    "README: 다중 플랫폼 발행 도구와 CLI, Agent Skill 소개",
+    "README: 플랫폼별 기능 표(영상, 문서, 사진 글, 예약 발행)",
+    "README: 빠른 시작(sau login/check/upload-video/upload-note 명령)",
+    "README: Python 3.10-3.12 배지, MIT License 안내",
+    "일반 원리: 자동 브라우저가 업로드 화면을 사람처럼 조작(이런 도구는 보통 ~해요)"
+  ],
+  "deep_dive": [
+    "SNS마다 업로드 화면이 달라서 같은 영상을 여러 곳에 올리려면 시간이 많이 들어요. 이 도구는 플랫폼별 업로드 순서를 코드로 만들어 한 가지 명령 형식으로 묶었어요. 한 번 배우면 여러 플랫폼에서 비슷한 방식으로 쓸 수 있어요.",
+    "README는 Codex, OpenClaw, Claude Code 같은 AI 에이전트가 쓸 수 있도록 플랫폼별 스킬을 제공한다고 설명해요. AI에게 설치와 업로드를 맡길 수도 있어요. 다만 계정 약관과 위험은 사용자가 확인해야 해요.",
+    "로그인 정보는 --account 로 붙인 이름으로 저장되고, 여러 계정을 구분해 쓸 수 있어요. 지원 범위는 표에서 확인하고, 개발 중이나 실험적인 기능은 안정 기능으로 보지 않는다고 README가 밝혀요. 쓰기 전에 표를 꼭 보세요."
+  ],
+  "principle": {
+    "key_idea": "사람이 업로드 페이지에서 하던 클릭을 자동 브라우저가 대신해요",
+    "analogy": "택배 기사님이 여러 우체국에 같은 소포를 일일이 접수하는 일을 로봇 비서가 대신 해 주는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "계정 로그인",
+        "text": "플랫폼마다 한 번 로그인해서 세션(로그인 상태)을 저장해요. 이런 도구는 보통 브라우저가 로그인 정보를 파일로 기억해요. 이렇게 해야 다음부터는 비밀번호를 매번 입력하지 않아도 돼요."
+      },
+      {
+        "title": "세션 확인",
+        "text": "check 명령으로 저장해 둔 로그인이 아직 유효한지 확인해요. 로그인은 시간이 지나면 만료될 수 있어요. 업로드하다 실패하기 전에 미리 알 수 있어서 안전해요."
+      },
+      {
+        "title": "업로드 페이지 열기",
+        "text": "자동 브라우저가 각 플랫폼의 업로드 화면을 열고 사람이 하듯 파일을 올려요. 플랫폼별 흐름은 uploader 폴더에 있다고 README가 설명해요."
+      },
+      {
+        "title": "정보 채우기",
+        "text": "제목, 설명, 태그, 공개 범위 같은 칸을 채워요. 플랫폼마다 규칙이 달라요. README 표에는 웨이보 제목 30자, 후푸 제목 4~40자 같은 제한이 적혀 있어요."
+      },
+      {
+        "title": "발행 또는 예약",
+        "text": "바로 올리거나 예약 시간을 지정해요. 예약은 일부 플랫폼에서만 지원돼요. 결과를 파일로 남기는 옵션도 있어서, 어떤 게시물이 어디에 올라갔는지 기록할 수 있어요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "영상/사진 파일",
+      "제목, 설명, 태그",
+      "계정 로그인"
+    ],
+    "core": [
+      "sau 명령어(CLI)",
+      "플랫폼별 업로더",
+      "자동 브라우저"
+    ],
+    "outputs": [
+      "각 SNS 게시물",
+      "예약 발행"
+    ]
+  },
+  "howto": [
+    {
+      "step": "설치 안내 읽기",
+      "detail": "일반 사용자는 README가 안내한 설치 문서(docs/install.md)를 따라 설치해요. 파이썬 3.10에서 3.12 버전이 필요해요.",
+      "cmd": ""
+    },
+    {
+      "step": "계정 로그인",
+      "detail": "먼저 플랫폼에 로그인해서 계정 이름을 정해요. creator는 내가 붙인 이름이고, 여러 계정이 있으면 이름으로 구분해요. 로그인 창이 열리면 직접 로그인하세요.",
+      "cmd": "sau douyin login --account creator"
+    },
+    {
+      "step": "로그인 확인",
+      "detail": "저장된 세션이 아직 유효한지 확인해요. 유효하지 않으면 다시 로그인해야 해요. 업로드 전에 꼭 한 번 확인하는 습관을 들이세요.",
+      "cmd": "sau douyin check --account creator"
+    },
+    {
+      "step": "영상 올리기",
+      "detail": "README의 YouTube 예시에서 파일, 제목, 설명, 태그, 공개 범위를 지정해요. 처음엔 비공개로 시험하는 것이 안전해요.",
+      "cmd": "sau youtube upload-video --account  --file videos/demo.mp4 --title \"示例标题\" --desc \"示例简介\" --tags tag1,tag2 --playlist \"我的系列\" --visibility public"
+    },
+    {
+      "step": "사진 글 올리기",
+      "detail": "Instagram에는 사진 여러 장을 넘겨 보는 캐러셀 게시물을 올릴 수 있어요. 사진 파일 경로를 여러 개 적고 제목과 본문을 지정해요.",
+      "cmd": "sau instagram upload-note --account creator --images images/1.jpg images/2.jpg --title \"图片轮播\" --note \"正文\""
+    }
+  ],
+  "scenario": {
+    "title": "완성한 쇼츠 한 편을 YouTube와 Instagram에 나눠 올리기",
+    "steps": [
+      "영상 파일, 제목, 설명, 해시태그를 한 곳에 정리해요.",
+      "각 플랫폼에 sau login 으로 로그인해 두고 check로 확인해요.",
+      "AI 비서나 터미널에서 업로드 명령을 만들어 먼저 내용만 점검해요.",
+      "한 플랫폼에 먼저 올려 결과를 확인하고 나머지 플랫폼에도 올려요.",
+      "제휴 링크가 있는 영상은 고지 문구가 들어갔는지 꼭 확인하세요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "Postiz",
+      "rank": 31,
+      "diff": "SNS 예약, 자동화, 분석을 하는 관리 플랫폼이에요. 클라우드판도 있어요. social-auto-upload는 명령어 중심의 업로드 도구예요."
+    },
+    {
+      "name": "AiToEarn",
+      "rank": 43,
+      "diff": "국내외 플랫폼에 올리고 수익화까지 돕는 AI 콘텐츠 마케팅 에이전트예요. 이 도구는 업로드에 집중해요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "TikTok에도 올릴 수 있나요?",
+      "a": "표에는 TikTok 영상과 예약 발행이 지원으로 나와요. 다만 Chrome 방식 구현이라 sau 명령어는 없다고 적혀 있어요."
+    },
+    {
+      "q": "무료인가요?",
+      "a": "MIT 라이선스 오픈소스라서 사용료는 없어요. 각 SNS 계정은 직접 있어야 해요."
+    },
+    {
+      "q": "한국 플랫폼도 되나요?",
+      "a": "README 표에 네이버, 카카오 같은 한국 서비스는 없어요. 중국 플랫폼과 YouTube, Facebook, Instagram, TikTok이 있어요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/dreammis_social-auto-upload_1.jpg",
+      "caption": "자동 업로드 중 TikTok Creator Center 업로드 화면과 실행 로그"
+    }
   ]
 }

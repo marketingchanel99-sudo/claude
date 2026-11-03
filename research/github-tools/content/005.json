@@ -9,10 +9,11 @@
     "after": "주제만 정하면 대본부터 자막까지 한 번에 완성"
   },
   "what": [
-    "주제나 키워드를 넣으면 대본, 영상 소재, 자막, 배경음악을 만들어 영상으로 합쳐 줘요.",
-    "웹 화면(WebUI)이나 API, 명령어로 쓸 수 있어요.",
-    "영상 소재는 내 파일이나 Pexels 같은 무료 영상 사이트에서 가져와요.",
-    "음성은 무료인 Edge TTS를 포함해 여러 서비스 중에서 고를 수 있어요."
+    "MoneyPrinterTurbo는 주제만 넣으면 대본, 목소리, 영상 소재, 자막, 음악을 모아 숏폼을 만드는 도구예요.",
+    "쓰는 방법은 AI 에이전트, 웹 화면(WebUI), API, 명령어(CLI) 네 가지가 있어요.",
+    "영상 소재는 내 사진·영상이나 무료 스톡 사이트(Pexels, Pixabay 등)에서 가져와요.",
+    "세로 9:16(1080x1920), 가로 16:9, 정사각 1:1 영상으로 내보낼 수 있어요.",
+    "완성한 영상을 TikTok, Instagram, YouTube Shorts로 바로 올리는 기능도 있다고 해요."
   ],
   "flow": [
     {
@@ -80,23 +81,154 @@
   "glossary": [
     {
       "term": "TTS",
-      "meaning": "글을 사람 목소리로 읽어 주는 기술"
+      "meaning": "글자를 사람 목소리로 읽어 주는 기술"
     },
     {
-      "term": "API 키",
-      "meaning": "서비스를 쓰게 해 주는 비밀 열쇠"
+      "term": "LLM",
+      "meaning": "글을 쓰고 이해하는 대화형 AI"
     },
     {
       "term": "WebUI",
-      "meaning": "브라우저에서 누르며 쓰는 화면"
+      "meaning": "브라우저에서 클릭으로 쓰는 조작 화면"
+    },
+    {
+      "term": "API 키",
+      "meaning": "서비스를 쓰기 위한 비밀번호 같은 값"
+    },
+    {
+      "term": "스톡 영상",
+      "meaning": "누구나 가져다 쓸 수 있게 올려 둔 영상 소재"
     }
   ],
-  "caution": "영상 소재와 음악은 각 사이트의 사용 조건이 달라요. 올리기 전에 저작권을 확인하세요.",
+  "caution": "내장 배경음악에 저작권 문제가 있을 수 있다고 README가 밝혀요. 소재·음악 약관을 확인하세요.",
   "license": "",
   "sources": [
-    "README(영문): topic to script, footage, subtitles, music 설명",
-    "README: Python 3.11, GPU 필수 아님 표기",
-    "README: Pexels, Edge TTS(무료) 언급",
-    "README: 라이선스는 LICENSE 파일 참조라고만 적힘"
+    "README: Features(Creation Workflows, 비율, TikTok·Instagram·YouTube Shorts 게시)",
+    "README: Voiceover(Edge TTS 무료), Subtitle Generation(edge, whisper 모드)",
+    "README: Installation(pip install mpt, mpt webui, cli.py 명령)",
+    "README: System Requirements(GPU 선택, 최소 사양 표)",
+    "README: Background Music 저작권 경고 문구",
+    "이미지: README 영어 WebUI 스크린샷(4개 설정 칸 확인)"
+  ],
+  "deep_dive": [
+    "숏폼 하나를 만들려면 대본 쓰기, 영상 찾기, 녹음, 자막, 편집을 따로 해야 해요. 이 도구는 그 단계를 한 흐름으로 묶어서, 주제 한 줄에서 영상 파일까지 자동으로 이어 줘요. 한 번 설정하면 같은 방식으로 여러 편을 계속 만들 수 있어요.",
+    "자동이라도 단계마다 직접 고칠 수 있다고 README는 설명해요. 대본을 직접 넣거나, 소재 순서와 클립 길이, 자막 글꼴·색, 배경음악 크기를 정하고 여러 편을 한 번에 만들 수도 있어요. 그래서 완전 자동보다 반자동 제작에 가까워요.",
+    "AI 에이전트가 사용 설명 문서(Skill)를 읽고 설치부터 영상 생성까지 대신 해 주는 방법도 소개해요. 내장 배경음악에는 저작권 문제가 있을 수 있다고 README가 직접 경고해요. 특히 업로드 전에는 소재와 음악의 사용 조건을 꼭 확인해야 해요."
+  ],
+  "principle": {
+    "key_idea": "주제에서 대본을 쓰고, 소재·목소리·자막을 모아 한 편으로 합쳐요",
+    "analogy": "요리사가 주문(주제)을 받으면 재료 손질, 조리, 플레이팅을 차례로 해서 한 접시를 내놓는 주방 라인과 비슷해요.",
+    "steps": [
+      {
+        "title": "대본 쓰기",
+        "text": "주제를 LLM(글을 쓰는 AI)에 넘기면 영상 대본과 소재 검색용 영어 키워드가 나와요. 내가 쓴 대본을 직접 넣을 수도 있어요. 대본 언어는 자동 감지돼요."
+      },
+      {
+        "title": "소재 모으기",
+        "text": "키워드로 Pexels, Pixabay 같은 무료 영상 사이트를 찾거나 내 영상을 써요. 한 조각의 최대 길이(예: 3초)에 맞춰 이어 붙일 조각을 모아요."
+      },
+      {
+        "title": "목소리 만들기",
+        "text": "대본을 TTS(글자를 소리로 바꾸는 기술)로 읽혀요. README는 Edge TTS가 API 키 없이 무료라고 밝혀요. 미리 듣기 버튼도 있어요."
+      },
+      {
+        "title": "자막 맞추기",
+        "text": "소리에 맞춰 자막 시간표를 만들어요. 기본은 TTS가 주는 시간 정보를 쓰고, 더 정확히 하려면 Whisper로 소리를 다시 들어 맞춰요. 자막 글꼴과 위치도 고를 수 있어요."
+      },
+      {
+        "title": "영상 합치기",
+        "text": "영상 조각, 목소리, 자막, 배경음악(볼륨 조절 가능)을 한 파일로 합쳐요. 세로·가로·정사각 비율로 내보내요. 완성된 파일은 설정한 저장 폴더에서 찾을 수 있어요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "영상 주제",
+      "내 영상·사진"
+    ],
+    "core": [
+      "대본 생성(LLM)",
+      "소재 검색",
+      "음성 합성(TTS)",
+      "자막·편집"
+    ],
+    "outputs": [
+      "세로 숏폼 mp4"
+    ]
+  },
+  "howto": [
+    {
+      "step": "가상환경 만들기",
+      "detail": "파이썬 3.11 이상이 필요해요. 다른 프로그램과 섞이지 않게 전용 작업 공간(가상환경)을 먼저 만들어요. 이 폴더 이름은 .venv예요.",
+      "cmd": "python3 -m venv .venv"
+    },
+    {
+      "step": "가상환경 켜기",
+      "detail": "Mac, Linux에서 작업 공간을 켜는 명령이에요. Windows는 PowerShell용 명령이 따로 README에 있어요.",
+      "cmd": "source .venv/bin/activate"
+    },
+    {
+      "step": "공식 패키지 설치",
+      "detail": "PyPI의 공식 패키지 이름은 mpt예요. 같은 이름의 MoneyPrinterTurbo 패키지는 제3자가 만든 것이라고 README가 알려요.",
+      "cmd": "python -m pip install mpt"
+    },
+    {
+      "step": "웹 화면 켜기",
+      "detail": "이 명령을 실행하면 브라우저가 열리고 대본·영상·음성·자막 설정 화면이 나와요. 처음 실행하면 config.toml이 만들어져요.",
+      "cmd": "mpt webui"
+    },
+    {
+      "step": "API 키 입력",
+      "detail": "화면 설정에서 쓸 AI(LLM)와 영상 소재, 음성 서비스의 키를 넣어요. 무료 서비스만 쓰면 일부는 키가 필요 없어요.",
+      "cmd": ""
+    },
+    {
+      "step": "브라우저 없이 만들기",
+      "detail": "소스를 받아 설치했다면 명령 한 줄로도 만들 수 있어요. 여러 편은 JSON 목록 파일로 순서대로 처리해요.",
+      "cmd": "uv run python cli.py --video-subject \"How AI is changing everyday life\""
+    }
+  ],
+  "scenario": {
+    "title": "'한국 편의점 신상' 30초 세로 영상의 초안 뽑기",
+    "steps": [
+      "주제란에 'Korean convenience store new snacks'를 적어요",
+      "AI가 쓴 대본을 읽고 가격·성분 같은 사실은 직접 확인해 고쳐요",
+      "소재는 내가 찍은 영상과 Pexels 중에서 고르고 비율은 9:16으로 해요",
+      "목소리와 자막 글꼴을 정하고 '영상 생성'을 눌러요",
+      "나온 영상은 초안으로만 쓰고 우리 채널 말투로 대본을 다시 써요",
+      "올리기 전에 소재와 음악의 저작권을 확인해요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "OpenMontage",
+      "rank": 14,
+      "diff": "OpenMontage는 AI 비서가 조사부터 편집까지 맡는 구조예요. 이쪽은 설정 화면에서 직접 고르는 방식이에요."
+    },
+    {
+      "name": "HyperFrames",
+      "rank": 13,
+      "diff": "HyperFrames는 HTML로 영상을 직접 설계해 뽑아요. 이쪽은 주제 입력만으로 영상을 만들어요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료로 쓸 수 있나요?",
+      "a": "프로그램은 내려받아 쓸 수 있고, Edge TTS와 Pexels·Pixabay 소재는 무료라고 해요. 일부 AI·음성 서비스는 별도 요금이 들어요."
+    },
+    {
+      "q": "GPU가 꼭 필요한가요?",
+      "a": "필수는 아니에요. 최소 CPU 4코어·메모리 4GB이고, 로컬 자막 인식(faster-whisper)을 빠르게 하려면 GPU가 도움돼요."
+    },
+    {
+      "q": "한국어 영상도 되나요?",
+      "a": "README는 여러 언어의 대본 생성을 지원한다고 해요. 한국어 품질은 README에 따로 없어서 직접 시험해 보세요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/harry0703_MoneyPrinterTurbo_3.jpg",
+      "caption": "MoneyPrinterTurbo 웹 화면: 대본·영상·음성·자막 설정 후 생성"
+    }
   ]
 }

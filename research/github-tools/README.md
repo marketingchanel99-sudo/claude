@@ -17,3 +17,15 @@ python3 render.py && python3 index.py   # pdf/<폴더>/NNN_이름.pdf
 ```
 
 PDF는 표준 한글 CID 폰트(HYGothic-Medium)를 내장하지 않고 참조해서 파일당 약 12KB입니다.
+
+## v2 상세판 (원리·구조도·실제 화면·따라 하기 포함)
+
+- `SCHEMA2.md`: v2 원고 규칙 (principle, architecture, howto, scenario, compare, faq, images 추가)
+- `render2.py` + `pdf.js`: HTML을 만들고 Chromium(Playwright)으로 PDF 출력. 나눔고딕 폰트를 PDF에 넣어 어느 뷰어에서도 한글이 깨지지 않음
+- `index2.py`: 전체 목록 PDF
+- `images/`: README에서 가져온 실제 화면 (출처는 각 레포 README)
+- 폰트는 저장소에 넣지 않았어요. `fonts/`에 NanumGothic-Regular/Bold/ExtraBold, NanumGothicCoding-Regular(.ttf, google/fonts 저장소의 ofl/nanumgothic*)를 두고 실행하세요.
+
+```bash
+NODE_PATH=$(npm root -g) python3 render2.py && NODE_PATH=$(npm root -g) python3 index2.py
+```

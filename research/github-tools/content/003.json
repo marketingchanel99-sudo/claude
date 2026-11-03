@@ -9,10 +9,11 @@
     "after": "주소만 주면 깔끔한 본문 글로 받아 보기"
   },
   "what": [
-    "Firecrawl은 웹사이트의 내용을 가져와 깨끗한 글(마크다운)이나 표 형태로 바꿔 줘요.",
-    "검색, 한 페이지 가져오기, 사이트 전체 훑기(크롤) 같은 기능이 있어요.",
-    "자바스크립트로 움직이는 페이지나 PDF·문서 파일도 다룬다고 해요.",
-    "API 키로 쓰는 호스팅 서비스와, 직접 설치하는 오픈소스 버전이 있어요."
+    "Firecrawl은 웹사이트 주소를 넣으면 AI가 읽기 좋은 글(마크다운)이나 구조화된 JSON으로 바꿔 줘요.",
+    "핵심 기능은 검색(Search), 한 페이지 가져오기(Scrape), 페이지 조작하기(Interact)예요.",
+    "사이트 전체를 훑는 크롤(Crawl), 주소 목록 찾기(Map), 수천 개를 한꺼번에 가져오는 배치도 있어요.",
+    "PDF·DOCX 문서를 글로 바꾸고, 사이트 내용이 바뀌면 알려 주는 모니터 기능도 있어요.",
+    "API 키로 쓰는 호스팅 서비스와 오픈소스 코드(AGPL-3.0)가 함께 제공돼요."
   ],
   "flow": [
     {
@@ -79,23 +80,157 @@
   "glossary": [
     {
       "term": "크롤링",
-      "meaning": "사이트를 돌아다니며 내용을 모으는 일"
+      "meaning": "웹사이트를 돌아다니며 내용을 모으는 일"
     },
     {
       "term": "API 키",
-      "meaning": "서비스를 쓰게 해 주는 비밀 열쇠"
+      "meaning": "서비스를 쓰기 위한 비밀번호 같은 값"
     },
     {
       "term": "마크다운",
-      "meaning": "꾸밈 없는 간단한 글 표기법"
+      "meaning": "제목·목록을 간단한 기호로 적는 글 형식"
+    },
+    {
+      "term": "토큰",
+      "meaning": "AI가 글을 읽는 단위(많을수록 비용 증가)"
+    },
+    {
+      "term": "MCP",
+      "meaning": "AI 에이전트에 도구를 꽂는 공통 규격"
     }
   ],
   "caution": "사이트마다 수집을 막는 약관이 있어요. 수집 전에 이용 규칙을 꼭 확인하세요.",
   "license": "AGPL-3.0 (SDK 등 일부는 MIT)",
   "sources": [
-    "README: Search/Scrape/Crawl/Map 등 기능 표",
-    "README: Open Source vs Cloud 섹션",
-    "README: Quick Start API 키 안내",
-    "README: License 섹션"
+    "README: Why Firecrawl(LLM-ready output, fewer tokens, Actions)",
+    "README: Feature Overview(Search, Scrape, Interact, Crawl, Map, Batch, Monitor)",
+    "README: pip/npm 설치, CLI 및 MCP 명령",
+    "README: Open Source vs Cloud 그림, License 섹션",
+    "일반 원리: 크롤러가 브라우저로 페이지를 열고 본문을 추려 내는 방식"
+  ],
+  "deep_dive": [
+    "AI가 웹페이지를 읽으려면 광고·메뉴가 섞인 지저분한 HTML보다 깔끔한 글이 좋아요. Firecrawl은 그 정리를 대신해 주고, AI가 쓰는 글자 수(토큰)도 줄여 준다고 README가 소개해요. 그래서 'AI 에이전트를 위한 웹 API'를 표방해요.",
+    "자바스크립트로 늦게 뜨는 화면, 프록시(우회 접속 서버), 속도 제한 같은 까다로운 부분은 서비스가 처리한다고 README는 설명해요. 사용자는 주소와 원하는 출력 형식만 보내면 되니 코드가 짧아지고, 직접 서버를 관리하는 부담도 줄어요.",
+    "AI 에이전트에 한 줄로 붙이는 CLI와 MCP(에이전트용 연결 규격)도 제공해요. 오픈소스 버전과 클라우드 버전은 기능이 달라서, README가 그림으로 그 차이를 보여 주니 쓰기 전에 어느 쪽이 필요한지 확인하세요."
+  ],
+  "principle": {
+    "key_idea": "웹페이지를 불러와 군더더기를 걷어내고 깔끔한 글로 바꿔요",
+    "analogy": "광고와 상자가 가득한 신문 지면에서 기사 본문만 오려, 깨끗한 종이에 옮겨 적어 주는 비서와 같아요.",
+    "steps": [
+      {
+        "title": "주소 받기",
+        "text": "사용자가 API로 주소를 보내요. 한 페이지만 가져올지(Scrape), 사이트 전체를 훑을지(Crawl), 검색부터 할지(Search)도 함께 알려 줘요."
+      },
+      {
+        "title": "화면 불러오기",
+        "text": "이런 도구는 보통 실제 브라우저처럼 페이지를 열어, 늦게 뜨는 내용까지 기다려요. README는 클릭·스크롤 같은 동작(Actions)도 지원한다고 해요."
+      },
+      {
+        "title": "군더더기 제거",
+        "text": "메뉴, 광고, 바닥글처럼 본문이 아닌 부분을 걷어내고 제목·문단·표 중심으로 정리해요. 이런 도구는 보통 이런 식으로 군더더기를 줄여서 AI가 읽을 글자 수를 줄여요."
+      },
+      {
+        "title": "형식 바꾸기",
+        "text": "정리한 내용을 마크다운, HTML, 스크린샷, 구조화 JSON 중 원하는 형식으로 내보내요. 원하는 항목(가격, 이름 등)만 JSON으로 뽑는 것도 가능하다고 README는 설명해요."
+      },
+      {
+        "title": "결과 전달",
+        "text": "결과를 API 응답으로 돌려줘요. 주소가 아주 많으면 일을 맡겨 두고(비동기) 나중에 결과를 받아 가는 배치 방식을 써서 오래 기다리지 않아도 돼요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "웹사이트 주소",
+      "검색어"
+    ],
+    "core": [
+      "페이지 불러오기",
+      "본문 정리",
+      "형식 변환"
+    ],
+    "outputs": [
+      "마크다운·JSON"
+    ]
+  },
+  "howto": [
+    {
+      "step": "API 키 받기",
+      "detail": "firecrawl.dev에서 가입하고 API 키를 받아요. API 키는 '이 서비스를 쓸 수 있는 비밀번호' 같은 거예요.",
+      "cmd": ""
+    },
+    {
+      "step": "파이썬 패키지 설치",
+      "detail": "파이썬으로 쓸 때는 이 명령으로 도구를 설치해요. Node.js 용은 npm install firecrawl 이에요.",
+      "cmd": "pip install firecrawl"
+    },
+    {
+      "step": "검색해 보기",
+      "detail": "README의 첫 예시예요. 검색어로 웹을 찾고 결과 페이지 내용을 한 번에 받아요. limit은 가져올 개수예요.",
+      "cmd": "search_result = app.search(\"firecrawl\", limit=5)"
+    },
+    {
+      "step": "한 페이지 가져오기",
+      "detail": "주소 하나를 넣으면 깔끔한 글로 돌려줘요. 아래는 터미널(CLI)에서 같은 일을 하는 명령이고, 파이썬에서는 app.scrape('firecrawl.dev')로 해요.",
+      "cmd": "firecrawl scrape https://firecrawl.dev"
+    },
+    {
+      "step": "사이트 주소 지도 만들기",
+      "detail": "Map은 한 사이트의 주소 목록을 빠르게 찾아 줘요. search 옵션으로 'pricing' 같은 페이지만 고를 수 있어요.",
+      "cmd": "result = app.map(\"https://firecrawl.dev\", search=\"pricing\")"
+    },
+    {
+      "step": "AI 에이전트에 연결",
+      "detail": "Claude Code 같은 에이전트에 스킬을 한 줄로 설치해요. 설치 뒤에는 에이전트를 다시 시작해야 해요.",
+      "cmd": "npx -y firecrawl-cli@latest init --all --browser"
+    }
+  ],
+  "scenario": {
+    "title": "'한국 편의점 신상' 기사들을 글로 모아 대본 레퍼런스 만들기",
+    "steps": [
+      "검색(Search)으로 '한국 편의점 신상 후기' 관련 페이지를 찾아요",
+      "결과 페이지 본문을 마크다운으로 받아 폴더에 저장해요",
+      "Map으로 한 매체 사이트의 관련 글 주소를 한꺼번에 찾아요",
+      "받은 글을 AI에게 읽혀 '외국인이 궁금해할 점'을 뽑아요",
+      "가격·성분은 원문 링크로 직접 확인하고 근거 메모에 남겨요",
+      "사이트 이용 약관과 수집 허용 여부를 먼저 확인해요"
+    ]
+  },
+  "compare": [
+    {
+      "name": "Crawl4AI",
+      "rank": 11,
+      "diff": "Crawl4AI는 내 컴퓨터에서 직접 돌리는 파이썬 크롤러예요. Firecrawl은 API 서비스 중심이에요."
+    },
+    {
+      "name": "Scrapling",
+      "rank": 10,
+      "diff": "Scrapling은 파이썬 코드로 수집 규칙을 직접 짜요. Firecrawl은 주소만 보내면 돼요."
+    },
+    {
+      "name": "MediaCrawler",
+      "rank": 16,
+      "diff": "MediaCrawler는 중국 SNS 전용 수집 도구예요. Firecrawl은 일반 웹페이지용이에요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "무료로 쓸 수 있나요?",
+      "a": "오픈소스(AGPL-3.0)라 직접 돌릴 수 있고, 호스팅 서비스는 API 키가 필요해요. 가격은 README에 없어요."
+    },
+    {
+      "q": "오픈소스와 클라우드는 뭐가 달라요?",
+      "a": "README 그림에 따르면 프록시 순환, 봇 보호 우회, 대시보드, Actions 등은 클라우드 버전에 더해져요."
+    },
+    {
+      "q": "어떤 언어로 쓰나요?",
+      "a": "README에 Python, Node.js, cURL, CLI 예시가 있어요. 에이전트용 MCP 서버도 제공해요."
+    }
+  ],
+  "images": [
+    {
+      "file": "images/firecrawl_firecrawl_1.jpg",
+      "caption": "오픈소스 기능과 클라우드 버전에 더해지는 기능을 비교한 그림"
+    }
   ]
 }

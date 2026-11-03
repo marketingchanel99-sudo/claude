@@ -9,10 +9,10 @@
     "after": "샘플 음성과 글로 AI가 낭독 파일 생성"
   },
   "what": [
-    "F5-TTS는 글을 사람처럼 자연스러운 음성으로 바꾸는 TTS(글 읽어 주기) 모델이에요.",
-    "짧은 참조 음성을 주면 그 목소리를 닮은 소리를 만드는 방식을 써요.",
-    "파이썬 패키지, 웹 화면, 도커로 쓸 수 있고 학습도 가능해요.",
-    "NVIDIA, AMD, Intel 그래픽카드를 위한 설치 안내가 README에 있어요."
+    "F5-TTS는 글을 사람 목소리로 읽어 주는 음성 합성(TTS) 모델이에요. 짧은 참고 음성을 주면 그 목소리를 따라 말하게 할 수도 있어요.",
+    "입력은 참고 음성 파일, 그 음성의 내용 글, 그리고 읽게 하고 싶은 글이에요. 출력은 읽어 준 음성 파일이에요.",
+    "웹 화면(Gradio 앱)과 명령어(CLI)로 쓸 수 있고, 여러 목소리로 이야기를 만드는 기능도 있어요.",
+    "상업 영상에 쓰기 전 모델 라이선스를 꼭 확인해야 해요. 코드는 MIT지만 사전 학습 모델은 CC-BY-NC예요."
   ],
   "flow": [
     {
@@ -77,18 +77,141 @@
   "glossary": [
     {
       "term": "TTS",
-      "meaning": "글을 소리로 바꾸는 기술"
+      "meaning": "글을 사람 목소리로 읽어 주는 기술"
     },
     {
-      "term": "참조 음성",
-      "meaning": "따라 할 목소리 샘플"
+      "term": "확산 모델",
+      "meaning": "노이즈를 걷어내며 만드는 AI 방식"
+    },
+    {
+      "term": "보코더",
+      "meaning": "소리 설계도를 실제 소리로 바꾸는 부품"
+    },
+    {
+      "term": "CC-BY-NC",
+      "meaning": "출처를 밝히면 쓰되 상업 사용은 안 되는 라이선스"
+    },
+    {
+      "term": "추론",
+      "meaning": "학습된 AI를 실제로 돌려 결과를 얻는 것"
     }
   ],
-  "caution": "모델이 CC-BY-NC(비상업)라 상업 영상엔 쓰기 어려워요. 타인 목소리 복제도 동의가 필요해요.",
+  "caution": "모델이 CC-BY-NC(비상업)라 상업 영상엔 쓰기 어려워요. 타인 목소리 복제는 동의가 필요해요.",
   "license": "코드 MIT, 사전학습 모델 CC-BY-NC",
   "sources": [
-    "README: F5-TTS 소개",
-    "README: 설치와 도커 안내",
-    "README: 라이선스 MIT, 모델 CC-BY-NC"
-  ]
+    "README: F5-TTS는 Flow Matching과 Diffusion Transformer(ConvNeXt V2), Sway Sampling",
+    "README: Installation(conda, PyTorch, pip install f5-tts, Docker)",
+    "README: Gradio 앱, CLI 사용 예시와 ref_text 빈칸 설명",
+    "README: 벤치마크 표의 Vocos, License 문구(MIT, 모델 CC-BY-NC)",
+    "일반 원리: 확산 계열 TTS는 소리 설계도를 만든 뒤 보코더로 변환(이런 모델은 보통 ~해요)"
+  ],
+  "deep_dive": [
+    "글을 읽어 주는 AI는 많지만, 자연스럽고 목소리까지 비슷하게 만들려면 큰 모델과 학습이 필요해요. F5-TTS는 확산 트랜스포머와 flow matching이라는 방식으로 이 문제를 풀어요. 이름 속 '5'는 Fairytaler that Fakes Fluent and Faithful Speech의 F 다섯 개예요.",
+    "README는 F5-TTS를 'ConvNeXt V2를 쓴 확산 트랜스포머'로 소개해요. 학습과 추론이 더 빠르다는 설명이 있고, 추론할 때 Sway Sampling이라는 방식으로 성능을 크게 높인다고 해요. 전문 용어보다 빠르고 자연스럽다는 뜻으로 이해하면 돼요.",
+    "CLI에서 참고 글(ref_text)을 비워 두면 음성 인식 모델이 대신 받아 적어 줘요. 편하지만 GPU 메모리를 더 쓴다고 README에 적혀 있어요. 정확도를 위해서는 참고 음성의 내용을 직접 적어 주는 것이 좋아요."
+  ],
+  "principle": {
+    "key_idea": "참고 목소리를 단서로, 소리를 노이즈에서 조금씩 다듬어 만들어요",
+    "analogy": "성대모사 달인이 목소리 샘플을 잠깐 듣고, 건네받은 대본을 그 목소리로 읽어 주는 것과 비슷해요.",
+    "steps": [
+      {
+        "title": "참고 음성 듣기",
+        "text": "몇 초짜리 참고 음성과 그 음성의 내용 글을 모델에 줘요. 이런 모델은 보통 이 음성에서 목소리의 톤과 말투 같은 특징을 읽어 내요. 참고 음성이 깨끗할수록 따라 하기 쉬워요."
+      },
+      {
+        "title": "대본과 연결",
+        "text": "읽을 글을 참고 음성 뒤에 이어서 '이 목소리로 이 글을 읽어라'는 형태로 모델에 넣어요. 참고 음성이 앞부분 예시 역할을 하고, 모델이 그 뒤를 이어서 새 말소리를 만들어 가는 거예요."
+      },
+      {
+        "title": "노이즈에서 시작",
+        "text": "확산/flow matching 모델은 무작위 노이즈에서 출발해 여러 단계에 걸쳐 소리의 설계도(멜 스펙트로그램)를 다듬어요. NFE는 이 단계 수예요."
+      },
+      {
+        "title": "소리로 바꾸기",
+        "text": "설계도(스펙트로그램)는 아직 소리가 아니라 그림 같은 값이에요. 보코더(Vocos 등)가 이것을 실제 소리 파형으로 바꿔 줘요. 우리가 스피커로 듣는 것은 이 파형이에요. README의 벤치마크 표에도 Vocos가 나와요."
+      },
+      {
+        "title": "음성 파일 저장",
+        "text": "완성된 말소리를 wav 같은 파일로 저장해요. 긴 글은 한 번에 만들기 어려워서 조각(chunk)으로 나눠 처리하고 이어 붙이는 방식을 쓴다고 README가 설명해요."
+      }
+    ]
+  },
+  "architecture": {
+    "inputs": [
+      "참고 음성",
+      "참고 음성 글",
+      "읽을 글"
+    ],
+    "core": [
+      "확산 트랜스포머",
+      "보코더(Vocos)"
+    ],
+    "outputs": [
+      "읽어 준 음성 파일"
+    ]
+  },
+  "howto": [
+    {
+      "step": "환경 만들기",
+      "detail": "파이썬 3.10 이상 환경과 FFmpeg(소리와 영상을 다루는 도구)를 준비해요. README는 conda로 별도 환경을 만드는 방법을 보여 줘요. 다른 프로그램과 섞이지 않게 하려는 거예요.",
+      "cmd": "conda create -n f5-tts python=3.11"
+    },
+    {
+      "step": "PyTorch 설치",
+      "detail": "내 그래픽카드에 맞는 PyTorch(AI 계산 도구)를 설치해요. 아래는 NVIDIA 예시이고, AMD, Intel, 애플 실리콘용 명령은 README에 따로 있어요.",
+      "cmd": "pip install torch==2.8.0+cu128 torchaudio==2.8.0+cu128 --extra-index-url https://download.pytorch.org/whl/cu128"
+    },
+    {
+      "step": "F5-TTS 설치",
+      "detail": "추론(만들기)만 할 거라면 패키지 한 줄로 설치하면 돼요. 학습이나 미세 조정까지 하려면 README의 '로컬 편집 설치' 방식을 따라요.",
+      "cmd": "pip install f5-tts"
+    },
+    {
+      "step": "웹 화면 켜기",
+      "detail": "브라우저에서 쓰는 앱(Gradio)을 실행해요. 화면에서 참고 음성을 올리고 글을 입력하면 음성이 나와서 명령어를 몰라도 쓸 수 있어요.",
+      "cmd": "f5-tts_infer-gradio"
+    },
+    {
+      "step": "명령어로 만들기",
+      "detail": "참고 음성, 그 음성의 내용, 읽을 글을 지정해서 말소리를 만들어요. 참고 내용을 비우면 음성 인식이 대신 받아 적어 줘요. 결과는 wav 파일로 저장돼요.",
+      "cmd": "f5-tts_infer-cli --model F5TTS_v1_Base --ref_audio \"provide_prompt_wav_path_here.wav\" --ref_text \"The content, subtitle or transcription of reference audio.\" --gen_text \"Some text you want TTS model generate for you.\""
+    }
+  ],
+  "scenario": {
+    "title": "우리 채널 영어 나레이션을 직접 녹음한 목소리로 만들기",
+    "steps": [
+      "내가 직접 녹음한 5초 안팎의 깨끗한 음성과 그 내용 글을 준비해요.",
+      "영어 쇼츠 대본을 한 문단씩 gen_text에 넣어요.",
+      "웹 화면에서 여러 번 생성해 가장 자연스러운 음성을 골라요.",
+      "음성을 편집 앱에서 영상에 입히고 자막과 맞춰요.",
+      "상업 채널에 쓰기 전 모델 라이선스(CC-BY-NC)를 확인해요."
+    ]
+  },
+  "compare": [
+    {
+      "name": "GPT-SoVITS",
+      "rank": 18,
+      "diff": "5초 샘플로 바로 만들고, 1분 데이터로 미세 조정도 해요. WebUI에 학습용 도구가 많이 들어 있어요."
+    },
+    {
+      "name": "OpenVoice",
+      "rank": 33,
+      "diff": "목소리 톤을 복제하고 감정, 억양 같은 스타일까지 조절하는 데 중점을 둬요."
+    }
+  ],
+  "faq": [
+    {
+      "q": "한국어도 되나요?",
+      "a": "README에 한국어 지원 언급이 없어요. 더 많은 언어를 쓰려면 별도 안내(SHARED.md)를 봐야 한다고만 적혀 있어요."
+    },
+    {
+      "q": "그래픽카드가 꼭 필요한가요?",
+      "a": "README는 NVIDIA, AMD, Intel GPU와 애플 실리콘용 설치법을 안내해요. 속도는 환경에 따라 달라요."
+    },
+    {
+      "q": "상업적으로 써도 되나요?",
+      "a": "코드는 MIT지만 사전 학습 모델은 CC-BY-NC(비상업) 라이선스라고 README가 밝혀요. 상업 영상에는 주의가 필요해요."
+    }
+  ],
+  "images": []
 }
