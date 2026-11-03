@@ -1,0 +1,102 @@
+{
+  "rank": 36,
+  "repo": "ScrapeGraphAI/Scrapegraph-ai",
+  "name": "ScrapeGraphAI",
+  "one_liner": "원하는 정보를 말로 적으면 AI가 웹에서 뽑아 주는 파이썬 도구",
+  "analogy": {
+    "text": "'여기서 가격만 뽑아 줘'라고 말하면 가져오는 똑똑한 인턴과 비슷해요.",
+    "before": "사이트마다 수집 코드를 새로 짜야 함",
+    "after": "원하는 정보를 문장으로 적으면 AI가 추출"
+  },
+  "what": [
+    "ScrapeGraphAI는 AI를 이용해 웹 페이지에서 정보를 뽑는 파이썬 라이브러리예요.",
+    "원하는 정보를 말로 적고 주소를 주면 알아서 추출해요.",
+    "웹사이트와 XML, HTML, JSON 같은 로컬 문서도 다뤄요.",
+    "ollama 같은 AI 모델이나 외부 AI 서비스와 연결해 쓸 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "pip와 playwright 설치"
+    },
+    {
+      "label": "설정",
+      "desc": "사용할 AI 모델 지정"
+    },
+    {
+      "label": "요청",
+      "desc": "원하는 정보와 주소 입력"
+    },
+    {
+      "label": "결과",
+      "desc": "정리된 데이터 받기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "프롬프트로 추출",
+      "desc": "말로 적은 요청대로 정보를 뽑아요"
+    },
+    {
+      "icon": "link",
+      "title": "여러 연동",
+      "desc": "LangChain, Zapier 등과 연결돼요"
+    },
+    {
+      "icon": "code",
+      "title": "파이썬 라이브러리",
+      "desc": "SmartScraperGraph 같은 파이프라인이 있어요"
+    },
+    {
+      "icon": "gear",
+      "title": "로컬 모델 지원",
+      "desc": "ollama 모델 설정 예시가 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 상품 페이지에서 이름·가격·설명을 한 번에 뽑기",
+    "트렌드 기사 페이지에서 핵심 키워드를 추출하기",
+    "여러 쇼핑 페이지의 정보를 표로 정리해 소재 찾기"
+  ],
+  "pros": [
+    "코딩이 짧아요",
+    "MIT 라이선스예요",
+    "여러 AI 모델과 연동돼요"
+  ],
+  "cons": [
+    "파이썬 코딩이 필요해요",
+    "AI 사용에 비용이 들 수 있어요",
+    "추출 결과를 검증해야 해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬 코드를 직접 작성해야 해요",
+  "cost": "SDK는 무료(MIT), API 서비스는 유료",
+  "needs": [
+    "파이썬 환경",
+    "AI 모델(ollama 등)",
+    "playwright 설치"
+  ],
+  "glossary": [
+    {
+      "term": "스크래핑",
+      "meaning": "웹 페이지에서 정보를 뽑아 오는 일"
+    },
+    {
+      "term": "프롬프트",
+      "meaning": "AI에게 주는 지시 문장"
+    },
+    {
+      "term": "파이프라인",
+      "meaning": "여러 단계를 이어 둔 작업 흐름"
+    }
+  ],
+  "caution": "사이트 약관과 robots 규칙, 개인정보를 확인하고 수집하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: web scraping python library using LLM",
+    "README: pip install scrapegraphai 안내",
+    "README: SmartScraperGraph 예시",
+    "README: License 표(SDK MIT, API 유료)"
+  ]
+}

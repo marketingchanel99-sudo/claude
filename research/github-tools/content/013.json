@@ -1,0 +1,102 @@
+{
+  "rank": 13,
+  "repo": "heygen-com/hyperframes",
+  "name": "HyperFrames",
+  "one_liner": "HTML 웹 문서를 그대로 MP4 영상으로 뽑는 도구",
+  "analogy": {
+    "text": "웹페이지를 슬라이드처럼 한 장씩 사진 찍어 이어 붙여 영화로 만드는 것과 비슷해요.",
+    "before": "영상 편집 프로그램에서 자막과 그래픽을 손으로 배치",
+    "after": "웹 화면으로 디자인하고 명령 하나로 영상 출력"
+  },
+  "what": [
+    "HyperFrames는 HTML, CSS, 미디어로 만든 화면을 MP4 영상으로 만들어 주는 오픈소스예요.",
+    "같은 입력이면 같은 영상이 나오도록 한 장면씩 캡처해서 FFmpeg로 합쳐요.",
+    "Claude Code 같은 AI 에이전트용 스킬이 들어 있어서, 말로 시켜 영상을 만들 수 있어요.",
+    "약 450개의 만들어진 전환·자막·차트 블록을 가져다 쓸 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "계획 세우기",
+      "desc": "어떤 영상인지 정함"
+    },
+    {
+      "label": "HTML 작성",
+      "desc": "화면과 움직임 구성"
+    },
+    {
+      "label": "미리보기",
+      "desc": "브라우저에서 확인"
+    },
+    {
+      "label": "영상 출력",
+      "desc": "MP4로 렌더링"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "MP4 렌더링",
+      "desc": "HTML 화면을 영상 파일로 만들어요"
+    },
+    {
+      "icon": "robot",
+      "title": "에이전트 스킬",
+      "desc": "AI에게 말로 영상 제작을 시켜요"
+    },
+    {
+      "icon": "magic",
+      "title": "450개 블록",
+      "desc": "전환·자막·차트 등 부품을 가져다 써요"
+    },
+    {
+      "icon": "eye",
+      "title": "미리보기",
+      "desc": "브라우저에서 바로 확인하며 고쳐요"
+    }
+  ],
+  "channel_use": [
+    "가격·순위 같은 숫자를 막대 그래프 애니메이션 영상으로 만들기",
+    "영어 자막을 단어 단위로 튀어나오는 모션 자막 오버레이로 입히기",
+    "같은 틀에 상품명만 바꿔 '한국 생활템 TOP' 영상을 반복 제작하기"
+  ],
+  "pros": [
+    "같은 입력은 같은 영상이 나와요",
+    "오픈소스이고 렌더 요금이 없어요",
+    "AI 에이전트와 잘 맞아요"
+  ],
+  "cons": [
+    "Node.js 22와 FFmpeg가 필요해요",
+    "HTML 구조를 어느 정도 알아야 해요",
+    "일부 기능은 Pro 전용이에요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Node.js 22+와 FFmpeg, 코드 지식이 필요해요",
+  "cost": "오픈소스 (README: 렌더당 요금 없음)",
+  "needs": [
+    "컴퓨터(Node.js 22 이상)",
+    "FFmpeg",
+    "AI 코딩 에이전트(선택)"
+  ],
+  "glossary": [
+    {
+      "term": "렌더링",
+      "meaning": "설계도를 실제 영상 파일로 뽑는 일"
+    },
+    {
+      "term": "HTML",
+      "meaning": "웹페이지를 만드는 기본 언어"
+    },
+    {
+      "term": "FFmpeg",
+      "meaning": "영상을 합치고 변환하는 도구"
+    }
+  ],
+  "caution": "영상에 쓰는 음악·이미지 저작권은 직접 챙겨야 해요.",
+  "license": "Apache 2.0",
+  "sources": [
+    "README: HTML, CSS, media to deterministic MP4 소개",
+    "README: Requirements Node.js 22+, FFmpeg",
+    "README: registry about 450 blocks 설명",
+    "README: Apache 2.0, reverse-any-video는 Pro"
+  ]
+}

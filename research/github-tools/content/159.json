@@ -1,0 +1,96 @@
+{
+  "rank": 159,
+  "repo": "Peter-SB/n8n-ai-instagram-scraper",
+  "name": "Agentic AI Instagram Scraper",
+  "one_liner": "릴스 링크를 넣으면 내용을 정리해 시트에 저장하는 자동화",
+  "analogy": {
+    "text": "본 영상을 대신 시청하고 요점을 카테고리별 노트에 적어 주는 비서와 비슷해요.",
+    "before": "저장한 릴스를 다시 보기 어렵고 내용도 정리 안 됨",
+    "after": "링크만 제출하면 설명과 음성을 정리해 구글 시트에 저장"
+  },
+  "what": [
+    "이 자동화는 인스타 릴스 링크를 받아 내용을 분석하고 구글 시트에 정리해 줘요.",
+    "n8n이라는 자동화 도구로 흐름을 만들고 구글 폼으로 링크를 받아요.",
+    "Instaloader로 설명을 가져오고 Whisper로 음성을 글로 바꾼 뒤 AI가 항목을 분류해요.",
+    "여행 정보 정리용으로 만들었고 음식, 숙소, 명소, 기타로 나눠요."
+  ],
+  "flow": [
+    {
+      "label": "링크 제출",
+      "desc": "구글 폼에 입력"
+    },
+    {
+      "label": "릴스 수집",
+      "desc": "설명과 영상 저장"
+    },
+    {
+      "label": "음성 변환",
+      "desc": "Whisper가 받아 적기"
+    },
+    {
+      "label": "AI 정리",
+      "desc": "항목 분류 후 시트 저장"
+    }
+  ],
+  "features": [
+    {
+      "icon": "download",
+      "title": "릴스 수집",
+      "desc": "Instaloader로 설명을 가져와요"
+    },
+    {
+      "icon": "mic",
+      "title": "음성 글자화",
+      "desc": "Whisper로 오디오를 글로 바꿔요"
+    },
+    {
+      "icon": "robot",
+      "title": "AI 분류",
+      "desc": "실행 항목을 4가지로 나눠요"
+    },
+    {
+      "icon": "chart",
+      "title": "시트 저장",
+      "desc": "구글 시트 탭에 정리해요"
+    }
+  ],
+  "channel_use": [
+    "해외 릴스 속 한국 맛집·생활템 추천을 모아 아이디어 리스트 만들기",
+    "한국 관련 릴스를 저장해 반복 등장하는 주제를 정리하기"
+  ],
+  "pros": [
+    "내 서버에서 직접 돌릴 수 있어요",
+    "결과가 구글 시트로 정리돼요"
+  ],
+  "cons": [
+    "도커 등 서버 설정이 필요해요",
+    "분류 품질은 입력 데이터에 달려 있어요"
+  ],
+  "difficulty": 5,
+  "difficulty_note": "도커, n8n, 여러 서비스 설정이 필요해요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "서버 또는 홈서버(도커)",
+    "n8n",
+    "구글 시트·폼",
+    "OpenAI 키(또는 Ollama)"
+  ],
+  "glossary": [
+    {
+      "term": "n8n",
+      "meaning": "앱들을 선으로 연결해 자동화하는 도구"
+    },
+    {
+      "term": "Whisper",
+      "meaning": "말을 글로 바꿔 주는 음성 인식 모델"
+    }
+  ],
+  "caution": "인스타 릴스 수집·다운로드는 약관과 저작권 위험이 있어요. 개인 연구용으로만 쓰세요.",
+  "license": "",
+  "sources": [
+    "README: 릴스 URL을 받아 시트에 저장하는 흐름",
+    "README: Technologies 목록",
+    "README: Workflow Walk-through 1~5단계",
+    "README: AI가 4개 카테고리로 분류"
+  ]
+}

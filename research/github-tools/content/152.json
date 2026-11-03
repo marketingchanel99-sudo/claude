@@ -1,0 +1,95 @@
+{
+  "rank": 152,
+  "repo": "Ootto-AI/claude-content-skills",
+  "name": "Claude Content Skills",
+  "one_liner": "인스타 릴스 기획부터 캡션·캘린더까지 돕는 Claude 스킬 모음",
+  "analogy": {
+    "text": "릴스 제작팀의 작가, 편집자, 기획자를 AI 한 명에게 맡기는 것과 비슷해요.",
+    "before": "훅, 대본, 캡션, 캘린더를 각각 따로 고민해서 작성",
+    "after": "스킬이 훅 10개, 대본, 캡션, 2주 일정까지 이어서 만들어요"
+  },
+  "what": [
+    "Claude Content Skills는 인스타 릴스 콘텐츠를 만드는 무료 Claude 스킬 모음이에요.",
+    "잘 된 릴스를 분석하고 훅을 쓰고 대본과 캡션, 2주 캘린더까지 만들어 줘요.",
+    "AI 티가 나는 문장을 지우는 '휴머나이저' 스킬도 들어 있어요.",
+    "전체를 한 번에 돌리는 Content Factory 스킬이 있다고 소개돼요."
+  ],
+  "flow": [
+    {
+      "label": "조사",
+      "desc": "인기 릴스 찾아 분석"
+    },
+    {
+      "label": "훅 쓰기",
+      "desc": "첫 3초 문장 10개"
+    },
+    {
+      "label": "대본",
+      "desc": "30~45초 원본 대본"
+    },
+    {
+      "label": "캡션·일정",
+      "desc": "캡션과 2주 캘린더"
+    }
+  ],
+  "features": [
+    {
+      "icon": "eye",
+      "title": "릴스 분석",
+      "desc": "잘된 릴스의 훅과 구조를 풀어봐요"
+    },
+    {
+      "icon": "bolt",
+      "title": "훅 작성",
+      "desc": "첫 1~3초 훅을 순위와 함께 줘요"
+    },
+    {
+      "icon": "text",
+      "title": "대본·캡션",
+      "desc": "대본과 해시태그, 캡션을 만들어요"
+    },
+    {
+      "icon": "clock",
+      "title": "캘린더",
+      "desc": "2주치 게시 계획을 짜 줘요"
+    }
+  ],
+  "channel_use": [
+    "한국 생활템 숏폼의 첫 3초 훅 후보 10개 만들어 보기",
+    "완성한 대본에서 AI 티 나는 표현을 정리하기"
+  ],
+  "pros": [
+    "릴스 제작 전 과정을 커버해요",
+    "MIT 라이선스, 무료"
+  ],
+  "cons": [
+    "인스타 릴스 중심이에요",
+    "일부 기능은 외부 도구 연결이 필요해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "스킬 폴더를 복사해 넣으면 바로 쓸 수 있어요",
+  "cost": "무료 공개(MIT)",
+  "needs": [
+    "Claude Code",
+    "스킬 파일 복사",
+    "(선택) 옵시디언"
+  ],
+  "glossary": [
+    {
+      "term": "훅",
+      "meaning": "영상 첫머리에서 시선을 잡는 문장"
+    },
+    {
+      "term": "스킬",
+      "meaning": "AI가 읽는 업무 설명서"
+    }
+  ],
+  "caution": "Reddit 수집, 릴스 다운로드 기능은 플랫폼 약관과 저작권을 확인하고 쓰세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 스킬 표(Content Factory, Virality 등)",
+    "README: 30 Instagram skills 분류",
+    "README: 댓글 응답 스킬 설명",
+    "README: MIT"
+  ]
+}

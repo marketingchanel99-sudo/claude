@@ -1,0 +1,93 @@
+{
+  "rank": 46,
+  "repo": "enescingoz/awesome-n8n-templates",
+  "name": "awesome-n8n-templates",
+  "one_liner": "n8n 자동화 설계도를 280개 넘게 모아 둔 모음집",
+  "analogy": {
+    "text": "레고 조립 설명서를 280장 넘게 모아 둔 서랍 같아요.",
+    "before": "자동화 흐름을 처음부터 직접 설계",
+    "after": "설계도 파일을 불러와 계정만 연결해 사용"
+  },
+  "what": [
+    "이 저장소는 n8n 자동화 템플릿 280개 이상을 모아 둔 목록이에요.",
+    "Gmail, 텔레그램, OpenAI, 구글 시트, 슬랙 등 여러 서비스용이 있어요.",
+    "템플릿은 JSON 파일이고 n8n에서 불러오기로 가져와요.",
+    "n8n은 앱들을 연결해 일을 자동으로 처리하는 도구예요."
+  ],
+  "flow": [
+    {
+      "label": "파일 받기",
+      "desc": "원하는 템플릿 다운로드"
+    },
+    {
+      "label": "불러오기",
+      "desc": "Import from File 선택"
+    },
+    {
+      "label": "계정 연결",
+      "desc": "각 서비스 인증 설정"
+    },
+    {
+      "label": "작동 시작",
+      "desc": "활성화하면 자동 실행"
+    }
+  ],
+  "features": [
+    {
+      "icon": "download",
+      "title": "280개+ 템플릿",
+      "desc": "분야별로 나눈 설계도 모음"
+    },
+    {
+      "icon": "link",
+      "title": "여러 앱 연결",
+      "desc": "Gmail, 슬랙, 구글 시트 등"
+    },
+    {
+      "icon": "robot",
+      "title": "AI 템플릿",
+      "desc": "OpenAI 등을 쓰는 자동화 포함"
+    },
+    {
+      "icon": "magic",
+      "title": "바로 가져오기",
+      "desc": "JSON 파일을 n8n에 불러와요"
+    }
+  ],
+  "channel_use": [
+    "구글 시트 템플릿으로 아이디어 목록을 자동 정리하기",
+    "슬랙이나 텔레그램으로 업로드 알림을 받는 흐름 만들기"
+  ],
+  "pros": [
+    "처음부터 안 만들어도 돼요",
+    "분야별 질문 형식으로 찾기 쉬워요"
+  ],
+  "cons": [
+    "템플릿마다 품질이 달라요",
+    "템플릿은 직접 점검과 테스트가 필요해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "n8n 설치나 가입 후 파일을 불러와 설정해요",
+  "cost": "템플릿 파일은 무료, n8n 클라우드는 체험판 안내",
+  "needs": [
+    "n8n 계정 또는 설치",
+    "연결할 서비스 계정"
+  ],
+  "glossary": [
+    {
+      "term": "템플릿",
+      "meaning": "미리 만들어 둔 설계도 파일"
+    },
+    {
+      "term": "워크플로",
+      "meaning": "일이 진행되는 순서를 이은 흐름"
+    }
+  ],
+  "caution": "템플릿은 원작자 저작물이라 라이선스가 다를 수 있고, 쓰기 전에 직접 점검해야 해요.",
+  "license": "",
+  "sources": [
+    "README: 280+ n8n 템플릿 설명",
+    "README: Import from File 사용법",
+    "README: Disclaimer, 원작자 라이선스 안내"
+  ]
+}

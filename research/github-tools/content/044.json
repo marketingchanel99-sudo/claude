@@ -1,0 +1,89 @@
+{
+  "rank": 44,
+  "repo": "SYSTRAN/faster-whisper",
+  "name": "faster-whisper",
+  "one_liner": "음성을 빠르게 글자로 바꿔 주는 받아쓰기 엔진",
+  "analogy": {
+    "text": "말을 듣고 받아 적는 속기사가 두 배 빠르게 일하는 것과 비슷해요.",
+    "before": "영상 속 대사를 들으며 자막을 직접 타이핑",
+    "after": "음성 파일을 넣으면 시간 표시 달린 글이 나옴"
+  },
+  "what": [
+    "faster-whisper는 OpenAI의 받아쓰기 AI인 Whisper를 더 빠르게 돌리게 다시 만든 프로그램이에요.",
+    "README에 따르면 같은 정확도에서 최대 4배 빠르고 메모리도 적게 써요.",
+    "파이썬 3.9 이상이 필요하고, GPU 없이 CPU로도 돌릴 수 있어요.",
+    "코드를 쓰는 도구라 다른 앱의 부품으로 많이 쓰여요."
+  ],
+  "flow": [
+    {
+      "label": "음성 넣기",
+      "desc": "오디오나 영상 파일"
+    },
+    {
+      "label": "AI 듣기",
+      "desc": "Whisper 모델이 인식"
+    },
+    {
+      "label": "글자 변환",
+      "desc": "시간 달린 문장 출력"
+    }
+  ],
+  "features": [
+    {
+      "icon": "bolt",
+      "title": "빠른 속도",
+      "desc": "원조 Whisper보다 최대 4배 빠름"
+    },
+    {
+      "icon": "chart",
+      "title": "적은 메모리",
+      "desc": "8비트 압축으로 더 가볍게 실행"
+    },
+    {
+      "icon": "mic",
+      "title": "음성 인식",
+      "desc": "음성을 문장과 시간 정보로 변환"
+    },
+    {
+      "icon": "code",
+      "title": "파이썬 부품",
+      "desc": "다른 프로그램에 끼워 쓰기 좋아요"
+    }
+  ],
+  "channel_use": [
+    "한국어 대사 영상에서 자막 초안을 빠르게 뽑아 번역 준비하기",
+    "촬영 원본 음성을 글로 바꿔 대본과 비교하기"
+  ],
+  "pros": [
+    "속도가 빠르고 가벼워요",
+    "FFmpeg를 따로 안 깔아도 돼요"
+  ],
+  "cons": [
+    "코드를 써야 해서 초보자는 어려워요",
+    "GPU는 NVIDIA 라이브러리가 필요해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬 코드를 작성해야 하는 개발자용 부품이에요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "파이썬 3.9 이상",
+    "컴퓨터(GPU 권장)"
+  ],
+  "glossary": [
+    {
+      "term": "Whisper",
+      "meaning": "OpenAI가 만든 음성 받아쓰기 AI"
+    },
+    {
+      "term": "GPU",
+      "meaning": "그래픽 계산을 빠르게 하는 부품"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: openai/whisper 대비 최대 4배 빠름",
+    "README: Python 3.9 이상 요구",
+    "README: FFmpeg 불필요, PyAV 사용"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "rank": 79,
+  "repo": "Rudrabha/Wav2Lip",
+  "name": "Wav2Lip",
+  "one_liner": "소리에 맞춰 영상 속 입 모양을 바꿔 주는 AI",
+  "analogy": {
+    "text": "더빙된 영화처럼 소리에 맞게 배우의 입만 다시 움직여 주는 마법과 비슷해요.",
+    "before": "더빙하면 입 모양이 어긋나 어색해 보임",
+    "after": "새 음성에 맞게 입 모양을 자연스럽게 맞춤"
+  },
+  "what": [
+    "Wav2Lip은 영상 속 사람의 입 모양을 음성에 맞게 다시 만드는 립싱크 AI예요.",
+    "얼굴 영상과 음성 파일을 넣으면 입이 그 소리에 맞춰 움직이는 영상이 나와요.",
+    "README 앞부분은 상업용 Sync API 사용법을 안내해요.",
+    "오픈소스 모델은 연구·개인·비영리 용도로만 쓸 수 있다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "영상 준비",
+      "desc": "얼굴이 나온 영상"
+    },
+    {
+      "label": "음성 준비",
+      "desc": "맞출 소리 파일"
+    },
+    {
+      "label": "AI 분석",
+      "desc": "입 모양 계산"
+    },
+    {
+      "label": "영상 생성",
+      "desc": "입이 맞춰진 영상"
+    }
+  ],
+  "features": [
+    {
+      "icon": "eye",
+      "title": "립싱크",
+      "desc": "소리에 맞춰 입을 움직여요"
+    },
+    {
+      "icon": "mic",
+      "title": "더빙 보정",
+      "desc": "다른 언어 음성에도 맞출 수 있어요"
+    },
+    {
+      "icon": "code",
+      "title": "파이썬 실행",
+      "desc": "명령어로 직접 돌릴 수 있어요"
+    },
+    {
+      "icon": "link",
+      "title": "상업용 API",
+      "desc": "Sync API로 쓸 수 있다고 안내해요"
+    }
+  ],
+  "channel_use": [
+    "영어로 더빙한 영상에서 캐릭터 입 모양을 음성에 맞추기",
+    "AI 캐릭터 영상의 말하는 장면 보정하기"
+  ],
+  "pros": [
+    "립싱크 연구에 널리 알려진 모델이에요",
+    "영상과 음성만 있으면 돼요"
+  ],
+  "cons": [
+    "오픈소스는 상업 이용이 금지돼요",
+    "설치 환경이 오래돼 까다로워요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬 3.6과 모델 파일 준비가 필요해요",
+  "cost": "오픈소스는 비상업 한정, 상업용은 Sync API(가격 정보 없음)",
+  "needs": [
+    "컴퓨터",
+    "파이썬 3.6",
+    "ffmpeg",
+    "얼굴 감지 모델 파일"
+  ],
+  "glossary": [
+    {
+      "term": "립싱크",
+      "meaning": "입 모양을 소리에 맞추는 일"
+    },
+    {
+      "term": "API",
+      "meaning": "프로그램끼리 대화하는 창구"
+    }
+  ],
+  "caution": "오픈소스 버전은 연구·개인·비상업 용도만 가능해요. 수익 채널에는 상업용 서비스 약관을 확인하세요.",
+  "license": "비상업(개인·연구) 전용",
+  "sources": [
+    "README: Commercial Version과 Sync API",
+    "README: Disclaimer 비상업 용도 제한",
+    "README: License and Citation",
+    "README: Prerequisites 파이썬 3.6, ffmpeg"
+  ]
+}

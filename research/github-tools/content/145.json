@@ -1,0 +1,94 @@
+{
+  "rank": 145,
+  "repo": "Affitor/affiliate-skills",
+  "name": "affiliate-skills",
+  "one_liner": "제휴 마케팅 조사부터 글쓰기·분석까지 돕는 AI 스킬 52개",
+  "analogy": {
+    "text": "제휴 마케팅 전문 팀 8명을 AI 안에 앉혀 놓는 것과 비슷해요.",
+    "before": "제휴 프로그램을 구글링하고 감으로 글을 쓰고 성과도 따로 확인",
+    "after": "AI가 프로그램 검색, 트렌드 조사, 글 작성, 규정 점검까지 이어서 처리"
+  },
+  "what": [
+    "affiliate-skills는 제휴 마케팅 작업을 단계별로 돕는 AI 스킬 52개 모음이에요.",
+    "제휴 마케팅은 상품을 소개하고 판매 수수료를 받는 방식이에요.",
+    "프로그램 검색, 인기 콘텐츠 조사, 글과 대본 작성, 성과 분석, 규정 점검 단계가 있어요.",
+    "Claude Code, ChatGPT, Cursor 등 여러 AI에서 쓸 수 있다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "조사",
+      "desc": "제휴 프로그램 검색"
+    },
+    {
+      "label": "트렌드",
+      "desc": "인기 콘텐츠 살펴보기"
+    },
+    {
+      "label": "콘텐츠",
+      "desc": "글과 틱톡 대본 작성"
+    },
+    {
+      "label": "분석",
+      "desc": "성과 확인 후 개선"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "프로그램 검색",
+      "desc": "수수료와 쿠키 기간을 비교해요"
+    },
+    {
+      "icon": "eye",
+      "title": "트렌드 스카우트",
+      "desc": "유튜브·틱톡 인기 콘텐츠를 살펴봐요"
+    },
+    {
+      "icon": "text",
+      "title": "콘텐츠 작성",
+      "desc": "글, 틱톡 대본, 인포그래픽을 만들어요"
+    },
+    {
+      "icon": "shield",
+      "title": "규정 점검",
+      "desc": "FTC 고지 등 광고 규정을 확인해요"
+    }
+  ],
+  "channel_use": [
+    "제휴 상품 영상 대본에 넣을 고지 문구와 규정 점검 아이디어 얻기",
+    "상품별 제휴 수수료 조건을 비교해 어떤 상품을 소개할지 정하기"
+  ],
+  "pros": [
+    "조사부터 분석까지 한 흐름으로 이어져요",
+    "규정 점검 스킬이 들어 있어요"
+  ],
+  "cons": [
+    "스킬이 52개라 익히는 데 시간이 걸려요",
+    "한국 시장 자료는 README에 없어요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "명령어로 설치하고 AI에게 말로 요청해요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "Claude Code 등 AI",
+    "Node.js(npx 사용)"
+  ],
+  "glossary": [
+    {
+      "term": "제휴 마케팅",
+      "meaning": "상품을 소개해 판매되면 수수료를 받는 방식"
+    },
+    {
+      "term": "FTC 고지",
+      "meaning": "광고임을 밝혀야 하는 미국 규정"
+    }
+  ],
+  "caution": "제휴 링크가 있는 영상에는 반드시 광고·제휴 고지 문구를 넣으세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 52 skills across 8 stages",
+    "README: Program Search, Trending Scout 표",
+    "README: compliance-checker FTC audit",
+    "README: License MIT"
+  ]
+}

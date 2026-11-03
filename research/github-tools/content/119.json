@@ -1,0 +1,99 @@
+{
+  "rank": 119,
+  "repo": "ScrapeCreators/social-media-research-skills",
+  "name": "Social Media Research Skills",
+  "one_liner": "SNS 인기 글·댓글·트렌드를 조사하는 AI 스킬 모음",
+  "analogy": {
+    "text": "SNS를 대신 돌아다니며 조사 보고서를 만들어 오는 리서처와 비슷해요.",
+    "before": "SNS를 일일이 보며 인기 게시물을 수작업 정리",
+    "after": "AI가 인기 글, 댓글, 트렌드를 표로 정리"
+  },
+  "what": [
+    "이 레포는 SNS 조사를 위한 AI 스킬 13개 모음이에요.",
+    "틱톡, 인스타, 유튜브, 레딧 등의 공개 데이터를 가져와 분석해요.",
+    "평소보다 반응이 큰 글, 댓글 속 질문, 트렌드 해시태그 등을 찾아요.",
+    "ScrapeCreators 서비스의 API 키가 필요해요."
+  ],
+  "flow": [
+    {
+      "label": "스킬 설치",
+      "desc": "npx로 추가"
+    },
+    {
+      "label": "키 설정",
+      "desc": "API 키 입력"
+    },
+    {
+      "label": "조사 요청",
+      "desc": "말로 질문하기"
+    },
+    {
+      "label": "보고서",
+      "desc": "표와 인사이트 정리"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "이상치 글 찾기",
+      "desc": "평소보다 반응이 큰 게시물을 찾아요"
+    },
+    {
+      "icon": "chat",
+      "title": "댓글 분석",
+      "desc": "댓글에서 질문과 불만을 모아요"
+    },
+    {
+      "icon": "chart",
+      "title": "트렌드 발견",
+      "desc": "인기 주제와 해시태그를 정리해요"
+    },
+    {
+      "icon": "eye",
+      "title": "경쟁 채널 분석",
+      "desc": "잘되는 계정의 전략을 살펴봐요"
+    }
+  ],
+  "channel_use": [
+    "외국인이 한국 관련 영상에 자주 다는 질문을 댓글에서 모아 주제 찾기",
+    "한국 생활템 쇼츠에서 평소보다 반응이 큰 영상의 훅 패턴 분석하기"
+  ],
+  "pros": [
+    "조사 작업이 스킬로 정리돼 있어요",
+    "여러 SNS를 한 번에 봐요",
+    "출처 링크를 함께 줘요"
+  ],
+  "cons": [
+    "API 키가 필요해요",
+    "키 사용료 정보는 README에 없어요",
+    "공개 데이터만 다뤄요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "스킬을 설치하고 API 키만 넣으면 돼요",
+  "cost": "README에 가격 정보 없음 (ScrapeCreators 키 필요)",
+  "needs": [
+    "Claude Code 등 에이전트",
+    "ScrapeCreators API 키"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI에게 작업 방법을 알려 주는 설명서"
+    },
+    {
+      "term": "API",
+      "meaning": "프로그램끼리 데이터를 주고받는 창구"
+    },
+    {
+      "term": "이상치 글",
+      "meaning": "평소보다 반응이 크게 높은 게시물"
+    }
+  ],
+  "caution": "SNS 데이터 수집은 각 플랫폼 약관을 확인하세요. 공개 데이터만 쓰고 개인정보는 피하세요.",
+  "license": "",
+  "sources": [
+    "README: 소개와 Available Skills 표",
+    "README: Setup (SCRAPECREATORS_API_KEY)",
+    "README: Design Principles (Public-data only)"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "rank": 66,
+  "repo": "Vincentwei1021/video-shotcraft",
+  "name": "video-shotcraft",
+  "one_liner": "AI에게 말하면 제품 홍보 영상을 코드로 만들어 주는 스킬",
+  "analogy": {
+    "text": "미리 만들어 둔 장면 카드를 골라 이어 붙여 영상을 짜는 편집 비서와 비슷해요.",
+    "before": "장면을 직접 기획하고 모션을 하나씩 편집",
+    "after": "AI가 화면을 캡처해 장면을 골라 영상 완성"
+  },
+  "what": [
+    "video-shotcraft는 Claude Code나 Codex 같은 AI 코딩 도구에 붙이는 영상 제작 스킬이에요.",
+    "제품 화면을 캡처하고 장면 카드를 골라 Remotion으로 움직임을 만들어요.",
+    "박자에 맞춰 자르고 효과음을 넣어 MP4 파일을 내보내요.",
+    "AI 영상 생성기가 아니라 코드로 화면을 그려서 수정이 쉽다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "화면 캡처",
+      "desc": "제품 페이지 저장"
+    },
+    {
+      "label": "장면 고르기",
+      "desc": "모션 카드 선택"
+    },
+    {
+      "label": "영상 제작",
+      "desc": "Remotion으로 렌더"
+    },
+    {
+      "label": "MP4 완성",
+      "desc": "효과음 넣고 내보내기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "150개 장면",
+      "desc": "모션 레시피 카드 124개를 제공해요"
+    },
+    {
+      "icon": "magic",
+      "title": "박자 편집",
+      "desc": "음악 박자에 맞춰 장면을 잘라요"
+    },
+    {
+      "icon": "code",
+      "title": "수정 가능",
+      "desc": "코드로 만들어 계속 고칠 수 있어요"
+    },
+    {
+      "icon": "upload",
+      "title": "편집기 내보내기",
+      "desc": "편집용 초안으로도 내보내요"
+    }
+  ],
+  "channel_use": [
+    "제휴 상품 화면을 캡처해 짧은 소개 영상으로 만들기",
+    "설명 영상의 장면 전환 연출을 카드로 골라 쓰기"
+  ],
+  "pros": [
+    "결과가 선명하고 수정이 쉬워요",
+    "장면 라이브러리가 풍부해요"
+  ],
+  "cons": [
+    "Claude Code 같은 AI 도구가 필요해요",
+    "실사 영상 생성에는 맞지 않아요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "AI 코딩 도구와 Node 환경 설정이 필요해요",
+  "cost": "오픈소스(무료 공개), Remotion은 회사 규모별 유료일 수 있음",
+  "needs": [
+    "AI 코딩 도구",
+    "컴퓨터",
+    "Remotion 환경"
+  ],
+  "glossary": [
+    {
+      "term": "Remotion",
+      "meaning": "코드로 영상을 만드는 도구"
+    },
+    {
+      "term": "스킬",
+      "meaning": "AI에게 붙여 주는 작업 설명서"
+    }
+  ],
+  "caution": "Remotion은 회사 규모에 따라 유료 라이선스가 필요할 수 있다고 README에 적혀 있어요.",
+  "license": "Apache-2.0",
+  "sources": [
+    "README: What it does, 영상 제작 흐름",
+    "README: 124 cards / 150 shots",
+    "README: Not a video generator 문구",
+    "README: License와 Remotion 안내"
+  ]
+}

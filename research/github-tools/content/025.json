@@ -1,0 +1,102 @@
+{
+  "rank": 25,
+  "repo": "DIYgod/RSSHub",
+  "name": "RSSHub",
+  "one_liner": "RSS가 없는 사이트도 RSS 소식 피드로 바꿔 주는 도구",
+  "analogy": {
+    "text": "여러 신문사 소식을 한 우편함으로 모아 배달해 주는 것과 비슷해요.",
+    "before": "여러 사이트를 매일 하나씩 열어 새 글 확인",
+    "after": "RSS 리더 한 곳에서 새 글을 모아 봄"
+  },
+  "what": [
+    "RSSHub는 다양한 사이트의 새 글을 RSS 피드로 만들어 주는 오픈소스 프로그램이에요.",
+    "RSS는 새 글 소식을 한곳에서 받아 보는 방식이에요.",
+    "README는 5,000개 넘는 전 세계 인스턴스(설치본)가 있다고 소개해요.",
+    "직접 서버에 설치해 쓸 수 있고, 배포 문서가 따로 있어요."
+  ],
+  "flow": [
+    {
+      "label": "경로 선택",
+      "desc": "보고 싶은 사이트 경로"
+    },
+    {
+      "label": "피드 생성",
+      "desc": "RSS 주소로 변환"
+    },
+    {
+      "label": "리더 등록",
+      "desc": "RSS 리더에 추가"
+    },
+    {
+      "label": "새 글 확인",
+      "desc": "한곳에서 소식 받기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "다양한 소스",
+      "desc": "여러 사이트 내용을 모아 와요"
+    },
+    {
+      "icon": "globe",
+      "title": "열린 네트워크",
+      "desc": "전 세계 인스턴스가 운영돼요"
+    },
+    {
+      "icon": "link",
+      "title": "관련 도구",
+      "desc": "브라우저 확장 RSSHub Radar 등이 있어요"
+    },
+    {
+      "icon": "code",
+      "title": "직접 배포",
+      "desc": "문서대로 내 서버에 설치할 수 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 관련 커뮤니티와 뉴스의 새 글을 피드로 모아 소재 찾기",
+    "신제품·트렌드 소식 사이트를 한 리더에서 확인하기",
+    "시즌 이슈를 놓치지 않게 알림용 피드 만들기"
+  ],
+  "pros": [
+    "여러 사이트를 한곳에서 봐요",
+    "오픈소스 커뮤니티가 활발해요",
+    "직접 설치도 가능해요"
+  ],
+  "cons": [
+    "지원 사이트가 바뀔 수 있어요",
+    "직접 설치는 서버 지식 필요",
+    "README만으론 사용법이 부족해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "RSS 리더 사용은 쉽고 설치는 어려워요",
+  "cost": "README에 가격 정보 없음(오픈소스)",
+  "needs": [
+    "RSS 리더 앱",
+    "주소(URL) 설정",
+    "서버(직접 설치 시)"
+  ],
+  "glossary": [
+    {
+      "term": "RSS",
+      "meaning": "사이트의 새 글을 모아 주는 소식 통로"
+    },
+    {
+      "term": "피드",
+      "meaning": "RSS로 전달되는 새 글 목록"
+    },
+    {
+      "term": "인스턴스",
+      "meaning": "누군가 설치해 운영 중인 서비스 한 벌"
+    }
+  ],
+  "caution": "사이트별 이용약관을 확인하고, 가져온 글을 그대로 재배포하지 마세요.",
+  "license": "AGPL-3.0",
+  "sources": [
+    "README: world's largest RSS network, 5,000 instances",
+    "README: Related Projects 목록",
+    "README: Deployment 문서 안내",
+    "README: AGPL-3.0 License"
+  ]
+}

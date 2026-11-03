@@ -1,0 +1,101 @@
+{
+  "repo": "langchain-ai/social-media-agent",
+  "name": "Social Media Agent",
+  "one_liner": "링크 하나로 트위터·링크드인 글을 만드는 AI",
+  "analogy": {
+    "text": "기사를 읽고 요약 글 초안을 써서 '이대로 올릴까요?' 하고 물어보는 인턴 사원과 비슷해요.",
+    "before": "기사를 읽고 요약해서 SNS 글을 직접 쓰고 예약하기",
+    "after": "링크를 주면 초안을 만들고 승인하면 게시를 예약"
+  },
+  "what": [
+    "링크(URL)를 받으면 그 내용을 읽고 트위터와 링크드인 글을 만들어 줘요.",
+    "사람이 중간에 확인하는 방식(HITL)이라 승인해야 글이 올라가요.",
+    "Slack으로 자료를 받는 기능과 정해진 시간 실행(크론) 기능이 있어요.",
+    "글 스타일과 프롬프트는 내 취향에 맞게 바꿀 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "링크 입력",
+      "desc": "글감이 될 URL 전달"
+    },
+    {
+      "label": "내용 읽기",
+      "desc": "웹 내용을 가져와 분석"
+    },
+    {
+      "label": "초안 작성",
+      "desc": "게시글과 이미지 후보 생성"
+    },
+    {
+      "label": "사람 승인",
+      "desc": "확인 후 게시 예약"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "글 자동 작성",
+      "desc": "링크 내용으로 SNS 글 초안을 만들어요"
+    },
+    {
+      "icon": "eye",
+      "title": "사람 승인 단계",
+      "desc": "승인하기 전에는 올라가지 않아요"
+    },
+    {
+      "icon": "clock",
+      "title": "예약 실행",
+      "desc": "크론으로 정해진 때 자동 실행해요"
+    },
+    {
+      "icon": "chat",
+      "title": "Slack 연동",
+      "desc": "Slack에서 자료를 받거나 알림을 보내요"
+    }
+  ],
+  "channel_use": [
+    "한국 관련 기사 링크를 넣어 영어 SNS 소개 글 초안 받기",
+    "한 소재로 만든 글 초안을 승인 전에 검토하기"
+  ],
+  "pros": [
+    "사람이 승인해야 올라가요",
+    "글 스타일을 바꿀 수 있어요",
+    "링크만으로 시작해요"
+  ],
+  "cons": [
+    "트위터·링크드인 중심이에요",
+    "API 키를 여러 개 준비해요",
+    "영상 제작 기능은 없어요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "여러 서비스 API 키 발급과 서버 실행이 필요해요",
+  "cost": "README에 가격 정보 없음(일부 서비스는 무료 크레딧 안내)",
+  "needs": [
+    "Anthropic API 키",
+    "FireCrawl·Arcade 계정",
+    "Node.js(yarn)"
+  ],
+  "glossary": [
+    {
+      "term": "에이전트",
+      "meaning": "목표를 주면 단계를 밟아 일하는 AI"
+    },
+    {
+      "term": "HITL",
+      "meaning": "중간에 사람이 확인하고 승인하는 방식"
+    },
+    {
+      "term": "크론",
+      "meaning": "정해진 시간에 자동 실행하는 예약 기능"
+    }
+  ],
+  "caution": "SNS 계정에 자동으로 글을 올리는 기능은 각 플랫폼 약관을 확인하고 승인 단계를 꼭 지켜요.",
+  "license": "",
+  "sources": [
+    "README: URL로 Twitter, LinkedIn 글 생성 설명",
+    "README: human-in-the-loop 흐름 설명",
+    "README: Quickstart 필요 API 목록",
+    "README에 라이선스 표기 없음"
+  ],
+  "rank": 129
+}

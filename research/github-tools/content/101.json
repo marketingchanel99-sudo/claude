@@ -1,0 +1,100 @@
+{
+  "rank": 101,
+  "repo": "op7418/guizang-social-card-skill",
+  "name": "Guizang Social Card",
+  "one_liner": "글이나 사진을 SNS용 카드 이미지로 바꿔 주는 AI 스킬",
+  "analogy": {
+    "text": "디자이너에게 원고를 건네면 예쁜 카드 세트로 만들어 오는 것과 비슷해요.",
+    "before": "글을 읽고 카드 디자인을 손으로 하나하나 만듦",
+    "after": "글만 주면 같은 스타일의 카드 이미지 세트가 나옴"
+  },
+  "what": [
+    "Guizang Social Card는 Claude Code 같은 AI 에이전트에 붙이는 카드 이미지 제작 스킬이에요.",
+    "스킬은 AI에게 일하는 방법을 알려 주는 설명서 묶음이에요.",
+    "글, 스크린샷, 제품 메모, 자막, 사진으로 샤오훙슈 스타일 카드 묶음을 만들어요.",
+    "잡지 느낌과 스위스 스타일, 두 가지 디자인 방식이 들어 있어요."
+  ],
+  "flow": [
+    {
+      "label": "글 넣기",
+      "desc": "원고나 사진을 전달"
+    },
+    {
+      "label": "스타일 고르기",
+      "desc": "잡지풍 또는 스위스풍"
+    },
+    {
+      "label": "HTML 제작",
+      "desc": "한 장짜리 웹 화면으로 설계"
+    },
+    {
+      "label": "이미지 저장",
+      "desc": "PNG 카드로 내보내기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "image",
+      "title": "카드 이미지 세트",
+      "desc": "3:4 비율 카드 여러 장을 한 번에 만들어요"
+    },
+    {
+      "icon": "magic",
+      "title": "두 가지 디자인",
+      "desc": "잡지풍과 스위스풍 중에서 골라요"
+    },
+    {
+      "icon": "video",
+      "title": "움직이는 카드",
+      "desc": "Live Photo 형태의 동적 카드도 지원해요"
+    },
+    {
+      "icon": "gear",
+      "title": "색상 프리셋",
+      "desc": "잡지풍 6개, 스위스풍 4개 색 조합이 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 편의점 간식 TOP5를 영어 카드뉴스로 만들어 인스타에 올리기",
+    "숏폼 영상 요약본을 카드 이미지로 만들어 영상 설명에 활용하기"
+  ],
+  "pros": [
+    "글만 주면 디자인까지 해 줘요",
+    "디자인 스타일이 두 가지 준비돼 있어요",
+    "Claude Code와 함께 쓸 수 있어요"
+  ],
+  "cons": [
+    "영어 카드는 따로 확인이 필요해요",
+    "에이전트 환경을 먼저 갖춰야 해요",
+    "AGPL 라이선스 조건을 알아야 해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "AI 에이전트(Claude Code 등)에 스킬을 설치해야 해요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "Claude Code 같은 에이전트",
+    "터미널 사용",
+    "카드로 만들 글"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI에게 작업 방법을 알려 주는 설명서"
+    },
+    {
+      "term": "AGPL",
+      "meaning": "소스 공개 조건이 붙은 오픈소스 규칙"
+    },
+    {
+      "term": "PNG",
+      "meaning": "품질이 깨지지 않는 이미지 파일"
+    }
+  ],
+  "caution": "AGPL-3.0이라 서비스에 넣거나 배포할 때 소스 공개 의무가 생길 수 있어요.",
+  "license": "AGPL-3.0",
+  "sources": [
+    "README: 소개 문구 (Claude Code/Codex용 카드 스킬)",
+    "README: 전자잡지·스위스 두 비주얼 시스템",
+    "README: 10개 색 프리셋, License AGPL-3.0"
+  ]
+}

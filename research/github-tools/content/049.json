@@ -1,0 +1,94 @@
+{
+  "rank": 49,
+  "repo": "m-bain/whisperX",
+  "name": "WhisperX",
+  "one_liner": "받아쓰기에 단어별 시간과 화자 구분을 더한 도구",
+  "analogy": {
+    "text": "회의록 속기사가 누가 어느 순간 말했는지까지 표시해 주는 것과 비슷해요.",
+    "before": "자막 시간을 일일이 맞추고 말한 사람을 직접 표시",
+    "after": "단어별 시간과 화자 라벨이 달린 글을 자동으로 받음"
+  },
+  "what": [
+    "WhisperX는 음성을 글로 바꾸고 단어마다 정확한 시간을 붙여 주는 도구예요.",
+    "README에 따르면 큰 모델로 실시간의 70배 속도로 받아쓸 수 있어요.",
+    "누가 말했는지 구분하는 화자 분리 기능도 있어요.",
+    "내부에서 faster-whisper를 쓰며 큰 모델은 GPU 메모리 8GB 미만이라고 해요."
+  ],
+  "flow": [
+    {
+      "label": "음성 입력",
+      "desc": "오디오 파일을 넣어요"
+    },
+    {
+      "label": "받아쓰기",
+      "desc": "Whisper로 글 변환"
+    },
+    {
+      "label": "시간 맞추기",
+      "desc": "단어별 타임스탬프"
+    },
+    {
+      "label": "화자 구분",
+      "desc": "말한 사람을 표시"
+    }
+  ],
+  "features": [
+    {
+      "icon": "bolt",
+      "title": "빠른 처리",
+      "desc": "실시간의 70배 속도라고 해요"
+    },
+    {
+      "icon": "clock",
+      "title": "단어별 시간",
+      "desc": "자막 타이밍 맞추기에 유용해요"
+    },
+    {
+      "icon": "mic",
+      "title": "화자 분리",
+      "desc": "대화 속 말한 사람을 구분"
+    },
+    {
+      "icon": "shield",
+      "title": "환각 줄이기",
+      "desc": "VAD 전처리로 오류를 줄여요"
+    }
+  ],
+  "channel_use": [
+    "인터뷰나 대화 영상에서 말한 사람별로 자막 나누기",
+    "단어 단위 시간으로 숏폼 자막 싱크 정밀하게 맞추기"
+  ],
+  "pros": [
+    "타임스탬프가 정확해요",
+    "빠르고 화자 분리를 지원해요"
+  ],
+  "cons": [
+    "설치와 설정이 어려워요",
+    "화자 분리는 별도 모델 설정이 필요해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬과 명령어 사용, GPU 환경 설정이 필요해요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "파이썬 환경",
+    "NVIDIA GPU 권장",
+    "FFmpeg"
+  ],
+  "glossary": [
+    {
+      "term": "화자 분리",
+      "meaning": "누가 말했는지 구분하는 기술"
+    },
+    {
+      "term": "타임스탬프",
+      "meaning": "글자마다 붙는 시간 표시"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: 70x realtime 문구",
+    "README: word-level timestamps, diarization",
+    "README: pip install whisperx"
+  ]
+}

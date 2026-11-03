@@ -1,0 +1,100 @@
+{
+  "repo": "aaron-he-zhu/aaron-marketing-skills",
+  "name": "Aaron Marketing Skills",
+  "one_liner": "마케팅 스킬 120개를 담은 AI 직원 세트",
+  "analogy": {
+    "text": "분야별 전문가 7명이 한 사무실에 모여 있고, 안내 데스크가 일을 나눠 주는 구조와 비슷해요.",
+    "before": "SEO, 소셜, 광고, 이메일 업무마다 다른 방법을 찾아 헤매기",
+    "after": "목표를 말하면 알맞은 스킬이 골라져 절차대로 진행"
+  },
+  "what": [
+    "Aaron Marketing Skills는 마케팅 스킬 120개를 담은 오픈소스 묶음이에요.",
+    "서사, SEO/GEO, 소셜, 이메일, 광고, 인플루언서, 런칭 일곱 분야가 있어요.",
+    "스킬은 Markdown 파일이라 내용을 읽고 고칠 수 있어요.",
+    "Claude Code 플러그인이나 다른 AI 도구에도 설치할 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "플러그인이나 npx로 추가"
+    },
+    {
+      "label": "목표 말하기",
+      "desc": "auto 명령으로 요청"
+    },
+    {
+      "label": "스킬 선택",
+      "desc": "알맞은 분야 스킬이 연결됨"
+    },
+    {
+      "label": "결과 점검",
+      "desc": "품질 기준으로 확인"
+    }
+  ],
+  "features": [
+    {
+      "icon": "gear",
+      "title": "120개 스킬",
+      "desc": "일곱 분야로 나뉜 마케팅 작업 모음이에요"
+    },
+    {
+      "icon": "search",
+      "title": "SEO·GEO",
+      "desc": "검색과 AI 답변 노출 개선 스킬이 있어요"
+    },
+    {
+      "icon": "chat",
+      "title": "소셜 분야",
+      "desc": "소셜 콘텐츠 기획과 운영 스킬이 있어요"
+    },
+    {
+      "icon": "link",
+      "title": "여러 도구 지원",
+      "desc": "70개 이상 AI 도구에 설치할 수 있다고 해요"
+    }
+  ],
+  "channel_use": [
+    "소셜 분야 스킬로 채널 콘텐츠 운영 계획을 점검하기",
+    "검색·AI 답변에 잘 보이게 채널 소개 글 개선하기"
+  ],
+  "pros": [
+    "분야가 넓고 체계적이에요",
+    "글 파일이라 고쳐 쓸 수 있어요",
+    "Apache 2.0으로 공개돼 있어요"
+  ],
+  "cons": [
+    "양이 많아 처음엔 헷갈려요",
+    "영어 중심 문서예요",
+    "숏폼 제작 전용은 아니에요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "명령어 한두 줄로 설치하고 말로 시키면 돼요",
+  "cost": "오픈소스(Apache 2.0), 가격 정보는 README에 없음",
+  "needs": [
+    "Claude Code 등 AI 도구",
+    "설치 명령 실행"
+  ],
+  "glossary": [
+    {
+      "term": "플러그인",
+      "meaning": "프로그램에 끼워 넣는 추가 기능 묶음"
+    },
+    {
+      "term": "스킬",
+      "meaning": "AI에게 일하는 방법을 알려 주는 설명서"
+    },
+    {
+      "term": "GEO",
+      "meaning": "AI 답변에 내 글이 인용되게 하는 작업"
+    }
+  ],
+  "caution": "",
+  "license": "Apache-2.0",
+  "sources": [
+    "README: 120 marketing skills, 7 disciplines 문구",
+    "README: 분야 표(Narrative, SEO/GEO, Social 등)",
+    "README: Install 표(Claude Code, npx skills)",
+    "README: Apache 2.0 라이선스 문구"
+  ],
+  "rank": 128
+}

@@ -1,0 +1,102 @@
+{
+  "rank": 37,
+  "repo": "FujiwaraChoki/MoneyPrinterV2",
+  "name": "MoneyPrinter V2",
+  "one_liner": "유튜브 쇼츠와 트위터 글을 자동으로 올리는 자동화 앱",
+  "analogy": {
+    "text": "정해진 시간에 스스로 일하는 무인 작업장과 비슷해요.",
+    "before": "쇼츠 제작과 업로드를 매번 직접 반복",
+    "after": "예약 기능으로 쇼츠 제작·업로드를 자동화"
+  },
+  "what": [
+    "MoneyPrinterV2는 온라인 수익 활동을 자동화한다는 파이썬 앱이에요.",
+    "유튜브 쇼츠 자동화, 트위터 봇, 아마존 제휴 마케팅 기능이 있어요.",
+    "크론 예약으로 정해진 시간에 작업을 돌리는 스케줄러가 포함돼요.",
+    "지역 업체를 찾아 콜드 이메일을 보내는 기능도 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설정",
+      "desc": "config.json 채우기"
+    },
+    {
+      "label": "실행",
+      "desc": "python src/main.py"
+    },
+    {
+      "label": "자동 제작",
+      "desc": "쇼츠 영상 생성"
+    },
+    {
+      "label": "예약 업로드",
+      "desc": "정해진 시간에 게시"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "쇼츠 자동화",
+      "desc": "유튜브 쇼츠 생성을 자동화해요"
+    },
+    {
+      "icon": "clock",
+      "title": "크론 스케줄러",
+      "desc": "정해진 시간에 자동으로 돌려요"
+    },
+    {
+      "icon": "money",
+      "title": "제휴 마케팅",
+      "desc": "아마존과 트위터 기능이 있어요"
+    },
+    {
+      "icon": "chat",
+      "title": "콜드 아웃리치",
+      "desc": "지역 업체를 찾아 연락해요"
+    }
+  ],
+  "channel_use": [
+    "쇼츠 제작 자동화 구조를 참고해 우리 흐름 설계하기",
+    "예약 업로드 방식을 참고해 게시 일정 자동화 구상하기",
+    "제휴 마케팅 자동화 방식을 참고하되 고지 문구 넣기"
+  ],
+  "pros": [
+    "쇼츠 제작·업로드를 한 번에 시도해요",
+    "예약 실행을 지원해요",
+    "MPV2 파이썬 코드가 공개돼요"
+  ],
+  "cons": [
+    "파이썬 3.12 설치가 필요해요",
+    "대량 자동 게시는 계정 위험",
+    "품질을 직접 점검해야 해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬 3.12와 설정 파일 작성이 필요해요",
+  "cost": "무료(AGPL-3.0)",
+  "needs": [
+    "컴퓨터",
+    "파이썬 3.12",
+    "config.json 설정"
+  ],
+  "glossary": [
+    {
+      "term": "크론",
+      "meaning": "정해진 시간에 작업을 돌리는 예약 방식"
+    },
+    {
+      "term": "제휴 마케팅",
+      "meaning": "상품을 소개하고 수수료를 받는 방식"
+    },
+    {
+      "term": "콜드 이메일",
+      "meaning": "처음 보내는 영업 메일"
+    }
+  ],
+  "caution": "자동 게시·콜드 메일은 플랫폼 정책과 스팸 법규에 걸릴 수 있어요. 제휴 링크는 고지가 필요해요.",
+  "license": "AGPL-3.0",
+  "sources": [
+    "README: automates the process of making money online",
+    "README: Features 목록(Shorts, Twitter, Affiliate)",
+    "README: 파이썬 3.12 필요 안내",
+    "README: Disclaimer(교육 목적)"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "rank": 108,
+  "repo": "irinabuht12-oss/marketing-skills",
+  "name": "Marketing Skills",
+  "one_liner": "광고와 SEO 점검을 도와주는 마케팅 스킬 모음",
+  "analogy": {
+    "text": "마케팅 전문가 49명의 업무 체크리스트를 책꽂이에 꽂아 둔 것과 비슷해요.",
+    "before": "광고 점검 방법을 매번 검색하고 정리함",
+    "after": "스킬을 불러 한 번에 점검 결과를 받음"
+  },
+  "what": [
+    "Marketing Skills는 Claude용 마케팅 스킬 49개 묶음이에요.",
+    "스킬은 AI에게 일하는 방법을 알려 주는 설명서예요.",
+    "구글 광고, 메타 광고, SEO, AI 검색 노출 같은 점검 작업이 들어 있어요.",
+    "모두 무료이고 가입이 필요 없다고 적혀 있어요."
+  ],
+  "flow": [
+    {
+      "label": "커넥터 연결",
+      "desc": "선택, 실시간 데이터용"
+    },
+    {
+      "label": "스킬 설치",
+      "desc": "플러그인 또는 복사"
+    },
+    {
+      "label": "질문하기",
+      "desc": "점검을 말로 요청"
+    },
+    {
+      "label": "결과 받기",
+      "desc": "리포트와 개선안"
+    }
+  ],
+  "features": [
+    {
+      "icon": "chart",
+      "title": "광고 감사",
+      "desc": "낭비 비용과 개선점을 찾아요"
+    },
+    {
+      "icon": "search",
+      "title": "SEO 도우미",
+      "desc": "기술 점검과 콘텐츠 빈틈을 봐요"
+    },
+    {
+      "icon": "text",
+      "title": "글 재활용",
+      "desc": "블로그를 여러 채널 글로 바꿔요"
+    },
+    {
+      "icon": "gear",
+      "title": "A/B 테스트",
+      "desc": "결과가 의미 있는지 계산해요"
+    }
+  ],
+  "channel_use": [
+    "영상 설명문과 해시태그 전략을 점검하는 데 참고하기",
+    "한 편의 콘텐츠를 여러 채널용 글로 바꾸는 아이디어 얻기"
+  ],
+  "pros": [
+    "49개 모두 무료예요",
+    "복사만 해도 쓸 수 있어요",
+    "붙여 넣은 데이터로도 돼요"
+  ],
+  "cons": [
+    "광고·SEO 중심이에요",
+    "영어 자료 중심이에요",
+    "실시간 데이터는 별도 연결이 필요해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "스킬 폴더를 복사하거나 플러그인으로 설치해요",
+  "cost": "무료, MIT (README: Are they free? Yes)",
+  "needs": [
+    "Claude Code 등",
+    "마케팅 데이터(선택)"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI에게 작업 방법을 알려 주는 설명서"
+    },
+    {
+      "term": "SEO",
+      "meaning": "검색에서 잘 보이게 다듬는 일"
+    },
+    {
+      "term": "UTM",
+      "meaning": "링크에 붙이는 유입 추적 꼬리표"
+    }
+  ],
+  "caution": "",
+  "license": "MIT",
+  "sources": [
+    "README: 49 free marketing skills 소개",
+    "README: What's Inside 표",
+    "README: 'Are they free? Yes, all 49, MIT licensed'"
+  ]
+}

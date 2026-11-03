@@ -1,0 +1,101 @@
+{
+  "repo": "nateherkai/herk-edit-kit",
+  "name": "Herk Edit Kit",
+  "one_liner": "AI로 내 영상의 컷·자막·모션 그래픽을 편집하는 키트",
+  "analogy": {
+    "text": "원본 영상을 맡기면 군더더기를 잘라 내고 자막과 효과를 입혀 주는 편집 조수예요.",
+    "before": "말 사이 공백 자르기, 자막 달기, 그래픽 넣기를 직접 하기",
+    "after": "AI가 컷 제안과 자막, 모션 그래픽을 넣은 초안을 만들기"
+  },
+  "what": [
+    "Codex와 Claude Code에서 쓰는 영상 편집 키트예요. 내 영상은 직접 준비해요.",
+    "말 사이 빈 구간을 자르고, 실수 부분을 찾아 컷 후보를 보여 줘요.",
+    "HyperFrames와 GSAP로 모션 그래픽 카드를 만들 수 있어요.",
+    "15개 스킬과 406개 모션 카드 초안이 들어 있어요."
+  ],
+  "flow": [
+    {
+      "label": "영상 준비",
+      "desc": "내 녹화 파일 지정"
+    },
+    {
+      "label": "글 변환",
+      "desc": "말을 글자로 바꾸기"
+    },
+    {
+      "label": "컷 제안",
+      "desc": "공백·실수 구간 찾기"
+    },
+    {
+      "label": "렌더링",
+      "desc": "자막과 그래픽 넣어 완성"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "숏폼 편집",
+      "desc": "릴스와 숏츠용 훅 계획, 자막, B롤을 지원해요"
+    },
+    {
+      "icon": "mic",
+      "title": "받아쓰기",
+      "desc": "말을 글자로 바꿔 컷 편집에 써요"
+    },
+    {
+      "icon": "magic",
+      "title": "모션 카드 406개",
+      "desc": "두 가지 스타일의 그래픽 초안이 있어요"
+    },
+    {
+      "icon": "gear",
+      "title": "15개 스킬",
+      "desc": "편집 단계별 AI 작업 방법이 들어 있어요"
+    }
+  ],
+  "channel_use": [
+    "내가 찍은 제품 소개 영상의 공백을 자르고 자막 초안 만들기",
+    "생활템 이름과 가격 정보를 모션 그래픽 카드로 넣기"
+  ],
+  "pros": [
+    "숏폼 편집 기능이 있어요",
+    "API 키 없는 시작용 예제가 있어요",
+    "편집 방법 문서가 함께 있어요"
+  ],
+  "cons": [
+    "개발 도구 설치가 필요해요",
+    "영상은 내가 직접 준비해요",
+    "일부 서비스는 API 키가 필요해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Node.js 22, FFmpeg, Chrome 설치와 터미널 사용이 필요해요",
+  "cost": "README에 가격 정보 없음(받아쓰기·생성 서비스는 별도 키·크레딧)",
+  "needs": [
+    "Node.js 22 이상",
+    "FFmpeg",
+    "Codex 또는 Claude Code"
+  ],
+  "glossary": [
+    {
+      "term": "B롤",
+      "meaning": "본 영상 사이에 끼우는 보조 영상 장면"
+    },
+    {
+      "term": "렌더링",
+      "meaning": "편집 내용을 하나의 영상 파일로 완성하기"
+    },
+    {
+      "term": "EDL",
+      "meaning": "어디를 자를지 적은 편집 목록"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: Codex·Claude Code용 편집 키트 소개",
+    "README: What's included(15 skills, 406 cards)",
+    "README: Tools and optional services 설명",
+    "README: Install 요구사항(Node 22 등)"
+  ],
+  "rank": 132
+}

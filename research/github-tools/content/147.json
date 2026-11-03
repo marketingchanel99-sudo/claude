@@ -1,0 +1,95 @@
+{
+  "rank": 147,
+  "repo": "diego3g/video-to-reels",
+  "name": "Video to Reels",
+  "one_liner": "가로 영상을 인스타 릴스 모양으로 자동 변환하는 스크립트",
+  "analogy": {
+    "text": "가로 사진을 세로 액자에 맞게 자르고 색까지 보정해 주는 사진관과 비슷해요.",
+    "before": "가로 영상을 편집 프로그램에서 회전, 크기 조정, 보정으로 손질",
+    "after": "명령어 한 번으로 릴스 규격 영상이 나와요"
+  },
+  "what": [
+    "Video to Reels는 영상 파일을 인스타 릴스에 맞는 형태로 바꿔 주는 자동화 스크립트예요.",
+    "FFmpeg, ImageMagick, 텐서플로 같은 도구를 이어 붙여 사용해요.",
+    "회전, 크기 조정, 색 필터, 소리 크기 맞춤, 배경 소음 제거, 질문 스티커 넣기를 해요.",
+    "얼굴 위치에 맞춰 화면을 맞추는 기능도 있어요."
+  ],
+  "flow": [
+    {
+      "label": "영상 넣기",
+      "desc": "origins 폴더에 저장"
+    },
+    {
+      "label": "설정",
+      "desc": "convert.mjs에 파일명"
+    },
+    {
+      "label": "변환 실행",
+      "desc": "zx 명령어로 실행"
+    },
+    {
+      "label": "결과 확인",
+      "desc": "videos 폴더에 저장"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "릴스 규격 변환",
+      "desc": "회전과 크기 조정으로 릴스 모양을 만들어요"
+    },
+    {
+      "icon": "mic",
+      "title": "소리 다듬기",
+      "desc": "소리 크기를 맞추고 배경 소음을 줄여요"
+    },
+    {
+      "icon": "eye",
+      "title": "얼굴 맞춤",
+      "desc": "얼굴 위치에 맞춰 화면을 배치해요"
+    },
+    {
+      "icon": "image",
+      "title": "질문 스티커",
+      "desc": "인스타 질문 오버레이를 넣어요"
+    }
+  ],
+  "channel_use": [
+    "가로로 찍은 한국 길거리 영상을 세로 숏폼 비율로 바꾸기",
+    "촬영 소리가 시끄러운 영상의 소음을 줄이고 볼륨 맞추기"
+  ],
+  "pros": [
+    "변환 과정이 자동이에요",
+    "얼굴 중심으로 화면을 맞춰요"
+  ],
+  "cons": [
+    "자막과 무음 컷 기능은 아직 미완성",
+    "설치할 도구가 여러 개예요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Node.js, FFmpeg 등 여러 도구를 설치해야 해요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "Node.js",
+    "FFmpeg",
+    "ImageMagick",
+    "ZX"
+  ],
+  "glossary": [
+    {
+      "term": "FFmpeg",
+      "meaning": "영상을 자르고 바꾸는 무료 프로그램"
+    },
+    {
+      "term": "오버레이",
+      "meaning": "영상 위에 덧씌우는 글자나 그림"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: 영상을 릴스 형식으로 변환하는 목적 설명",
+    "README: Features 체크리스트",
+    "README: Running 단계(origins, convert.mjs)"
+  ]
+}

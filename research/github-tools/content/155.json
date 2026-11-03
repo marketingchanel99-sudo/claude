@@ -1,0 +1,94 @@
+{
+  "rank": 155,
+  "repo": "stevenflanagan1/social-ai-team",
+  "name": "Social AI Team",
+  "one_liner": "브랜드 설정부터 캡션·월간 캘린더·성과 리뷰까지 돕는 스킬 팀",
+  "analogy": {
+    "text": "전략가, 카피라이터, 디자이너가 한 팀으로 일하고 팀장이 조율하는 것과 비슷해요.",
+    "before": "브랜드 규칙, 일정, 캡션, 리뷰를 매번 따로 정리",
+    "after": "스킬들이 서로 파일을 넘겨 가며 한 달 업무를 이어서 처리"
+  },
+  "what": [
+    "Social AI Team은 소규모 업체용 SNS 운영을 돕는 Claude Code 스킬 묶음이에요.",
+    "브랜드 온보딩, 월간 콘텐츠 캘린더, 캡션, 링크드인·스레드·X 글, 성과 리뷰 스킬이 있어요.",
+    "orchestrator 스킬이 현재 상태를 보고 어디서 시작할지 안내해요.",
+    "단계마다 사람의 승인 지점이 있다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "브랜드 설정",
+      "desc": "브랜드 스타일 문서화"
+    },
+    {
+      "label": "월간 계획",
+      "desc": "한 달 게시 아이디어"
+    },
+    {
+      "label": "글 작성",
+      "desc": "캡션과 플랫폼별 글"
+    },
+    {
+      "label": "월말 리뷰",
+      "desc": "잘된 것 정리해 다음 달에"
+    }
+  ],
+  "features": [
+    {
+      "icon": "gear",
+      "title": "오케스트레이터",
+      "desc": "어디서 시작할지 안내하고 조율해요"
+    },
+    {
+      "icon": "clock",
+      "title": "월간 캘린더",
+      "desc": "주제, 목적, 형식을 정해 줘요"
+    },
+    {
+      "icon": "text",
+      "title": "캡션 작성",
+      "desc": "플랫폼별 형식에 맞게 써요"
+    },
+    {
+      "icon": "chart",
+      "title": "성과 리뷰",
+      "desc": "월말에 잘된 점을 분석해요"
+    }
+  ],
+  "channel_use": [
+    "우리 채널의 월간 캘린더와 캡션 워크플로 구성 참고하기",
+    "월말 성과 리뷰 결과를 다음 달 기획에 되돌려 반영하는 흐름 참고"
+  ],
+  "pros": [
+    "단계가 이어져 있어 흐름을 따라가기 쉬워요",
+    "승인 지점이 있어요"
+  ],
+  "cons": [
+    "MCP 설정이 필요해요",
+    "SETUP 안내 문서를 따로 읽어야 해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "Claude Code와 MCP(Playwright 등) 설정이 필요해요",
+  "cost": "README에 가격 정보 없음(게시 예약용 Blotato는 선택 사항)",
+  "needs": [
+    "Claude Code",
+    "Playwright MCP",
+    "Nano Banana MCP"
+  ],
+  "glossary": [
+    {
+      "term": "오케스트레이터",
+      "meaning": "여러 작업을 순서대로 지휘하는 역할"
+    },
+    {
+      "term": "온보딩",
+      "meaning": "처음에 브랜드 정보를 정리해 두는 일"
+    }
+  ],
+  "caution": "README에 지정된 라이선스 문구가 명확하지 않아요. 상업 사용 전에 확인하세요.",
+  "license": "",
+  "sources": [
+    "README: 스킬 구조도와 역할 설명",
+    "README: content-calendar, caption-writer 설명",
+    "README: Blotato는 선택 사항 문구"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "rank": 21,
+  "repo": "coreyhaines31/marketingskills",
+  "name": "marketingskills",
+  "one_liner": "AI 비서에게 마케팅 업무 요령집을 쥐여 주는 스킬 모음",
+  "analogy": {
+    "text": "신입 직원에게 마케팅 업무 매뉴얼을 통째로 건네 주는 것과 비슷해요.",
+    "before": "AI에게 매번 마케팅 요령을 길게 설명해야 함",
+    "after": "설치해 두면 AI가 카피·SEO 요령을 알아서 적용"
+  },
+  "what": [
+    "marketingskills는 AI 코딩 도우미(Claude Code 등)에게 마케팅 업무 지식을 알려 주는 '스킬' 모음이에요.",
+    "스킬은 AI가 읽는 설명서 파일이에요. 카피라이팅, SEO, 광고, 분석 같은 주제가 들어 있어요.",
+    "모든 스킬은 먼저 제품·고객 정보를 담은 product-marketing 스킬을 읽고 시작해요.",
+    "Claude Code 플러그인이나 npx 명령으로 설치할 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "npx나 플러그인으로 추가"
+    },
+    {
+      "label": "요청",
+      "desc": "AI에게 마케팅 일을 시킴"
+    },
+    {
+      "label": "스킬 호출",
+      "desc": "알맞은 요령집을 읽음"
+    },
+    {
+      "label": "결과",
+      "desc": "카피·분석안을 받음"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "카피·콘텐츠 스킬",
+      "desc": "카피라이팅, 카피 편집, 소셜, 영상 관련 스킬이 있어요"
+    },
+    {
+      "icon": "search",
+      "title": "SEO·AI 검색",
+      "desc": "seo-audit, ai-seo 같은 검색 노출 스킬이 있어요"
+    },
+    {
+      "icon": "chart",
+      "title": "광고·분석",
+      "desc": "ads, analytics, ab-testing 스킬이 들어 있어요"
+    },
+    {
+      "icon": "link",
+      "title": "스킬끼리 연결",
+      "desc": "서로 참고하며 같은 제품 정보를 공유해요"
+    }
+  ],
+  "channel_use": [
+    "영상 캡션과 제목 문구를 쓸 때 카피라이팅 스킬로 초안 받기",
+    "채널 소개 문구를 A/B 테스트할 아이디어를 AI와 짜기",
+    "경쟁 채널 분석을 competitor 관련 스킬로 정리하기"
+  ],
+  "pros": [
+    "무료이고 MIT 라이선스예요",
+    "여러 AI 도구에서 쓸 수 있어요",
+    "마케팅 분야가 폭넓게 담겨 있어요"
+  ],
+  "cons": [
+    "영어 위주 자료예요",
+    "AI 코딩 도우미가 있어야 쓸 수 있어요",
+    "결과 품질은 AI와 입력에 달려요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "터미널에서 명령 한 줄을 입력해 설치해요",
+  "cost": "무료(MIT 라이선스)",
+  "needs": [
+    "Claude Code 등 AI 도우미",
+    "터미널(명령창)",
+    "Node.js(npx용)"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI가 읽고 따라 하는 업무 설명서 파일"
+    },
+    {
+      "term": "SEO",
+      "meaning": "검색 결과에 잘 보이게 만드는 작업"
+    },
+    {
+      "term": "A/B 테스트",
+      "meaning": "두 안을 비교해 더 나은 쪽을 고르는 실험"
+    }
+  ],
+  "caution": "일부 파트너 광고가 README에 있어요. 추천 도구는 직접 검증하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: A collection of AI agent skills focused on marketing",
+    "README: free and MIT-licensed",
+    "README: npx skills add 설치 안내",
+    "README: product-marketing 스킬을 먼저 읽는다는 설명"
+  ]
+}

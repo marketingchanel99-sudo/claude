@@ -1,0 +1,100 @@
+{
+  "repo": "Jakeschincariol/youtube-agent-skill",
+  "name": "YouTube Agent Skill",
+  "one_liner": "유튜브 채널 운영용 Claude 스킬 11개 모음",
+  "analogy": {
+    "text": "대본, 제목, 분석을 척척 도와 주는 11명짜리 보조 작가팀을 곁에 두는 것과 비슷해요.",
+    "before": "훅 문장, 제목, 썸네일, 설명을 혼자 고민하며 하나씩 쓰기",
+    "after": "명령어 하나로 훅 후보와 점수, 제목 점검 결과를 받기"
+  },
+  "what": [
+    "유튜브 채널 운영을 돕는 Claude용 스킬 11개 묶음이에요.",
+    "스킬은 Claude에게 특정 일을 시키는 사용 설명서 같은 파일이에요.",
+    "대본, 제목과 썸네일 점검, 조회 유지율 분석, 숏츠 후보 찾기 등을 해요.",
+    "업로드는 하지 않고 글만 써 줘요. 올리는 건 사용자가 직접 해요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "스킬 폴더를 Claude에 복사"
+    },
+    {
+      "label": "말투 적기",
+      "desc": "voice.md에 내 스타일 작성"
+    },
+    {
+      "label": "명령 실행",
+      "desc": "/yt-script 등을 입력"
+    },
+    {
+      "label": "결과 확인",
+      "desc": "복사해서 직접 사용"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "훅 21개 공식",
+      "desc": "훅 5개를 만들고 점수를 매겨요"
+    },
+    {
+      "icon": "image",
+      "title": "제목·썸네일 점검",
+      "desc": "둘을 한 쌍으로 보고 문제를 찾아요"
+    },
+    {
+      "icon": "video",
+      "title": "숏츠 찾기",
+      "desc": "긴 영상 속 숏츠 후보와 첫 문장을 제안해요"
+    },
+    {
+      "icon": "chart",
+      "title": "유지율 읽기",
+      "desc": "시청자가 떠난 시점을 짚어 줘요"
+    }
+  ],
+  "channel_use": [
+    "한국 생활템 소개 대본의 첫 문장 후보를 만들고 점수 비교하기",
+    "긴 영상에서 숏츠로 쓸 만한 구간과 새 첫 문장 받기"
+  ],
+  "pros": [
+    "무료이고 가입이 필요 없어요",
+    "API 키 없이 바로 써요",
+    "Python 도구는 추가 설치가 없어요"
+  ],
+  "cons": [
+    "유튜브 중심이라 릴스는 맞춤이 약해요",
+    "훅 점수는 참고용이에요",
+    "Claude Code가 있어야 편해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "폴더를 복사하고 내 말투 파일을 채우면 돼요",
+  "cost": "무료(MIT 라이선스)",
+  "needs": [
+    "Claude Code",
+    "내 말투 파일(voice.md)"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "Claude에게 일하는 방법을 알려 주는 설명서 파일"
+    },
+    {
+      "term": "훅",
+      "meaning": "영상 맨 앞에서 시선을 붙잡는 첫 문장"
+    },
+    {
+      "term": "유지율",
+      "meaning": "시청자가 영상을 끝까지 보는 정도"
+    }
+  ],
+  "caution": "",
+  "license": "MIT",
+  "sources": [
+    "README: Eleven Claude skills 소개",
+    "README: 21 formulas, 6 Python tools 설명",
+    "README: Free, MIT, no signup, no API key",
+    "README: It does not publish 문구"
+  ],
+  "rank": 123
+}

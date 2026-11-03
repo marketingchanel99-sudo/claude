@@ -1,0 +1,101 @@
+{
+  "repo": "Hao0321/video-autopilot-kit",
+  "name": "video-autopilot-kit",
+  "one_liner": "영상 편집 계획과 품질 검사를 맡는 자동화 키트",
+  "analogy": {
+    "text": "편집 감독이 계획서와 체크리스트를 쓰고, 실제 작업은 편집 기사에게 맡기는 구조예요.",
+    "before": "영상마다 편집 계획과 최종 점검을 기억에 의존해서 하기",
+    "after": "계획서 작성, 검사, 렌더링, 성과 학습까지 정해진 순서로 진행"
+  },
+  "what": [
+    "이 키트는 영상 편집의 계획과 점검만 맡아요. 실제 렌더링은 Editkin이 해요.",
+    "Editkin 데스크톱 편집기를 먼저 설치해야 해요(필수).",
+    "편집 계획서를 쓰고 검사한 뒤 렌더링, 영상 검토, 성과 학습으로 이어져요.",
+    "README는 중국어(번체)이고 영어 버전이 뒤에 붙어 있어요."
+  ],
+  "flow": [
+    {
+      "label": "소재 확인",
+      "desc": "키프레임·대사 근거 정리"
+    },
+    {
+      "label": "계획서",
+      "desc": "edit-plan 작성과 검사"
+    },
+    {
+      "label": "렌더링",
+      "desc": "Editkin이 영상 제작"
+    },
+    {
+      "label": "검토·학습",
+      "desc": "사람이 보고 성과 반영"
+    }
+  ],
+  "features": [
+    {
+      "icon": "gear",
+      "title": "편집 계획서",
+      "desc": "소재 근거를 묶은 계획서를 만들어요"
+    },
+    {
+      "icon": "shield",
+      "title": "품질 검사",
+      "desc": "대본·자막·리듬 등을 점검하는 단계가 있어요"
+    },
+    {
+      "icon": "video",
+      "title": "모션 라이브러리",
+      "desc": "텍스트·전환·배경 효과 160개를 써요"
+    },
+    {
+      "icon": "chart",
+      "title": "성과 학습",
+      "desc": "올린 뒤 결과를 다음 작업에 반영해요"
+    }
+  ],
+  "channel_use": [
+    "숏폼 자막, 리듬, 대본 점검 기준으로 영상 품질 확인하기",
+    "편집 흐름을 정해 매주 같은 순서로 제작하기"
+  ],
+  "pros": [
+    "영상 검토 단계가 분명해요",
+    "MIT 라이선스예요",
+    "Editkin 간단 모드는 AI 계정이 필요 없어요"
+  ],
+  "cons": [
+    "Windows 전용 미리보기 버전이에요",
+    "Editkin 설치가 필수예요",
+    "설치 파일이 약 1.25GB예요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Editkin 설치와 AI 연결, 파이썬 설치 스크립트가 필요해요",
+  "cost": "MIT 무료(Editkin은 GPL-3.0, 별도 설치)",
+  "needs": [
+    "Windows 컴퓨터",
+    "Editkin 편집기",
+    "Claude Code 또는 Codex"
+  ],
+  "glossary": [
+    {
+      "term": "렌더링",
+      "meaning": "편집 내용을 영상 파일로 만드는 작업"
+    },
+    {
+      "term": "MCP",
+      "meaning": "AI가 다른 프로그램을 쓰게 연결해 주는 방식"
+    },
+    {
+      "term": "QA",
+      "meaning": "결과물을 출시 전에 점검하는 일"
+    }
+  ],
+  "caution": "공개 미리보기 버전이라 버그가 있을 수 있어요. 서명이 없는 설치 파일이라 경고가 떠요.",
+  "license": "MIT",
+  "sources": [
+    "README: VA는 계획·검사, Editkin은 렌더링 구조",
+    "README: Editkin 설치 필수와 Windows 전용 안내",
+    "README: v0.25.0 Motion Library 160개",
+    "README: License MIT"
+  ],
+  "rank": 134
+}

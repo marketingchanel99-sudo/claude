@@ -1,0 +1,102 @@
+{
+  "rank": 34,
+  "repo": "glanceapp/glance",
+  "name": "Glance",
+  "one_liner": "RSS·유튜브·날씨를 한 화면에 모은 나만의 대시보드",
+  "analogy": {
+    "text": "신문, 날씨, 알림을 한 게시판에 붙여 둔 개인 상황판과 비슷해요.",
+    "before": "여러 사이트를 하나씩 열어 소식을 확인",
+    "after": "한 화면에서 소식과 상태를 한꺼번에 확인"
+  },
+  "what": [
+    "Glance는 여러 정보를 한 화면에 모아 보여 주는 셀프 호스팅 대시보드예요.",
+    "RSS, 서브레딧, 해커뉴스, 유튜브 업로드, 날씨 등의 위젯이 있어요.",
+    "설정은 YAML 파일로 하고 모바일 화면에도 맞춰져 있어요.",
+    "20MB 미만의 단일 실행 파일이나 도커로 쓸 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "도커로 Glance 실행"
+    },
+    {
+      "label": "설정",
+      "desc": "YAML에 위젯 추가"
+    },
+    {
+      "label": "연결",
+      "desc": "RSS·채널 지정"
+    },
+    {
+      "label": "보기",
+      "desc": "대시보드 화면 확인"
+    }
+  ],
+  "features": [
+    {
+      "icon": "eye",
+      "title": "다양한 위젯",
+      "desc": "RSS, 레딧, 유튜브, 날씨 등을 보여 줘요"
+    },
+    {
+      "icon": "bolt",
+      "title": "가볍고 빠름",
+      "desc": "단일 20MB 미만 파일이에요"
+    },
+    {
+      "icon": "gear",
+      "title": "꾸미기 쉬움",
+      "desc": "여러 페이지와 테마를 지원해요"
+    },
+    {
+      "icon": "globe",
+      "title": "모바일 최적화",
+      "desc": "휴대폰에서도 보기 좋아요"
+    }
+  ],
+  "channel_use": [
+    "서브레딧 한국 글과 유튜브 신규 영상을 한 화면에서 보기",
+    "RSS로 한국 관련 뉴스 새 글을 모아 아이디어 찾기",
+    "경쟁 유튜브 채널의 업로드를 한곳에서 확인하기"
+  ],
+  "pros": [
+    "가볍고 빠르게 열려요",
+    "화면 구성을 자유롭게 바꿔요",
+    "모바일에서도 잘 보여요"
+  ],
+  "cons": [
+    "설정을 YAML 파일로 해야 해요",
+    "서버나 도커가 필요해요",
+    "영어 설명만 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "도커로 설치하고 설정 파일을 직접 써야 해요",
+  "cost": "README에 가격 정보 없음(오픈소스)",
+  "needs": [
+    "컴퓨터 또는 서버",
+    "도커(Docker)",
+    "설정 파일(YAML)"
+  ],
+  "glossary": [
+    {
+      "term": "위젯",
+      "meaning": "화면에 붙이는 작은 정보 조각"
+    },
+    {
+      "term": "대시보드",
+      "meaning": "여러 정보를 한눈에 보는 상황판"
+    },
+    {
+      "term": "YAML",
+      "meaning": "설정을 적는 간단한 텍스트 형식"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: Features의 widget 목록",
+    "README: Single <20mb binary",
+    "README: YAML 설정 설명",
+    "README: Docker compose 설치 안내"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "rank": 99,
+  "repo": "jamez-bondos/awesome-gpt4o-images",
+  "name": "awesome-gpt4o-images",
+  "one_liner": "GPT-4o 이미지 결과와 프롬프트 모음집",
+  "analogy": {
+    "text": "요리 사진과 레시피를 함께 모아 둔 요리책 같아요.",
+    "before": "좋은 이미지 스타일을 찾으려고 SNS를 일일이 검색",
+    "after": "잘 나온 예시와 프롬프트를 보고 바로 따라 해 봄"
+  },
+  "what": [
+    "awesome-gpt4o-images는 GPT-4o와 gpt-image-1로 만든 이미지와 프롬프트를 모은 목록이에요.",
+    "사례는 주로 트위터(X)와 Sora 커뮤니티에서 모았다고 적혀 있어요.",
+    "설치할 것은 없고 읽으면서 참고하는 문서예요."
+  ],
+  "flow": [
+    {
+      "label": "예시 보기",
+      "desc": "마음에 드는 사례를 찾아요"
+    },
+    {
+      "label": "프롬프트 복사",
+      "desc": "글 설명을 확인해요"
+    },
+    {
+      "label": "내 AI에 적용",
+      "desc": "GPT-4o 등에서 실행해요"
+    },
+    {
+      "label": "고쳐 쓰기",
+      "desc": "내 상품에 맞게 바꿔요"
+    }
+  ],
+  "features": [
+    {
+      "icon": "image",
+      "title": "사례 모음",
+      "desc": "이미지와 프롬프트를 짝지어 보여 줘요"
+    },
+    {
+      "icon": "magic",
+      "title": "여러 스타일",
+      "desc": "지브리, 픽셀, 3D 인형 등이 있어요"
+    },
+    {
+      "icon": "text",
+      "title": "프롬프트 팁",
+      "desc": "잘 쓰는 요령 항목이 있어요"
+    },
+    {
+      "icon": "globe",
+      "title": "중영 번역",
+      "desc": "gpt-image-1 사례를 중영으로 정리했어요"
+    }
+  ],
+  "channel_use": [
+    "채널 썸네일과 캐릭터 스타일 아이디어를 프롬프트에서 얻기",
+    "생활템 소개 일러스트의 스타일 후보 비교하기"
+  ],
+  "pros": [
+    "설치 없이 바로 읽어요",
+    "사례가 많아요"
+  ],
+  "cons": [
+    "README가 아주 길어요",
+    "실제 생성은 GPT-4o가 필요해요"
+  ],
+  "difficulty": 1,
+  "difficulty_note": "웹에서 읽고 복사해 쓰면 돼요. 설치는 필요 없어요",
+  "cost": "README에 가격 정보 없음(문서는 무료 열람)",
+  "needs": [
+    "웹 브라우저",
+    "GPT-4o 등 이미지 AI 계정"
+  ],
+  "glossary": [
+    {
+      "term": "프롬프트",
+      "meaning": "AI에게 주는 글 설명"
+    },
+    {
+      "term": "gpt-image-1",
+      "meaning": "OpenAI의 이미지 생성 모델 이름"
+    },
+    {
+      "term": "멀티모달",
+      "meaning": "글과 그림을 함께 이해하는 능력"
+    }
+  ],
+  "caution": "사례의 원작자 표시를 확인하세요. 사례 속 유명 캐릭터와 실존 인물 스타일을 상업적으로 쓰기 전 권리를 확인하세요.",
+  "license": "CC BY 4.0 (이미지)",
+  "sources": [
+    "README: GPT-4o 이미지와 프롬프트 모음 소개",
+    "README: 사례 출처는 X와 Sora 커뮤니티",
+    "README: 스타일과 프롬프트 팁 목차",
+    "README: CC BY 4.0 배지"
+  ]
+}

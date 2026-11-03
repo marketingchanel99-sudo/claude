@@ -1,0 +1,95 @@
+{
+  "rank": 68,
+  "repo": "dreammis/social-auto-upload",
+  "name": "social-auto-upload",
+  "one_liner": "영상을 여러 SNS에 자동으로 올려 주는 도구",
+  "analogy": {
+    "text": "택배 한 상자를 여러 집에 동시에 배송해 주는 물류 센터와 비슷해요.",
+    "before": "각 앱에 들어가 영상을 하나씩 올리고 예약",
+    "after": "한 번 설정하면 여러 SNS에 올리고 예약"
+  },
+  "what": [
+    "social-auto-upload는 영상과 글을 여러 SNS에 올려 주는 멀티 플랫폼 발행 도구예요.",
+    "도표에 있는 플랫폼은 Instagram, YouTube, Facebook, TikTok 등이에요.",
+    "명령어(CLI)로 쓰고, Claude Code 같은 AI 도구용 스킬도 있어요.",
+    "예약 발행을 지원하는 플랫폼이 표에 따로 표시돼 있어요."
+  ],
+  "flow": [
+    {
+      "label": "계정 준비",
+      "desc": "각 SNS에 로그인"
+    },
+    {
+      "label": "파일 선택",
+      "desc": "영상과 제목 정하기"
+    },
+    {
+      "label": "발행 실행",
+      "desc": "명령어로 업로드"
+    },
+    {
+      "label": "예약 관리",
+      "desc": "정해진 시간에 게시"
+    }
+  ],
+  "features": [
+    {
+      "icon": "upload",
+      "title": "동시 업로드",
+      "desc": "여러 SNS에 영상을 올려요"
+    },
+    {
+      "icon": "clock",
+      "title": "예약 발행",
+      "desc": "시간을 정해 두고 게시해요"
+    },
+    {
+      "icon": "image",
+      "title": "영상·이미지글",
+      "desc": "플랫폼별로 영상과 이미지글을 지원해요"
+    },
+    {
+      "icon": "robot",
+      "title": "AI 스킬",
+      "desc": "AI 도구가 업로드를 대신 맡아요"
+    }
+  ],
+  "channel_use": [
+    "완성한 숏폼을 인스타 릴스와 유튜브 쇼츠에 같은 날 올리기",
+    "주간 업로드 일정을 예약으로 미리 걸어 두기"
+  ],
+  "pros": [
+    "여러 플랫폼을 한 도구로 관리해요",
+    "예약 발행을 지원해요"
+  ],
+  "cons": [
+    "브라우저 자동화라 계정 위험이 있어요",
+    "플랫폼 화면이 바뀌면 고장 날 수 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "설치와 로그인 설정 후 명령어로 사용해요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "컴퓨터",
+    "파이썬(uv)",
+    "각 SNS 계정"
+  ],
+  "glossary": [
+    {
+      "term": "CLI",
+      "meaning": "글자 명령어로 쓰는 방식"
+    },
+    {
+      "term": "예약 발행",
+      "meaning": "정한 시간에 자동 게시"
+    }
+  ],
+  "caution": "자동 업로드는 플랫폼 약관과 계정 정지 위험이 있어요. 제휴 영상은 고지 문구를 꼭 넣으세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 지원 플랫폼 표(Instagram, YouTube, TikTok 등)",
+    "README: CLI와 Skill 설명",
+    "README: 예약 발행 열",
+    "README: MIT License"
+  ]
+}

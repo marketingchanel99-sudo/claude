@@ -1,0 +1,95 @@
+{
+  "rank": 157,
+  "repo": "artemnovitckii/creator-lab",
+  "name": "Creator Lab",
+  "one_liner": "특정 크리에이터의 릴스 대본을 모아 훅 패턴을 분석하는 도구",
+  "analogy": {
+    "text": "잘 나가는 가게의 판매 멘트를 녹취해 어떤 말이 먹히는지 표로 정리하는 것과 비슷해요.",
+    "before": "릴스를 하나씩 보며 대본과 조회수를 직접 메모",
+    "after": "릴스 대본을 자동 분류해 훅 종류별 반응을 비교해요"
+  },
+  "what": [
+    "Creator Lab은 한 크리에이터의 인스타 릴스를 검색 가능한 연구 자료실로 만들어 줘요.",
+    "릴스 정보를 가져오고 음성을 글로 옮긴 뒤 AI가 대본을 분류해요.",
+    "주제, 훅 방식, 구조, 근거, 감정, 행동 유도 등 8가지로 나눠 보여 줘요.",
+    "내 컴퓨터 브라우저에서 돌아가고, 각 서비스 키를 내가 넣어야 해요."
+  ],
+  "flow": [
+    {
+      "label": "계정 입력",
+      "desc": "분석할 크리에이터"
+    },
+    {
+      "label": "릴스 수집",
+      "desc": "Apify로 정보 가져옴"
+    },
+    {
+      "label": "음성 변환",
+      "desc": "대본을 글로 받아 적기"
+    },
+    {
+      "label": "분류·비교",
+      "desc": "훅별 반응 비교"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "대본 분류",
+      "desc": "8가지 기준으로 대본을 나눠요"
+    },
+    {
+      "icon": "chart",
+      "title": "반응 비교",
+      "desc": "표본 수와 함께 참여도를 비교해요"
+    },
+    {
+      "icon": "text",
+      "title": "대본 보기",
+      "desc": "구간별 원문과 시간을 확인해요"
+    },
+    {
+      "icon": "download",
+      "title": "결과 내보내기",
+      "desc": "JSON으로 저장할 수 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 문화 소개 해외 크리에이터의 잘 된 릴스 훅 유형 정리하기",
+    "어떤 훅이 반응이 좋았는지 우리 훅 목록과 비교하기"
+  ],
+  "pros": [
+    "훅 패턴을 데이터로 볼 수 있어요",
+    "20편 시험 분석부터 시작 가능"
+  ],
+  "cons": [
+    "외부 서비스 비용이 각각 들어요",
+    "인스타 수집이라 항상 완전하진 않아요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Node.js, FFmpeg 설치와 키 3개가 필요해요",
+  "cost": "도구는 무료(MIT), Apify·음성변환·분류 서비스 비용은 별도",
+  "needs": [
+    "Node.js와 FFmpeg",
+    "Apify 토큰",
+    "음성변환·분류 키"
+  ],
+  "glossary": [
+    {
+      "term": "훅",
+      "meaning": "영상 첫머리에서 시선을 잡는 문장"
+    },
+    {
+      "term": "Apify",
+      "meaning": "웹 정보를 수집해 주는 외부 서비스"
+    }
+  ],
+  "caution": "인스타 릴스 수집은 약관 위험이 있어요. 공개 계정의 분석 용도로만 쓰세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 릴스를 연구 라이브러리로 만든다는 설명",
+    "README: What you get 8가지 분류",
+    "README: Providers 표, Costs and coverage",
+    "README: MIT licensed"
+  ]
+}

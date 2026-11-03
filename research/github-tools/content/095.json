@@ -1,0 +1,98 @@
+{
+  "rank": 95,
+  "repo": "Ryze-AI-Adgent/open-seo-mcp-skills",
+  "name": "open-seo-mcp-skills",
+  "one_liner": "Claude에게 검색 노출 분석을 시키는 무료 SEO 스킬 모음",
+  "analogy": {
+    "text": "내 가게 매출 장부를 보고 개선점을 짚어 주는 컨설턴트를 부르는 것과 비슷해요.",
+    "before": "검색 순위와 방문자 수를 여러 화면에서 따로 확인",
+    "after": "Claude에게 물으면 순위와 개선점을 종합 정리"
+  },
+  "what": [
+    "open-seo-mcp-skills는 Claude에게 SEO와 GEO 분석을 시키는 스킬 모음이에요.",
+    "키워드 조사, 순위 추적, 사이트 점검 등을 내 구글 서치 콘솔과 GA4 자료로 해 줘요.",
+    "Ryze라는 커넥터에 연결해서 쓴다고 README에 적혀 있어요."
+  ],
+  "flow": [
+    {
+      "label": "커넥터 연결",
+      "desc": "Ryze MCP를 추가해요"
+    },
+    {
+      "label": "계정 연동",
+      "desc": "구글 데이터를 연결해요"
+    },
+    {
+      "label": "스킬 설치",
+      "desc": "플러그인을 설치해요"
+    },
+    {
+      "label": "질문하기",
+      "desc": "Claude에게 분석을 시켜요"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "키워드 조사",
+      "desc": "키워드 아이디어와 묶음 계획을 만들어요"
+    },
+    {
+      "icon": "chart",
+      "title": "순위 추적",
+      "desc": "기간별 순위 변화를 보여 줘요"
+    },
+    {
+      "icon": "shield",
+      "title": "사이트 점검",
+      "desc": "색인과 개선점을 찾아요"
+    },
+    {
+      "icon": "link",
+      "title": "경쟁사 비교",
+      "desc": "경쟁사에만 있는 키워드를 찾아요"
+    }
+  ],
+  "channel_use": [
+    "채널 블로그에서 외국인이 검색하는 한국 생활템 키워드 찾기",
+    "어떤 글이 순위가 떨어졌는지 확인해 다시 쓰기"
+  ],
+  "pros": [
+    "스킬은 MIT로 무료예요",
+    "내 실제 검색 데이터를 써요"
+  ],
+  "cons": [
+    "Ryze 커넥터 가입이 필요해요",
+    "사이트가 있어야 쓸모 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "Claude 설정에서 커넥터를 추가하고 구글 계정을 연결해요",
+  "cost": "스킬은 무료(MIT), 일부 호스팅은 월 약 10달러라고 비교 표에 나옴",
+  "needs": [
+    "Claude Code",
+    "구글 서치 콘솔, GA4",
+    "Ryze 커넥터 로그인"
+  ],
+  "glossary": [
+    {
+      "term": "SEO",
+      "meaning": "검색에 잘 나오게 사이트를 다듬는 일"
+    },
+    {
+      "term": "커넥터",
+      "meaning": "Claude를 외부 서비스에 잇는 연결 통로"
+    },
+    {
+      "term": "서치 콘솔",
+      "meaning": "구글이 주는 검색 노출 통계 도구"
+    }
+  ],
+  "caution": "구글 계정과 광고 계정을 외부 커넥터에 연결해요. 접근 권한 범위를 확인하고 필요한 계정만 연결하세요.",
+  "license": "MIT (스킬)",
+  "sources": [
+    "README: 무료 SEO MCP 서버와 GEO 스킬 소개",
+    "README: 설치 2단계 안내",
+    "README: 스킬 표와 데이터 출처",
+    "README: 도구 비용 비교 표"
+  ]
+}

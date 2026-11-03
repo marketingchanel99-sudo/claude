@@ -1,0 +1,100 @@
+{
+  "rank": 107,
+  "repo": "irinabuht12-oss/google-ads-meta-ads-mcp",
+  "name": "Google·Meta Ads MCP",
+  "one_liner": "AI 채팅으로 구글·메타 광고를 보고 관리하는 연결 서버",
+  "analogy": {
+    "text": "AI에게 광고 계정 열쇠를 맡기고 말로 시키는 것과 비슷해요.",
+    "before": "광고 사이트를 각각 열어 숫자를 직접 확인",
+    "after": "AI에게 물어보면 광고 현황을 요약해 줌"
+  },
+  "what": [
+    "이 레포는 AI에게 광고 계정을 보여 주는 MCP 서버예요.",
+    "MCP는 AI가 외부 도구를 쓰게 하는 공통 연결 규칙이에요.",
+    "구글 광고, 메타(페이스북·인스타) 광고, GA4를 한곳에서 다뤄요.",
+    "주소 하나를 추가하고 로그인하면 쓸 수 있다고 안내해요."
+  ],
+  "flow": [
+    {
+      "label": "주소 추가",
+      "desc": "Claude에 커넥터 등록"
+    },
+    {
+      "label": "로그인",
+      "desc": "구글 또는 페이스북 계정"
+    },
+    {
+      "label": "질문하기",
+      "desc": "광고 성과를 채팅으로"
+    },
+    {
+      "label": "승인",
+      "desc": "변경은 확인 후 적용"
+    }
+  ],
+  "features": [
+    {
+      "icon": "link",
+      "title": "한 곳에 연결",
+      "desc": "구글 광고, 메타 광고, GA4 통합이에요"
+    },
+    {
+      "icon": "chart",
+      "title": "성과 분석",
+      "desc": "캠페인 요약과 감사를 요청해요"
+    },
+    {
+      "icon": "shield",
+      "title": "승인 후 변경",
+      "desc": "쓰기 작업은 승인을 거쳐요"
+    },
+    {
+      "icon": "bolt",
+      "title": "도구 250개+",
+      "desc": "광고용 도구가 많이 들어 있어요"
+    }
+  ],
+  "channel_use": [
+    "광고를 집행하게 되면 어떤 영상이 반응이 좋은지 AI로 요약하기",
+    "메타 광고 성과를 AI에게 물어 홍보 영상 방향 잡기"
+  ],
+  "pros": [
+    "설치 없이 주소만 추가해요",
+    "여러 광고를 한곳에서 봐요",
+    "변경 전에 승인 단계가 있어요"
+  ],
+  "cons": [
+    "광고 계정이 있어야 써요",
+    "호스팅 서비스는 유료예요",
+    "당장 숏폼 제작과는 거리가 있어요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "Claude에 커넥터 주소를 추가하고 로그인해요",
+  "cost": "호스팅 Ryze 서비스는 Paid Ads 월 $89, 7일 무료 체험 (README)",
+  "needs": [
+    "Claude 등 AI 앱",
+    "광고 계정",
+    "구글 또는 페이스북 로그인"
+  ],
+  "glossary": [
+    {
+      "term": "MCP",
+      "meaning": "AI가 외부 도구를 쓰게 하는 연결 규칙"
+    },
+    {
+      "term": "GA4",
+      "meaning": "구글의 방문자 분석 도구"
+    },
+    {
+      "term": "캠페인",
+      "meaning": "광고 묶음 단위"
+    }
+  ],
+  "caution": "광고 계정 접근 권한을 맡기는 것이라 쓰기 작업은 꼭 확인 후 승인하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: Connect in 30 seconds",
+    "README: 비교표 (가격 $89/month, 7-day free trial)",
+    "README: License MIT"
+  ]
+}

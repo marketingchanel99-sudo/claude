@@ -1,0 +1,102 @@
+{
+  "rank": 24,
+  "repo": "mudler/LocalAI",
+  "name": "LocalAI",
+  "one_liner": "내 컴퓨터에 AI 모델을 돌리는 나만의 AI 서버",
+  "analogy": {
+    "text": "외부 식당 대신 우리 집 부엌에 주방장을 두는 것과 비슷해요.",
+    "before": "외부 AI 서비스에 글과 파일을 보내고 요금 걱정",
+    "after": "내 서버에서 AI를 돌려 데이터가 밖으로 안 나감"
+  },
+  "what": [
+    "LocalAI는 여러 종류의 AI 모델을 내 기기에서 돌리는 오픈소스 AI 엔진이에요.",
+    "글, 이미지, 음성, 영상 모델을 하나의 서버에서 쓸 수 있어요.",
+    "OpenAI, Anthropic, ElevenLabs 방식 API와 호환돼서 기존 앱을 옮기기 쉬워요.",
+    "GPU가 없어도 CPU만으로 돌릴 수 있다고 README에 쓰여 있어요."
+  ],
+  "flow": [
+    {
+      "label": "서버 실행",
+      "desc": "도커로 LocalAI 켜기"
+    },
+    {
+      "label": "모델 받기",
+      "desc": "원하는 모델 선택"
+    },
+    {
+      "label": "요청 보내기",
+      "desc": "API나 화면으로 질문"
+    },
+    {
+      "label": "결과 받기",
+      "desc": "글·이미지·음성 출력"
+    }
+  ],
+  "features": [
+    {
+      "icon": "globe",
+      "title": "모든 종류의 모델",
+      "desc": "LLM, 이미지, 음성, 영상을 한곳에서"
+    },
+    {
+      "icon": "link",
+      "title": "API 호환",
+      "desc": "OpenAI·Anthropic 방식을 따라요"
+    },
+    {
+      "icon": "gear",
+      "title": "다양한 하드웨어",
+      "desc": "NVIDIA, AMD, Apple, CPU만으로도 돼요"
+    },
+    {
+      "icon": "shield",
+      "title": "프라이버시",
+      "desc": "데이터가 내 인프라 밖으로 안 나가요"
+    }
+  ],
+  "channel_use": [
+    "영어 자막과 설명 문구 초안을 내 서버의 AI로 쓰기",
+    "제품 설명문을 외부 전송 없이 요약·번역하기",
+    "음성 모델로 내레이션 초안 만들어 보기"
+  ],
+  "pros": [
+    "오픈소스이고 MIT 라이선스예요",
+    "여러 모델을 한곳에서 관리해요",
+    "로그인과 사용량 관리 기능이 있어요"
+  ],
+  "cons": [
+    "서버 지식이 필요해요",
+    "모델마다 성능이 크게 달라요",
+    "큰 모델은 좋은 장비가 필요해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "도커 명령으로 설치하고 모델을 골라야 해요",
+  "cost": "무료(MIT 라이선스, 장비 비용은 별도)",
+  "needs": [
+    "컴퓨터 또는 서버",
+    "도커(Docker)",
+    "모델 파일(내려받기)"
+  ],
+  "glossary": [
+    {
+      "term": "LLM",
+      "meaning": "글을 이해하고 쓰는 대형 AI 모델"
+    },
+    {
+      "term": "API",
+      "meaning": "프로그램끼리 요청을 주고받는 통로"
+    },
+    {
+      "term": "백엔드",
+      "meaning": "모델을 실제로 돌리는 부품"
+    }
+  ],
+  "caution": "각 모델마다 라이선스가 달라요. 상업적 사용 전에 모델별 약관을 확인하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: open-source AI engine 소개 문구",
+    "README: Drop-in API compatibility",
+    "README: No GPU required",
+    "README: Docker 실행 명령"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "rank": 118,
+  "repo": "mifi/editly",
+  "name": "Editly",
+  "one_liner": "코드로 영상을 편집하는 선언형 영상 편집 도구",
+  "analogy": {
+    "text": "레고 설계도를 글로 적어 두면 자동으로 조립해 주는 로봇과 비슷해요.",
+    "before": "편집 프로그램에서 클립을 하나씩 직접 배치",
+    "after": "설정 파일에 적어 두면 영상이 자동으로 조립"
+  },
+  "what": [
+    "Editly는 글로 적은 설정대로 영상을 자동으로 편집해 주는 프로그램이에요.",
+    "클립, 사진, 글자, 소리를 순서대로 적으면 영상으로 합쳐 줘요.",
+    "어떤 크기와 비율로도 출력할 수 있어서 세로 영상도 만들어요.",
+    "Node.js와 ffmpeg 위에서 돌아가요."
+  ],
+  "flow": [
+    {
+      "label": "설정 작성",
+      "desc": "JSON5에 클립 나열"
+    },
+    {
+      "label": "실행",
+      "desc": "editly 명령"
+    },
+    {
+      "label": "합성",
+      "desc": "전환·글자·소리 처리"
+    },
+    {
+      "label": "저장",
+      "desc": "영상 파일 출력"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "어떤 비율도 OK",
+      "desc": "1:1, 9:16, 16:9 등으로 출력해요"
+    },
+    {
+      "icon": "text",
+      "title": "글자 얹기",
+      "desc": "영상과 이미지 위에 자막을 넣어요"
+    },
+    {
+      "icon": "magic",
+      "title": "전환 효과",
+      "desc": "장면 사이에 효과를 줘요"
+    },
+    {
+      "icon": "mic",
+      "title": "소리 처리",
+      "desc": "여러 소리를 섞고 크기를 맞춰요"
+    }
+  ],
+  "channel_use": [
+    "같은 형식의 에피소드를 설정 파일만 바꿔 반복 렌더링하기",
+    "제품 사진과 한 줄 문구로 슬라이드쇼 영상 만들기"
+  ],
+  "pros": [
+    "같은 형식 영상을 반복 제작하기 좋아요",
+    "세로 영상 출력이 돼요",
+    "오픈소스 도구예요"
+  ],
+  "cons": [
+    "코드 지식이 조금 필요해요",
+    "화면 편집기가 없어요",
+    "ffmpeg 설치가 필요해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Node.js와 ffmpeg를 설치하고 설정 파일을 써야 해요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "Node.js",
+    "ffmpeg",
+    "설정 파일 작성"
+  ],
+  "glossary": [
+    {
+      "term": "선언형",
+      "meaning": "어떻게 말고 무엇을 원하는지 적는 방식"
+    },
+    {
+      "term": "ffmpeg",
+      "meaning": "영상·소리를 다루는 무료 도구"
+    },
+    {
+      "term": "JSON5",
+      "meaning": "설정을 적는 글자 형식"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: Editly 소개 (Node.js와 ffmpeg 기반)",
+    "README: Features와 Use cases",
+    "README: Requirements, Installing (npm i -g editly)"
+  ]
+}

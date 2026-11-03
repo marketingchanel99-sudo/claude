@@ -1,0 +1,93 @@
+{
+  "rank": 48,
+  "repo": "AgriciDaniel/claude-seo",
+  "name": "Claude SEO",
+  "one_liner": "웹사이트 SEO 점검을 해 주는 Claude Code 플러그인",
+  "analogy": {
+    "text": "병원의 종합 건강검진처럼 사이트를 한 번에 검사해 처방전을 줘요.",
+    "before": "SEO 전문가에게 맡기거나 항목을 하나씩 직접 확인",
+    "after": "주소만 주면 10~15분 만에 점검과 우선순위 계획"
+  },
+  "what": [
+    "Claude SEO는 Claude Code에 붙이는 무료 SEO 점검 플러그인이에요.",
+    "사이트 주소를 주면 기술 점검, 콘텐츠 품질, 구조화 데이터를 살펴요.",
+    "구글 AI 개요, ChatGPT 등에 인용되기 쉬운지도 보는 GEO 점검이 있어요.",
+    "결과는 중요한 순서대로 정리된 행동 계획으로 줘요."
+  ],
+  "flow": [
+    {
+      "label": "명령 입력",
+      "desc": "/seo 명령 실행"
+    },
+    {
+      "label": "사이트 분석",
+      "desc": "여러 에이전트가 동시 점검"
+    },
+    {
+      "label": "점수 정리",
+      "desc": "문제를 중요도순 정리"
+    },
+    {
+      "label": "실행 계획",
+      "desc": "고칠 일 목록 제공"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "전체 SEO 점검",
+      "desc": "기술, 콘텐츠, 스키마를 한 번에"
+    },
+    {
+      "icon": "robot",
+      "title": "19개 전문 에이전트",
+      "desc": "역할별 AI가 동시에 일해요"
+    },
+    {
+      "icon": "globe",
+      "title": "AI 검색 대응",
+      "desc": "AI가 인용하기 쉬운지 확인"
+    },
+    {
+      "icon": "chart",
+      "title": "우선순위 계획",
+      "desc": "중요한 것부터 고치게 정리"
+    }
+  ],
+  "channel_use": [
+    "채널 소개 사이트나 랜딩 페이지의 검색 노출 문제 점검하기",
+    "링크 모음 페이지가 AI 검색에 인용되기 쉬운지 확인하기"
+  ],
+  "pros": [
+    "무료이고 사용량 제한이 없다고 해요",
+    "결과를 우선순위로 정리해요"
+  ],
+  "cons": [
+    "Claude Code가 필요해요",
+    "웹사이트가 있어야 의미가 있어요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "Claude Code에 플러그인으로 설치해 명령만 입력",
+  "cost": "무료(MIT), 일부 확장은 유료 서비스 연결",
+  "needs": [
+    "Claude Code",
+    "점검할 웹사이트 주소"
+  ],
+  "glossary": [
+    {
+      "term": "GEO",
+      "meaning": "AI 검색 답변에 인용되게 하는 작업"
+    },
+    {
+      "term": "스키마",
+      "meaning": "검색엔진용 정보 표지 코드"
+    }
+  ],
+  "caution": "",
+  "license": "MIT",
+  "sources": [
+    "README: 26 sub-skills, 19 agents",
+    "README: 10~15분 감사 문구",
+    "README: MIT, 무료 문구"
+  ]
+}

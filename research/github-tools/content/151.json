@@ -1,0 +1,95 @@
+{
+  "rank": 151,
+  "repo": "Anil-matcha/Open-AI-UGC",
+  "name": "Open AI UGC",
+  "one_liner": "대본과 사진으로 AI 배우가 나오는 UGC 광고를 만드는 웹앱",
+  "analogy": {
+    "text": "촬영 없이 AI 배우를 섭외해 리뷰 영상 광고를 찍는 가상 스튜디오와 비슷해요.",
+    "before": "배우를 구하고 촬영해야 UGC 광고 영상을 얻을 수 있어요",
+    "after": "대본과 참고 이미지를 넣으면 세로 광고 영상이 생성돼요"
+  },
+  "what": [
+    "Open AI UGC는 AI 영상 모델로 UGC(일반인 후기 느낌) 광고를 만드는 오픈소스 웹앱이에요.",
+    "대본을 쓰고 얼굴이나 제품 이미지를 최대 7장 올린 뒤 모델을 골라요.",
+    "Veo 3.1, Seedance 2, Grok Video, Happy Horse 1을 지원한다고 해요.",
+    "MuAPI라는 외부 서비스를 통해 영상을 만들고, 결제·로그인 기능도 들어 있어요."
+  ],
+  "flow": [
+    {
+      "label": "대본 쓰기",
+      "desc": "광고 대본 입력"
+    },
+    {
+      "label": "이미지 올리기",
+      "desc": "얼굴·제품 사진"
+    },
+    {
+      "label": "모델 선택",
+      "desc": "영상 모델 고르기"
+    },
+    {
+      "label": "영상 생성",
+      "desc": "9:16 광고 영상"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "UGC 영상",
+      "desc": "세로 9:16 광고 영상을 만들어요"
+    },
+    {
+      "icon": "image",
+      "title": "이미지 참조",
+      "desc": "최대 7장의 이미지를 활용해요"
+    },
+    {
+      "icon": "magic",
+      "title": "모델 선택",
+      "desc": "4가지 영상 모델 중 선택해요"
+    },
+    {
+      "icon": "money",
+      "title": "크레딧·결제",
+      "desc": "Stripe 결제와 크레딧 기능 포함"
+    }
+  ],
+  "channel_use": [
+    "제휴 상품의 사진으로 짧은 후기 스타일 영상 시안 만들기",
+    "같은 대본을 여러 모델로 돌려 어떤 결과가 좋은지 비교하기"
+  ],
+  "pros": [
+    "내 이미지를 배우나 제품으로 쓸 수 있어요",
+    "MIT 오픈소스"
+  ],
+  "cons": [
+    "MuAPI 이용 비용이 발생해요",
+    "직접 서버에 올려야 해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Next.js 앱 설치와 외부 서비스 키 설정이 필요해요",
+  "cost": "코드는 무료(MIT), 영상 생성은 MuAPI 크레딧 사용",
+  "needs": [
+    "MuAPI 키",
+    "Node.js 환경",
+    "Google 로그인 설정"
+  ],
+  "glossary": [
+    {
+      "term": "UGC",
+      "meaning": "일반 사용자가 만든 듯한 후기형 콘텐츠"
+    },
+    {
+      "term": "9:16",
+      "meaning": "스마트폰 세로 화면 비율"
+    }
+  ],
+  "caution": "AI 배우가 실제 후기처럼 보이면 광고 표기 규정에 걸릴 수 있어요.",
+  "license": "MIT",
+  "sources": [
+    "README: Arcads 대안 UGC 광고 스튜디오 설명",
+    "README: Supported Models 표",
+    "README: Features(7장 이미지, 크레딧)",
+    "README: MIT licensed"
+  ]
+}

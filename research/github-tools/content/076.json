@@ -1,0 +1,94 @@
+{
+  "rank": 76,
+  "repo": "YouMind-OpenLab/awesome-nano-banana-pro-prompts",
+  "name": "Nano Banana Pro Prompts",
+  "one_liner": "AI 이미지 프롬프트를 모아 둔 참고 모음집",
+  "analogy": {
+    "text": "음식 레시피처럼 이미지 AI에게 줄 주문 문장을 모아 둔 요리책과 비슷해요.",
+    "before": "어떻게 주문해야 할지 몰라 처음부터 계속 시도",
+    "after": "잘된 문장 예시를 골라 조금만 바꿔 바로 사용"
+  },
+  "what": [
+    "이 저장소는 Google의 Nano Banana Pro 이미지 AI용 프롬프트를 모은 목록이에요.",
+    "프롬프트는 AI에게 주는 명령 문장을 뜻해요.",
+    "프로필, 썸네일, 포스터 등 용도별과 스타일별로 분류돼 있어요.",
+    "웹 갤러리에서는 검색과 카테고리 보기를 제공한다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "분류 보기",
+      "desc": "용도나 스타일 선택"
+    },
+    {
+      "label": "예시 고르기",
+      "desc": "마음에 드는 문장 찾기"
+    },
+    {
+      "label": "내용 바꾸기",
+      "desc": "내 주제로 수정"
+    },
+    {
+      "label": "이미지 생성",
+      "desc": "AI에 넣어 만들기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "프롬프트 모음",
+      "desc": "커뮤니티가 모은 문장을 읽을 수 있어요"
+    },
+    {
+      "icon": "search",
+      "title": "분류 탐색",
+      "desc": "썸네일, 포스터 등으로 찾아요"
+    },
+    {
+      "icon": "image",
+      "title": "스타일 예시",
+      "desc": "사진, 일러스트 등 다양한 스타일이에요"
+    },
+    {
+      "icon": "globe",
+      "title": "웹 갤러리",
+      "desc": "검색이 되는 갤러리 사이트가 있어요"
+    }
+  ],
+  "channel_use": [
+    "유튜브 썸네일과 인스타 포스터용 프롬프트를 참고해 시안 만들기",
+    "한국 음식과 생활템 이미지 스타일 아이디어 찾기"
+  ],
+  "pros": [
+    "설치 없이 읽기만 하면 돼요",
+    "용도별로 분류돼 찾기 쉬워요"
+  ],
+  "cons": [
+    "이미지 생성은 별도 AI 서비스가 필요해요",
+    "프롬프트 저작권 안내를 확인해야 해요"
+  ],
+  "difficulty": 1,
+  "difficulty_note": "README를 읽고 문장을 복사하면 돼요",
+  "cost": "README에 가격 정보 없음(모음집은 CC BY 4.0)",
+  "needs": [
+    "웹 브라우저",
+    "이미지 AI 서비스 계정"
+  ],
+  "glossary": [
+    {
+      "term": "프롬프트",
+      "meaning": "AI에게 보내는 명령 문장"
+    },
+    {
+      "term": "썸네일",
+      "meaning": "영상 목록에 보이는 대표 이미지"
+    }
+  ],
+  "caution": "README는 커뮤니티 수집 프롬프트이며 권리 침해 시 이슈로 알려 달라고 해요. 출처를 확인하세요.",
+  "license": "CC BY 4.0",
+  "sources": [
+    "README: Nano Banana Pro 소개",
+    "README: 카테고리 목록(Use Cases, Style, Subjects)",
+    "README: Copyright Notice",
+    "README: CC BY 4.0"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "repo": "YouMind-OpenLab/awesome-seedance-2-prompts",
+  "name": "Awesome Seedance 2.0 Prompts",
+  "one_liner": "Seedance 2.0 영상 AI용 프롬프트 6633개 모음",
+  "analogy": {
+    "text": "사진 영상 레시피 도서관처럼, 영상 AI에게 보낼 주문 문장이 빽빽하게 꽂혀 있는 곳이에요.",
+    "before": "영상 AI에 맞는 문장을 처음부터 상상하며 쓰기",
+    "after": "웹 갤러리에서 영상 예시를 보고 비슷한 문장을 골라 쓰기"
+  },
+  "what": [
+    "ByteDance의 영상 생성 모델 Seedance 2.0용 프롬프트를 모은 자료집이에요.",
+    "README에는 총 6633개 프롬프트가 있다고 적혀 있어요.",
+    "웹 갤러리에서 영상을 재생하고 검색해 볼 수 있어요.",
+    "Seedance 2.0은 이미지·영상·음성·글을 함께 입력받는다고 설명해요."
+  ],
+  "flow": [
+    {
+      "label": "갤러리 열기",
+      "desc": "웹이나 README에서 찾기"
+    },
+    {
+      "label": "예시 고르기",
+      "desc": "비슷한 장면의 문장 선택"
+    },
+    {
+      "label": "문장 수정",
+      "desc": "우리 소재에 맞게 바꾸기"
+    },
+    {
+      "label": "AI에 입력",
+      "desc": "Seedance로 영상 생성"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "6633개 프롬프트",
+      "desc": "많은 예시를 한곳에서 볼 수 있어요"
+    },
+    {
+      "icon": "search",
+      "title": "웹 갤러리 검색",
+      "desc": "여러 항목을 흐릿하게 맞춰 찾는 검색이 있어요"
+    },
+    {
+      "icon": "video",
+      "title": "영상 재생",
+      "desc": "웹에서는 영상을 바로 틀어 볼 수 있어요"
+    },
+    {
+      "icon": "magic",
+      "title": "AI 추천",
+      "desc": "웹 갤러리에 프롬프트 추천 기능이 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 길거리·편의점 장면 연출에 쓸 프롬프트 참고하기",
+    "영상 예시를 보고 숏폼 첫 장면의 구도 아이디어 얻기"
+  ],
+  "pros": [
+    "양이 매우 많아요",
+    "웹 갤러리에서 영상을 볼 수 있어요",
+    "설치가 필요 없어요"
+  ],
+  "cons": [
+    "영상 AI는 따로 써야 해요",
+    "커뮤니티에서 모은 자료예요",
+    "영어 중심 프롬프트가 많아요"
+  ],
+  "difficulty": 1,
+  "difficulty_note": "웹에서 읽고 복사해서 쓰면 돼요",
+  "cost": "자료집은 무료, Seedance 이용 요금은 README에 없음",
+  "needs": [
+    "Seedance를 쓸 수 있는 서비스"
+  ],
+  "glossary": [
+    {
+      "term": "프롬프트",
+      "meaning": "AI에게 보내는 명령 문장"
+    },
+    {
+      "term": "갤러리",
+      "meaning": "예시를 모아 보여 주는 웹 전시장"
+    },
+    {
+      "term": "CC BY 4.0",
+      "meaning": "출처를 밝히면 쓸 수 있는 공개 사용 허가"
+    }
+  ],
+  "caution": "README가 커뮤니티에서 모은 자료라는 저작권 안내를 달았어요. 그대로 상업용으로 쓰기 전에 확인하세요.",
+  "license": "CC BY 4.0",
+  "sources": [
+    "README: Seedance 2.0 설명(ByteDance, 4모달 입력)",
+    "README: Statistics 6633 프롬프트",
+    "README: Web Gallery 기능 표",
+    "README: Copyright Notice, CC BY 4.0"
+  ],
+  "rank": 135
+}

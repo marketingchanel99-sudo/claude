@@ -1,0 +1,99 @@
+{
+  "rank": 87,
+  "repo": "zubair-trabzada/geo-seo-claude",
+  "name": "geo-seo-claude",
+  "one_liner": "AI 검색에 잘 나오도록 웹사이트를 점검하는 Claude 스킬",
+  "analogy": {
+    "text": "가게 간판과 메뉴판을 점검해 손님이 더 잘 찾게 도와주는 컨설턴트 같아요.",
+    "before": "내 사이트가 AI 검색에 나올지 몰라 감으로 고침",
+    "after": "명령 하나로 점수와 개선 목록을 받아 고침"
+  },
+  "what": [
+    "geo-seo-claude는 Claude Code에 설치하는 웹사이트 점검 도구 모음이에요.",
+    "GEO는 ChatGPT, Perplexity 같은 AI 검색이 내 사이트를 잘 인용하게 만드는 일이에요.",
+    "주소를 넣으면 여러 분석을 돌려 점수와 우선순위 개선안을 만들어 줘요."
+  ],
+  "flow": [
+    {
+      "label": "설치하기",
+      "desc": "스크립트로 Claude에 추가"
+    },
+    {
+      "label": "주소 입력",
+      "desc": "/geo audit 뒤에 사이트 주소"
+    },
+    {
+      "label": "병렬 분석",
+      "desc": "여러 검사가 동시에 돌아요"
+    },
+    {
+      "label": "보고서",
+      "desc": "점수와 개선안을 받아요"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "GEO 감사",
+      "desc": "AI 검색 기준으로 사이트를 점검해요"
+    },
+    {
+      "icon": "chart",
+      "title": "점수 산출",
+      "desc": "0~100점 종합 GEO 점수를 내요"
+    },
+    {
+      "icon": "text",
+      "title": "인용 준비도",
+      "desc": "글이 AI에 인용되기 좋은지 점수를 매겨요"
+    },
+    {
+      "icon": "upload",
+      "title": "보고서 출력",
+      "desc": "마크다운이나 PDF 보고서를 만들어요"
+    }
+  ],
+  "channel_use": [
+    "채널 소개 사이트나 블로그가 AI 검색에 잘 나오는지 점검하기",
+    "한국 생활템 글이 AI 답변에 인용되기 쉽게 구조 고치기"
+  ],
+  "pros": [
+    "명령어 하나로 쓸 수 있어요",
+    "PDF 보고서도 만들어요"
+  ],
+  "cons": [
+    "Claude Code가 필요해요",
+    "사이트가 없으면 쓸 일이 적어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "Claude Code와 파이썬 3.10 이상, 설치 스크립트가 필요해요",
+  "cost": "도구는 무료(README 문구), 가격 정보 없음",
+  "needs": [
+    "Claude Code",
+    "파이썬 3.10 이상",
+    "깃(Git)",
+    "점검할 웹사이트 주소"
+  ],
+  "glossary": [
+    {
+      "term": "GEO",
+      "meaning": "AI 검색 답변에 인용되도록 글을 다듬는 일"
+    },
+    {
+      "term": "스킬",
+      "meaning": "Claude가 쓰는 작업 설명서 묶음"
+    },
+    {
+      "term": "감사(오딧)",
+      "meaning": "사이트 상태를 훑어 문제를 찾는 검사"
+    }
+  ],
+  "caution": "README의 시장 규모, 성장률 같은 숫자는 출처 확인이 안 돼요. 보고서에 그대로 옮기지 마세요.",
+  "license": "",
+  "sources": [
+    "README: AI 검색 최적화 도구라는 소개",
+    "README: /geo audit 등 명령어 표",
+    "README: 파이썬 3.10 이상, Claude Code 요구사항",
+    "README: 도구는 무료라는 문구"
+  ]
+}

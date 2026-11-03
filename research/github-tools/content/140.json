@@ -1,0 +1,101 @@
+{
+  "repo": "SamurAIGPT/postiz-cheap",
+  "name": "Postiz-cheap",
+  "one_liner": "여러 SNS에 예약 게시하는 직접 설치형 스케줄러",
+  "analogy": {
+    "text": "여러 SNS 우체통에 보낼 편지를 한 달력에 모아 놓고 정해진 날 배달해 주는 우체국 같아요.",
+    "before": "플랫폼마다 앱을 열어 글과 영상을 따로 올리고 시간 맞추기",
+    "after": "한 달력에서 여러 SNS용 글을 쓰고 예약해 게시"
+  },
+  "what": [
+    "Postiz-cheap은 SNS 게시물을 한곳에서 계획하고 예약하는 웹 앱이에요.",
+    "내 서버에 직접 설치해서 쓰는 방식이에요(셀프 호스팅).",
+    "캘린더에서 예약, 처리 중, 게시 완료, 실패 상태를 볼 수 있어요.",
+    "AI가 제목, 설명, 태그 초안을 써 주고 대화형 도우미도 있어요."
+  ],
+  "flow": [
+    {
+      "label": "로그인",
+      "desc": "구글로 접속"
+    },
+    {
+      "label": "계정 연결",
+      "desc": "SNS 계정을 MuAPI로 연결"
+    },
+    {
+      "label": "글 작성",
+      "desc": "플랫폼별 글·영상 입력"
+    },
+    {
+      "label": "예약 게시",
+      "desc": "바로 또는 정한 시간에 게시"
+    }
+  ],
+  "features": [
+    {
+      "icon": "clock",
+      "title": "캘린더 예약",
+      "desc": "게시 상태를 달력에서 한눈에 봐요"
+    },
+    {
+      "icon": "upload",
+      "title": "8개 채널 지원",
+      "desc": "유튜브, 틱톡, 인스타, X 등을 연결해요"
+    },
+    {
+      "icon": "magic",
+      "title": "AI 초안",
+      "desc": "제목·설명·태그를 만들어 줘요"
+    },
+    {
+      "icon": "eye",
+      "title": "미리보기",
+      "desc": "글자 수 제한을 확인하며 미리 봐요"
+    }
+  ],
+  "channel_use": [
+    "숏폼 한 편을 유튜브, 틱톡, 인스타용 설명으로 나눠 예약하기",
+    "플랫폼별 글자 수 제한을 확인하며 캡션 쓰기"
+  ],
+  "pros": [
+    "한 화면에서 여러 SNS를 관리해요",
+    "내 서버에 설치해 기록을 직접 보관해요",
+    "MIT 라이선스예요"
+  ],
+  "cons": [
+    "서버와 DB 설치가 필요해요",
+    "외부 서비스 연결이 필요해요",
+    "플랫폼 정책 제한이 따로 있어요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "서버, PostgreSQL, 구글 로그인, MuAPI 설정이 필요해요",
+  "cost": "앱 구독은 없고 서버 비용은 직접 부담, 선택 크레딧 5~45달러",
+  "needs": [
+    "서버와 PostgreSQL",
+    "구글 로그인 설정",
+    "MuAPI 계정"
+  ],
+  "glossary": [
+    {
+      "term": "셀프 호스팅",
+      "meaning": "내 서버에 직접 설치해서 운영하기"
+    },
+    {
+      "term": "스케줄러",
+      "meaning": "정한 시간에 자동으로 올려 주는 도구"
+    },
+    {
+      "term": "OAuth",
+      "meaning": "비밀번호 없이 계정 연결을 허락하는 방식"
+    }
+  ],
+  "caution": "자동 게시는 각 SNS의 정책을 따라야 해요. AI 초안은 올리기 전에 사실과 권리를 확인하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: Features 목록",
+    "README: Supported channels 표",
+    "README: Typical workflow 6단계",
+    "README: Cost model(Stripe 크레딧 팩)"
+  ],
+  "rank": 140
+}

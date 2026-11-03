@@ -1,0 +1,100 @@
+{
+  "repo": "nowork-studio/notfair-plugin",
+  "name": "NotFair Plugin",
+  "one_liner": "검색 노출과 광고 분석용 AI 마케팅 스킬 모음",
+  "analogy": {
+    "text": "사이트와 광고 계정을 함께 살펴 주는 마케팅 컨설턴트를 AI 비서에 붙여 주는 것과 같아요.",
+    "before": "사이트 점검과 광고 성과 분석을 도구마다 따로 열어서 확인",
+    "after": "AI에게 말로 시키면 정해진 절차대로 점검하고 알려 주기"
+  },
+  "what": [
+    "NotFair Plugin은 AI 에이전트가 따라 할 마케팅 작업 절차를 모은 오픈소스예요.",
+    "검색 최적화(SEO), AI 답변 노출 개선(GEO), 광고, 분석 도구를 다뤄요.",
+    "Claude Code 등에서 설치하고 /notfair:seo-analysis 같은 명령으로 써요.",
+    "README에는 총 48개 스킬이 들어 있다고 적혀 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "마켓플레이스에서 플러그인 추가"
+    },
+    {
+      "label": "요청",
+      "desc": "명령어나 일반 말로 부탁"
+    },
+    {
+      "label": "점검",
+      "desc": "절차대로 데이터 확인"
+    },
+    {
+      "label": "제안",
+      "desc": "개선점을 정리해 알려 줌"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "SEO 점검",
+      "desc": "사이트 전체와 페이지를 감사해요"
+    },
+    {
+      "icon": "robot",
+      "title": "GEO 개선",
+      "desc": "AI 답변에 인용되도록 글을 다듬어요"
+    },
+    {
+      "icon": "chart",
+      "title": "GA4·서치콘솔",
+      "desc": "실제 방문 데이터를 조회해 비교해요"
+    },
+    {
+      "icon": "money",
+      "title": "광고 분석",
+      "desc": "구글·메타·틱톡 등 광고 성과를 점검해요"
+    }
+  ],
+  "channel_use": [
+    "채널 소개 웹사이트나 블로그의 검색 노출 문제를 점검하기",
+    "한국 생활템 글이 AI 답변에 인용되도록 개선점 받기"
+  ],
+  "pros": [
+    "MIT로 공개돼 있어요",
+    "검색과 광고를 한 곳에서 다뤄요",
+    "읽기 전용 점검을 먼저 해요"
+  ],
+  "cons": [
+    "웹사이트·광고가 없으면 쓸모가 적어요",
+    "숏폼 제작과는 직접 관련이 적어요",
+    "일부는 계정 연결이 필요해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "플러그인 설치와 계정 연결(OAuth) 과정이 필요해요",
+  "cost": "오픈소스(MIT), 연결 서비스 비용은 README에 없음",
+  "needs": [
+    "Claude Code 등 AI 도구",
+    "분석할 사이트·광고 계정"
+  ],
+  "glossary": [
+    {
+      "term": "SEO",
+      "meaning": "검색 결과에 잘 보이게 사이트를 다듬는 일"
+    },
+    {
+      "term": "GEO",
+      "meaning": "AI 답변에 내 글이 인용되게 다듬는 일"
+    },
+    {
+      "term": "플러그인",
+      "meaning": "프로그램에 끼워 넣는 추가 기능"
+    }
+  ],
+  "caution": "광고 예산을 바꾸는 기능이 있어요. 변경은 꼭 내용을 확인하고 승인한 뒤에 하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 48 skills 문구",
+    "README: SEO, GEO, Paid media 표",
+    "README: Claude Code 설치 명령",
+    "README: MIT 배지와 Safe by design 설명"
+  ],
+  "rank": 124
+}

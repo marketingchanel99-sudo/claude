@@ -1,0 +1,102 @@
+{
+  "rank": 31,
+  "repo": "gitroomhq/postiz-app",
+  "name": "Postiz",
+  "one_liner": "SNS 게시글을 예약하고 분석하는 소셜 미디어 관리 도구",
+  "analogy": {
+    "text": "우체국에 편지를 맡겨 두면 정해진 날짜에 배달해 주는 것과 비슷해요.",
+    "before": "플랫폼마다 접속해 시간 맞춰 직접 업로드",
+    "after": "한곳에서 예약 올리고 성과를 확인"
+  },
+  "what": [
+    "Postiz는 소셜 미디어 게시를 예약하고 자동화하고 분석하는 도구예요.",
+    "README에 인스타그램, 유튜브, 틱톡 아이콘이 소개돼 있어요.",
+    "팀원을 초대해 댓글을 달며 함께 일할 수 있어요.",
+    "API로 n8n, Make, Zapier 같은 자동화 도구와 연결돼요."
+  ],
+  "flow": [
+    {
+      "label": "계정 연결",
+      "desc": "SNS 채널 연결"
+    },
+    {
+      "label": "글 작성",
+      "desc": "영상·문구 준비"
+    },
+    {
+      "label": "예약",
+      "desc": "게시 시간 지정"
+    },
+    {
+      "label": "분석",
+      "desc": "성과 확인"
+    }
+  ],
+  "features": [
+    {
+      "icon": "clock",
+      "title": "게시 예약",
+      "desc": "여러 SNS 글을 미리 예약해요"
+    },
+    {
+      "icon": "chart",
+      "title": "분석",
+      "desc": "작업 성과를 측정해요"
+    },
+    {
+      "icon": "chat",
+      "title": "팀 협업",
+      "desc": "팀원을 초대해 댓글과 예약을 함께 해요"
+    },
+    {
+      "icon": "link",
+      "title": "자동화 연결",
+      "desc": "API로 n8n 등과 이어져요"
+    }
+  ],
+  "channel_use": [
+    "쇼츠·릴스·틱톡 영상을 한곳에서 예약하기",
+    "업로드 시간표를 만들어 하루 1편 일정 관리하기",
+    "게시 성과를 모아 주간 리뷰에 활용하기"
+  ],
+  "pros": [
+    "여러 SNS를 한곳에서 관리해요",
+    "클라우드로 쉽게 시작할 수 있어요",
+    "직접 설치하면 무료예요"
+  ],
+  "cons": [
+    "직접 설치는 어려워요",
+    "SNS 승인 절차가 필요해요",
+    "클라우드는 구독료가 들어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "클라우드는 쉽지만 직접 설치는 어려워요",
+  "cost": "직접 설치는 무료(AGPL-3.0), 클라우드는 구독형·7일 무료 체험",
+  "needs": [
+    "Postiz 클라우드 계정",
+    "SNS 계정 연결",
+    "서버(직접 설치 시)"
+  ],
+  "glossary": [
+    {
+      "term": "스케줄링",
+      "meaning": "정한 시간에 맞춰 자동으로 올리는 일"
+    },
+    {
+      "term": "셀프 호스팅",
+      "meaning": "내 서버에 직접 설치해 운영하는 방식"
+    },
+    {
+      "term": "API",
+      "meaning": "프로그램끼리 기능을 호출하는 통로"
+    }
+  ],
+  "caution": "각 SNS의 자동 게시 정책을 확인하세요. 제휴 링크 영상은 고지 문구가 필요해요.",
+  "license": "AGPL-3.0",
+  "sources": [
+    "README: schedule social media posts, analytics",
+    "README: Postiz Cloud vs Open-source 표",
+    "README: 인스타·유튜브·틱톡 아이콘",
+    "README: AGPL-3.0 License"
+  ]
+}

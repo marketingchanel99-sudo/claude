@@ -1,0 +1,94 @@
+{
+  "rank": 149,
+  "repo": "firecrawl/firegeo",
+  "name": "FireGEO",
+  "one_liner": "로그인·결제·브랜드 모니터링이 들어 있는 웹서비스 시작 템플릿",
+  "analogy": {
+    "text": "가구가 이미 조립된 모델하우스를 받아 내 서비스로 꾸미는 것과 비슷해요.",
+    "before": "회원가입, 결제, 데이터베이스를 처음부터 하나씩 개발",
+    "after": "기본 틀을 받아 설정만 채우면 서비스 뼈대가 바로 생겨요"
+  },
+  "what": [
+    "FireGEO는 웹 서비스(SaaS)를 빨리 만들 수 있게 해 주는 오픈소스 시작 템플릿이에요.",
+    "로그인, 결제, AI 채팅, 브랜드 모니터링 화면이 기본으로 들어 있어요.",
+    "브랜드 모니터링은 Firecrawl이라는 웹 수집 서비스를 이용한다고 적혀 있어요.",
+    "OpenAI, Anthropic, Gemini, Perplexity 같은 AI 키를 붙일 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "코드 받기",
+      "desc": "저장소를 내려받기"
+    },
+    {
+      "label": "키 입력",
+      "desc": "DB와 API 키 설정"
+    },
+    {
+      "label": "설치 실행",
+      "desc": "setup 명령어로 준비"
+    },
+    {
+      "label": "서비스 열기",
+      "desc": "localhost에서 확인"
+    }
+  ],
+  "features": [
+    {
+      "icon": "shield",
+      "title": "로그인",
+      "desc": "Better Auth로 회원 기능을 제공해요"
+    },
+    {
+      "icon": "money",
+      "title": "결제",
+      "desc": "Autumn과 Stripe 연동 결제 기능"
+    },
+    {
+      "icon": "eye",
+      "title": "브랜드 모니터",
+      "desc": "브랜드 노출을 살펴보는 도구가 들어 있어요"
+    },
+    {
+      "icon": "robot",
+      "title": "AI 연결",
+      "desc": "여러 AI 서비스를 붙일 수 있어요"
+    }
+  ],
+  "channel_use": [
+    "우리 채널이 AI 답변에 어떻게 언급되는지 보는 모니터링 아이디어 참고",
+    "직접 쓸 일은 적고, 개발자에게 맡길 때 참고하는 정도예요"
+  ],
+  "pros": [
+    "기본 기능이 한꺼번에 들어 있어요",
+    "MIT 라이선스"
+  ],
+  "cons": [
+    "개발자용이라 비개발자는 어려워요",
+    "여러 서비스 키를 따로 받아야 해요"
+  ],
+  "difficulty": 5,
+  "difficulty_note": "Node.js, 데이터베이스, 여러 API 키 설정이 필요해요",
+  "cost": "템플릿은 무료, 연결하는 외부 서비스 비용은 별도",
+  "needs": [
+    "Node.js 18 이상",
+    "PostgreSQL 데이터베이스",
+    "Firecrawl API 키"
+  ],
+  "glossary": [
+    {
+      "term": "SaaS",
+      "meaning": "구독해서 쓰는 웹 서비스"
+    },
+    {
+      "term": "템플릿",
+      "meaning": "미리 만들어 둔 시작용 틀"
+    }
+  ],
+  "caution": "",
+  "license": "MIT",
+  "sources": [
+    "README: auth, billing, AI chat, brand monitoring 소개",
+    "README: Prerequisites와 Tech Stack 표",
+    "README: License MIT"
+  ]
+}

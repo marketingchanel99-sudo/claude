@@ -1,0 +1,94 @@
+{
+  "rank": 54,
+  "repo": "Evil0ctal/Douyin_TikTok_Download_API",
+  "name": "Douyin_TikTok_Download_API",
+  "one_liner": "더우인, 틱톡, 비리비리의 공개 정보를 가져오는 자체 운영 API",
+  "analogy": {
+    "text": "누가 올린 영상 정보를 대신 가져다주는 도서관 사서 같아요.",
+    "before": "링크마다 앱을 열어 영상 정보를 직접 확인",
+    "after": "링크를 보내면 게시물, 작성자 정보를 받아 옴"
+  },
+  "what": [
+    "이 프로젝트는 더우인, 틱톡, 비리비리 데이터를 가져오는 API 서버예요.",
+    "게시물, 작성자, 댓글, 해시태그, 인기 목록 등을 가져올 수 있다고 해요.",
+    "docker compose up 한 번으로 내 컴퓨터에서 운영해요.",
+    "v5는 로그인 정보를 자동으로 관리하는 풀과 관리 화면이 있어요."
+  ],
+  "flow": [
+    {
+      "label": "링크 전달",
+      "desc": "게시물 주소를 보내요"
+    },
+    {
+      "label": "서버 처리",
+      "desc": "익명 신원으로 요청"
+    },
+    {
+      "label": "정보 정리",
+      "desc": "표준 형식으로 변환"
+    },
+    {
+      "label": "결과 받기",
+      "desc": "작성자, 게시물 정보"
+    }
+  ],
+  "features": [
+    {
+      "icon": "link",
+      "title": "링크로 조회",
+      "desc": "주소를 넣으면 정보를 반환"
+    },
+    {
+      "icon": "chart",
+      "title": "인기 보드",
+      "desc": "트렌딩 목록 조회 기능"
+    },
+    {
+      "icon": "gear",
+      "title": "관리 콘솔",
+      "desc": "상태와 로그를 화면에서 확인"
+    },
+    {
+      "icon": "code",
+      "title": "API 키 관리",
+      "desc": "권한별 키를 발급해요"
+    }
+  ],
+  "channel_use": [
+    "트렌드 해시태그 데이터를 참고해 주제 아이디어 찾기",
+    "공개 게시물 조회수를 비교해 포맷 연구하기"
+  ],
+  "pros": [
+    "내 서버에서 직접 운영해요",
+    "오류 상태를 화면에서 볼 수 있어요"
+  ],
+  "cons": [
+    "서버와 DB 운영 지식이 필요해요",
+    "플랫폼 정책이 바뀌면 깨질 수 있어요"
+  ],
+  "difficulty": 5,
+  "difficulty_note": "Docker, PostgreSQL, Redis로 서버를 운영해야 해요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "서버 또는 컴퓨터",
+    "Docker",
+    "개발 지식"
+  ],
+  "glossary": [
+    {
+      "term": "API",
+      "meaning": "프로그램끼리 정보를 주고받는 창구"
+    },
+    {
+      "term": "크롤링",
+      "meaning": "웹에서 정보를 자동으로 수집하는 일"
+    }
+  ],
+  "caution": "플랫폼 약관 위반 소지가 커요. 타인 영상의 무단 다운로드와 재업로드는 저작권 문제예요.",
+  "license": "Apache 2.0",
+  "sources": [
+    "README: Douyin/TikTok/Bilibili 데이터 API",
+    "README: docker compose up, PostgreSQL+Redis",
+    "README: 약관 준수 책임 문구"
+  ]
+}

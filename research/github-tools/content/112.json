@@ -1,0 +1,100 @@
+{
+  "rank": 112,
+  "repo": "wuyoscar/GPT-Image2-Skill",
+  "name": "GPT Image Skill",
+  "one_liner": "GPT 이미지 모델용 프롬프트 모음과 에이전트 스킬",
+  "analogy": {
+    "text": "잘 되는 주문서 163장을 모아 둔 요리 레시피북과 비슷해요.",
+    "before": "원하는 그림이 나올 때까지 프롬프트를 혼자 연구",
+    "after": "검증된 프롬프트 예시를 골라 바로 응용"
+  },
+  "what": [
+    "이 레포는 OpenAI의 GPT Image 모델에 쓸 프롬프트 갤러리예요.",
+    "프롬프트는 AI에게 그림을 그려 달라고 쓰는 문장이에요.",
+    "31개 분류에 163개 예시가 있고 스킬 두 개와 명령줄 도구도 있어요.",
+    "Claude Code 같은 에이전트에서 이미지 생성과 수정을 시킬 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "예시 고르기",
+      "desc": "갤러리에서 선택"
+    },
+    {
+      "label": "문장 바꾸기",
+      "desc": "내 주제로 수정"
+    },
+    {
+      "label": "이미지 생성",
+      "desc": "OpenAI API로 요청"
+    },
+    {
+      "label": "결과 저장",
+      "desc": "파일로 받기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "image",
+      "title": "프롬프트 갤러리",
+      "desc": "163개 예시가 31개 분류에 있어요"
+    },
+    {
+      "icon": "robot",
+      "title": "에이전트 스킬",
+      "desc": "Claude Code에서 생성을 맡겨요"
+    },
+    {
+      "icon": "code",
+      "title": "명령줄 도구",
+      "desc": "터미널에서 이미지를 만들어요"
+    },
+    {
+      "icon": "globe",
+      "title": "영어·중국어",
+      "desc": "설명이 두 언어로 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 간식 인포그래픽 이미지를 프롬프트 예시로 만들어 썸네일에 쓰기",
+    "영상 배경이나 소품 일러스트 시안을 빠르게 만들기"
+  ],
+  "pros": [
+    "참고할 예시가 풍부해요",
+    "스킬로 바로 쓸 수 있어요",
+    "MIT 라이선스예요"
+  ],
+  "cons": [
+    "OpenAI API 키가 필요해요",
+    "이미지 생성에 비용이 들어요",
+    "주로 영어 프롬프트예요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "API 키를 설정하고 스킬을 설치해야 해요",
+  "cost": "README에 가격 정보 없음 (OPENAI_API_KEY 필요)",
+  "needs": [
+    "OpenAI API 키",
+    "Claude Code 등 에이전트",
+    "터미널"
+  ],
+  "glossary": [
+    {
+      "term": "프롬프트",
+      "meaning": "AI에게 주는 지시 문장"
+    },
+    {
+      "term": "API 키",
+      "meaning": "서비스를 쓰는 비밀 열쇠 문자열"
+    },
+    {
+      "term": "CLI",
+      "meaning": "글자 명령으로 쓰는 프로그램"
+    }
+  ],
+  "caution": "실존 브랜드·인물 이미지를 만들 때 저작권과 초상권을 확인하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 163 numbered entries, 31 categories",
+    "README: 2 Agent Skills + CLI",
+    "README: OPENAI_API_KEY 안내, License MIT"
+  ]
+}

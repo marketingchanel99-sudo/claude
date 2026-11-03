@@ -1,0 +1,102 @@
+{
+  "rank": 35,
+  "repo": "fishaudio/fish-speech",
+  "name": "Fish Speech",
+  "one_liner": "감정 태그로 연기하듯 읽어 주는 최신 음성 합성 모델",
+  "analogy": {
+    "text": "대본에 '속삭이듯'이라고 적으면 그대로 연기해 주는 성우와 비슷해요.",
+    "before": "감정 표현이 필요한 대사는 직접 녹음",
+    "after": "[whisper] 같은 태그로 감정을 입힌 음성 생성"
+  },
+  "what": [
+    "Fish Speech는 글을 감정이 담긴 음성으로 바꾸는 오픈소스 모델이에요.",
+    "Drama 3와 S2-Pro라는 두 모델이 있고, 목소리 복제도 지원해요.",
+    "[whisper], [angry]처럼 말로 감정을 지정할 수 있어요.",
+    "여러 인물이 나오는 장면과 긴 대화 음성도 만들 수 있다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "모델 받기",
+      "desc": "HuggingFace에서 내려받기"
+    },
+    {
+      "label": "서버 실행",
+      "desc": "명령줄·API·WebUI"
+    },
+    {
+      "label": "대본 입력",
+      "desc": "태그 포함 글 입력"
+    },
+    {
+      "label": "음성 저장",
+      "desc": "음성 파일 생성"
+    }
+  ],
+  "features": [
+    {
+      "icon": "magic",
+      "title": "감정 태그",
+      "desc": "웃음·속삭임 등을 태그로 조절해요"
+    },
+    {
+      "icon": "chat",
+      "title": "다중 화자",
+      "desc": "여러 인물 장면을 만들 수 있어요"
+    },
+    {
+      "icon": "mic",
+      "title": "음성 복제",
+      "desc": "여러 언어에서 목소리를 복제해요"
+    },
+    {
+      "icon": "gear",
+      "title": "부분 수정",
+      "desc": "단어만 바꿔 다시 만드는 편집이 가능해요"
+    }
+  ],
+  "channel_use": [
+    "감정이 담긴 영어 내레이션을 만들어 쇼츠에 쓰기",
+    "두 인물의 대화형 문화 설명 장면 음성 만들기",
+    "같은 대본을 톤만 바꿔 훅 후보로 비교하기"
+  ],
+  "pros": [
+    "감정 표현이 풍부해요",
+    "긴 대화도 안정적이에요",
+    "명령줄·API·WebUI를 지원해요"
+  ],
+  "cons": [
+    "큰 모델이라 GPU가 필요해요",
+    "상업 사용은 라이선스 확인 필요",
+    "설치는 별도 문서를 봐야 해요"
+  ],
+  "difficulty": 5,
+  "difficulty_note": "큰 모델이라 고성능 GPU와 설치 지식이 필요해요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "고성능 GPU",
+    "파이썬 환경",
+    "모델 파일(HuggingFace)"
+  ],
+  "glossary": [
+    {
+      "term": "TTS",
+      "meaning": "글을 소리로 바꾸는 기술"
+    },
+    {
+      "term": "감정 태그",
+      "meaning": "[whisper]처럼 감정을 지정하는 표시"
+    },
+    {
+      "term": "가중치",
+      "meaning": "학습으로 얻은 모델 파일"
+    }
+  ],
+  "caution": "Fish Audio 커뮤니티 라이선스가 적용돼요. 상업 이용 전에 확인하고 남의 목소리 복제는 피하세요.",
+  "license": "Fish Audio Community License(S2-Pro는 Research License)",
+  "sources": [
+    "README: License Notice",
+    "README: Models 표(Drama 3, S2-Pro)",
+    "README: Key features의 태그 조절",
+    "README: Legal Disclaimer"
+  ]
+}

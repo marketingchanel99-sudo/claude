@@ -1,0 +1,95 @@
+{
+  "rank": 153,
+  "repo": "proxy-intell/facebook-ads-library-mcp",
+  "name": "Facebook Ads Library MCP",
+  "one_liner": "경쟁사가 돌리는 페북·인스타 광고를 AI로 찾아 분석하는 도구",
+  "analogy": {
+    "text": "경쟁 가게 쇼윈도를 대신 돌아다니며 사진 찍어 정리해 주는 조사원과 비슷해요.",
+    "before": "광고 라이브러리 사이트에서 브랜드를 하나씩 검색해 눈으로 비교",
+    "after": "AI에게 브랜드를 알려 주면 광고 문구와 영상 전략을 정리"
+  },
+  "what": [
+    "이 도구는 Meta의 공개 광고 라이브러리를 AI가 검색하고 분석하게 하는 MCP 서버예요.",
+    "브랜드가 지금 돌리는 광고 수, 이미지·영상 비율, 광고 문구를 살펴볼 수 있어요.",
+    "여러 회사 광고 전략을 한꺼번에 비교하고 영상 광고도 분석한다고 해요.",
+    "직접 설치용이며, 같은 팀의 호스팅 버전(Proxy)이 더 쉽다고 안내돼요."
+  ],
+  "flow": [
+    {
+      "label": "브랜드 입력",
+      "desc": "조사할 회사 이름"
+    },
+    {
+      "label": "광고 검색",
+      "desc": "광고 라이브러리 조회"
+    },
+    {
+      "label": "AI 분석",
+      "desc": "문구·영상 분석"
+    },
+    {
+      "label": "요약 받기",
+      "desc": "비교 정리 결과"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "광고 검색",
+      "desc": "브랜드별 현재 광고를 찾아요"
+    },
+    {
+      "icon": "chart",
+      "title": "광고 비교",
+      "desc": "여러 회사의 메시지를 비교해요"
+    },
+    {
+      "icon": "video",
+      "title": "영상 광고 분석",
+      "desc": "Gemini 키로 영상 광고를 분석해요"
+    },
+    {
+      "icon": "globe",
+      "title": "호스팅 버전",
+      "desc": "설치 없는 Proxy 버전이 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 제품을 파는 해외 브랜드의 광고 훅과 문구 벤치마킹하기",
+    "경쟁 채널이 소개하는 한국 상품 광고를 모아 트렌드 파악하기"
+  ],
+  "pros": [
+    "공개 광고 자료를 빠르게 비교해요",
+    "호스팅 버전은 키 없이 시작 가능"
+  ],
+  "cons": [
+    "직접 설치는 호출당 비용이 들어요",
+    "Meta 광고만 지원해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "호스팅 버전은 쉽고, 직접 설치는 파이썬과 키 필요",
+  "cost": "직접 설치는 ScrapeCreators 약 $1.88/1,000회, 호스팅은 하루 20크레딧 무료",
+  "needs": [
+    "Claude Desktop",
+    "ScrapeCreators API 키",
+    "(영상용) Gemini 키"
+  ],
+  "glossary": [
+    {
+      "term": "광고 라이브러리",
+      "meaning": "Meta가 공개하는 광고 모음 사이트"
+    },
+    {
+      "term": "MCP",
+      "meaning": "AI와 서비스를 연결하는 공통 규격"
+    }
+  ],
+  "caution": "경쟁사 광고 소재를 그대로 베끼면 저작권 문제가 돼요. 참고용으로만 쓰세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 광고 라이브러리 검색·분석 설명",
+    "README: Hosted vs Self-Host 비교표",
+    "README: Prerequisites와 비용 안내",
+    "README: MIT License"
+  ]
+}

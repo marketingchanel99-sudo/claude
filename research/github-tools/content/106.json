@@ -1,0 +1,99 @@
+{
+  "rank": 106,
+  "repo": "zarazhangrui/follow-builders",
+  "name": "Follow Builders",
+  "one_liner": "AI 분야 인물들의 소식을 요약해 보내 주는 스킬",
+  "analogy": {
+    "text": "똑똑한 비서가 매일 아침 핵심 뉴스만 정리해 주는 것과 비슷해요.",
+    "before": "여러 계정과 팟캐스트를 직접 찾아 읽음",
+    "after": "요약본이 메신저로 정기적으로 도착"
+  },
+  "what": [
+    "Follow Builders는 AI 업계 인물들의 소식을 요약해 보내 주는 스킬이에요.",
+    "팟캐스트 새 에피소드, X 게시글, AI 회사 블로그 글을 모아 줘요.",
+    "매일 또는 매주 원하는 시간에 텔레그램 등으로 받을 수 있어요.",
+    "설정은 대화로 하고 요약 스타일도 말로 바꿀 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "스킬 설치",
+      "desc": "Claude Code에 추가"
+    },
+    {
+      "label": "대화 설정",
+      "desc": "주기와 언어 선택"
+    },
+    {
+      "label": "소식 수집",
+      "desc": "중앙에서 모은 콘텐츠"
+    },
+    {
+      "label": "요약 전달",
+      "desc": "메신저로 받기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "chat",
+      "title": "대화로 설정",
+      "desc": "설정 파일 없이 말로 바꿔요"
+    },
+    {
+      "icon": "globe",
+      "title": "3가지 출처",
+      "desc": "팟캐스트, X 글, 회사 블로그예요"
+    },
+    {
+      "icon": "clock",
+      "title": "정기 발송",
+      "desc": "매일 또는 매주 보내요"
+    },
+    {
+      "icon": "text",
+      "title": "요약 스타일",
+      "desc": "프롬프트 파일로 말투를 조절해요"
+    }
+  ],
+  "channel_use": [
+    "AI 영상 도구 최신 소식을 요약해 새 제작 방법 후보를 빠르게 파악하기",
+    "경쟁 채널 제작자의 도구 이야기를 모아 아이디어 얻기"
+  ],
+  "pros": [
+    "API 키 없이 시작해요",
+    "대화로 쉽게 설정해요",
+    "한국어 요약 설정은 README에 없어요"
+  ],
+  "cons": [
+    "AI 업계 소식 중심이에요",
+    "한국 문화 정보는 안 나와요",
+    "출처 목록은 중앙에서 정해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "스킬을 설치하고 대화로 설정하면 돼요",
+  "cost": "README에 가격 정보 없음 (API 키 불필요라고 적혀 있음)",
+  "needs": [
+    "Claude Code 등",
+    "메신저 계정"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI에게 작업 방법을 알려 주는 설명서"
+    },
+    {
+      "term": "팟캐스트",
+      "meaning": "음성으로 듣는 방송 프로그램"
+    },
+    {
+      "term": "다이제스트",
+      "meaning": "여러 소식을 모은 요약본"
+    }
+  ],
+  "caution": "",
+  "license": "MIT",
+  "sources": [
+    "README: What You Get",
+    "README: Quick Start (API 키 불필요)",
+    "README: License MIT"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "repo": "ericosiu/ai-marketing-skills",
+  "name": "AI Marketing Skills",
+  "one_liner": "마케팅·영업용 Claude Code 스킬 모음집",
+  "analogy": {
+    "text": "분야별 매뉴얼과 도구가 든 공구함에서 필요한 공구를 꺼내 쓰는 것과 비슷해요.",
+    "before": "콘텐츠 품질 점검, 경쟁 분석, 성과 정리를 매번 직접 하기",
+    "after": "분야 폴더를 골라 정해진 흐름대로 AI가 돌려 주기"
+  },
+  "what": [
+    "마케팅과 영업 팀을 위한 오픈소스 Claude Code 스킬 모음이에요.",
+    "단순 프롬프트가 아니라 스크립트와 점수 매기기까지 든 작업 흐름이라고 소개해요.",
+    "콘텐츠 운영, SEO, 유튜브 분석, 숏폼 제작 등 폴더별로 나뉘어 있어요.",
+    "각 폴더의 README에 따로 설치 방법이 있어요."
+  ],
+  "flow": [
+    {
+      "label": "내려받기",
+      "desc": "저장소를 복사(clone)"
+    },
+    {
+      "label": "폴더 선택",
+      "desc": "쓸 분야 하나 고르기"
+    },
+    {
+      "label": "설정",
+      "desc": "필요한 패키지와 키 준비"
+    },
+    {
+      "label": "실행",
+      "desc": "스킬을 Claude Code로 돌림"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "콘텐츠 운영",
+      "desc": "전문가 패널식 점수 매기기와 품질 점검"
+    },
+    {
+      "icon": "video",
+      "title": "숏폼 제작",
+      "desc": "짧은 영상 제작과 아이디어 순위 매기기"
+    },
+    {
+      "icon": "search",
+      "title": "유튜브 경쟁 분석",
+      "desc": "성과 좋은 영상과 제목 패턴을 찾아요"
+    },
+    {
+      "icon": "chart",
+      "title": "SEO 운영",
+      "desc": "경쟁자가 놓친 키워드를 찾아요"
+    }
+  ],
+  "channel_use": [
+    "숏폼 아이디어를 점수로 비교해 올릴 순서를 정하기",
+    "잘된 유튜브 영상의 제목 패턴을 분석해 참고하기"
+  ],
+  "pros": [
+    "분야가 매우 다양해요",
+    "점수 기준이 있어 비교하기 쉬워요",
+    "필요한 폴더만 골라 쓸 수 있어요"
+  ],
+  "cons": [
+    "영업용 기능이 많이 섞여 있어요",
+    "폴더마다 설정이 달라요",
+    "API 키 준비가 필요할 수 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "파이썬 설치와 API 키 설정이 필요해요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "Claude Code",
+    "Python과 pip",
+    "필요한 API 키"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI에게 일하는 순서를 알려 주는 설명서"
+    },
+    {
+      "term": "파이프라인",
+      "meaning": "여러 작업이 이어진 자동 생산 라인"
+    },
+    {
+      "term": "클론",
+      "meaning": "저장소 전체를 내 컴퓨터로 복사하기"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: Skills 분야별 표",
+    "README: Quick Start 설치 순서",
+    "README: Claude Code 사용 방법",
+    "README에 라이선스 표기 없음"
+  ],
+  "rank": 125
+}

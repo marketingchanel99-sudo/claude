@@ -1,0 +1,101 @@
+{
+  "rank": 4,
+  "repo": "anthropics/skills",
+  "name": "Anthropic Skills",
+  "one_liner": "Claude에게 일하는 방법을 가르치는 설명서 모음",
+  "analogy": {
+    "text": "신입 직원에게 건네는 업무 매뉴얼 폴더와 비슷해요. 필요할 때 꺼내 읽어요.",
+    "before": "매번 Claude에게 같은 작업 방식을 처음부터 설명",
+    "after": "매뉴얼(스킬)을 한 번 만들어 두면 알아서 따라 해요"
+  },
+  "what": [
+    "스킬은 지시문과 스크립트, 자료를 담은 폴더예요. Claude가 필요할 때 불러와 써요.",
+    "이 저장소는 Anthropic이 만든 예시 스킬을 모아 둔 곳이에요.",
+    "미술·디자인부터 웹앱 테스트, 회사 문서 작업까지 여러 종류가 있어요.",
+    "스킬은 SKILL.md 파일 하나만 있어도 만들 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "스킬 설치",
+      "desc": "플러그인으로 추가"
+    },
+    {
+      "label": "요청하기",
+      "desc": "하고 싶은 일을 말함"
+    },
+    {
+      "label": "스킬 불러옴",
+      "desc": "Claude가 맞는 폴더 선택"
+    },
+    {
+      "label": "작업 수행",
+      "desc": "매뉴얼대로 결과 제작"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "SKILL.md 방식",
+      "desc": "이름·설명·지시문만 쓰면 스킬이 돼요"
+    },
+    {
+      "icon": "download",
+      "title": "문서 스킬",
+      "desc": "docx, pdf, pptx, xlsx 스킬이 들어 있어요"
+    },
+    {
+      "icon": "magic",
+      "title": "예시 모음",
+      "desc": "창작·개발·업무 스킬 예시를 볼 수 있어요"
+    },
+    {
+      "icon": "gear",
+      "title": "템플릿 제공",
+      "desc": "새 스킬을 만들 때 쓰는 틀이 있어요"
+    }
+  ],
+  "channel_use": [
+    "우리 채널의 대본 양식과 말투 규칙을 스킬로 만들어 매번 같은 품질로 쓰기",
+    "pdf·pptx 스킬로 광고주 제안서나 성과 보고서를 문서 파일로 만들기"
+  ],
+  "pros": [
+    "만들기 쉬워요(폴더 하나, 파일 하나)",
+    "Claude Code, Claude.ai, API에서 써요",
+    "예시를 보고 따라 만들 수 있어요"
+  ],
+  "cons": [
+    "예시일 뿐 그대로 쓰면 안 맞을 수 있어요",
+    "문서 스킬은 소스 공개형 라이선스예요",
+    "결과를 직접 점검해야 해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "플러그인 설치 명령 몇 줄이면 시작해요",
+  "cost": "README에 가격 정보 없음 (예시 스킬 다수 Apache 2.0 공개)",
+  "needs": [
+    "Claude 앱 또는 Code",
+    "플러그인 설치 명령",
+    "만들 스킬 아이디어"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "Claude가 불러 쓰는 업무 매뉴얼 폴더"
+    },
+    {
+      "term": "플러그인",
+      "meaning": "기능을 덧붙이는 추가 꾸러미"
+    },
+    {
+      "term": "마켓플레이스",
+      "meaning": "플러그인을 골라 설치하는 목록"
+    }
+  ],
+  "caution": "README는 데모·교육용이라고 밝혀요. 중요한 작업에 쓰기 전에 꼭 직접 시험하세요.",
+  "license": "다수 Apache 2.0, 문서 스킬(docx·pdf·pptx·xlsx)은 소스 공개형",
+  "sources": [
+    "README: Skills 설명과 SKILL.md 형식",
+    "README: Disclaimer 섹션",
+    "README: /plugin marketplace add 설치 명령",
+    "README: Apache 2.0 및 document skills 라이선스 설명"
+  ]
+}

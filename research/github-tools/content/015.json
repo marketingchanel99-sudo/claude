@@ -1,0 +1,101 @@
+{
+  "rank": 15,
+  "repo": "remotion-dev/remotion",
+  "name": "Remotion",
+  "one_liner": "코드로 영상을 만들고 대량으로 뽑는 도구",
+  "analogy": {
+    "text": "워드 문서 양식에 이름만 바꿔 인쇄하듯, 영상 틀 하나로 여러 편을 찍어 내요.",
+    "before": "영상 편집기에서 같은 틀을 편마다 손으로 수정",
+    "after": "틀을 코드로 만들어 두고 내용만 바꿔 자동 출력"
+  },
+  "what": [
+    "Remotion은 웹 기술로 영상을 코드처럼 만드는 도구예요.",
+    "AI 에이전트로 만들거나, 편집기처럼 눈으로 보며 만들 수 있다고 소개해요.",
+    "같은 영상 틀을 이용해 많은 영상을 한꺼번에 렌더링할 수 있어요.",
+    "공식 문서가 1,200페이지 넘게 있고, 시작용 템플릿도 제공해요."
+  ],
+  "flow": [
+    {
+      "label": "프로젝트 만들기",
+      "desc": "npx 명령으로 시작"
+    },
+    {
+      "label": "영상 설계",
+      "desc": "코드로 화면 구성"
+    },
+    {
+      "label": "미리보기",
+      "desc": "결과 확인"
+    },
+    {
+      "label": "렌더링",
+      "desc": "영상 파일 출력"
+    }
+  ],
+  "features": [
+    {
+      "icon": "code",
+      "title": "코드로 영상",
+      "desc": "웹 기술로 영상을 직접 설계해요"
+    },
+    {
+      "icon": "robot",
+      "title": "에이전트 스킬",
+      "desc": "AI에게 시켜 영상을 만들어요"
+    },
+    {
+      "icon": "video",
+      "title": "대량 렌더링",
+      "desc": "같은 틀로 많은 영상을 뽑아요"
+    },
+    {
+      "icon": "text",
+      "title": "자막·전환 지원",
+      "desc": "캡션, 전환, 효과 문서가 있어요"
+    }
+  ],
+  "channel_use": [
+    "'한국 생활템 TOP 5' 같은 반복 포맷을 틀 하나로 만들어 편마다 내용만 교체하기",
+    "영어 자막(캡션) 스타일을 통일해 모든 영상에 같은 모양으로 입히기"
+  ],
+  "pros": [
+    "같은 틀을 반복 사용하기 좋아요",
+    "문서와 템플릿이 풍부해요",
+    "AI 에이전트와 함께 쓸 수 있어요"
+  ],
+  "cons": [
+    "코드 작성 지식이 필요해요",
+    "특별한 라이선스를 확인해야 해요",
+    "README에 설치 상세가 적어요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "Node.js 설치와 코드 작성이 필요해요",
+  "cost": "README에 가격 정보 없음 (경우에 따라 회사 라이선스 필요)",
+  "needs": [
+    "컴퓨터(Node.js)",
+    "코드 편집기",
+    "영상 틀 아이디어"
+  ],
+  "glossary": [
+    {
+      "term": "렌더링",
+      "meaning": "설계도를 실제 영상 파일로 뽑는 일"
+    },
+    {
+      "term": "템플릿",
+      "meaning": "미리 만들어 둔 영상 틀"
+    },
+    {
+      "term": "Node.js",
+      "meaning": "코드를 컴퓨터에서 실행하는 프로그램"
+    }
+  ],
+  "caution": "특별 라이선스예요. 회사나 팀이 쓰면 라이선스 구매가 필요할 수 있으니 약관을 확인하세요.",
+  "license": "Remotion 자체 라이선스(경우에 따라 회사 라이선스 필요)",
+  "sources": [
+    "README: agentically/interactively/programmatically 설명",
+    "README: npx create-video@latest 시작 명령",
+    "README: Batch rendering, 1,200 pages 문서 언급",
+    "README: License 섹션(special license)"
+  ]
+}

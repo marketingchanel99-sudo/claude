@@ -1,0 +1,101 @@
+{
+  "rank": 102,
+  "repo": "TheCraigHewitt/seomachine",
+  "name": "SEO Machine",
+  "one_liner": "검색에 잘 걸리는 긴 블로그 글을 쓰게 돕는 Claude 작업실",
+  "analogy": {
+    "text": "블로그 전문 편집부가 책상 하나에 모여 있는 것과 비슷해요.",
+    "before": "주제 조사, 글쓰기, 검수를 혼자 따로따로 함",
+    "after": "명령어로 조사부터 글 점검까지 한곳에서 진행"
+  },
+  "what": [
+    "SEO Machine은 Claude Code 안에서 쓰는 블로그 글 제작 작업 공간이에요.",
+    "SEO는 검색할 때 내 글이 위쪽에 나오게 다듬는 일이에요.",
+    "/research, /write, /optimize 같은 명령어로 조사하고 쓰고 고칠 수 있어요.",
+    "구글 애널리틱스 등 성과 데이터를 연결해서 글을 개선할 수도 있어요."
+  ],
+  "flow": [
+    {
+      "label": "주제 조사",
+      "desc": "/research 명령"
+    },
+    {
+      "label": "글 작성",
+      "desc": "/write 명령"
+    },
+    {
+      "label": "글 점검",
+      "desc": "SEO 점수와 가독성 확인"
+    },
+    {
+      "label": "다듬기",
+      "desc": "/optimize로 수정"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "키워드 조사",
+      "desc": "검색어와 경쟁 글을 살펴봐요"
+    },
+    {
+      "icon": "text",
+      "title": "글쓰기 명령",
+      "desc": "/write 등 여러 명령으로 글을 만들어요"
+    },
+    {
+      "icon": "chart",
+      "title": "SEO 점수",
+      "desc": "글 품질을 0~100점으로 평가해요"
+    },
+    {
+      "icon": "link",
+      "title": "데이터 연결",
+      "desc": "GA4, 서치콘솔, DataForSEO와 연결해요"
+    }
+  ],
+  "channel_use": [
+    "'한국 여행 꿀팁' 영어 블로그 글을 검색 잘 되게 써서 채널 소개 글로 쓰기",
+    "영상 주제를 검색어로 조사해 어떤 주제가 인기일지 가늠하기"
+  ],
+  "pros": [
+    "글 쓰는 전 과정이 한곳에 있어요",
+    "글 품질을 점수로 볼 수 있어요",
+    "MIT라 자유롭게 써요"
+  ],
+  "cons": [
+    "처음 설정할 파일이 많아요",
+    "DataForSEO 계정이 필요해요",
+    "블로그용이라 숏폼과는 거리가 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "Claude Code 설치와 템플릿 파일 작성이 필요해요",
+  "cost": "README에 가격 정보 없음 (Claude, DataForSEO는 별도 계정)",
+  "needs": [
+    "Claude Code",
+    "Python",
+    "DataForSEO 계정",
+    "브랜드 정보 파일"
+  ],
+  "glossary": [
+    {
+      "term": "SEO",
+      "meaning": "검색 결과에서 잘 보이게 글을 다듬는 일"
+    },
+    {
+      "term": "키워드",
+      "meaning": "사람들이 검색창에 쓰는 말"
+    },
+    {
+      "term": "GA4",
+      "meaning": "구글의 방문자 분석 도구"
+    }
+  ],
+  "caution": "AI가 쓴 글은 가격·성분 같은 사실을 직접 확인해야 해요.",
+  "license": "MIT",
+  "sources": [
+    "README: Overview (명령어, 에이전트, 26개 마케팅 스킬)",
+    "README: Prerequisites에 DataForSEO 계정",
+    "README: License MIT"
+  ]
+}

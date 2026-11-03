@@ -1,0 +1,100 @@
+{
+  "rank": 115,
+  "repo": "Anil-matcha/AI-Youtube-Shorts-Generator",
+  "name": "AI YouTube Shorts Generator",
+  "one_liner": "긴 유튜브 영상에서 인기 있을 구간을 숏츠로 잘라 주는 도구",
+  "analogy": {
+    "text": "긴 경기 영상에서 하이라이트만 골라 편집해 주는 편집자와 비슷해요.",
+    "before": "긴 영상을 직접 보며 좋은 구간을 찾아 자름",
+    "after": "주소만 넣으면 후보 구간이 세로 클립으로 나옴"
+  },
+  "what": [
+    "이 도구는 유튜브 긴 영상에서 하이라이트를 골라 세로 숏폼으로 만들어 줘요.",
+    "음성은 Whisper로 글자로 바꾸고 AI가 훅이 좋은 구간을 점수로 매겨요.",
+    "클립마다 점수, 첫 문장, 추천 이유가 함께 나와요.",
+    "API 방식과 내 PC에서 도는 로컬 방식이 있어요."
+  ],
+  "flow": [
+    {
+      "label": "주소 넣기",
+      "desc": "유튜브 URL"
+    },
+    {
+      "label": "받아쓰기",
+      "desc": "Whisper로 변환"
+    },
+    {
+      "label": "구간 고르기",
+      "desc": "AI가 점수 매기기"
+    },
+    {
+      "label": "세로 자르기",
+      "desc": "9:16 클립 생성"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "세로 클립",
+      "desc": "9:16 등 원하는 비율로 만들어요"
+    },
+    {
+      "icon": "chart",
+      "title": "점수와 이유",
+      "desc": "클립마다 점수와 훅을 알려 줘요"
+    },
+    {
+      "icon": "mic",
+      "title": "Whisper",
+      "desc": "클라우드와 로컬 중 선택해요"
+    },
+    {
+      "icon": "code",
+      "title": "JSON 출력",
+      "desc": "자동화에 쓰기 좋게 결과를 내보내요"
+    }
+  ],
+  "channel_use": [
+    "한국 관련 긴 인터뷰에서 쓸 만한 구간을 후보로 뽑아 영상 아이디어 얻기",
+    "내가 올린 긴 영상을 쇼츠용 클립으로 쪼개 재활용하기"
+  ],
+  "pros": [
+    "무료 오픈소스, 워터마크가 없어요",
+    "클립별 추천 이유를 줘요",
+    "MIT라 자유롭게 써요"
+  ],
+  "cons": [
+    "API 키나 로컬 설정이 필요해요",
+    "명령줄을 써야 해요",
+    "남의 영상은 저작권 문제가 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "파이썬과 API 키를 설정하고 명령줄로 실행해요",
+  "cost": "오픈소스(API 사용료만 부담한다고 README에 적힘)",
+  "needs": [
+    "파이썬 3.10 이상",
+    "MuAPI 또는 OpenAI 키",
+    "ffmpeg(로컬 모드)"
+  ],
+  "glossary": [
+    {
+      "term": "Whisper",
+      "meaning": "음성을 글자로 바꾸는 OpenAI 모델"
+    },
+    {
+      "term": "하이라이트",
+      "meaning": "영상에서 가장 눈에 띄는 구간"
+    },
+    {
+      "term": "CLI",
+      "meaning": "글자 명령으로 쓰는 프로그램"
+    }
+  ],
+  "caution": "남의 유튜브 영상을 내려받아 자르면 저작권·약관 문제가 생겨요. 내 영상이나 허락받은 영상만 쓰세요.",
+  "license": "MIT",
+  "sources": [
+    "README: Features (YouTube In, Vertical Out, 점수+훅+이유)",
+    "README: Installation (API 모드/로컬 모드 준비물)",
+    "README: License MIT"
+  ]
+}

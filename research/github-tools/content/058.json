@@ -1,0 +1,94 @@
+{
+  "rank": 58,
+  "repo": "jianchang512/pyvideotrans",
+  "name": "pyVideoTrans",
+  "one_liner": "영상을 다른 언어로 번역하고 자막과 더빙까지 해 주는 도구",
+  "analogy": {
+    "text": "영상 속 대사를 통역하고 새 목소리까지 입혀 주는 통역사 팀이에요.",
+    "before": "자막 받아쓰기, 번역, 녹음, 합성을 각각 직접 진행",
+    "after": "한 번에 인식, 번역, 더빙, 합성까지 자동으로 처리"
+  },
+  "what": [
+    "pyVideoTrans는 영상을 다른 언어로 바꿔 주는 오픈소스 번역, 더빙 도구예요.",
+    "음성 인식, 자막 번역, 음성 합성, 영상 합치기를 한 번에 해요.",
+    "화자별로 다른 AI 목소리를 입히는 다중 역할 더빙을 지원해요.",
+    "단계마다 멈춰서 직접 고치며 진행할 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "음성 인식",
+      "desc": "대사를 글로 변환"
+    },
+    {
+      "label": "자막 번역",
+      "desc": "AI가 다른 언어로 번역"
+    },
+    {
+      "label": "더빙",
+      "desc": "AI 목소리로 읽어 주기"
+    },
+    {
+      "label": "영상 합치기",
+      "desc": "자막, 음성을 합성"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "자막 생성",
+      "desc": "SRT 자막으로 변환, 화자 구분"
+    },
+    {
+      "icon": "mic",
+      "title": "다중 더빙",
+      "desc": "화자별로 다른 AI 목소리"
+    },
+    {
+      "icon": "globe",
+      "title": "여러 모델",
+      "desc": "Whisper, DeepSeek, Edge-TTS 등"
+    },
+    {
+      "icon": "gear",
+      "title": "여러 사용 방식",
+      "desc": "Windows exe, CLI, 웹 화면"
+    }
+  ],
+  "channel_use": [
+    "한국어 숏폼에 영어 자막과 더빙을 입혀 외국인용 버전 만들기",
+    "번역 단계에서 멈춰 직접 어색한 표현을 고치기"
+  ],
+  "pros": [
+    "Windows 설치 파일이 있어요",
+    "단계마다 직접 수정 가능해요"
+  ],
+  "cons": [
+    "번역, 더빙은 사람 검수가 필요해요",
+    "GPU 가속은 NVIDIA와 CUDA가 필요해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "Windows는 압축 풀고 실행, 다른 OS는 설치 필요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "컴퓨터",
+    "번역/음성 서비스 설정",
+    "FFmpeg(소스 설치 시)"
+  ],
+  "glossary": [
+    {
+      "term": "더빙",
+      "meaning": "원래 목소리 대신 다른 언어 음성을 입히기"
+    },
+    {
+      "term": "ASR",
+      "meaning": "음성을 글로 바꾸는 기술"
+    }
+  ],
+  "caution": "음성 복제 기능은 본인 동의 없는 사용을 피하고, 타인 영상은 번역 전 권리를 확인하세요.",
+  "license": "",
+  "sources": [
+    "README: ASR to 번역 to TTS to 합성 워크플로",
+    "README: 다중 역할 더빙, 음성 복제 언급",
+    "README: Windows 사전 패키지 안내"
+  ]
+}

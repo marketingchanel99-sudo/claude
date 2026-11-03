@@ -1,0 +1,102 @@
+{
+  "rank": 22,
+  "repo": "ggml-org/whisper.cpp",
+  "name": "whisper.cpp",
+  "one_liner": "음성을 글자로 바꿔 주는 가볍고 빠른 프로그램",
+  "analogy": {
+    "text": "말을 듣고 받아 적어 주는 속기사를 내 컴퓨터 안에 두는 것과 비슷해요.",
+    "before": "영상 속 말을 하나하나 들으며 직접 받아 적음",
+    "after": "오디오 파일을 넣으면 글자로 자동 변환"
+  },
+  "what": [
+    "whisper.cpp는 OpenAI의 음성 인식 모델 Whisper를 C/C++로 다시 만든 프로그램이에요.",
+    "음성 파일을 넣으면 말한 내용을 글자로 바꿔 줘요.",
+    "인터넷 없이 내 기기에서 돌릴 수 있고, 아이폰에서 오프라인으로 돌린 영상도 있어요.",
+    "Mac, Windows, Linux, 안드로이드, iOS 등 여러 환경을 지원해요."
+  ],
+  "flow": [
+    {
+      "label": "모델 받기",
+      "desc": "모델 파일을 내려받기"
+    },
+    {
+      "label": "빌드",
+      "desc": "프로그램을 만들기"
+    },
+    {
+      "label": "음성 넣기",
+      "desc": "wav 파일 지정"
+    },
+    {
+      "label": "글자 출력",
+      "desc": "받아쓴 텍스트 확인"
+    }
+  ],
+  "features": [
+    {
+      "icon": "bolt",
+      "title": "가볍고 빠름",
+      "desc": "의존성 없는 C/C++ 구현이에요"
+    },
+    {
+      "icon": "gear",
+      "title": "여러 기기 지원",
+      "desc": "Mac, Windows, Linux, 라즈베리파이 등"
+    },
+    {
+      "icon": "download",
+      "title": "크기별 모델",
+      "desc": "tiny 75MiB부터 large 2.9GiB까지 있어요"
+    },
+    {
+      "icon": "mic",
+      "title": "음성 구간 감지",
+      "desc": "VAD로 말하는 부분을 찾는 기능이 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국어 인터뷰·길거리 영상의 말을 글자로 뽑아 자막 초안 만들기",
+    "내 영상의 대사를 받아쓰기해 영어 번역 작업에 넘기기",
+    "경쟁 영상 오디오를 글자로 바꿔 훅 문구 분석하기"
+  ],
+  "pros": [
+    "인터넷 없이 내 기기에서 돌려요",
+    "MIT 라이선스예요",
+    "모델 크기를 골라 쓸 수 있어요"
+  ],
+  "cons": [
+    "명령창으로 써야 해서 낯설어요",
+    "큰 모델은 메모리를 많이 써요",
+    "wav 파일 변환 준비가 필요해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "명령창에서 빌드하고 실행해야 해요",
+  "cost": "무료(MIT 라이선스)",
+  "needs": [
+    "컴퓨터(Mac/Win/Linux)",
+    "명령창 사용",
+    "음성 파일(wav)"
+  ],
+  "glossary": [
+    {
+      "term": "ASR",
+      "meaning": "음성을 글자로 바꾸는 기술"
+    },
+    {
+      "term": "양자화",
+      "meaning": "모델을 줄여 적은 메모리로 돌리는 방법"
+    },
+    {
+      "term": "VAD",
+      "meaning": "말소리가 있는 구간만 찾는 기능"
+    }
+  ],
+  "caution": "다른 사람의 영상 음성을 쓸 땐 저작권과 사용 약관을 확인하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: High-performance inference of OpenAI's Whisper ASR",
+    "README: Supported platforms 목록",
+    "README: 모델별 Disk/Mem 표",
+    "README: License MIT 배지"
+  ]
+}

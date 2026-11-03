@@ -1,0 +1,95 @@
+{
+  "rank": 154,
+  "repo": "SupercmoHQ/superCMO-skills",
+  "name": "SuperCMO Skills",
+  "one_liner": "제품 사진 한 장으로 UGC·광고 영상을 만드는 AI 스킬 모음",
+  "analogy": {
+    "text": "기획자, 배우, 촬영, 편집을 맡는 소형 광고 제작사를 AI 안에 두는 것과 비슷해요.",
+    "before": "대본, 이미지, 음성, 영상, 편집을 각각 다른 툴로 이어 작업",
+    "after": "제품 사진과 짧은 설명으로 대본부터 완성 영상까지 이어서 제작"
+  },
+  "what": [
+    "SuperCMO Skills는 AI 에이전트가 마케팅 영상과 이미지를 만들도록 돕는 오픈소스 스킬이에요.",
+    "제품 사진과 브리프를 주면 제품 분석, 대본, 가상 배우 선택, 영상 제작을 해요.",
+    "돈을 쓰기 전에 컨셉과 대본을 보여 주고 승인을 기다린다고 해요.",
+    "모든 생성에 실제 호출 없이 미리 보는 dry_run이 있어요."
+  ],
+  "flow": [
+    {
+      "label": "사진·브리프",
+      "desc": "제품 사진과 설명"
+    },
+    {
+      "label": "컨셉 승인",
+      "desc": "대본과 배우 확인"
+    },
+    {
+      "label": "스토리보드",
+      "desc": "장면 이미지 생성"
+    },
+    {
+      "label": "영상 완성",
+      "desc": "클립 합쳐 납품"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "UGC 영상",
+      "desc": "후기·언박싱 스타일 영상을 만들어요"
+    },
+    {
+      "icon": "magic",
+      "title": "모델 자동 선택",
+      "desc": "상황에 맞는 AI 모델을 골라요"
+    },
+    {
+      "icon": "gear",
+      "title": "편집 포함",
+      "desc": "자르기, 음성, 이어 붙이기까지"
+    },
+    {
+      "icon": "shield",
+      "title": "승인 단계",
+      "desc": "렌더링 전에 내가 확인해요"
+    }
+  ],
+  "channel_use": [
+    "제휴 상품 사진으로 후기 스타일 영상 시안 만들기",
+    "대본과 컨셉을 먼저 보고 승인한 뒤에만 제작해 크레딧 아끼기"
+  ],
+  "pros": [
+    "승인 전에는 비용이 들지 않아요",
+    "dry_run으로 미리 확인할 수 있어요"
+  ],
+  "cons": [
+    "모델 키나 사용료가 필요해요",
+    "세팅 과정이 개발자 친화적이에요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "npx로 설치하고 AI에게 세팅을 시키는 방식이에요",
+  "cost": "스킬은 무료(Apache-2.0), 본인 키 또는 SuperCMO 종량제 사용",
+  "needs": [
+    "Claude Code 등 에이전트",
+    "uv 설치",
+    "모델 API 키 또는 가입"
+  ],
+  "glossary": [
+    {
+      "term": "UGC",
+      "meaning": "일반인이 만든 듯한 후기형 콘텐츠"
+    },
+    {
+      "term": "dry_run",
+      "meaning": "실제 실행 없이 요청만 미리 보기"
+    }
+  ],
+  "caution": "AI 배우가 만든 후기형 광고는 광고 표기 규정을 지켜야 해요.",
+  "license": "Apache-2.0",
+  "sources": [
+    "README: 제품 사진에서 UGC 영상 제작 설명",
+    "README: 승인 후 렌더링, dry_run 문구",
+    "README: Pay per use, bring your own keys",
+    "README: Apache-2.0"
+  ]
+}

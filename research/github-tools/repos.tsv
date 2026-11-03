@@ -1,0 +1,159 @@
+1	자동화 워크플로우	n8n-io/n8n	209422
+2	콘텐츠 수집/다운로드	yt-dlp/yt-dlp	204849
+3	콘텐츠 수집/크롤링	firecrawl/firecrawl	198108
+4	AI 스킬 모음	anthropics/skills	186881
+5	숏폼 자동생성	harry0703/MoneyPrinterTurbo	137727
+6	자동화/브라우저 에이전트	browser-use/browser-use	119897
+7	자막/STT	openai/whisper	111837
+8	콘텐츠 서칭	Panniantong/Agent-Reach	108193
+9	음성/TTS	debpalash/VoiceStudio	99385
+10	콘텐츠 수집/크롤링	D4Vinci/Scrapling	93401
+11	콘텐츠 수집/크롤링	unclecode/crawl4ai	86808
+12	AI 스킬 모음	ComposioHQ/awesome-claude-skills	78616
+13	영상편집/모션그래픽	heygen-com/hyperframes	77907
+14	영상 제작 에이전트	calesthio/OpenMontage	75517
+15	영상편집/모션그래픽	remotion-dev/remotion	70218
+16	콘텐츠 수집/크롤링	NanmiCoder/MediaCrawler	69998
+17	트렌드 리서치	mvanhorn/last30days-skill	66402
+18	음성/보이스클론	RVC-Boss/GPT-SoVITS	64663
+19	트렌드 모니터링	sansan0/TrendRadar	63378
+20	음성/보이스클론	jamiepine/voicebox	59314
+21	기획/카피 스킬	coreyhaines31/marketingskills	58166
+22	자막/STT	ggml-org/whisper.cpp	54875
+23	자동화/모니터링	huginn/huginn	50276
+24	AI 인프라	mudler/LocalAI	50148
+25	콘텐츠 서칭	DIYgod/RSSHub	46783
+26	음성/TTS	coqui-ai/TTS	46180
+27	콘텐츠 수집/다운로드	imputnet/cobalt	45741
+28	콘텐츠 수집/크롤링	NaiboWang/EasySpider	44763
+29	트렌드/여론 분석	666ghj/BettaFish	42577
+30	음성/TTS	OpenBMB/VoxCPM	40988
+31	업로드/스케줄링	gitroomhq/postiz-app	40755
+32	음성/TTS	2noise/ChatTTS	39975
+33	음성/보이스클론	myshell-ai/OpenVoice	38129
+34	콘텐츠 서칭	glanceapp/glance	37991
+35	음성/TTS	fishaudio/fish-speech	33551
+36	콘텐츠 수집/크롤링	ScrapeGraphAI/Scrapegraph-ai	32452
+37	숏폼 자동생성	FujiwaraChoki/MoneyPrinterV2	32282
+38	이미지/영상 생성	Anil-matcha/Open-Generative-AI	32105
+39	콘텐츠 수집/다운로드	iawia002/lux	31819
+40	영상 생성 모델	hpcaitech/Open-Sora	29902
+41	숏폼 자동생성	ATH-MaaS/Pixelle-Video	29717
+42	AI 스킬 모음	alirezarezvani/claude-skills	29193
+43	업로드/스케줄링	yikart/AiToEarn	27214
+44	자막/STT	SYSTRAN/faster-whisper	26429
+45	콘텐츠 수집/크롤링	apify/crawlee	26322
+46	자동화 워크플로우	enescingoz/awesome-n8n-templates	26241
+47	SEO/GEO	every-app/open-seo	26135
+48	SEO/GEO	AgriciDaniel/claude-seo	26083
+49	자막/STT	m-bain/whisperX	25041
+50	음성/TTS	index-tts/index-tts	24897
+51	프롬프트 라이브러리	PicoTrex/Awesome-Nano-Banana-images	24001
+52	콘텐츠 수집/크롤링	BuilderIO/gpt-crawler	22411
+53	자막/STT	chidiwilliams/buzz	22375
+54	콘텐츠 수집/다운로드	Evil0ctal/Douyin_TikTok_Download_API	21117
+55	콘텐츠 수집/다운로드	putyy/res-downloader	21061
+56	콘텐츠 수집/다운로드	mikf/gallery-dl	20347
+57	영상 제작 에이전트	HBAI-Ltd/Toonflow-app	20289
+58	자막/번역/더빙	jianchang512/pyvideotrans	19628
+59	자막/번역/더빙	Huanshere/VideoLingo	19046
+60	참고(주의)	InstaPy/InstaPy	18352
+61	영상 생성 모델	Wan-Video/Wan2.2	18334
+62	콘텐츠 수집/크롤링	getmaxun/maxun	18138
+63	콘텐츠 수집/다운로드	JoeanAmier/TikTokDownloader	17333
+64	콘텐츠 서칭	xpzouying/xiaohongshu-mcp	16827
+65	자막/STT	WEIFENG2333/VideoCaptioner	16447
+66	영상편집/모션그래픽	Vincentwei1021/video-shotcraft	16292
+67	아바타/디지털휴먼	duixcom/Duix-Avatar	16198
+68	업로드/스케줄링	dreammis/social-auto-upload	16060
+69	음성/보이스클론	SWivid/F5-TTS	15504
+70	영상 제작 에이전트	WaooAI/waoowaoo	14767
+71	콘텐츠 수집/크롤링	apify/apify-mcp-server	14459
+72	음성/TTS	QwenLM/Qwen3-TTS	14181
+73	숏폼 자동생성	FujiwaraChoki/MoneyPrinter	14139
+74	자막/번역/더빙	krillinai/OpenCreator	14102
+75	콘텐츠 수집/다운로드	instaloader/instaloader	13764
+76	프롬프트 라이브러리	YouMind-OpenLab/awesome-nano-banana-pro-prompts	13729
+77	영상편집	YaoFANGUK/video-subtitle-remover	13555
+78	음성/TTS	abus-aikorea/voice-pro	13391
+79	아바타/립싱크	Rudrabha/Wav2Lip	13263
+80	마케팅 지식	goabstract/Marketing-for-Engineers	13255
+81	콘텐츠 수집/다운로드	JoeanAmier/XHS-Downloader	13196
+82	영상 생성 모델	zai-org/CogVideo	13175
+83	영상 제작 에이전트	HKUDS/ViMax	12843
+84	영상 생성 모델	Tencent-Hunyuan/HunyuanVideo	12714
+85	콘텐츠 수집/다운로드	jiji262/douyin-downloader	12521
+86	롱폼→숏폼/해설	linyqh/NarratoAI	11695
+87	SEO/GEO	zubair-trabzada/geo-seo-claude	11450
+88	콘텐츠 수집/다운로드	ihmily/DouyinLiveRecorder	11156
+89	콘텐츠 수집/분석	nexmoe/VidBee	11055
+90	마케팅 자동화	mautic/mautic	10918
+91	롱폼→숏폼 클립	zhouxiaoka/autoclip	9940
+92	음성/TTS	hexgrad/kokoro	9883
+93	자막/STT	YaoFANGUK/video-subtitle-extractor	9683
+94	디자인/콘텐츠	nexu-io/html-anything	9382
+95	SEO/GEO	Ryze-AI-Adgent/open-seo-mcp-skills	8734
+96	콘텐츠 서칭/대본	jdepoix/youtube-transcript-api	8552
+97	이미지 생성 모델	QwenLM/Qwen-Image	8454
+98	아바타/립싱크	MeiGen-AI/InfiniteTalk	8284
+99	프롬프트 라이브러리	jamez-bondos/awesome-gpt4o-images	8156
+100	숏폼 자동생성	RayVentura/ShortGPT	8101
+101	디자인/카드뉴스	op7418/guizang-social-card-skill	7935
+102	롱폼/블로그	TheCraigHewitt/seomachine	7568
+103	숏폼 자동생성	yi1108/printfilm	7401
+104	숏폼 자동생성	ddean2009/MoneyPrinterPlus	7296
+105	영상 제작 에이전트	Forget-C/Jellyfish	7113
+106	콘텐츠 서칭	zarazhangrui/follow-builders	7043
+107	광고/퍼포먼스	irinabuht12-oss/google-ads-meta-ads-mcp	6903
+108	기획/카피 스킬	irinabuht12-oss/marketing-skills	6730
+109	롱폼→숏폼 클립	modelscope/FunClip	6489
+110	아바타/립싱크	bytedance/LatentSync	6237
+111	숏폼 자동생성	YILS-LIN/short-video-factory	6034
+112	프롬프트 라이브러리	wuyoscar/GPT-Image2-Skill	5981
+113	자막/번역/더빙	buxuku/SmartSub	5927
+114	자막/번역/더빙	liuzhao1225/YouDub-webui	5789
+115	롱폼→숏폼 클립	Anil-matcha/AI-Youtube-Shorts-Generator	5737
+116	영상편집	WyattBlue/auto-editor	5727
+117	디자인/카드뉴스	HisMax/RedInk	5684
+118	영상편집	mifi/editly	5577
+119	벤치마킹/리서치	ScrapeCreators/social-media-research-skills	5341
+120	이미지/영상 생성	wide-trace/open-higgsfield	5263
+121	콘텐츠 수집/크롤링	drawrowfly/tiktok-scraper	5243
+122	SNS 에이전트	ZJU-REAL/Easel	4345
+123	기획/카피 스킬	Jakeschincariol/youtube-agent-skill	4343
+124	SEO/GEO	nowork-studio/notfair-plugin	4096
+125	기획/카피 스킬	ericosiu/ai-marketing-skills	3771
+126	영상편집 에이전트	FireRedTeam/FireRed-OpenStoryline	3621
+127	아바타/디지털휴먼	Kedreamix/Linly-Talker	3478
+128	기획/카피 스킬	aaron-he-zhu/aaron-marketing-skills	3056
+129	SNS 에이전트	langchain-ai/social-media-agent	2982
+130	기획/카피 스킬	zubair-trabzada/ai-marketing-claude	2852
+131	프롬프트 라이브러리	ZeroLu/awesome-seedance	2808
+132	영상편집 스킬	nateherkai/herk-edit-kit	2518
+133	숏폼 자동생성	rushindrasinha/youtube-shorts-pipeline	2349
+134	숏폼 자동생성	Hao0321/video-autopilot-kit	2251
+135	프롬프트 라이브러리	YouMind-OpenLab/awesome-seedance-2-prompts	2192
+136	콘텐츠 서칭/대본	jimmc414/onefilellm	2025
+137	영상편집 에이전트	JimLiu/baocut	1654
+138	콘텐츠 수집/API	junhoyeo/threads-api	1619
+139	숏폼 자동생성	gyoridavid/short-video-maker	1462
+140	업로드/스케줄링	SamurAIGPT/postiz-cheap	1385
+141	광고/퍼포먼스	pipeboard-co/meta-ads-mcp	1347
+142	콘텐츠 서칭/대본	ZeroPointRepo/youtube-skills	1160
+143	기획/카피 스킬	kostja94/marketing-skills	1074
+144	롱폼→숏폼 클립	alexfazio/viral-clips-crew	770
+145	기획/카피 스킬	Affitor/affiliate-skills	758
+146	기획/카피 스킬	Hao0321/claude-skill-social-post	748
+147	롱폼→숏폼 클립	diego3g/video-to-reels	729
+148	기획/카피 스킬	sergebulaev/instagram-skills	718
+149	트렌드/브랜드 모니터링	firecrawl/firegeo	665
+150	숏폼 자동생성	SamurAIGPT/AI-Faceless-Video-Generator	528
+151	광고/UGC	Anil-matcha/Open-AI-UGC	411
+152	기획/카피 스킬	Ootto-AI/claude-content-skills	352
+153	벤치마킹/광고	proxy-intell/facebook-ads-library-mcp	320
+154	광고/UGC	SupercmoHQ/superCMO-skills	286
+155	기획/카피 스킬	stevenflanagan1/social-ai-team	268
+156	디자인/카드뉴스	FranciscoMoretti/carousel-generator	215
+157	벤치마킹/리서치	artemnovitckii/creator-lab	170
+158	기획/카피 스킬	rediumvex/social-media-caption-generator-claude	146
+159	벤치마킹/리서치	Peter-SB/n8n-ai-instagram-scraper	39

@@ -1,0 +1,96 @@
+{
+  "rank": 73,
+  "repo": "FujiwaraChoki/MoneyPrinter",
+  "name": "MoneyPrinter",
+  "one_liner": "주제만 넣으면 유튜브 쇼츠를 자동으로 만들어 주는 도구",
+  "analogy": {
+    "text": "주제만 적어 주면 대본, 소리, 편집까지 알아서 해 주는 1인 제작팀과 비슷해요.",
+    "before": "주제 정하고 대본, 소스, 편집을 직접 반복",
+    "after": "주제를 입력하면 쇼츠 영상 초안이 자동 완성"
+  },
+  "what": [
+    "MoneyPrinter는 영상 주제를 입력하면 유튜브 쇼츠를 자동으로 만들어 주는 도구예요.",
+    "대본과 설명 글은 내 컴퓨터에서 도는 Ollama 모델이 써요.",
+    "생성 요청은 대기열 방식으로 처리돼서 재시작해도 안전하다고 해요.",
+    "도커에서 API, 작업 프로그램, 데이터베이스를 함께 돌려요."
+  ],
+  "flow": [
+    {
+      "label": "주제 입력",
+      "desc": "만들 쇼츠 주제 적기"
+    },
+    {
+      "label": "대본 작성",
+      "desc": "Ollama가 글 쓰기"
+    },
+    {
+      "label": "영상 조립",
+      "desc": "소리와 영상 합치기"
+    },
+    {
+      "label": "결과 받기",
+      "desc": "쇼츠 파일 확인"
+    }
+  ],
+  "features": [
+    {
+      "icon": "robot",
+      "title": "자동 생성",
+      "desc": "주제만 넣으면 쇼츠를 만들어요"
+    },
+    {
+      "icon": "text",
+      "title": "로컬 대본 AI",
+      "desc": "Ollama로 내 컴퓨터에서 글을 써요"
+    },
+    {
+      "icon": "clock",
+      "title": "생성 대기열",
+      "desc": "요청을 순서대로 안전하게 처리해요"
+    },
+    {
+      "icon": "gear",
+      "title": "도커 실행",
+      "desc": "환경을 한 번에 띄울 수 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 편의점 신상 소개 쇼츠의 초안 대본과 컷 구성 뽑기",
+    "주제 한 줄로 영상 구성 아이디어를 빠르게 테스트하기"
+  ],
+  "pros": [
+    "주제만으로 초안이 나와요",
+    "대본 AI를 내 컴퓨터에서 돌려요"
+  ],
+  "cons": [
+    "결과 품질은 직접 확인해야 해요",
+    "대량 자동 제작은 채널 품질을 해칠 수 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "도커, Ollama, ImageMagick 설정이 필요해요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "컴퓨터",
+    "도커(Docker)",
+    "Ollama",
+    "ImageMagick"
+  ],
+  "glossary": [
+    {
+      "term": "Ollama",
+      "meaning": "내 컴퓨터에서 AI 글쓰기 모델을 돌리는 도구"
+    },
+    {
+      "term": "대기열",
+      "meaning": "작업을 줄 세워 하나씩 처리하는 방식"
+    }
+  ],
+  "caution": "저품질 자동 생성물과 저작권 있는 소스는 채널 정책 위반 위험이 있어요. 직접 검수하세요.",
+  "license": "",
+  "sources": [
+    "README: 주제로 YouTube Shorts 자동 생성",
+    "README: Ollama-first 대본 생성",
+    "README: DB 기반 생성 큐와 Docker",
+    "README: LICENSE 파일 참조만 있음"
+  ]
+}

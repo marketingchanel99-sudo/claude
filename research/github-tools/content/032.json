@@ -1,0 +1,102 @@
+{
+  "rank": 32,
+  "repo": "2noise/ChatTTS",
+  "name": "ChatTTS",
+  "one_liner": "대화하듯 자연스럽게 읽어 주는 영어·중국어 음성 모델",
+  "analogy": {
+    "text": "딱딱한 낭독 대신 친구에게 말하듯 읽어 주는 성우와 비슷해요.",
+    "before": "대사를 로봇 같은 목소리로 읽혀 어색함",
+    "after": "웃음과 쉼까지 살린 대화체 음성 생성"
+  },
+  "what": [
+    "ChatTTS는 대화 상황에 맞춘 음성 합성 모델이에요.",
+    "영어와 중국어를 지원하고, 한국어는 README에 없어요.",
+    "웃음, 멈춤, 감탄사 같은 세밀한 말투를 조절할 수 있어요.",
+    "여러 화자를 지원해서 대화형 음성을 만들 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "저장소와 모델 준비"
+    },
+    {
+      "label": "글 입력",
+      "desc": "대화체 문장 넣기"
+    },
+    {
+      "label": "말투 조절",
+      "desc": "웃음·쉼 지정"
+    },
+    {
+      "label": "음성 출력",
+      "desc": "음성 파일 생성"
+    }
+  ],
+  "features": [
+    {
+      "icon": "chat",
+      "title": "대화형 음성",
+      "desc": "LLM 비서용 대화에 최적화됐어요"
+    },
+    {
+      "icon": "mic",
+      "title": "세밀한 조절",
+      "desc": "웃음·쉼·감탄사를 조절해요"
+    },
+    {
+      "icon": "magic",
+      "title": "좋은 운율",
+      "desc": "오픈소스 TTS 중 운율이 좋다고 해요"
+    },
+    {
+      "icon": "bolt",
+      "title": "스트리밍",
+      "desc": "오디오를 이어서 생성할 수 있어요"
+    }
+  ],
+  "channel_use": [
+    "영어 대화체 내레이션 샘플을 만들어 톤 테스트하기",
+    "중국어권 시청자용 인사말 음성을 시험해 보기",
+    "웃음·쉼이 들어간 가벼운 설명 음성 만들기"
+  ],
+  "pros": [
+    "대화체가 자연스러워요",
+    "말투를 세밀하게 조절해요",
+    "여러 화자를 지원해요"
+  ],
+  "cons": [
+    "한국어를 지원하지 않아요",
+    "모델은 비상업적 용도만 허용",
+    "파이썬 환경이 필요해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬 설치와 모델 내려받기가 필요해요",
+  "cost": "무료지만 모델은 비상업(CC BY-NC 4.0)",
+  "needs": [
+    "컴퓨터",
+    "파이썬",
+    "모델 파일(HuggingFace)"
+  ],
+  "glossary": [
+    {
+      "term": "TTS",
+      "meaning": "글을 소리로 바꾸는 기술"
+    },
+    {
+      "term": "운율",
+      "meaning": "말의 높낮이와 쉼의 리듬"
+    },
+    {
+      "term": "화자",
+      "meaning": "목소리의 주인. 여러 명을 고를 수 있어요"
+    }
+  ],
+  "caution": "모델은 교육·연구용(CC BY-NC 4.0)이라 수익 채널에는 쓸 수 없어요. 불법 용도 금지예요.",
+  "license": "코드 AGPLv3+, 모델 CC BY-NC 4.0",
+  "sources": [
+    "README: generative speech model for daily dialogue",
+    "README: Supported Languages(영어·중국어)",
+    "README: Licenses(코드 AGPL, 모델 CC BY-NC)",
+    "README: Disclaimer(악용 방지 노이즈)"
+  ]
+}

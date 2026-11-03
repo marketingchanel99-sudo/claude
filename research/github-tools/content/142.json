@@ -1,0 +1,95 @@
+{
+  "rank": 142,
+  "repo": "ZeroPointRepo/youtube-skills",
+  "name": "YouTube Skills",
+  "one_liner": "AI가 유튜브 자막을 가져오고 영상을 검색하게 해 주는 스킬",
+  "analogy": {
+    "text": "유튜브를 대신 검색하고 자막을 받아 적어 오는 리서치 도우미와 비슷해요.",
+    "before": "영상을 직접 보며 자막을 복사하고 채널을 하나씩 뒤져 확인",
+    "after": "AI에게 주소만 주면 자막, 검색 결과, 채널 영상 목록을 받아요"
+  },
+  "what": [
+    "YouTube Skills는 AI 에이전트에게 유튜브 자막 가져오기 능력을 붙여 주는 스킬 모음이에요.",
+    "영상 검색, 채널 최신 영상 보기, 재생목록 정리도 할 수 있어요.",
+    "TranscriptAPI라는 서비스를 통해 동작하고, 가입 시 100 크레딧을 줘요.",
+    "설치 후 평소 말투로 '이 영상 요약해 줘'라고 부탁하면 돼요."
+  ],
+  "flow": [
+    {
+      "label": "스킬 설치",
+      "desc": "명령어 한 줄로 설치"
+    },
+    {
+      "label": "키 발급",
+      "desc": "이메일로 무료 키 받기"
+    },
+    {
+      "label": "AI에게 요청",
+      "desc": "영상 주소나 주제 전달"
+    },
+    {
+      "label": "결과 받기",
+      "desc": "자막과 목록을 정리"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "자막 추출",
+      "desc": "영상 자막을 시간 표시와 함께 가져와요"
+    },
+    {
+      "icon": "search",
+      "title": "영상 검색",
+      "desc": "주제로 유튜브 영상과 채널을 찾아요"
+    },
+    {
+      "icon": "video",
+      "title": "채널 둘러보기",
+      "desc": "채널의 최신 업로드를 확인해요"
+    },
+    {
+      "icon": "link",
+      "title": "재생목록",
+      "desc": "재생목록 속 영상을 한 번에 뽑아요"
+    }
+  ],
+  "channel_use": [
+    "잘 된 한국 문화 영상의 자막을 모아 훅 문장 패턴을 분석하기",
+    "한국 생활 관련 해외 유튜버 채널의 최근 영상 주제를 훑어보기"
+  ],
+  "pros": [
+    "코딩 없이 말로 부탁하면 돼요",
+    "무료로 시작 가능(100 크레딧)"
+  ],
+  "cons": [
+    "외부 서비스 키가 필요해요",
+    "크레딧이 떨어지면 유료($5/월)예요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "명령어 한 줄 설치와 이메일 인증이 필요해요",
+  "cost": "무료 100 크레딧, Starter 월 $5(1,000 크레딧)",
+  "needs": [
+    "Claude Code 등 AI",
+    "TranscriptAPI 키(무료)",
+    "인터넷 연결"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI에게 새 기능을 가르치는 설명서 묶음"
+    },
+    {
+      "term": "크레딧",
+      "meaning": "API를 쓸 때마다 줄어드는 이용권"
+    }
+  ],
+  "caution": "남의 영상 자막을 그대로 가져다 쓰면 저작권 문제가 될 수 있어요. 참고용으로만 쓰세요.",
+  "license": "MIT",
+  "sources": [
+    "README: transcripts, search, channels, playlist 설명",
+    "README: Pricing 표 Free $0 / Starter $5",
+    "README: 12 skills, 지원 에이전트 표",
+    "README: License MIT"
+  ]
+}

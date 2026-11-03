@@ -1,0 +1,102 @@
+{
+  "rank": 17,
+  "repo": "mvanhorn/last30days-skill",
+  "name": "last30days",
+  "one_liner": "최근 30일 온라인 반응을 모아 정리해 주는 AI 검색",
+  "analogy": {
+    "text": "동네 소문을 여러 모임에서 모아 인기 순으로 알려 주는 소식통과 비슷해요.",
+    "before": "레딧·유튜브·틱톡을 각각 뒤져 요즘 반응을 직접 확인",
+    "after": "주제 하나로 최근 30일 반응을 점수별로 정리해서 받음"
+  },
+  "what": [
+    "last30days는 AI 에이전트에 설치하는 스킬로, 주제의 최근 30일 반응을 조사해요.",
+    "레딧, 해커뉴스, 유튜브, 틱톡 등을 한꺼번에 검색해 추천수와 조회수 등으로 순위를 매겨요.",
+    "설정 없이도 레딧, HN, Polymarket, GitHub는 바로 쓸 수 있어요.",
+    "Claude Code 등에서 /last30days 명령 뒤에 주제를 적어 쓰는 방식이에요."
+  ],
+  "flow": [
+    {
+      "label": "주제 입력",
+      "desc": "/last30days 뒤에 주제"
+    },
+    {
+      "label": "동시 검색",
+      "desc": "여러 플랫폼 조사"
+    },
+    {
+      "label": "점수 매기기",
+      "desc": "반응이 큰 순으로"
+    },
+    {
+      "label": "요약 받기",
+      "desc": "근거와 함께 정리"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "여러 곳 동시 검색",
+      "desc": "레딧·유튜브·틱톡 등을 한꺼번에 봐요"
+    },
+    {
+      "icon": "chart",
+      "title": "반응 점수",
+      "desc": "추천수·조회수로 중요도를 매겨요"
+    },
+    {
+      "icon": "bolt",
+      "title": "뜨는 주제 찾기",
+      "desc": "터지기 전의 이슈를 찾는 모드가 있어요"
+    },
+    {
+      "icon": "text",
+      "title": "저장·JSON 출력",
+      "desc": "결과를 파일이나 JSON으로 받아요"
+    }
+  ],
+  "channel_use": [
+    "'Korean instant noodles' 같은 주제로 최근 30일 레딧·틱톡 반응을 보고 소재 고르기",
+    "시즌 이슈가 뜨는 시점을 확인해 올릴 주제의 순서 정하기",
+    "영상 아이디어마다 해외 시청자 반응 근거를 붙여 sources에 남기기"
+  ],
+  "pros": [
+    "여러 플랫폼 반응을 한 번에 봐요",
+    "설정 없이 일부는 바로 써요",
+    "반응 규모 기준으로 순위를 매겨요"
+  ],
+  "cons": [
+    "일부 소스는 API 키가 필요해요",
+    "AI 에이전트 환경이 있어야 해요",
+    "플랫폼 정책에 영향받을 수 있어요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "플러그인 설치 명령 두 줄로 시작해요",
+  "cost": "일부 소스 무료, ScrapeCreators는 1만 건 무료 후 사용량 과금",
+  "needs": [
+    "Claude Code 등 에이전트",
+    "플러그인 설치",
+    "API 키(선택 소스)"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "AI가 불러 쓰는 업무 매뉴얼 폴더"
+    },
+    {
+      "term": "API 키",
+      "meaning": "서비스를 쓰게 해 주는 비밀 열쇠"
+    },
+    {
+      "term": "인게이지먼트",
+      "meaning": "추천·댓글·조회 같은 반응 정도"
+    }
+  ],
+  "caution": "SNS 수집은 각 서비스 약관의 영향을 받아요. 요약 속 사실은 원문을 확인하고 쓰세요.",
+  "license": "",
+  "sources": [
+    "README: scored by upvotes, likes 소개",
+    "README: Sources 표(Reddit, YouTube, TikTok 등)",
+    "README: 소스별 필요 항목과 비용 표",
+    "README에 라이선스 표기를 찾지 못함"
+  ]
+}

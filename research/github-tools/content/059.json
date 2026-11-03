@@ -1,0 +1,94 @@
+{
+  "rank": 59,
+  "repo": "Huanshere/VideoLingo",
+  "name": "VideoLingo",
+  "one_liner": "영상에 자막을 달고 번역해 더빙까지 하는 올인원 도구",
+  "analogy": {
+    "text": "자막 제작소에서 받아쓰기, 번역, 줄 나누기를 한 번에 해 주는 직원이에요.",
+    "before": "받아쓰기, 번역, 자막 줄 나누기를 따로 작업",
+    "after": "영상 하나로 이중 자막과 더빙까지 이어서 완성"
+  },
+  "what": [
+    "VideoLingo는 음성 인식, 자막 번역, 분할, 더빙을 하나로 묶은 도구예요.",
+    "화면은 Streamlit 웹 화면이고, 결과로 자막 파일이나 더빙 영상이 나와요.",
+    "유튜브 영상을 yt-dlp로 내려받는 기능이 있어요.",
+    "번역 품질은 선택한 AI 모델에 따라 달라진다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "영상 준비",
+      "desc": "파일 또는 유튜브 링크"
+    },
+    {
+      "label": "음성 인식",
+      "desc": "단어별 시간 인식"
+    },
+    {
+      "label": "번역, 분할",
+      "desc": "용어를 맞춰 번역"
+    },
+    {
+      "label": "자막, 더빙",
+      "desc": "결과 영상 만들기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "자막 분할",
+      "desc": "길이 제한에 맞게 자막을 나눠요"
+    },
+    {
+      "icon": "chat",
+      "title": "용어집 번역",
+      "desc": "용어를 맞춰 일관되게 번역"
+    },
+    {
+      "icon": "mic",
+      "title": "더빙",
+      "desc": "GPT-SoVITS, OpenAI, Edge TTS 지원"
+    },
+    {
+      "icon": "bolt",
+      "title": "원클릭 시작",
+      "desc": "Windows는 OneKeyStart.bat 실행"
+    }
+  ],
+  "channel_use": [
+    "한국어 숏폼을 영어 이중 자막 영상으로 만들기",
+    "한국 용어를 용어집으로 통일해 일관되게 번역하기"
+  ],
+  "pros": [
+    "이중 자막과 용어 통일을 지원해요",
+    "Windows는 원클릭 설치예요"
+  ],
+  "cons": [
+    "AI 서비스 주소와 키를 입력해야 해요",
+    "유튜브 다운로드는 약관을 확인해야 해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "배치 파일 실행 후 API 키만 입력하면 시작해요",
+  "cost": "README에 가격 정보 없음",
+  "needs": [
+    "컴퓨터",
+    "AI 서비스 키",
+    "인터넷"
+  ],
+  "glossary": [
+    {
+      "term": "더빙",
+      "meaning": "다른 언어 목소리를 영상에 입히는 일"
+    },
+    {
+      "term": "이중 자막",
+      "meaning": "원문과 번역을 함께 보여 주는 자막"
+    }
+  ],
+  "caution": "유튜브 등 타인 영상은 다운로드와 번역 전에 저작권, 약관을 확인하세요.",
+  "license": "Apache 2.0",
+  "sources": [
+    "README: Overview와 Key features",
+    "README: Windows OneKeyStart.bat",
+    "README: Apache 2.0 License"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "repo": "gyoridavid/short-video-maker",
+  "name": "Short Video Maker",
+  "one_liner": "글을 넣으면 자막 달린 숏폼 영상을 만드는 서버",
+  "analogy": {
+    "text": "대본과 검색어만 주면 성우, 자막 담당, 편집자가 조립해서 영상을 내놓는 작은 공장이에요.",
+    "before": "목소리 녹음, 배경 영상 찾기, 자막 달기, 음악 넣기를 따로 하기",
+    "after": "텍스트와 검색어만 보내면 자막 영상 한 편이 완성"
+  },
+  "what": [
+    "글을 넣으면 숏폼 영상을 자동으로 만드는 오픈소스 도구예요.",
+    "글을 음성으로 바꾸고, 자막을 만들고, 배경 영상과 음악을 합쳐요.",
+    "배경 영상은 Pexels에서 검색어로 찾아와요.",
+    "REST 서버와 MCP 서버로 쓸 수 있어서 n8n 같은 자동화 도구와 이어져요."
+  ],
+  "flow": [
+    {
+      "label": "글·검색어",
+      "desc": "장면별 대사와 검색어 입력"
+    },
+    {
+      "label": "음성 변환",
+      "desc": "Kokoro TTS가 읽어 줌"
+    },
+    {
+      "label": "자막·배경",
+      "desc": "Whisper 자막, Pexels 영상"
+    },
+    {
+      "label": "영상 완성",
+      "desc": "Remotion이 합쳐 렌더링"
+    }
+  ],
+  "features": [
+    {
+      "icon": "mic",
+      "title": "글을 음성으로",
+      "desc": "대사를 읽어 주는 음성을 만들어요"
+    },
+    {
+      "icon": "text",
+      "title": "자동 자막",
+      "desc": "말에 맞춘 자막을 달아요"
+    },
+    {
+      "icon": "video",
+      "title": "배경 영상 검색",
+      "desc": "Pexels에서 맞는 영상을 찾아요"
+    },
+    {
+      "icon": "link",
+      "title": "REST·MCP 지원",
+      "desc": "자동화 도구와 쉽게 연결돼요"
+    }
+  ],
+  "channel_use": [
+    "한국 생활템 설명 대사로 영어 음성 자막 영상 초안 만들기",
+    "n8n에 연결해 정해진 대본으로 영상 자동 생성하기"
+  ],
+  "pros": [
+    "GPU 없이 무료로 돌릴 수 있어요",
+    "도커 이미지로 실행해요",
+    "자동화 도구에 연결해요"
+  ],
+  "cons": [
+    "영어 음성만 지원해요",
+    "배경은 Pexels 영상이에요",
+    "얼굴이나 제품 영상은 못 만들어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "도커로 서버를 실행하고 Pexels 키를 받아야 해요",
+  "cost": "무료 대안을 목표로 한 오픈소스, 가격은 README에 없음",
+  "needs": [
+    "도커(Docker)",
+    "무료 Pexels API 키",
+    "RAM 3GB 이상"
+  ],
+  "glossary": [
+    {
+      "term": "TTS",
+      "meaning": "글을 목소리로 읽어 주는 기술"
+    },
+    {
+      "term": "MCP",
+      "meaning": "AI가 다른 도구를 쓰게 연결해 주는 방식"
+    },
+    {
+      "term": "REST API",
+      "meaning": "주소로 요청을 보내 기능을 쓰는 방법"
+    }
+  ],
+  "caution": "Pexels 영상은 사이트 이용 규정을 따라야 해요. 상업 이용 전에 확인하세요.",
+  "license": "MIT",
+  "sources": [
+    "README: License MIT",
+    "README: Description(자동 숏폼 영상 생성 도구)",
+    "README: How It Works 5단계",
+    "README: Limitations(영어 음성만)",
+    "README: General Requirements(RAM, Pexels 키)"
+  ],
+  "rank": 139
+}

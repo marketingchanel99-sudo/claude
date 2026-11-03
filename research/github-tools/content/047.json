@@ -1,0 +1,93 @@
+{
+  "rank": 47,
+  "repo": "every-app/open-seo",
+  "name": "OpenSEO",
+  "one_liner": "검색 노출을 분석하는 가벼운 SEO 도구",
+  "analogy": {
+    "text": "우리 가게가 지도에서 잘 보이는지 봐 주는 간판 컨설턴트 같아요.",
+    "before": "비싼 SEO 서비스 구독료를 매달 내며 분석",
+    "after": "필요한 만큼만 비용을 내고 직접 운영하며 분석"
+  },
+  "what": [
+    "OpenSEO는 Semrush나 Ahrefs의 대안을 내세우는 오픈소스 SEO 도구예요.",
+    "SEO는 검색에서 내 글이 잘 보이게 하는 작업이에요.",
+    "키워드 조사, 순위 추적, 경쟁자 분석 등의 기능이 있어요.",
+    "Claude Code 같은 AI 비서와 연결해 쓸 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설치",
+      "desc": "Docker나 클라우드 배포"
+    },
+    {
+      "label": "키 연결",
+      "desc": "DataForSEO 키 입력"
+    },
+    {
+      "label": "분석 요청",
+      "desc": "키워드와 사이트 조사"
+    },
+    {
+      "label": "결과 확인",
+      "desc": "순위와 경쟁자 보기"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "키워드 조사",
+      "desc": "검색어를 찾고 비교해요"
+    },
+    {
+      "icon": "chart",
+      "title": "순위 추적",
+      "desc": "내 순위 변화를 확인해요"
+    },
+    {
+      "icon": "shield",
+      "title": "사이트 점검",
+      "desc": "사이트 감사 기능이 있어요"
+    },
+    {
+      "icon": "robot",
+      "title": "AI 연결",
+      "desc": "MCP와 스킬로 AI 비서와 연결"
+    }
+  ],
+  "channel_use": [
+    "유튜브 설명란 키워드를 조사해 외국인이 찾는 단어 고르기",
+    "블로그나 링크 페이지의 검색 노출 상태 점검하기"
+  ],
+  "pros": [
+    "구독 없이 쓴 만큼 내요",
+    "AI 비서와 연결돼요"
+  ],
+  "cons": [
+    "DataForSEO 키가 필요해요",
+    "설치나 배포 과정이 필요해요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "Docker 또는 Cloudflare 배포와 API 키 설정",
+  "cost": "셀프호스팅 시 DataForSEO 사용료, 호스팅판은 월 10달러",
+  "needs": [
+    "Docker 또는 Cloudflare",
+    "DataForSEO API 키"
+  ],
+  "glossary": [
+    {
+      "term": "SEO",
+      "meaning": "검색에서 잘 보이게 하는 작업"
+    },
+    {
+      "term": "API 키",
+      "meaning": "서비스를 쓰기 위한 비밀번호 같은 값"
+    }
+  ],
+  "caution": "",
+  "license": "",
+  "sources": [
+    "README: Semrush/Ahrefs 대안 문구",
+    "README: 호스팅 월 $10",
+    "README: DataForSEO 키 필요"
+  ]
+}

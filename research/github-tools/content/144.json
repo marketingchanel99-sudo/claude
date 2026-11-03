@@ -1,0 +1,94 @@
+{
+  "rank": 144,
+  "repo": "alexfazio/viral-clips-crew",
+  "name": "viral-clips-crew",
+  "one_liner": "긴 영상에서 터질 만한 부분을 AI가 골라 짧게 만드는 도구",
+  "analogy": {
+    "text": "긴 인터뷰 영상을 보고 하이라이트만 쏙 골라 주는 편집 조수와 비슷해요.",
+    "before": "긴 영상을 처음부터 보며 쓸 만한 장면을 직접 찾아 자르기",
+    "after": "영상을 폴더에 넣으면 AI가 인상적인 구간을 골라 결과물을 만듦"
+  },
+  "what": [
+    "viral-clips-crew는 긴 영상을 보고 듣고 눈에 띄는 구간을 뽑아내는 파이썬 프로그램이에요.",
+    "CrewAI라는 'AI 팀 만들기' 도구로 여러 AI가 역할을 나눠 일해요.",
+    "OpenAI와 구글 Gemini의 API 키가 필요하다고 안내돼 있어요.",
+    "제작자가 데모용이라고 밝혔고 앞으로 지원하지 않는다고 써 놨어요."
+  ],
+  "flow": [
+    {
+      "label": "영상 넣기",
+      "desc": "input_files 폴더에 저장"
+    },
+    {
+      "label": "AI가 시청",
+      "desc": "영상과 음성을 분석"
+    },
+    {
+      "label": "구간 선택",
+      "desc": "인상적인 부분 추출"
+    },
+    {
+      "label": "결과 저장",
+      "desc": "자막 입힌 클립 출력"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "하이라이트 추출",
+      "desc": "긴 영상에서 눈에 띄는 구간을 골라요"
+    },
+    {
+      "icon": "robot",
+      "title": "AI 팀 작업",
+      "desc": "여러 AI가 역할을 나눠 처리해요"
+    },
+    {
+      "icon": "text",
+      "title": "자막 출력",
+      "desc": "결과는 subtitler_output 폴더에 저장돼요"
+    },
+    {
+      "icon": "gear",
+      "title": "Gemini 지원",
+      "desc": "Gemini는 최대 1시간 영상을 처리해요"
+    }
+  ],
+  "channel_use": [
+    "한국 문화 소개 롱폼 영상에서 숏폼으로 쓸 장면 후보 찾기",
+    "외국 유튜버가 한국을 말하는 긴 영상에서 핵심 장면 후보 뽑기"
+  ],
+  "pros": [
+    "영상 하이라이트 찾기를 자동화해요",
+    "MIT 라이선스"
+  ],
+  "cons": [
+    "제작자가 지원하지 않는 데모예요",
+    "OpenAI는 15분 이하 영상만 권장"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬, 포에트리 설치와 API 키 두 개가 필요해요",
+  "cost": "도구는 무료, API 사용료는 별도(README: 선불 크레딧 필요)",
+  "needs": [
+    "파이썬 3.7 이상",
+    "OpenAI API 키",
+    "Gemini API 키"
+  ],
+  "glossary": [
+    {
+      "term": "API 키",
+      "meaning": "서비스를 쓰게 해 주는 비밀번호 같은 것"
+    },
+    {
+      "term": "CrewAI",
+      "meaning": "여러 AI에게 역할을 나눠 주는 도구"
+    }
+  ],
+  "caution": "남의 영상을 잘라 재업로드하면 저작권 문제가 생길 수 있어요. 내 영상에만 쓰세요.",
+  "license": "MIT",
+  "sources": [
+    "README: 긴 영상에서 viral segments 추출 설명",
+    "README: Requirements, Usage 15분·1시간 제한",
+    "README: 99% vibe coded, 지원 안 함 안내"
+  ]
+}

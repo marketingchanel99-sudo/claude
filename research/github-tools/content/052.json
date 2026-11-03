@@ -1,0 +1,93 @@
+{
+  "rank": 52,
+  "repo": "BuilderIO/gpt-crawler",
+  "name": "GPT Crawler",
+  "one_liner": "웹사이트 글을 모아 나만의 GPT 지식 파일로 만드는 도구",
+  "analogy": {
+    "text": "도서관 책을 한 권으로 요약 복사해 비서에게 주는 것과 비슷해요.",
+    "before": "AI에게 알려 줄 자료를 사이트에서 일일이 복사",
+    "after": "주소만 정하면 지식 파일이 자동으로 만들어짐"
+  },
+  "what": [
+    "GPT Crawler는 웹사이트를 돌며 글을 모아 하나의 지식 파일로 만들어 줘요.",
+    "그 파일을 OpenAI에 올려 맞춤형 GPT나 어시스턴트를 만들 수 있어요.",
+    "설정 파일에서 주소와 가져올 영역을 정해요.",
+    "로컬 실행, Docker, API 방식이 있어요."
+  ],
+  "flow": [
+    {
+      "label": "설정",
+      "desc": "주소와 선택자 입력"
+    },
+    {
+      "label": "크롤링",
+      "desc": "사이트 글을 수집"
+    },
+    {
+      "label": "파일 생성",
+      "desc": "지식 파일로 저장"
+    },
+    {
+      "label": "GPT 만들기",
+      "desc": "OpenAI에 업로드"
+    }
+  ],
+  "features": [
+    {
+      "icon": "globe",
+      "title": "사이트 수집",
+      "desc": "여러 주소의 글을 한꺼번에"
+    },
+    {
+      "icon": "download",
+      "title": "지식 파일",
+      "desc": "GPT에 올릴 파일을 만들어요"
+    },
+    {
+      "icon": "gear",
+      "title": "설정 파일",
+      "desc": "config.ts로 대상을 지정"
+    },
+    {
+      "icon": "code",
+      "title": "여러 실행 방식",
+      "desc": "로컬, Docker, API 지원"
+    }
+  ],
+  "channel_use": [
+    "공식 관광 안내 문서를 모아 한국 정보 Q&A 챗봇 만들기",
+    "채널 팩트체크용 자료 파일을 한곳에 정리하기"
+  ],
+  "pros": [
+    "지식 파일 만들기가 간단해요",
+    "Docker, API로도 쓸 수 있어요"
+  ],
+  "cons": [
+    "코드와 설정이 필요해요",
+    "맞춤 GPT는 유료 플랜이 필요할 수 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "Node.js 설치 후 설정 파일을 직접 수정해요",
+  "cost": "오픈소스, GPT 기능은 유료 ChatGPT 플랜 필요 가능",
+  "needs": [
+    "Node.js 16 이상",
+    "OpenAI 계정"
+  ],
+  "glossary": [
+    {
+      "term": "크롤링",
+      "meaning": "웹페이지를 자동으로 읽어 모으는 일"
+    },
+    {
+      "term": "셀렉터",
+      "meaning": "가져올 화면 영역을 가리키는 표시"
+    }
+  ],
+  "caution": "수집 대상 사이트의 약관과 저작권을 확인하세요.",
+  "license": "",
+  "sources": [
+    "README: 사이트를 크롤링해 지식 파일 생성",
+    "README: Node.js 16 이상",
+    "README: 유료 ChatGPT 플랜 언급"
+  ]
+}

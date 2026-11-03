@@ -1,0 +1,98 @@
+{
+  "rank": 93,
+  "repo": "YaoFANGUK/video-subtitle-extractor",
+  "name": "video-subtitle-extractor",
+  "one_liner": "영상 화면에 박힌 자막을 글자 파일로 뽑아 주는 도구",
+  "analogy": {
+    "text": "사진 속 글씨를 읽어 문서로 옮겨 적는 속기사 같아요.",
+    "before": "화면 속 자막을 눈으로 보며 하나씩 받아 적음",
+    "after": "영상을 넣으면 srt 자막 파일이 자동 생성"
+  },
+  "what": [
+    "video-subtitle-extractor는 영상에 박힌 하드 자막을 srt 자막 파일로 바꿔요.",
+    "영상 프레임에서 글자 위치를 찾고, OCR로 읽어 중복을 지워 줘요.",
+    "API 없이 내 컴퓨터에서 인식하고, 여러 언어를 지원한다고 적혀 있어요."
+  ],
+  "flow": [
+    {
+      "label": "영상 열기",
+      "desc": "영상과 자막 위치를 골라요"
+    },
+    {
+      "label": "글자 찾기",
+      "desc": "프레임에서 글자를 찾아요"
+    },
+    {
+      "label": "글자 읽기",
+      "desc": "OCR로 내용을 읽어요"
+    },
+    {
+      "label": "파일 저장",
+      "desc": "srt 자막을 만들어요"
+    }
+  ],
+  "features": [
+    {
+      "icon": "eye",
+      "title": "화면 글자 인식",
+      "desc": "영상 속 자막을 OCR로 읽어요"
+    },
+    {
+      "icon": "download",
+      "title": "srt 저장",
+      "desc": "자막 파일과 텍스트 파일로 내보내요"
+    },
+    {
+      "icon": "globe",
+      "title": "다국어",
+      "desc": "한국어를 포함한 여러 언어를 지원해요"
+    },
+    {
+      "icon": "bolt",
+      "title": "GPU 가속",
+      "desc": "GPU가 있으면 더 빠르고 정확해요"
+    }
+  ],
+  "channel_use": [
+    "허락받은 한국어 자막 영상에서 텍스트를 뽑아 번역 초안 만들기",
+    "내 옛 영상에 박힌 자막을 글 파일로 되살리기"
+  ],
+  "pros": [
+    "API 없이 로컬에서 돼요",
+    "여러 영상 일괄 처리가 돼요"
+  ],
+  "cons": [
+    "정확한 모드는 매우 느려요",
+    "글자 오타가 생길 수 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "프로그램을 내려받아 영상을 열고 자막 영역을 고르면 돼요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "윈도우, 맥, 리눅스 PC",
+    "자막이 박힌 영상",
+    "GPU(있으면 좋음)"
+  ],
+  "glossary": [
+    {
+      "term": "하드 자막",
+      "meaning": "영상 화면에 박혀 못 끄는 자막"
+    },
+    {
+      "term": "OCR",
+      "meaning": "그림 속 글자를 읽는 기술"
+    },
+    {
+      "term": "srt",
+      "meaning": "시간이 적힌 자막 파일 형식"
+    }
+  ],
+  "caution": "남의 영상 자막을 뽑아 다시 쓰면 저작권 문제예요. 허락받았거나 내 영상에만 쓰세요.",
+  "license": "Apache-2.0",
+  "sources": [
+    "README: 하드 자막을 srt로 추출한다는 소개",
+    "README: 로컬 OCR, API 불필요",
+    "README: 빠름, 자동, 정확 모드 설명",
+    "README: Apache 2 배지와 지원 OS"
+  ]
+}

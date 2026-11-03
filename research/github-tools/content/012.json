@@ -1,0 +1,101 @@
+{
+  "rank": 12,
+  "repo": "ComposioHQ/awesome-claude-skills",
+  "name": "Awesome Claude Skills",
+  "one_liner": "Claude용 스킬과 플러그인을 모아 둔 추천 목록",
+  "analogy": {
+    "text": "앱 스토어의 추천 코너처럼, 쓸 만한 스킬을 분야별로 정리해 둔 안내판이에요.",
+    "before": "쓸 만한 스킬을 인터넷에서 하나씩 찾아다님",
+    "after": "분야별 목록에서 골라 바로 링크로 이동"
+  },
+  "what": [
+    "Claude 스킬과 플러그인 1000개 이상을 모아 놓은 정리 목록(awesome list)이에요.",
+    "문서 처리, 개발, 데이터 분석, 마케팅, 글쓰기, 영상·창작 같은 분야로 나눠 있어요.",
+    "스킬은 SKILL.md 파일이 든 폴더로, 필요할 때만 불러 써요.",
+    "Composio의 connect-apps 플러그인으로 1000개 앱과 연결하는 방법도 소개해요."
+  ],
+  "flow": [
+    {
+      "label": "분야 고르기",
+      "desc": "필요한 영역 찾기"
+    },
+    {
+      "label": "스킬 고르기",
+      "desc": "설명 읽고 선택"
+    },
+    {
+      "label": "설치하기",
+      "desc": "링크에서 가져오기"
+    },
+    {
+      "label": "써 보기",
+      "desc": "Claude에게 요청"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "분야별 목록",
+      "desc": "문서·마케팅·창작 등으로 나뉘어 있어요"
+    },
+    {
+      "icon": "link",
+      "title": "1000개+ 앱 연결",
+      "desc": "connect-apps로 메일·슬랙 등과 이어요"
+    },
+    {
+      "icon": "code",
+      "title": "만드는 법",
+      "desc": "직접 스킬을 만드는 방법을 안내해요"
+    },
+    {
+      "icon": "download",
+      "title": "문서 스킬",
+      "desc": "docx, pdf, pptx, xlsx 링크가 있어요"
+    }
+  ],
+  "channel_use": [
+    "'Business & Marketing', 'Creative & Media' 항목에서 채널 운영에 맞는 스킬 찾기",
+    "문서 스킬을 골라 주간 성과 리포트를 파일로 만드는 흐름에 붙이기"
+  ],
+  "pros": [
+    "스킬을 한곳에서 둘러볼 수 있어요",
+    "분야별로 정리돼 찾기 쉬워요",
+    "Apache 2.0 배지가 있어요"
+  ],
+  "cons": [
+    "목록이라 품질은 각자 달라요",
+    "설치는 개별 저장소에서 해요",
+    "대부분 영어 설명이에요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "목록을 읽고 링크의 안내대로 설치해요",
+  "cost": "목록은 무료 공개 (Composio 연결은 무료 키 발급 후 사용)",
+  "needs": [
+    "Claude 앱 또는 Code",
+    "설치 명령 입력",
+    "Composio API 키(선택)"
+  ],
+  "glossary": [
+    {
+      "term": "스킬",
+      "meaning": "Claude가 불러 쓰는 업무 매뉴얼 폴더"
+    },
+    {
+      "term": "MCP",
+      "meaning": "AI가 외부 도구를 쓰는 연결 규칙"
+    },
+    {
+      "term": "플러그인",
+      "meaning": "기능을 덧붙이는 추가 꾸러미"
+    }
+  ],
+  "caution": "목록의 스킬은 여러 제작자가 만들었어요. 설치 전에 내용과 권한을 꼭 확인하세요.",
+  "license": "Apache 2.0",
+  "sources": [
+    "README: 1000+ production ready Claude Skills 소개",
+    "README: Contents 분야 목차",
+    "README: connect-apps 퀵스타트",
+    "README: License 배지 Apache 2.0"
+  ]
+}

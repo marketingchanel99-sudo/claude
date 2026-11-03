@@ -1,0 +1,99 @@
+{
+  "rank": 150,
+  "repo": "SamurAIGPT/AI-Faceless-Video-Generator",
+  "name": "AI Faceless Video Generator",
+  "one_liner": "주제만 넣으면 대본·목소리·말하는 얼굴 영상을 만드는 도구",
+  "analogy": {
+    "text": "주제를 주면 작가, 성우, 배우가 한 번에 영상을 만들어 주는 1인 제작팀과 비슷해요.",
+    "before": "대본 쓰기, 녹음, 얼굴 촬영을 각각 따로 준비",
+    "after": "주제만 입력하면 말하는 얼굴 영상까지 한 번에 나와요"
+  },
+  "what": [
+    "이 도구는 주제 하나로 말하는 얼굴이 나오는 영상을 자동으로 만들어요.",
+    "OpenAI GPT가 대본을 쓰고 gTTS가 음성으로 읽어 줘요.",
+    "SadTalker가 얼굴 사진을 음성에 맞춰 움직이게 해요.",
+    "구글 코랩 노트북으로 쓰는 방법이 추천돼요. GPU가 있으면 좋다고 해요."
+  ],
+  "flow": [
+    {
+      "label": "주제 입력",
+      "desc": "영상 주제 정하기"
+    },
+    {
+      "label": "대본 생성",
+      "desc": "GPT가 대본 작성"
+    },
+    {
+      "label": "음성 변환",
+      "desc": "gTTS가 읽어 줘요"
+    },
+    {
+      "label": "얼굴 애니",
+      "desc": "SadTalker로 움직임"
+    },
+    {
+      "label": "영상 완성",
+      "desc": "파일로 저장"
+    }
+  ],
+  "features": [
+    {
+      "icon": "text",
+      "title": "대본 생성",
+      "desc": "주제로 영상 대본을 만들어요"
+    },
+    {
+      "icon": "mic",
+      "title": "AI 음성",
+      "desc": "대본을 음성으로 바꿔 줘요"
+    },
+    {
+      "icon": "image",
+      "title": "얼굴 애니메이션",
+      "desc": "사진 속 얼굴이 말하게 해요"
+    },
+    {
+      "icon": "robot",
+      "title": "커스텀 아바타",
+      "desc": "원하는 얼굴 사진을 쓸 수 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 생활 팁을 말하는 캐릭터 영상 시안 만들기(주인공 설정과 맞게)",
+    "대본 초안을 음성으로 들어 보며 길이 확인하기"
+  ],
+  "pros": [
+    "코랩에서 설치 없이 시험할 수 있어요",
+    "MIT 라이선스"
+  ],
+  "cons": [
+    "OpenAI 키가 필요해요",
+    "음성이 기계 소리(gTTS)일 수 있어요"
+  ],
+  "difficulty": 3,
+  "difficulty_note": "코랩은 쉽지만 로컬 설치는 파이썬 지식 필요",
+  "cost": "도구는 무료, OpenAI 사용료는 별도",
+  "needs": [
+    "OpenAI API 키",
+    "구글 코랩 또는 GPU 컴퓨터",
+    "얼굴 이미지 파일"
+  ],
+  "glossary": [
+    {
+      "term": "TTS",
+      "meaning": "글을 소리로 읽어 주는 기술"
+    },
+    {
+      "term": "코랩",
+      "meaning": "구글이 빌려주는 온라인 파이썬 작업실"
+    }
+  ],
+  "caution": "실존 인물의 얼굴 사진을 쓰면 초상권 문제가 생길 수 있어요.",
+  "license": "MIT",
+  "sources": [
+    "README: Features, How It Works 흐름",
+    "README: Requirements (OpenAI key, GPU)",
+    "README: Tech Stack 표",
+    "README: MIT License"
+  ]
+}

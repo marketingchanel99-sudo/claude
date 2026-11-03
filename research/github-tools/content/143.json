@@ -1,0 +1,93 @@
+{
+  "rank": 143,
+  "repo": "kostja94/marketing-skills",
+  "name": "Marketing Skills",
+  "one_liner": "AI에게 마케팅·SEO 업무 요령을 가르치는 스킬 모음집",
+  "analogy": {
+    "text": "마케터 선배의 업무 매뉴얼 170권을 AI 책장에 꽂아 두는 것과 비슷해요.",
+    "before": "마케팅 업무마다 AI에게 방법을 처음부터 길게 설명",
+    "after": "필요한 스킬만 설치하면 AI가 정해진 방법대로 일해요"
+  },
+  "what": [
+    "Marketing Skills는 마케팅과 검색 최적화(SEO) 작업 방법을 담은 오픈소스 스킬 모음이에요.",
+    "스킬은 AI가 필요할 때 꺼내 읽는 업무 설명서예요.",
+    "콘텐츠, 광고, 인플루언서, 틱톡·유튜브 같은 플랫폼 항목까지 170개 넘게 있어요.",
+    "제품 사실은 직접 알려 줘야 하고, 스킬은 방법만 제공해요."
+  ],
+  "flow": [
+    {
+      "label": "스킬 고르기",
+      "desc": "필요한 것만 선택"
+    },
+    {
+      "label": "설치",
+      "desc": "npx 명령어로 추가"
+    },
+    {
+      "label": "정보 주기",
+      "desc": "제품 사실을 전달"
+    },
+    {
+      "label": "결과 받기",
+      "desc": "점검표 있는 결과물"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "SEO 전략",
+      "desc": "키워드·경쟁사 조사 방법을 안내해요"
+    },
+    {
+      "icon": "text",
+      "title": "콘텐츠 작성",
+      "desc": "글, 카피, 영상 콘텐츠 작업 방법"
+    },
+    {
+      "icon": "money",
+      "title": "광고·채널",
+      "desc": "유료 광고, 제휴, 이메일, 인플루언서"
+    },
+    {
+      "icon": "globe",
+      "title": "플랫폼별",
+      "desc": "틱톡, 유튜브, 레딧 등 플랫폼 항목"
+    }
+  ],
+  "channel_use": [
+    "제휴 상품 소개 영상의 카피 점검과 제휴 마케팅 방법 참고하기",
+    "틱톡·유튜브 항목을 참고해 쇼츠 제목과 설명 다듬기"
+  ],
+  "pros": [
+    "필요한 스킬만 골라 설치할 수 있어요",
+    "MIT 라이선스 오픈소스"
+  ],
+  "cons": [
+    "항목이 많아 처음엔 고르기 어려워요",
+    "제품 사실은 직접 줘야 해요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "명령어 한 줄로 설치하고 말로 요청하면 돼요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "Claude Code 등 AI",
+    "Node.js(npx 사용)"
+  ],
+  "glossary": [
+    {
+      "term": "SEO",
+      "meaning": "검색 결과에서 잘 보이게 만드는 작업"
+    },
+    {
+      "term": "스킬",
+      "meaning": "AI가 읽는 업무 설명서"
+    }
+  ],
+  "caution": "",
+  "license": "MIT",
+  "sources": [
+    "README: 170+ installable entries, 9 categories",
+    "README: npx skills add 설치 방법",
+    "README: License MIT"
+  ]
+}

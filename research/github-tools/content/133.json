@@ -1,0 +1,105 @@
+{
+  "repo": "rushindrasinha/youtube-shorts-pipeline",
+  "name": "Verticals v3",
+  "one_liner": "주제만 주면 숏츠를 자동으로 만드는 파이프라인",
+  "analogy": {
+    "text": "주제를 넣으면 작가, 성우, 편집자가 줄지어 일하는 작은 공장 라인이 돌아가는 모습이에요.",
+    "before": "조사, 대본, 그림, 목소리, 자막, 편집, 업로드를 사람이 하나씩 하기",
+    "after": "명령 한 줄로 영상 제작과 비공개 업로드까지 진행"
+  },
+  "what": [
+    "주제 하나로 숏츠 영상을 자동으로 만드는 오픈소스 도구예요.",
+    "자료 조사, 대본, 그림, 목소리, 자막, 영상 합치기를 차례로 해요.",
+    "분야(니치)별 설정 15개가 있어 말투와 분위기가 달라져요.",
+    "저장소 이름은 youtube-shorts-pipeline이고, 제품 이름은 Verticals v3예요."
+  ],
+  "flow": [
+    {
+      "label": "조사",
+      "desc": "웹에서 사실 자료 모으기"
+    },
+    {
+      "label": "대본",
+      "desc": "AI가 훅 있는 글 작성"
+    },
+    {
+      "label": "그림·목소리",
+      "desc": "이미지와 음성 생성"
+    },
+    {
+      "label": "자막·합치기",
+      "desc": "자막 입히고 ffmpeg로 완성"
+    },
+    {
+      "label": "업로드",
+      "desc": "유튜브에 비공개로 올림"
+    }
+  ],
+  "features": [
+    {
+      "icon": "robot",
+      "title": "전 과정 자동",
+      "desc": "조사부터 업로드까지 한 명령으로 돌려요"
+    },
+    {
+      "icon": "gear",
+      "title": "분야 15개",
+      "desc": "분야별로 대본 톤과 영상 느낌이 달라져요"
+    },
+    {
+      "icon": "mic",
+      "title": "여러 음성 선택",
+      "desc": "무료 Edge TTS와 ElevenLabs 등을 써요"
+    },
+    {
+      "icon": "text",
+      "title": "단어별 자막",
+      "desc": "Whisper로 자막을 만들어 영상에 입혀요"
+    }
+  ],
+  "channel_use": [
+    "한국 생활템 주제로 영어 숏폼 초안을 자동으로 만들어 보기",
+    "새 분야 설정을 만들어 채널 말투를 고정하기"
+  ],
+  "pros": [
+    "영상 제작이 한 번에 이어져요",
+    "MIT 라이선스로 공개돼요",
+    "영상 한 편에 약 0.11달러라고 해요"
+  ],
+  "cons": [
+    "유튜브 업로드만 지원해요",
+    "틱톡·릴스 업로드는 아직 없어요",
+    "AI 이미지 품질은 직접 확인해요"
+  ],
+  "difficulty": 4,
+  "difficulty_note": "파이썬 설치, API 키 설정, ffmpeg 준비가 필요해요",
+  "cost": "도구는 무료(MIT), README 기준 영상당 약 0.11달러",
+  "needs": [
+    "파이썬과 ffmpeg",
+    "LLM·이미지 API 키",
+    "유튜브 연결 설정"
+  ],
+  "glossary": [
+    {
+      "term": "니치",
+      "meaning": "요리, 테크처럼 정한 콘텐츠 분야"
+    },
+    {
+      "term": "TTS",
+      "meaning": "글을 목소리로 읽어 주는 기술"
+    },
+    {
+      "term": "Whisper",
+      "meaning": "말을 글자로 바꾸는 음성 인식 모델"
+    }
+  ],
+  "caution": "AI가 쓴 사실은 틀릴 수 있어요. 가격·성분 같은 정보는 올리기 전에 출처를 직접 확인해요.",
+  "license": "MIT",
+  "sources": [
+    "README: Topic in, Published Short out 소개",
+    "README: Implemented today 목록",
+    "README: Not shipped yet 목록(TikTok·Reels 없음)",
+    "README: License MIT"
+  ],
+  "rank": 133
+}

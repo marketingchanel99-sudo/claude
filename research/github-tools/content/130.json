@@ -1,0 +1,100 @@
+{
+  "repo": "zubair-trabzada/ai-marketing-claude",
+  "name": "AI Marketing Suite",
+  "one_liner": "웹사이트 마케팅을 점검하고 문구를 써 주는 스킬",
+  "analogy": {
+    "text": "가게 사장님이 마케팅 컨설턴트에게 진단서와 홍보 문구를 한 번에 받는 것과 비슷해요.",
+    "before": "사이트 점검, 문구 작성, 경쟁사 조사를 하나씩 직접 하기",
+    "after": "/market 명령 하나로 점수가 매겨진 보고서를 받기"
+  },
+  "what": [
+    "Claude Code에서 /market 명령으로 마케팅 분석과 글쓰기를 시키는 스킬 묶음이에요.",
+    "웹사이트 주소를 주면 여러 AI가 나눠서 점검하고 점수를 매겨요.",
+    "문구, 이메일 시리즈, 30일 소셜 캘린더, 광고 문구도 만들어 줘요.",
+    "결과는 Markdown 보고서로 저장하고, PDF도 만들 수 있어요."
+  ],
+  "flow": [
+    {
+      "label": "주소 입력",
+      "desc": "/market audit 주소"
+    },
+    {
+      "label": "동시 분석",
+      "desc": "여러 에이전트가 나눠 점검"
+    },
+    {
+      "label": "점수 계산",
+      "desc": "항목별 점수와 종합 점수"
+    },
+    {
+      "label": "보고서",
+      "desc": "MARKETING-AUDIT.md로 저장"
+    }
+  ],
+  "features": [
+    {
+      "icon": "search",
+      "title": "마케팅 감사",
+      "desc": "병렬 에이전트 5개가 사이트를 점검해요"
+    },
+    {
+      "icon": "text",
+      "title": "문구 작성",
+      "desc": "고친 문구를 전후 예시로 보여 줘요"
+    },
+    {
+      "icon": "clock",
+      "title": "30일 캘린더",
+      "desc": "소셜 콘텐츠 일정을 짜 줘요"
+    },
+    {
+      "icon": "chart",
+      "title": "경쟁사 분석",
+      "desc": "경쟁 상황을 보고서로 정리해요"
+    }
+  ],
+  "channel_use": [
+    "채널 소개 페이지나 링크 모음 페이지를 점검받기",
+    "한 달 치 소셜 콘텐츠 일정 초안 받기"
+  ],
+  "pros": [
+    "명령어 하나로 보고서가 나와요",
+    "한 줄 명령으로 설치해요",
+    "MIT 라이선스예요"
+  ],
+  "cons": [
+    "웹사이트 마케팅 중심이에요",
+    "숏폼 제작 기능은 없어요",
+    "영어 중심이에요"
+  ],
+  "difficulty": 2,
+  "difficulty_note": "설치 명령 한 줄만 실행하면 바로 쓸 수 있어요",
+  "cost": "무료 공개(MIT 라이선스)",
+  "needs": [
+    "Claude Code",
+    "설치 스크립트 실행"
+  ],
+  "glossary": [
+    {
+      "term": "에이전트",
+      "meaning": "맡은 일을 스스로 해내는 AI 도우미"
+    },
+    {
+      "term": "퍼널",
+      "meaning": "고객이 구매까지 거치는 단계의 흐름"
+    },
+    {
+      "term": "CRO",
+      "meaning": "방문자가 행동하도록 페이지를 다듬는 일"
+    }
+  ],
+  "caution": "",
+  "license": "MIT",
+  "sources": [
+    "README: /market 명령어 표",
+    "README: 5 parallel agents 예시",
+    "README: install.sh 설치 방법",
+    "README: MIT License 문구"
+  ],
+  "rank": 130
+}

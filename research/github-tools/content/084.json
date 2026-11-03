@@ -1,0 +1,94 @@
+{
+  "rank": 84,
+  "repo": "Tencent-Hunyuan/HunyuanVideo",
+  "name": "HunyuanVideo",
+  "one_liner": "글만 쓰면 고화질 영상을 만드는 텐센트의 큰 영상 AI",
+  "analogy": {
+    "text": "한 줄 주문서만 받아도 완성된 요리를 내놓는 대형 주방 같아요.",
+    "before": "장면마다 촬영하거나 영상 소스를 사서 쓰기",
+    "after": "장면 설명 글로 짧은 영상을 AI가 생성"
+  },
+  "what": [
+    "HunyuanVideo는 텐센트가 공개한 영상 생성 AI 모델이에요.",
+    "README는 유명 비공개 영상 모델과 견줄 만한 성능이라고 소개해요.",
+    "모델 파일과 실행 코드가 공개되어 있고, 이미지로 영상을 만드는 버전도 따로 있어요."
+  ],
+  "flow": [
+    {
+      "label": "글 쓰기",
+      "desc": "원하는 장면을 문장으로 써요"
+    },
+    {
+      "label": "모델 실행",
+      "desc": "큰 GPU에서 AI를 돌려요"
+    },
+    {
+      "label": "영상 생성",
+      "desc": "프롬프트에 맞는 영상이 나와요"
+    }
+  ],
+  "features": [
+    {
+      "icon": "video",
+      "title": "글로 영상 생성",
+      "desc": "텍스트 설명으로 영상을 만들어요"
+    },
+    {
+      "icon": "bolt",
+      "title": "여러 GPU 병렬",
+      "desc": "GPU 여러 개로 더 빠르게 만들어요"
+    },
+    {
+      "icon": "gear",
+      "title": "FP8 가중치",
+      "desc": "메모리를 줄인 가벼운 파일이 있어요"
+    },
+    {
+      "icon": "link",
+      "title": "ComfyUI 지원",
+      "desc": "화면에서 블록을 이어 쓰는 방법이 있어요"
+    }
+  ],
+  "channel_use": [
+    "한국 거리나 계절 분위기 배경 클립을 글로 만들어 쓰기",
+    "생활템 소개 영상의 짧은 분위기 컷 초안 만들기"
+  ],
+  "pros": [
+    "공개 모델이라 직접 돌릴 수 있어요",
+    "여러 도구와 연동돼요"
+  ],
+  "cons": [
+    "GPU 메모리 45~60GB가 필요해요",
+    "일반 PC로는 어려워요"
+  ],
+  "difficulty": 5,
+  "difficulty_note": "README는 최소 GPU 메모리 45GB 이상을 요구해요",
+  "cost": "오픈소스(무료 공개)",
+  "needs": [
+    "NVIDIA GPU(80GB 권장)",
+    "리눅스 환경",
+    "파이썬 개발 지식"
+  ],
+  "glossary": [
+    {
+      "term": "가중치",
+      "meaning": "AI가 학습으로 얻은 지식이 담긴 파일"
+    },
+    {
+      "term": "프롬프트",
+      "meaning": "AI에게 주는 글 설명"
+    },
+    {
+      "term": "FP8",
+      "meaning": "메모리를 아끼려고 숫자를 작게 줄인 방식"
+    }
+  ],
+  "caution": "AI 영상에 실존 인물이나 상표를 넣지 마세요. 사용 조건은 README에 없으니 라이선스 파일을 직접 확인하세요.",
+  "license": "",
+  "sources": [
+    "README: 영상 생성 모델 소개",
+    "README: GPU 메모리 45GB/60GB 표",
+    "README: 80GB GPU 권장 문구",
+    "README: FP8과 ComfyUI 소식"
+  ]
+}
