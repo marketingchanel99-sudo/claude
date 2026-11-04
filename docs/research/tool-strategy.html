@@ -1,0 +1,143 @@
+<html><head><meta charset="utf-8"></head><body>
+<h1>159개 레포 분석: 전문가 방식 vs Claude 추천</h1>
+<p><b>목적:</b> 159개 레포(README)에서 전문가들이 실제로 쓰는 도구와 방식을 우리 채널 작업 단계별로 정리하고, 그와 별도로 Claude가 판단한 추천을 구분해서 보여 줍니다. 결제가 필요한 결정을 내리기 전에 읽는 자료입니다.<br>
+<b>기준일:</b> 2026-11-04 · <b>근거:</b> 각 레포 README (상세 설명서는 드라이브 「상세판 v2」 폴더, 괄호 속 숫자는 순위 번호)</p>
+
+<h2>읽는 법</h2>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#eeeeee">표시</th><th bgcolor="#eeeeee">뜻</th></tr>
+<tr><td>[README 근거]</td><td>레포 README에 적혀 있는 내용이에요. 전문가가 직접 쓴 방식이에요.</td></tr>
+<tr><td>[Claude 판단]</td><td>README에는 없고, 우리 채널 상황을 보고 Claude가 판단한 내용이에요. <b>아직 시험해 보지 않았어요.</b></td></tr>
+<tr><td>무료 / 선택 유료 / 유료</td><td>무료: 돈이 안 들어요. 선택 유료: 기본은 무료지만 일부 기능에 돈이 들어요. 유료: 쓰려면 결제가 필요해요.</td></tr>
+<tr><td>적합도 ●●● / ●●○ / ●○○</td><td>우리 채널(외국인 대상 한국 생활템 숏폼, Jiwoo 캐릭터, 승인 규칙)에 얼마나 맞는지예요.</td></tr>
+</table>
+
+<h2>한 장 요약</h2>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#eeeeee">작업 단계</th><th bgcolor="#eeeeee">[README] 전문가들이 공통으로 하는 방식</th><th bgcolor="#eeeeee">[Claude 판단] 추천</th><th bgcolor="#eeeeee">추가 비용</th><th bgcolor="#eeeeee">결정 필요?</th></tr>
+<tr><td>1. 트렌드·아이디어 리서치</td><td>여러 플랫폼 반응을 한 번에 모아 출처와 함께 정리</td><td>last30days를 무료 소스(레딧 등)로만 /ideas에 붙이기</td><td>무료</td><td>아니요</td></tr>
+<tr><td>2. 벤치마킹 (지금 막힌 곳)</td><td>수집 → 받아쓰기 → 훅 분류를 이어 붙인 파이프라인</td><td>흐름은 그대로 따르고, 유료 부품 3개를 최대 1개(Apify)로 줄여 /market 스킬로</td><td>Apify 사용료(단가 미확인)</td><td><b>예</b></td></tr>
+<tr><td>3. 기획·대본·캡션</td><td>마케팅 요령을 AI 스킬 파일로 만들어 설치</td><td>통째로 설치하지 말고 훅·캡션 규칙만 우리 스킬에 옮기기</td><td>무료</td><td>아니요</td></tr>
+<tr><td>4. 영상 제작</td><td>주제만 넣으면 끝까지 자동 생성 / 코드 템플릿으로 반복 렌더링</td><td>지금 방식(Higgsfield + 우리 렌더러) 유지</td><td>없음</td><td>아니요</td></tr>
+<tr><td>5. 음성(목소리 고정)</td><td>오픈소스 목소리 복제 / 무료 기본 음성 / 유료 ElevenLabs</td><td>Higgsfield 음성 먼저, 비교용으로 VoxCPM 무료 시험</td><td>Higgsfield 크레딧(조회 후 승인)</td><td>예 (크레딧 승인)</td></tr>
+<tr><td>6. 자막·받아쓰기</td><td>Whisper로 받아써서 단어 단위 자막</td><td>우리 영상에는 불필요. 벤치마킹 받아쓰기에만 사용</td><td>무료</td><td>아니요</td></tr>
+<tr><td>7. 업로드·운영</td><td>공식 API 예약 발행 / 브라우저 자동 업로드 / 노코드 자동화</td><td>지금 업로더 유지, 자동 좋아요·팔로우 도구는 금지</td><td>없음</td><td>아니요</td></tr>
+<tr><td>8. 성과 분석·광고</td><td>AI에게 광고 계정 분석·관리 맡기기</td><td>광고를 집행하기 전까지 보류</td><td>없음</td><td>아니요</td></tr>
+</table>
+
+<h2>1. 트렌드·아이디어 리서치 (우리 단계: /ideas)</h2>
+<p>우리 규칙: 아이디어마다 근거 링크가 있어야 해요. 외국인이 실제로 묻는 질문을 찾는 것이 핵심이에요.</p>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>여러 플랫폼 동시 검색 후 점수로 정리</td><td>last30days (17)</td><td>주제를 넣으면 최근 30일 동안 레딧·X·유튜브 등에서 나온 반응을 모아, 출처가 달린 요약을 만들어 줘요.</td><td>출처 링크가 붙어 나와요. 레딧·해커뉴스는 설정 없이 바로 돼요.</td><td>일부 소스는 API 키가 필요해요. 요약 속 사실은 원문 확인이 필요해요.</td><td>선택 유료 (ScrapeCreators는 1만 건 무료 후 과금)</td><td>●●● 우리 "근거 링크" 규칙과 딱 맞아요</td></tr>
+<tr><td>화제 목록 자동 수집 + 알림</td><td>TrendRadar (19)</td><td>인기 뉴스·화제 목록을 정해진 시간마다 모아 키워드로 거른 뒤 메신저로 알려 줘요.</td><td>키워드만 정하면 자동으로 와요.</td><td>기본 플랫폼이 중국 서비스예요. 설정 항목이 많아요.</td><td>무료</td><td>●○○ 대상 시장이 달라요</td></tr>
+<tr><td>사이트 새 글을 RSS로 모아 보기</td><td>RSSHub (25)</td><td>RSS가 없는 사이트도 새 글 알림 주소(RSS)로 바꿔서 한곳에서 구독해요.</td><td>여러 사이트를 한곳에서 봐요.</td><td>직접 설치하려면 서버 지식이 필요해요.</td><td>무료</td><td>●●○ 한국 뉴스·블로그 구독용</td></tr>
+<tr><td>AI가 여러 플랫폼을 직접 읽기</td><td>Agent Reach (8)</td><td>AI 비서가 링크나 검색어로 여러 플랫폼의 글·자막을 읽어 와요.</td><td>읽기 전용이라 비교적 안전해요.</td><td>내 크롬 로그인을 복사해 써서 부계정을 권해요. 인스타는 실험 단계예요.</td><td>선택 유료</td><td>●○○ 계정 위험이 있어요</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>last30days를 무료 소스(레딧·해커뉴스·유튜브 검색)로만 먼저 /ideas에 연결해요.</td><td>외국인이 한국 생활에 대해 실제로 묻는 질문은 레딧 같은 커뮤니티에 많아요. 출처가 같이 나오니 우리 근거 규칙을 그대로 지킬 수 있어요.</td><td>전문가 방식 그대로예요. 유료 키는 쓰지 않는 쪽으로 범위만 줄였어요.</td><td>무료</td></tr>
+</table>
+
+<h2>2. 벤치마킹: 경쟁 릴스 수집·분석 (우리 단계: 시장 조사, 지금 막힌 곳)</h2>
+<p>우리 목표: 벤치마킹 계정 10개, 레퍼런스 릴스 30개, 그리고 잘 되는 훅(첫 3초)의 패턴.</p>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>유료 서비스를 이어 붙인 분석 파이프라인</td><td>Creator Lab (157)</td><td>① Apify로 특정 계정의 릴스를 모으고 ② 음성을 글로 바꾸고(Fireworks 또는 Groq) ③ 대본을 분류해(Jev) ④ 훅 패턴을 표로 보여 줘요.</td><td>훅 패턴을 데이터로 볼 수 있어요. 20편 시험 분석부터 시작할 수 있어요.</td><td>서비스 3곳에 각각 결제해야 해요. 인스타 수집이라 항상 완전하지는 않아요.</td><td>유료 (README: "실제 수집·분석은 유료 API")</td><td>●●● 목적은 정확히 같아요. 비용이 문제예요</td></tr>
+<tr><td>내 서버에 무료로 직접 설치하는 파이프라인</td><td>n8n AI Instagram Scraper (159)</td><td>구글 폼에 릴스 링크를 넣으면 ① Instaloader로 받고 ② Whisper로 받아쓰고 ③ AI가 항목을 뽑아 ④ 구글 시트에 정리해요.</td><td>서비스 사용료가 없어요. 결과가 구글 시트로 정리돼요.</td><td>서버 설정이 어려워요(난이도 5/5). 다운로드 방식이라 약관 위험이 있어요.</td><td>무료 (서버 운영 필요)</td><td>●●○ 무료지만 운영 부담이 커요</td></tr>
+<tr><td>수집 기능을 AI 스킬로 묶기</td><td>Social Media Research Skills (119), Instagram Skills (148)</td><td>Claude에게 "이 분야에서 요즘 뭐가 잘 돼?"라고 물으면 스킬이 공개 데이터를 모아 분석해요.</td><td><b>우리 저장소와 같은 Claude 스킬 형식이에요.</b> 출처 링크를 같이 줘요.</td><td>수집용 API 키(ScrapeCreators 또는 Apify)가 필요해요.</td><td>선택 유료</td><td>●●● 형식이 맞아요</td></tr>
+<tr><td>범용 수집 연결</td><td>Apify MCP (71)</td><td>AI가 Apify 장터의 수집 도구 수천 개 중에서 골라 실행하고, 결과를 표로 받아요.</td><td>도구를 따로 설치할 필요가 없어요.</td><td>수집 도구마다 가격과 이용 조건이 달라요.</td><td>선택 유료 (무료 계정 있음, 도구별 과금)</td><td>●●● 이 세션에 이미 플러그인이 설정돼 있어요</td></tr>
+<tr><td>직접 다운로드</td><td>yt-dlp (2), Instaloader (75)</td><td>영상 주소를 넣으면 파일로 내려받아요.</td><td>무료예요.</td><td>약관과 저작권 위험이 있어요. 계정이 제한될 수 있어요.</td><td>무료</td><td>●○○ 분석용으로만 조심해서</td></tr>
+<tr><td>경쟁사 광고 벤치마킹</td><td>Facebook Ads Library MCP (153)</td><td>브랜드 이름으로 페이스북·인스타에 지금 돌아가는 광고를 찾아 비교해요.</td><td>공개 광고 자료라 비교적 안전해요.</td><td>메타 광고만 돼요.</td><td>선택 유료 (호스팅 하루 20회 무료, 직접 설치 약 $1.88/1,000회)</td><td>●●○ 제휴 상품 광고 참고용</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>Creator Lab의 <b>흐름</b>(수집 → 받아쓰기 → 훅 분류)을 그대로 따르되, 부품을 바꿔 우리 저장소에 /market 스킬로 만들어요.<br>① 수집: Apify(실행 전 단가 조회), 또는 사람이 고른 릴스 링크 목록<br>② 받아쓰기: 유료 API 대신 무료 Whisper<br>③ 훅 분류: Jev 대신 Claude가 직접</td><td>결제할 곳이 3곳에서 최대 1곳으로 줄어요. 결과가 우리 저장소(docs/research)에 남아서 /ideas, /script가 바로 이어 쓸 수 있어요.</td><td>흐름은 [README] 전문가 방식이에요. 부품 교체는 [Claude 판단] 제 판단이고, 서로 맞는지는 <b>아직 시험하지 않았어요.</b> 릴스 20편으로 먼저 시험해서 확인해요.</td><td>Apify를 쓰면 사용료가 들어요(단가는 조회 후 보고). 링크를 직접 고르면 무료예요.</td></tr>
+</table>
+
+<h2>3. 기획·대본·캡션 (우리 단계: /series, /plan-month, /script)</h2>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>마케팅 요령집을 AI 스킬로 설치</td><td>marketingskills (21)</td><td>카피라이팅, SEO, 광고 같은 분야별 요령을 스킬 파일로 넣어 두면 AI가 상황에 맞게 꺼내 써요.</td><td>MIT 라이선스, 무료예요. 다루는 분야가 넓어요.</td><td>영어 위주예요(우리는 영어권 채널이라 오히려 맞아요). README에 파트너 광고가 섞여 있어요.</td><td>무료</td><td>●●○</td></tr>
+<tr><td>인스타 릴스 전용 스킬 묶음</td><td>Instagram Skills (148), Claude Content Skills (152)</td><td>캡션 쓰기, 훅 뽑기, 사람 말투로 다듬기, 2주 업로드 계획까지 스킬로 해 줘요.</td><td>MIT, 무료예요. 승인 전에는 게시하지 않아요(148).</td><td>인스타 중심이에요. 일부 기능은 외부 수집 도구가 필요해요.</td><td>무료 (연동은 별도)</td><td>●●● 우리 작업과 가장 가까워요</td></tr>
+<tr><td>브랜드 설정부터 리뷰까지 스킬 팀</td><td>Social AI Team (155)</td><td>브랜드 설정 → 월간 캘린더 → 캡션 → 성과 리뷰를 순서대로 해요. 중간에 승인 지점이 있어요.</td><td>흐름이 우리 운영 방식과 비슷해요.</td><td>README에 라이선스가 명확하지 않아요.</td><td>확인 필요</td><td>●○○ 라이선스 때문에 보류</td></tr>
+<tr><td>유튜브 채널 운영 스킬</td><td>YouTube Agent Skill (123)</td><td>제목, 대본, 챕터를 스킬로 만들어요. API 키가 필요 없어요.</td><td>무료이고 가입이 필요 없어요.</td><td>유튜브 중심이라 릴스용으로는 약해요.</td><td>무료</td><td>●●○ 쇼츠 제목·설명용</td></tr>
+<tr><td>스킬 만드는 표준</td><td>Anthropic Skills (4)</td><td>폴더 하나에 설명서(SKILL.md) 하나를 넣는 방식으로 AI에게 일하는 법을 가르쳐요.</td><td>우리 저장소 스킬도 이 형식이에요.</td><td>README에 데모·교육용이라고 적혀 있어요.</td><td>무료</td><td>●●● 우리 스킬의 기준</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>스킬을 통째로 설치하지 말고, 148·152·21의 <b>훅 공식, 캡션 규칙, 말투 다듬기 체크리스트</b>만 골라 우리 /script와 캡션 규칙에 옮겨요.</td><td>우리 저장소에는 이미 /script, /plan-month 스킬과 승인 규칙, Jiwoo 캐릭터 바이블이 있어요. 외부 스킬을 그대로 깔면 지시가 서로 부딪혀 결과가 흔들릴 수 있어요.</td><td>내용은 [README] 전문가 것을 쓰고, 넣는 방식만 [Claude 판단] 제 판단이에요. 라이선스가 MIT인 것만 써요.</td><td>무료</td></tr>
+</table>
+
+<h2>4. 영상 제작 (우리 단계: /produce)</h2>
+<p>우리 현재 방식: Higgsfield로 장면 클립을 만들고, 우리 렌더러(reels/render.py, ffmpeg)로 자막·효과음을 입혀 합쳐요. 크레딧은 매번 승인을 받아요.</p>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>주제 한 줄 → 완성 영상 자동 생성</td><td>MoneyPrinterTurbo (5), Pixelle-Video (41), Verticals v3 (133)</td><td>주제를 넣으면 AI가 대본 → 그림·소재 → 음성 → 자막 → 편집까지 한 번에 해서 mp4를 만들어요.</td><td>한 번에 끝나요. 133은 "영상 1편 약 $0.11"이라고 밝혀요.</td><td>품질은 직접 다듬어야 해요. AI가 쓴 사실이 틀릴 수 있어요. 배경음악 저작권 주의(5).</td><td>선택 유료</td><td>●○○ 캐릭터와 승인 단계가 없어요</td></tr>
+<tr><td>코드 템플릿으로 반복 렌더링</td><td>HyperFrames (13), Remotion (15), Editly (118)</td><td>영상 틀을 코드로 한 번 만들어 두고, 내용만 바꿔 같은 형식의 영상을 계속 뽑아요.</td><td>같은 틀을 반복하기 좋아요. 13은 렌더 요금이 없어요.</td><td>코드 지식이 필요해요. 15는 회사가 쓰면 라이선스 구매가 필요할 수 있어요.</td><td>무료~확인 필요</td><td>●●○ 우리 렌더러와 같은 계열이에요</td></tr>
+<tr><td>조용한 구간 자동 컷</td><td>Auto-Editor (116)</td><td>촬영 영상에서 말이 없는 구간을 자동으로 잘라내요.</td><td>명령 한 줄로 끝나요.</td><td>직접 촬영한 영상이 있어야 의미가 있어요.</td><td>무료</td><td>●○○ 우리는 촬영이 없어요</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>지금 방식을 유지해요. 자동 생성기에서는 "단계를 나눠 중간부터 다시 시작할 수 있게 하는 구조"(133 README)만 참고해요.</td><td>자동 생성기는 Jiwoo 캐릭터의 일관성, 크레딧 승인, 대본 승인을 지키지 못해요. 우리 렌더러는 이미 "코드 템플릿" 방식이라 전문가 방식과 같은 방향이에요.</td><td>구조 참고는 [README], 유지 판단은 [Claude 판단]예요.</td><td>추가 비용 없음</td></tr>
+</table>
+
+<h2>5. 음성: 목소리 고정 (런칭 전 체크리스트, 지금 대기 중)</h2>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>오픈소스 목소리 만들기·복제</td><td>VoxCPM (30)</td><td>목소리를 글로 설명하거나 샘플을 주면 그 목소리로 글을 읽어 줘요.</td><td>Apache-2.0이라 상업 이용이 가능해요. 한국어를 포함해 30개 언어를 지원하고, 48kHz 고음질이에요.</td><td>NVIDIA 그래픽카드(GPU)가 필요해요. 결과가 매번 조금씩 달라요.</td><td>무료</td><td>●●○ GPU 컴퓨터가 있으면</td></tr>
+<tr><td>짧은 샘플로 목소리 복제</td><td>GPT-SoVITS (18), IndexTTS (50)</td><td>몇 초~1분짜리 녹음으로 그 목소리를 흉내 내요.</td><td>18은 MIT 라이선스이고 한국어를 지원해요.</td><td>설치가 어렵고 GPU가 필요해요. 50은 자체 라이선스이고, README에 한국어가 없어요.</td><td>무료</td><td>●○○ 설치 부담이 커요</td></tr>
+<tr><td>여러 음성 엔진을 앱 하나로</td><td>VoiceStudio (9)</td><td>여러 음성 엔진 중에서 골라 합성·더빙·받아쓰기를 해요.</td><td>GPU 없이 CPU로도 돼요.</td><td>모델마다 라이선스가 달라요.</td><td>무료</td><td>●●○</td></tr>
+<tr><td>무료 기본 음성 / 유료 고급 음성</td><td>Verticals v3 (133) 등 15개 레포</td><td>기본은 무료 Edge TTS를 쓰고, 더 자연스러운 음성이 필요하면 ElevenLabs(유료)를 쓰는 구성이 많아요.</td><td>Edge TTS는 무료이고 목소리가 300개 넘게 있어요.</td><td>ElevenLabs는 유료예요(133 기준 영상당 약 $0.05).</td><td>무료 / 유료</td><td>●●○</td></tr>
+<tr><td>피해야 할 것</td><td>ChatTTS (32)</td><td>대화체 음성 모델이에요.</td><td>대화체가 자연스러워요.</td><td><b>모델이 비상업 라이선스(CC BY-NC)라 수익 채널에는 쓸 수 없어요.</b></td><td>무료</td><td>✕ 사용 금지</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>1순위는 이미 결제 중인 Higgsfield 음성으로 Jiwoo 목소리를 고정해요. 비교용으로 VoxCPM을 무료로 시험해요(GPU 컴퓨터가 있을 때).</td><td>새 서비스를 결제하지 않아도 돼요. 우리 내레이션은 영어라 언어 지원 문제도 없어요.</td><td>VoxCPM 정보는 [README], Higgsfield 우선은 [Claude 판단]예요. Higgsfield 음성 비용은 무료 조회로 먼저 확인해서 보여 드려요.</td><td>Higgsfield 크레딧 (조회 후 승인)</td></tr>
+</table>
+
+<h2>6. 자막·받아쓰기·번역</h2>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>음성을 받아써서 단어 단위 자막 만들기</td><td>Whisper (7), WhisperX (49)</td><td>영상 속 말을 글자로 바꾸고, 단어마다 시간을 붙여 자막을 만들어요.</td><td>7은 MIT 라이선스, 무료예요. 49는 단어 시간이 정확해요.</td><td>큰 모델은 메모리를 많이 써요. 49는 설치가 어려워요.</td><td>무료</td><td>●●○ 벤치마킹 받아쓰기용</td></tr>
+<tr><td>번역·더빙까지 한 번에</td><td>VideoLingo (59) 등</td><td>자막을 달고 다른 언어로 번역해서 더빙까지 해요.</td><td>이중 자막과 용어 통일을 지원해요.</td><td>AI 서비스 키가 필요해요.</td><td>선택 유료</td><td>●○○ 다국어 확장 때</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>우리 영상 자막에는 쓰지 않아요. 우리 자막은 대본에서 바로 만들기 때문이에요. 벤치마킹(2단계)에서 경쟁 릴스를 받아쓰는 데만 Whisper를 써요.</td><td>필요 없는 도구를 늘리지 않아요. (지난 답변에서 "자막 싱크 개선"을 추천했는데, 근거가 없어서 철회했어요.)</td><td>[Claude 판단]</td><td>무료</td></tr>
+</table>
+
+<h2>7. 업로드·운영 자동화 (우리 단계: /publish)</h2>
+<p>우리 현재 방식: 공식 API를 쓰는 업로더(reels/upload_*.py). 업로드는 요청할 때만 하고, 항상 dry-run(시험 실행)을 먼저 보여 드려요.</p>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>공식 API로 예약 발행</td><td>Postiz (31)</td><td>여러 SNS 게시물을 달력에서 예약하고 성과를 봐요.</td><td>직접 설치하면 무료예요. 공식 연결이라 안전한 편이에요.</td><td>직접 설치는 어렵고, 클라우드는 구독료가 들어요.</td><td>선택 유료</td><td>●●○ 우리 업로더와 역할이 겹쳐요</td></tr>
+<tr><td>브라우저를 자동으로 조종해 업로드</td><td>social-auto-upload (68)</td><td>사람 대신 프로그램이 브라우저를 열고 업로드 버튼을 눌러요.</td><td>여러 플랫폼을 한 도구로 처리해요.</td><td>계정 정지 위험이 있어요. 화면이 바뀌면 고장 나요.</td><td>무료</td><td>●○○</td></tr>
+<tr><td>자동 좋아요·댓글·팔로우</td><td>AiToEarn (43), InstaPy (60)</td><td>계정 활동을 프로그램이 대신해요.</td><td>손이 덜 가요.</td><td><b>약관 위반으로 계정이 정지될 수 있어요.</b> README에도 제작자가 정지된 적이 있다고 적혀 있어요(60).</td><td>무료</td><td>✕ 사용 금지</td></tr>
+<tr><td>앱끼리 연결해 반복 작업 자동화</td><td>n8n (1)</td><td>"새 영상이 올라가면 시트에 기록하고 알림"처럼 앱을 선으로 이어 자동으로 돌려요.</td><td>코딩 없이 만들 수 있어요. 연결되는 서비스가 많아요.</td><td>일반 오픈소스와 라이선스가 달라요(fair-code). 설치가 번거로워요.</td><td>선택 유료</td><td>●●○ 운영이 안정된 뒤에</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>지금 업로더를 유지해요. 자동 반응 도구는 쓰지 않아요. n8n은 런칭 후 운영이 안정되면 "알림·기록"용으로만 검토해요.</td><td>채널 계정이 가장 큰 자산이에요. 공식 API 방식이 계정 위험이 가장 낮아요.</td><td>위험 정보는 [README], 유지 판단은 [Claude 판단]예요.</td><td>추가 비용 없음</td></tr>
+</table>
+
+<h2>8. 성과 분석·광고 (우리 단계: /review)</h2>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#e8f0fe">[README] 전문가 방식</th><th bgcolor="#e8f0fe">대표 레포</th><th bgcolor="#e8f0fe">어떻게 쓰나 (쉬운 말)</th><th bgcolor="#e8f0fe">장점</th><th bgcolor="#e8f0fe">단점·주의</th><th bgcolor="#e8f0fe">비용</th><th bgcolor="#e8f0fe">우리 적합도</th></tr>
+<tr><td>AI에게 광고 계정 분석·관리 맡기기</td><td>Meta Ads MCP (141), Google·Meta Ads MCP (107)</td><td>"지난주 광고 성과 요약해 줘"처럼 말로 광고 계정을 보고 고쳐요.</td><td>설치 없이 시작할 수 있어요. 변경 전에 승인 단계가 있어요(107).</td><td>광고비가 실제로 나가는 작업이에요. 107의 호스팅은 월 $89, 141은 무료 플랜 이후 유료 단계예요.</td><td>유료</td><td>●○○ 광고 집행 전이에요</td></tr>
+<tr><td>검색 노출 분석</td><td>OpenSEO (47) 등</td><td>키워드와 검색 순위를 분석해요.</td><td>쓴 만큼만 내요.</td><td>DataForSEO 키가 필요해요. 호스팅판은 월 $10예요.</td><td>유료</td><td>●○○ 블로그가 없어요</td></tr>
+</table>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#fef7e0">[Claude 판단] 추천</th><th bgcolor="#fef7e0">왜 이게 가치 있나</th><th bgcolor="#fef7e0">전문가 방식과의 관계</th><th bgcolor="#fef7e0">비용</th></tr>
+<tr><td>광고를 집행하기 전까지는 보류해요. 지금 성과 분석은 /review(각 플랫폼 지표)로 충분해요.</td><td>쓰지 않는 기능에 돈을 내지 않아요.</td><td>[Claude 판단]</td><td>없음</td></tr>
+</table>
+
+<h2>결정이 필요한 것 (결제 관련)</h2>
+<table border="1" cellpadding="6">
+<tr><th bgcolor="#eeeeee">번호</th><th bgcolor="#eeeeee">결정할 것</th><th bgcolor="#eeeeee">선택지</th><th bgcolor="#eeeeee">Claude가 먼저 할 일 (무료)</th></tr>
+<tr><td>1</td><td>벤치마킹 수집에 Apify를 쓸지</td><td>A. Apify 사용 (사용료 발생) / B. 릴스 링크를 직접 골라 무료로 진행</td><td>쓰려는 수집 도구의 단가를 조회해서 "릴스 30개 기준 예상 비용"을 보여 드려요.</td></tr>
+<tr><td>2</td><td>Jiwoo 목소리 고정</td><td>A. Higgsfield 음성 (크레딧) / B. VoxCPM 무료 시험 (GPU 컴퓨터 필요)</td><td>Higgsfield 음성 비용을 무료로 조회해서 잔액과 함께 보여 드려요.</td></tr>
+<tr><td>3</td><td>(나중에) 광고·예약 발행 도구</td><td>광고 집행을 시작할 때 다시 검토</td><td>없음</td></tr>
+</table>
+<p>그 밖의 추천(last30days 무료 소스, 스킬 규칙 옮기기, Whisper 받아쓰기, 지금 렌더러와 업로더 유지)은 <b>추가 결제가 없어요.</b> 다만 모두 [Claude 판단] 시험 전 단계라서, 실제로 돌려 본 결과를 확인한 뒤에 이 표를 업데이트할게요.</p>
+</body></html>
